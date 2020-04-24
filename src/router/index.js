@@ -1,19 +1,14 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import Devis from "../views/Devis.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "Home",
-    component: CreateDevis
-  },
-  {
-    path: "/about",
-    name: "About",
-    component: Navbar
+    name: "Devis",
+    component: Devis
   }
 ];
 

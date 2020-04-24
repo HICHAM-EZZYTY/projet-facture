@@ -1,0 +1,21 @@
+@import "global/reset";
+
+@font-face {
+    font-family: 'Gilroy-Black';
+    src: url("../../src/assets/fonts/Gilroy-Black.woff") format("opentype");
+}
+
+@font-face {
+    font-family: 'Gilroy-UltraLightItalic';
+    src: url("../../src/assets/fonts/Gilroy-UltraLightItalic.woff") format('opentype');
+}
+
+@font-face {
+    font-family: 'Gilroy-ExtraboldItalic';
+    src: url("../../src/assets/fonts/Gilroy-ExtraboldItalic.woff") format("opentype");
+}
+
+@font-face {
+    font-family: 'Gilroy-HeavyItalic';
+    src: url("../../src/assets/fonts/Gilroy-HeavyItalic.woff") format("opentype");
+}

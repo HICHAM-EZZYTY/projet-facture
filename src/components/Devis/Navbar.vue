@@ -42,7 +42,7 @@
 
 <script>
 export default {
-  name: "Navbar",
+  name: "Navbar"
 };
 </script>
 
@@ -51,6 +51,8 @@ nav {
   position: fixed;
   width: 100%;
   top: 4em;
+  z-index: 1;
+  background-color: inherit;
 }
 .navbar-toggler {
   padding: 0.25rem 0.75rem;
@@ -71,7 +73,7 @@ nav {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
-   margin-left: 3em;
+  margin-left: 3em;
 }
 .submit {
   width: 11rem;
@@ -91,6 +93,15 @@ nav {
   margin: 1.5rem;
   margin-left: auto;
 }
+.btn-primary {
+  color: #fff;
+  background-color: #2262c6;
+  border-color: #2262c6;
+}
+.badge-primary {
+  color: #fff;
+  background-color: #2262c6;
+}
 /* @media (min-width: 1614px) {
 
  .form-inline {
@@ -99,11 +110,10 @@ nav {
 }
 } */
 @media only screen and (min-width: 1556px) {
-
- .form-inline {
-   margin-left: 7em;
-}
-/* .submit{
+  .form-inline {
+    margin-left: 7em;
+  }
+  /* .submit{
     width: 30rem;
     font-size: 15px;
     font-weight: bold;

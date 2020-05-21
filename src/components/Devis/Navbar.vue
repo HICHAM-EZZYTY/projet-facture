@@ -55,10 +55,17 @@ export default {
   box-sizing: border-box;
   font-family: "Gilroy", sans-serif;
 }
+body {
+  width: 100%;
+}
 
 .navbar {
   height: 8rem;
   background-color: white;
+}
+
+.containe .b-navbar {
+  position: fixed;
 }
 
 .logo {
@@ -89,7 +96,7 @@ export default {
 }
 
 .form-inline {
-  margin-right: 5rem;
+  margin-right: 8rem;
 }
 
 /* Avatar part */

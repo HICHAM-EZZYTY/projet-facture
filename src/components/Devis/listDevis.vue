@@ -16,14 +16,35 @@
     </div>
     <hr />
     <div class="projects">
-      <b-tabs content-class="mt-3" fill>
+      <b-tabs class="forms" content-class="mt-3" fill>
         <span class="badge badge-inf badge-facture">
           <p class="facture">7</p>
         </span>
         <b-tab title="Tous Les Factures" :title-link-class="'tab-title-class'" active>
-          <div>
+          <b-table small :fields="fields" :items="items" responsive="sm">
+            <!-- A virtual column -->
+            <template v-slot:cell(N_de_devis)="data">{{ data.index + 1 }}</template>
+
+            <!-- A custom formatted column -->
+            <template v-slot:cell(name)="data">
+              {{ data.value.first + " " }}
+              {{ data.value.last }}
+            </template>
+
+            <!-- A virtual composite column -->
+            <!-- <template
+          v-slot:cell(nameage)="data"
+            >{{ data.item.name.first }} is {{ data.item.age }} years old</template>-->
+
+            <!-- Optional default data cell scoped slot -->
+            <template v-slot:cell()="data">
+              <i>{{ data.value }}</i>
+            </template>
+          </b-table>
+
+          <!-- <div>
             <b-table :items="items" :fields="fields" :tbody-tr-class="rowClass"></b-table>
-          </div>
+          </div>-->
         </b-tab>
         <span class="badge badge-inf badge-provi">
           <p class="facture">1</p>
@@ -51,65 +72,120 @@
         </b-tab>
       </b-tabs>
     </div>
+    <div></div>
   </div>
 </template>
 
 <script>
 export default {
+  // data() {
+  //   return {
+  //     fields: [
+  //       "N_de_devis",
+  //       "Nom_de_client",
+  //       "Nom_de_société",
+  //       "Montant_totale",
+  //       "Status",
+  //       "Créer_le",
+  //       "Signé_le",
+  //       "Actions"
+  //     ],
+  //     items: [
+  //       {
+  //         N_de_devis: "D2000003",
+  //         Nom_de_client: "Chaimaa Ess-bbah",
+  //         Nom_de_société: "youcode",
+  //         Montant_totale: "46,56 Dh",
+  //         Status: "Finalisé",
+  //         Créer_le: "12/02/20",
+  //         Signé_le: "______"
+  //       },
+  //       {
+  //         N_de_devis: "D2007703",
+  //         Nom_de_client: "Hicham Ezzyti",
+  //         Nom_de_société: "youcode",
+  //         Montant_totale: "230,36 Dh",
+  //         Status: "Signés",
+  //         Créer_le: "14/02/20",
+  //         Signé_le: "16/02/20"
+  //       },
+  //       {
+  //         N_de_devis: "D2007703",
+  //         Nom_de_client: "Fouzia Balibla",
+  //         Nom_de_société: "youcode",
+  //         Montant_totale: "230,36 Dh",
+  //         Status: "Provisoires",
+  //         Créer_le: "14/02/20",
+  //         Signé_le: "______"
+  //       },
+  //       {
+  //         N_de_devis: "D2000003",
+  //         Nom_de_client: "Chaimaa Ess-bbah",
+  //         Nom_de_société: "youcode",
+  //         Montant_totale: "46,56 Dh",
+  //         Status: "Finalisé",
+  //         Créer_le: "12/02/20",
+  //         Signé_le: "______"
+  //       },
+  //       {
+  //         N_de_devis: "D2000003",
+  //         Nom_de_client: "Chaimaa Ess-bbah",
+  //         Nom_de_société: "youcode",
+  //         Montant_totale: "46,56 Dh",
+  //         Status: "Finalisé",
+  //         Créer_le: "12/02/20",
+  //         Signé_le: "______"
+  //       }
+  //     ]
+  //   };
+  // }
+
   data() {
     return {
       fields: [
+        // A virtual column that doesn't exist in items
         "N_de_devis",
-        "Nom_de_client",
+        // A column that needs custom formatting
+        { key: "name", label: "Nom de client" },
+        // A regular column
         "Nom_de_société",
+        // A regular column
         "Montant_totale",
         "Status",
         "Créer_le",
-        "Signé_le",
-        "Actions"
+        "Signé_le"
+        // A virtual column made up from two fields
+        // { key: "nameage", label: "First name and age" }
       ],
       items: [
         {
-          N_de_devis: "D2000003",
-          Nom_de_client: "Chaimaa Ess-bbah",
-          Nom_de_société: "youcode",
+          name: { first: "Chaimaa", last: "Ess-bbah" },
           Montant_totale: "46,56 Dh",
-          Status: "Finalisé",
+          Nom_de_société: "Youcode",
+          Status: "Signés",
           Créer_le: "12/02/20",
-          Signé_le: "______"
+          Signé_le: "15/02/20"
         },
         {
-          N_de_devis: "D2007703",
-          Nom_de_client: "Hicham Ezzyti",
-          Nom_de_société: "youcode",
+          name: { first: "Fouzia", last: "Balibla" },
           Montant_totale: "230,36 Dh",
+          Nom_de_société: "Youcode",
           Status: "Signés",
           Créer_le: "14/02/20",
           Signé_le: "16/02/20"
         },
         {
-          N_de_devis: "D2007703",
-          Nom_de_client: "Fouzia Balibla",
-          Nom_de_société: "youcode",
+          name: { first: "Hicham", last: "Ezzyti" },
           Montant_totale: "230,36 Dh",
-          Status: "Provisoires",
+          Nom_de_société: "Youcode",
+          Status: "Finalisé",
           Créer_le: "14/02/20",
           Signé_le: "______"
         },
         {
-          N_de_devis: "D2000003",
-          Nom_de_client: "Chaimaa Ess-bbah",
-          Nom_de_société: "youcode",
+          name: { first: "Chiamaa", last: "Ess-bbah" },
           Montant_totale: "46,56 Dh",
-          Status: "Finalisé",
-          Créer_le: "12/02/20",
-          Signé_le: "______"
-        },
-        {
-          N_de_devis: "D2000003",
-          Nom_de_client: "Chaimaa Ess-bbah",
-          Nom_de_société: "youcode",
-          Montant_totale: "46,56 Dh",
+          Nom_de_société: "Youcode",
           Status: "Finalisé",
           Créer_le: "12/02/20",
           Signé_le: "______"
@@ -190,10 +266,6 @@ b-tab > title {
 
 .tab-title-class {
   color: gray !important;
-}
-
-.tab-title-class:onclick {
-  color: rebeccapurple;
 }
 
 .badge-facture {

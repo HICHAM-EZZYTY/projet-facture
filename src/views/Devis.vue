@@ -17,6 +17,7 @@ import Navbar from "@/components/Devis/Navbar.vue";
 import Sidebar from "@/components/Sidebar.vue";
 import listDevis from "@/components/Devis/listDevis.vue";
 // import CreateDevis from "@/components/Devis/CreateDevis.vue";
+
 // import Table from "@/components/data-table/Table.vue";
 
 export default {

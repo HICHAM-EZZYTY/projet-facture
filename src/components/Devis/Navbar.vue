@@ -18,9 +18,11 @@
               type="text"
             ></b-form-input>
             <b-icon class="icon" icon="search" aria-hidden="true"></b-icon>
-            <b-button class="submit my-2 my-sm-0" type="submit" variant="primary">
-              <b-icon class="icon-plus" icon="plus" aria-hidden="true"></b-icon>Nouveau Devis
-            </b-button>
+            <router-link to="/CreateDevis">
+              <b-button class="submit my-2 my-sm-0" type="submit" variant="primary">
+                <b-icon class="icon-plus" icon="plus" aria-hidden="true"></b-icon>Nouveau Devis
+              </b-button>
+            </router-link>
           </b-nav-form>
         </b-navbar-nav>
 

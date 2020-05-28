@@ -25,50 +25,134 @@
             <!-- A virtual column -->
             <template v-slot:cell(N_de_devis)="data">{{ data.index + 1 }}</template>
 
+            <template slot="isMember" slot-scope="{ item: { isMember }}">
+              <i :class="'fa ' + isMember"></i>
+              <!-- You can also use the font-awesome-icon component here -->
+            </template>
+
             <!-- A custom formatted column -->
             <template v-slot:cell(name)="data">
               {{ data.value.first + " " }}
               {{ data.value.last }}
             </template>
 
-            <!-- A virtual composite column -->
-            <!-- <template
-          v-slot:cell(nameage)="data"
-            >{{ data.item.name.first }} is {{ data.item.age }} years old</template>-->
+            <!-- Optional default data cell scoped slot -->
+            <template v-slot:cell()="data">
+              <i>{{ data.value }}</i>
+            </template>
+          </b-table>
+        </b-tab>
+        <span class="badge badge-inf badge-provi">
+          <p class="facture">1</p>
+        </span>
+        <b-tab title="Provisoires" :title-link-class="'tab-title-class'">
+          <b-table small :fields="fields" :items="items" responsive="sm">
+            <!-- A virtual column -->
+            <template v-slot:cell(N_de_devis)="data">{{ data.index + 1 }}</template>
+
+            <template slot="isMember" slot-scope="{ item: { isMember }}">
+              <i :class="'fas ' + isMember"></i>
+              <!-- You can also use the font-awesome-icon component here -->
+            </template>
+
+            <slot>
+              <button class="btn btn-info">HAAAAAAAAAAAAAAAAAAAA</button>
+            </slot>
+
+            <!-- A custom formatted column -->
+            <template v-slot:cell(name)="data">
+              {{ data.value.first + " " }}
+              {{ data.value.last }}
+            </template>
 
             <!-- Optional default data cell scoped slot -->
             <template v-slot:cell()="data">
               <i>{{ data.value }}</i>
             </template>
           </b-table>
-
-          <!-- <div>
-            <b-table :items="items" :fields="fields" :tbody-tr-class="rowClass"></b-table>
-          </div>-->
-        </b-tab>
-        <span class="badge badge-inf badge-provi">
-          <p class="facture">1</p>
-        </span>
-        <b-tab title="Provisoires" :title-link-class="'tab-title-class'">
-          <p>I'm the second tab</p>
         </b-tab>
         <span class="badge badge-inf badge-final">
           <p class="facture">2</p>
         </span>
         <b-tab title="Finalisées" :title-link-class="'tab-title-class'">
-          <p>I'm the tab with the very, very long title</p>
+          <b-table small :fields="fields" :items="items" responsive="sm">
+            <!-- A virtual column -->
+            <template v-slot:cell(N_de_devis)="data">{{ data.index + 1 }}</template>
+
+            <template slot="isMember" slot-scope="{ item: { isMember }}">
+              <i :class="'fas ' + isMember"></i>
+              <!-- You can also use the font-awesome-icon component here -->
+            </template>
+
+            <slot>
+              <button class="btn btn-info">HAAAAAAAAAAAAAAAAAAAA</button>
+            </slot>
+
+            <!-- A custom formatted column -->
+            <template v-slot:cell(name)="data">
+              {{ data.value.first + " " }}
+              {{ data.value.last }}
+            </template>
+
+            <!-- Optional default data cell scoped slot -->
+            <template v-slot:cell()="data">
+              <i>{{ data.value }}</i>
+            </template>
+          </b-table>
         </b-tab>
         <span class="badge badge-inf badge-payes" :title-link-class="'tab-title-class'">
           <p class="facture">2</p>
         </span>
         <b-tab title="Payées" :title-link-class="'tab-title-class'">
-          <p>I'm a disabled tab!</p>
+          <b-table small :fields="fields" :items="items" responsive="sm">
+            <!-- A virtual column -->
+            <template v-slot:cell(N_de_devis)="data">{{ data.index + 1 }}</template>
+
+            <template slot="isMember" slot-scope="{ item: { isMember }}">
+              <i :class="'fas ' + isMember"></i>
+              <!-- You can also use the font-awesome-icon component here -->
+            </template>
+
+            <slot>
+              <button class="btn btn-info">HAAAAAAAAAAAAAAAAAAAA</button>
+            </slot>
+
+            <!-- A custom formatted column -->
+            <template v-slot:cell(name)="data">
+              {{ data.value.first + " " }}
+              {{ data.value.last }}
+            </template>
+
+            <!-- Optional default data cell scoped slot -->
+            <template v-slot:cell()="data">
+              <i>{{ data.value }}</i>
+            </template>
+          </b-table>
         </b-tab>
         <span class="badge badge-inf badge-apaye">
           <p class="facture">2</p>
         </span>
         <b-tab title="A payer" :title-link-class="'tab-title-class'">
-          <p>I'm a disabled tab!</p>
+          <b-table small :fields="fields" :items="items" responsive="sm">
+            <!-- A virtual column -->
+            <template v-slot:cell(N_de_devis)="data">{{ data.index + 1 }}</template>
+
+            <template slot="isMember" slot-scope="{ item: { isMember }}">
+              <i :class="'fa ' + isMember"></i>
+              <!-- You can also use the font-awesome-icon component here -->
+            </template>
+
+            <!-- A custom formatted column -->
+            <template v-slot:cell(name)="data">
+              {{ data.value.first + " " }}
+              {{ data.value.last }}
+            </template>
+
+            <!-- Optional default data cell scoped slot -->
+            <template v-slot:cell()="data">
+              <i>{{ data.value }}</i>
+            </template>
+          </b-table>
         </b-tab>
       </b-tabs>
     </div>
@@ -78,68 +162,6 @@
 
 <script>
 export default {
-  // data() {
-  //   return {
-  //     fields: [
-  //       "N_de_devis",
-  //       "Nom_de_client",
-  //       "Nom_de_société",
-  //       "Montant_totale",
-  //       "Status",
-  //       "Créer_le",
-  //       "Signé_le",
-  //       "Actions"
-  //     ],
-  //     items: [
-  //       {
-  //         N_de_devis: "D2000003",
-  //         Nom_de_client: "Chaimaa Ess-bbah",
-  //         Nom_de_société: "youcode",
-  //         Montant_totale: "46,56 Dh",
-  //         Status: "Finalisé",
-  //         Créer_le: "12/02/20",
-  //         Signé_le: "______"
-  //       },
-  //       {
-  //         N_de_devis: "D2007703",
-  //         Nom_de_client: "Hicham Ezzyti",
-  //         Nom_de_société: "youcode",
-  //         Montant_totale: "230,36 Dh",
-  //         Status: "Signés",
-  //         Créer_le: "14/02/20",
-  //         Signé_le: "16/02/20"
-  //       },
-  //       {
-  //         N_de_devis: "D2007703",
-  //         Nom_de_client: "Fouzia Balibla",
-  //         Nom_de_société: "youcode",
-  //         Montant_totale: "230,36 Dh",
-  //         Status: "Provisoires",
-  //         Créer_le: "14/02/20",
-  //         Signé_le: "______"
-  //       },
-  //       {
-  //         N_de_devis: "D2000003",
-  //         Nom_de_client: "Chaimaa Ess-bbah",
-  //         Nom_de_société: "youcode",
-  //         Montant_totale: "46,56 Dh",
-  //         Status: "Finalisé",
-  //         Créer_le: "12/02/20",
-  //         Signé_le: "______"
-  //       },
-  //       {
-  //         N_de_devis: "D2000003",
-  //         Nom_de_client: "Chaimaa Ess-bbah",
-  //         Nom_de_société: "youcode",
-  //         Montant_totale: "46,56 Dh",
-  //         Status: "Finalisé",
-  //         Créer_le: "12/02/20",
-  //         Signé_le: "______"
-  //       }
-  //     ]
-  //   };
-  // }
-
   data() {
     return {
       fields: [
@@ -153,7 +175,8 @@ export default {
         "Montant_totale",
         "Status",
         "Créer_le",
-        "Signé_le"
+        "Signé_le",
+        { key: "isMember", label: "Is Member" }
         // A virtual column made up from two fields
         // { key: "nameage", label: "First name and age" }
       ],
@@ -164,7 +187,8 @@ export default {
           Nom_de_société: "Youcode",
           Status: "Signés",
           Créer_le: "12/02/20",
-          Signé_le: "15/02/20"
+          Signé_le: "15/02/20",
+          isMember: "fa-user-secret"
         },
         {
           name: { first: "Fouzia", last: "Balibla" },
@@ -172,7 +196,8 @@ export default {
           Nom_de_société: "Youcode",
           Status: "Signés",
           Créer_le: "14/02/20",
-          Signé_le: "16/02/20"
+          Signé_le: "16/02/20",
+          isMember: "fa-user-secret"
         },
         {
           name: { first: "Hicham", last: "Ezzyti" },

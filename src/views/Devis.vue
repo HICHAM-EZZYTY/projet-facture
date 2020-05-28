@@ -3,7 +3,6 @@
     <Navbar />
     <sidebar />
     <!-- <Table /> -->
-    <router-view></router-view>
     <div class="Content col-md-8 mx-auto">
       <div class="Content1">
         <listDevis />
@@ -17,6 +16,7 @@
 import Navbar from "@/components/Devis/Navbar.vue";
 import Sidebar from "@/components/Sidebar.vue";
 import listDevis from "@/components/Devis/listDevis.vue";
+// import CreateDevis from "@/components/Devis/CreateDevis.vue";
 // import Table from "@/components/data-table/Table.vue";
 
 export default {
@@ -25,6 +25,7 @@ export default {
     Navbar,
     Sidebar,
     listDevis
+    // CreateDevis
     // Table,
   }
 };

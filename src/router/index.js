@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 // import Devis from "../views/Devis.vue";
 import Devis from "./../views/Devis.vue";
-import CreateDevis from "./../components/Devis/CreateDevis.vue";
+import CreateDevis from "./../components/Devis/createDevis.vue";
 
 Vue.use(VueRouter);
 

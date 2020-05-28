@@ -36,6 +36,7 @@
       </b-collapse>
     </b-navbar>
   </div>
+
 </template>
 
 <script>
@@ -76,6 +77,7 @@ body {
 }
 
 /* Search part */
+
 .search {
   width: 30rem !important;
   margin-right: 1rem !important;
@@ -88,11 +90,11 @@ body {
 .submit {
   width: 11rem;
   margin-right: 8.5rem;
+
   font-size: 15px;
   font-weight: bold;
   font-family: Gilroy;
 }
-
 .form input[type="text"]:focus + .icon {
   color: dodgerBlue;
 }
@@ -223,4 +225,5 @@ body {
 /* @media screen and (min-width: 1200px) {
   
 } */
+
 </style>

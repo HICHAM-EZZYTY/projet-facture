@@ -20,7 +20,7 @@
         <div class="item4">2</div>
         <h6>Signés</h6>
         <div class="item5">2</div>
-        
+
       </div>
       <hr class="hr" />
     </div>

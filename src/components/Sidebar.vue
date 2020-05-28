@@ -63,6 +63,7 @@
 
   <!-- Content -->
   <!-- </div> -->
+
 </template>
 
 <script>
@@ -122,6 +123,7 @@ img {
   min-height: 100vh;
 }
 
+
 .s-layout__content {
   display: flex;
   justify-content: center;
@@ -179,6 +181,7 @@ img {
 /* .s-sidebar__nav ul li {
   width: 100%;
 } */
+
 
 .s-sidebar__nav-link {
   position: relative;

@@ -7,7 +7,8 @@
         <!-- <img src="src/assets/img/icon1.png"  alt="hello"> -->
       </div>
       <hr />
-      <div class="tous"></div>
+      <div class="tous">
+      </div>
       <div class="grid-container">
         <h6>Tous les devis</h6>
         <div class="item1">7</div>
@@ -19,6 +20,7 @@
         <div class="item4">2</div>
         <h6>Signés</h6>
         <div class="item5">2</div>
+
       </div>
       <hr class="hr" />
     </div>
@@ -124,7 +126,7 @@
 
 <script>
 export default {
-  name: "Table"
+  name: "Table",
 };
 </script>
 
@@ -166,7 +168,7 @@ p {
   display: flex;
   justify-content: end;
 }
-.grid-container h6 {
+.grid-container h6{
   display: grid;
 }
 .devis {

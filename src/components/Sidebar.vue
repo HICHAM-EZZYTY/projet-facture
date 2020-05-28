@@ -1,57 +1,69 @@
 <template>
-  <div class="s-layout">
-    <!-- Sidebar -->
-    <div class="s-layout__sidebar">
-      <a class="s-sidebar__trigger" href="#0">
-        <i class="fa fa-bars"></i>
-      </a>
+  <!-- <div class="s-layout body-row"> -->
+  <!-- Sidebar -->
+  <div class="s-layout__sidebar">
+    <a class="s-sidebar__trigger" href="#0">
+      <i class="fa fa-bars"></i>
+    </a>
 
-      <nav class="s-sidebar__nav">
-        <ul>
-          <li>
-            <a class="s-sidebar__nav-link" href="#0">
-              <img src="../assets/img/11.png" alt="" /><em>Clients</em>
-            </a>
-          </li>
-          <li>
-            <a class="s-sidebar__nav-link" href="#0">
-              <img src="../assets/img/21.png" alt="" /><em>Sociétés</em>
-            </a>
-          </li>
-          <li>
-            <a class="s-sidebar__nav-link" href="#0">
-              <img src="../assets/img/31.png" alt="" /><em>Devis</em>
-            </a>
-          </li>
-          <li>
-            <a class="s-sidebar__nav-link" href="#0">
-              <img src="../assets/img/41.png" alt="" /><em>Factures</em>
-            </a>
-          </li>
-          <li>
-            <a class="s-sidebar__nav-link" href="#0">
-              <img src="../assets/img/51.png" alt="" /><em>Opportunités</em>
-            </a>
-          </li>
-          <li>
-            <a class="s-sidebar__nav-link" href="#0">
-              <img src="../assets/img/61.png" alt="" /><em>Paramétres</em>
-            </a>
-          </li>
-          <li>
-            <a class="s-sidebar__nav-link" href="#0">
-              <img src="../assets/img/71.png" alt="" /><em>Feedback</em>
-            </a>
-          </li>
-          <li>
-            <a class="s-sidebar__nav-link" href="#0">
-              <img src="../assets/img/81.png" alt="" /><em>Déconnexion</em>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
+    <nav class="s-sidebar__nav">
+      <ul class="sidenav--list">
+        <li class="sidenav--list__item">
+          <a class="s-sidebar__nav-link" href="#0">
+            <img class="sidenav-button__icon" src="../assets/img/11.png" alt />
+            <em>Clients</em>
+          </a>
+        </li>
+        <li class="sidenav--list__item">
+          <a class="s-sidebar__nav-link" href="#0">
+            <img class="sidenav-button__icon" src="../assets/img/21.png" alt />
+            <em>Sociétés</em>
+          </a>
+        </li>
+        <li class="sidenav--list__item">
+          <a class="s-sidebar__nav-link" href="#0">
+            <img class="sidenav-button__icon" src="../assets/img/31.png" alt />
+            <em>Devis</em>
+          </a>
+        </li>
+        <li class="sidenav--list__item">
+          <a class="s-sidebar__nav-link" href="#0">
+            <img class="sidenav-button__icon" src="../assets/img/41.png" alt />
+            <em>Factures</em>
+          </a>
+        </li>
+        <li class="sidenav--list__item">
+          <a class="s-sidebar__nav-link" href="#0">
+            <img class="sidenav-button__icon" src="../assets/img/51.png" alt />
+            <em>Opportunités</em>
+          </a>
+        </li>
+        <li class="sidenav--list__item">
+          <a class="s-sidebar__nav-link" href="#0">
+            <img class="sidenav-button__icon" src="../assets/img/61.png" alt />
+            <em>Paramétres</em>
+          </a>
+        </li>
+        <li class="sidenav--list__item">
+          <a class="s-sidebar__nav-link" href="#0">
+            <img class="sidenav-button__icon" src="../assets/img/71.png" alt />
+            <em>Feedback</em>
+          </a>
+        </li>
+        <li class="sidenav--list__item sign-out">
+          <a class="s-sidebar__nav-link" href="#0">
+            <img class="sidenav-button__icon" src="../assets/img/81.png" alt />
+            <em>Déconnexion</em>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <main class="s-layout__content"></main>
   </div>
+
+  <!-- Content -->
+  <!-- </div> -->
+
 </template>
 
 <script>
@@ -100,11 +112,17 @@ img {
   top: 20px;
 }
 /* Layout */
-/* .s-layout {
-   display: flex;
-   width: 100%;
-   min-height: 100vh;
-} */
+#body-row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.s-layout {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
 
 .s-layout__content {
   display: flex;
@@ -132,7 +150,7 @@ img {
 
 .s-sidebar__nav {
   position: fixed;
-  top: 10em;
+  top: 8em;
   border-radius: 0px 121px 0px 0px;
   left: -15em;
   overflow: hidden;
@@ -142,36 +160,40 @@ img {
   background: #2262c6;
   color: rgb(255, 255, 255);
 }
-.s-sidebar__nav:hover,
+
+.s-sidebar__nav .s-layout {
+  position: fixed;
+}
+
 .s-sidebar__nav:focus,
-.s-sidebar__trigger:focus + .s-sidebar__nav,
-.s-sidebar__trigger:hover + .s-sidebar__nav {
+.s-sidebar__trigger:focus + .s-sidebar__nav {
   left: 0;
 }
-.s-sidebar__nav ul {
+/* .s-sidebar__nav ul {
   position: absolute;
   top: 4em;
   left: 0;
   margin: 0;
   padding: 0;
   width: 15em;
-}
+} */
 
-.s-sidebar__nav ul li {
+/* .s-sidebar__nav ul li {
   width: 100%;
-}
+} */
+
 
 .s-sidebar__nav-link {
   position: relative;
   display: inline-block;
   width: 100%;
-  height: 4em;
+  height: 3.5em;
 }
 
 .s-sidebar__nav-link em {
   position: absolute;
-  top: 50%;
-  left: 5em;
+  top: 64%;
+  left: 4em;
   transform: translateY(-50%);
 }
 
@@ -195,6 +217,32 @@ img {
   transform: translate(-50%, -50%);
 }
 
+.sidenav--list {
+  list-style: none;
+  padding: 0;
+  margin-left: 1rem;
+  margin-top: 4rem;
+}
+.sidenav--list .sidenav-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  margin-top: 10px;
+}
+
+.sign-out {
+  margin-top: 5rem;
+}
+
+.sidenav--list li a:hover {
+  text-decoration: none;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.2);
+  border-left: rgb(117, 117, 117) 2px solid;
+}
+
 /* Mobile First */
 @media (min-width: 42em) {
   .s-layout__content {
@@ -216,12 +264,12 @@ img {
     top: 20px;
   }
 
-  .s-sidebar__nav:hover,
+  /* .s-sidebar__nav:hover,
   .s-sidebar__nav:focus,
   .s-sidebar__trigger:hover + .s-sidebar__nav,
   .s-sidebar__trigger:focus + .s-sidebar__nav {
     width: 15em;
-  }
+  } */
 }
 
 @media (min-width: 68em) {
@@ -242,10 +290,6 @@ img {
     position: relative;
     left: 9%;
     top: 20px;
-  }
-
-  .s-sidebar__nav ul {
-    top: 1.3em;
   }
 }
 </style>

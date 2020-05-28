@@ -1,26 +1,21 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Devis from "../views/Devis.vue";
-import Login from "../views/Authentification/Login.vue";
-import Signup from "../views/Authentification/Signup.vue";
+// import Devis from "../views/Devis.vue";
+import Devis from "./../views/Devis.vue";
+import CreateDevis from "./../components/Devis/CreateDevis.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/",
+    path: "",
     name: "Devis",
     component: Devis
   },
   {
-    path: "/Login",
-    name: "Login",
-    component: Login
-  },
-  {
-    path: "/Signup",
-    name: "Signup",
-    component: Signup
+    path: "/CreateDevis",
+    name: "CreateDevis",
+    component: CreateDevis
   }
 ];
 

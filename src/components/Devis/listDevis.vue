@@ -17,7 +17,7 @@
     <hr />
     <div class="projects">
       <b-tabs class="forms" content-class="mt-3" fill>
-        <span class="badge badge-inf badge-facture">
+        <span class="badge badge-inf badge-facture" active>
           <p class="facture">7</p>
         </span>
         <b-tab title="Tous Les Factures" :title-link-class="'tab-title-class'" active>
@@ -45,7 +45,7 @@
         <span class="badge badge-inf badge-provi">
           <p class="facture">1</p>
         </span>
-        <b-tab title="Provisoires" :title-link-class="'tab-title-class'">
+        <b-tab title="Provisoires" class="text-left" :title-link-class="'tab-title-class'">
           <b-table small :fields="fields" :items="items" responsive="sm">
             <!-- A virtual column -->
             <template v-slot:cell(N_de_devis)="data">{{ data.index + 1 }}</template>
@@ -54,10 +54,6 @@
               <i :class="'fas ' + isMember"></i>
               <!-- You can also use the font-awesome-icon component here -->
             </template>
-
-            <slot>
-              <button class="btn btn-info">HAAAAAAAAAAAAAAAAAAAA</button>
-            </slot>
 
             <!-- A custom formatted column -->
             <template v-slot:cell(name)="data">
@@ -84,10 +80,6 @@
               <!-- You can also use the font-awesome-icon component here -->
             </template>
 
-            <slot>
-              <button class="btn btn-info">HAAAAAAAAAAAAAAAAAAAA</button>
-            </slot>
-
             <!-- A custom formatted column -->
             <template v-slot:cell(name)="data">
               {{ data.value.first + " " }}
@@ -112,10 +104,6 @@
               <i :class="'fas ' + isMember"></i>
               <!-- You can also use the font-awesome-icon component here -->
             </template>
-
-            <slot>
-              <button class="btn btn-info">HAAAAAAAAAAAAAAAAAAAA</button>
-            </slot>
 
             <!-- A custom formatted column -->
             <template v-slot:cell(name)="data">
@@ -156,7 +144,6 @@
         </b-tab>
       </b-tabs>
     </div>
-    <div></div>
   </div>
 </template>
 
@@ -176,7 +163,9 @@ export default {
         "Status",
         "Créer_le",
         "Signé_le",
-        { key: "isMember", label: "Is Member" }
+        { key: "isMember", label: "Is Member" },
+        { key: "x", icon: '<i class="fa fa-user"></i>' }
+
         // A virtual column made up from two fields
         // { key: "nameage", label: "First name and age" }
       ],
@@ -188,7 +177,7 @@ export default {
           Status: "Signés",
           Créer_le: "12/02/20",
           Signé_le: "15/02/20",
-          isMember: "fa-user-secret"
+          icon: "fa-user-secret"
         },
         {
           name: { first: "Fouzia", last: "Balibla" },
@@ -241,10 +230,10 @@ export default {
 .badge {
   color: #fff;
   position: absolute;
-  width: 40px;
-  height: 31px;
+  width: 50px;
+  height: 34px;
   background: #ecf1f8;
-  border-radius: 10px;
+  border-radius: 10px !important;
 }
 
 hr {
@@ -254,6 +243,10 @@ hr {
 .badge-one {
   margin-left: 57px;
   margin-top: -2px;
+}
+
+b-tabs > title {
+  margin-left: 20px;
 }
 
 .badge-two {
@@ -272,9 +265,9 @@ b-tabs {
   border-style: none;
 }
 
-b-tab > title {
-  margin-left: 2rem !important;
-  color: gray;
+.nav-tabs .nav-link.active {
+  color: #2262c6 !important;
+  background-color: #fff;
 }
 
 .badge-inf {
@@ -289,32 +282,28 @@ b-tab > title {
   margin-bottom: 1rem;
 }
 
-.tab-title-class {
-  color: gray !important;
-}
-
 .badge-facture {
   margin-left: -21.5rem;
-  top: 5.5rem;
+  top: 5.3rem;
 }
 
 .badge-provi {
-  top: 5.5rem;
+  top: 5.3rem;
   margin-left: -7.5rem;
 }
 
 .badge-final {
-  top: 5.5rem;
+  top: 5.3rem;
   margin-left: 5.8rem;
 }
 
 .badge-payes {
   margin-left: 18.1rem;
-  top: 5.5rem;
+  top: 5.3rem;
 }
 
 .badge-apaye {
-  top: 5.5rem;
+  top: 5.3rem;
   margin-left: 30.5rem;
 }
 
@@ -345,6 +334,11 @@ b-tab > title {
   border-left: none !important;
   font-size: 16px;
   font-weight: bold;
+}
+
+.tab-title-class > .active > a {
+  color: aqua !important;
+  background-color: chartreuse;
 }
 .project-tab .nav-link {
   border: 1px solid transparent;

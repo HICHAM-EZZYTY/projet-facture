@@ -3,6 +3,8 @@ import VueRouter from "vue-router";
 // import Devis from "../views/Devis.vue";
 import Devis from "./../views/Devis.vue";
 import CreateDevis from "./../components/Devis/CreateDevis.vue";
+import listClient from "../components/client/listClient.vue";
+import addClient from "../components/client/addClient.vue";
 
 Vue.use(VueRouter);
 
@@ -16,6 +18,16 @@ const routes = [
     path: "/CreateDevis",
     name: "CreateDevis",
     component: CreateDevis
+  },
+  {
+    path: "/listClient",
+    name: "listClient",
+    component: listClient
+  },
+  {
+    path: "/addClient",
+    name: "addClient",
+    component: addClient
   }
 ];
 

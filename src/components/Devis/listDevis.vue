@@ -1,10 +1,10 @@
 <template>
   <div class="container">
     <div class="Title-items bv-example-row">
-      <h2 class="Title">Mes Factures</h2>
+      <h2 class="Title">Mes Devis</h2>
       <div class="text-center">
         <p variant="primary" class="desc">
-          Exporter mes Factures d’acompte
+          Exporter mes Devis
           <span class="badge badge-one">
             <a href="#">Info</a>
           </span>
@@ -17,16 +17,43 @@
     <hr />
     <div class="projects">
       <b-tabs class="forms" content-class="mt-3" fill>
-        <span class="badge badge-inf badge-facture" active>
+        <!-- <span class="badge badge-inf badge-facture" active>
           <p class="facture">7</p>
-        </span>
-        <b-tab title="Tous Les Factures" :title-link-class="'tab-title-class'" active>
+        </span>-->
+        <!-- <b-tab active>
+          <template v-slot:title>
+            <p class="Usera">title</p>
+            <i class="fa fa-user usero"></i>
+          </template>
+          <p class="p-3">Tab contents 1</p>
+        </b-tab>-->
+
+        <b-tab active>
+          <template v-slot:title :title-link-class="'tab-title-class'">
+            <p class="Fact">Tous Les Devis</p>
+            <!-- <span class="badge badge-inf" active>
+              <p class="facture">7</p>
+            </span>-->
+          </template>
           <b-table small :fields="fields" :items="items" responsive="sm">
             <!-- A virtual column -->
+
             <template v-slot:cell(N_de_devis)="data">{{ data.index + 1 }}</template>
 
-            <template slot="isMember" slot-scope="{ item: { isMember }}">
-              <i :class="'fa ' + isMember"></i>
+            <template v-slot:cell(Actions)>
+              <svg
+                class="bi bi-three-dots-vertical"
+                width="1em"
+                height="1em"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
+                />
+              </svg>
               <!-- You can also use the font-awesome-icon component here -->
             </template>
 
@@ -42,105 +69,36 @@
             </template>
           </b-table>
         </b-tab>
-        <span class="badge badge-inf badge-provi">
-          <p class="facture">1</p>
-        </span>
-        <b-tab title="Provisoires" class="text-left" :title-link-class="'tab-title-class'">
-          <b-table small :fields="fields" :items="items" responsive="sm">
-            <!-- A virtual column -->
-            <template v-slot:cell(N_de_devis)="data">{{ data.index + 1 }}</template>
 
-            <template slot="isMember" slot-scope="{ item: { isMember }}">
-              <i :class="'fas ' + isMember"></i>
-              <!-- You can also use the font-awesome-icon component here -->
-            </template>
-
-            <!-- A custom formatted column -->
-            <template v-slot:cell(name)="data">
-              {{ data.value.first + " " }}
-              {{ data.value.last }}
-            </template>
-
-            <!-- Optional default data cell scoped slot -->
-            <template v-slot:cell()="data">
-              <i>{{ data.value }}</i>
-            </template>
-          </b-table>
+        <b-tab>
+          <template v-slot:title :title-link-class="'tab-title-class'">
+            <p class="Fact">Provisoires</p>
+            <!-- <span class="badge badge-inf badge-provi">
+              <p class="facture">1</p>
+            </span>-->
+          </template>
         </b-tab>
-        <span class="badge badge-inf badge-final">
+
+        <b-tab>
+          <template v-slot:title :title-link-class="'tab-title-class'">
+            <p class="Fact">Finalisées</p>
+          </template>
+        </b-tab>
+        <!-- <span class="badge badge-inf badge-payes" :title-link-class="'tab-title-class'">
           <p class="facture">2</p>
-        </span>
-        <b-tab title="Finalisées" :title-link-class="'tab-title-class'">
-          <b-table small :fields="fields" :items="items" responsive="sm">
-            <!-- A virtual column -->
-            <template v-slot:cell(N_de_devis)="data">{{ data.index + 1 }}</template>
-
-            <template slot="isMember" slot-scope="{ item: { isMember }}">
-              <i :class="'fas ' + isMember"></i>
-              <!-- You can also use the font-awesome-icon component here -->
-            </template>
-
-            <!-- A custom formatted column -->
-            <template v-slot:cell(name)="data">
-              {{ data.value.first + " " }}
-              {{ data.value.last }}
-            </template>
-
-            <!-- Optional default data cell scoped slot -->
-            <template v-slot:cell()="data">
-              <i>{{ data.value }}</i>
-            </template>
-          </b-table>
+        </span>-->
+        <b-tab>
+          <template v-slot:title :title-link-class="'tab-title-class'">
+            <p class="Fact">Refusés</p>
+          </template>
         </b-tab>
-        <span class="badge badge-inf badge-payes" :title-link-class="'tab-title-class'">
+        <!-- <span class="badge badge-inf badge-apaye">
           <p class="facture">2</p>
-        </span>
-        <b-tab title="Payées" :title-link-class="'tab-title-class'">
-          <b-table small :fields="fields" :items="items" responsive="sm">
-            <!-- A virtual column -->
-            <template v-slot:cell(N_de_devis)="data">{{ data.index + 1 }}</template>
-
-            <template slot="isMember" slot-scope="{ item: { isMember }}">
-              <i :class="'fas ' + isMember"></i>
-              <!-- You can also use the font-awesome-icon component here -->
-            </template>
-
-            <!-- A custom formatted column -->
-            <template v-slot:cell(name)="data">
-              {{ data.value.first + " " }}
-              {{ data.value.last }}
-            </template>
-
-            <!-- Optional default data cell scoped slot -->
-            <template v-slot:cell()="data">
-              <i>{{ data.value }}</i>
-            </template>
-          </b-table>
-        </b-tab>
-        <span class="badge badge-inf badge-apaye">
-          <p class="facture">2</p>
-        </span>
-        <b-tab title="A payer" :title-link-class="'tab-title-class'">
-          <b-table small :fields="fields" :items="items" responsive="sm">
-            <!-- A virtual column -->
-            <template v-slot:cell(N_de_devis)="data">{{ data.index + 1 }}</template>
-
-            <template slot="isMember" slot-scope="{ item: { isMember }}">
-              <i :class="'fa ' + isMember"></i>
-              <!-- You can also use the font-awesome-icon component here -->
-            </template>
-
-            <!-- A custom formatted column -->
-            <template v-slot:cell(name)="data">
-              {{ data.value.first + " " }}
-              {{ data.value.last }}
-            </template>
-
-            <!-- Optional default data cell scoped slot -->
-            <template v-slot:cell()="data">
-              <i>{{ data.value }}</i>
-            </template>
-          </b-table>
+        </span>-->
+        <b-tab>
+          <template v-slot:title :title-link-class="'tab-title-class'">
+            <p class="Fact">Signés</p>
+          </template>
         </b-tab>
       </b-tabs>
     </div>
@@ -163,8 +121,7 @@ export default {
         "Status",
         "Créer_le",
         "Signé_le",
-        { key: "isMember", label: "Is Member" },
-        { key: "x", icon: '<i class="fa fa-user"></i>' }
+        "Actions"
 
         // A virtual column made up from two fields
         // { key: "nameage", label: "First name and age" }
@@ -265,16 +222,17 @@ b-tabs {
   border-style: none;
 }
 
-.nav-tabs .nav-link.active {
-  color: #2262c6 !important;
-  background-color: #fff;
-}
-
 .badge-inf {
-  color: #000;
   background: #ecf1f8;
   /* margin-left: 31rem;
   margin-top: -6rem; */
+}
+
+.badge-inf > p {
+  color: #2262c6;
+  font-family: Gilroy;
+  font-style: normal;
+  font-size: 18px;
 }
 
 .facture {
@@ -311,6 +269,17 @@ b-tabs {
   margin-right: 2rem !important;
 }
 
+.Fact {
+  margin-left: -17px;
+  margin-top: -33px;
+  position: absolute;
+}
+.Apaye {
+  margin-left: -166px;
+  margin-top: -33px;
+  position: relative;
+}
+
 .project-tab {
   border: none;
   /* padding: 10%;
@@ -327,30 +296,28 @@ b-tabs {
 .nav-tabs .nav-link.active {
   color: #0062cc;
   background-color: transparent;
-  border-color: transparent transparent #f3f3f3;
+  /* border-color: transparent transparent #f3f3f3; */
   border-bottom: 3px solid !important;
   border-top: none !important;
   border-right: none !important;
   border-left: none !important;
   font-size: 16px;
+}
+.nav-fill .nav-item > a {
   font-weight: bold;
+  font-style: normal;
+  font-size: 16px;
+  color: #aab5c6 !important;
+  margin-top: 30px;
 }
 
-.tab-title-class > .active > a {
-  color: aqua !important;
-  background-color: chartreuse;
-}
-.project-tab .nav-link {
-  border: 1px solid transparent;
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
-  color: #0062cc;
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+  color: #0062cc !important;
   font-size: 16px;
-  font-weight: 600;
+  margin-top: 30px;
 }
-.project-tab .nav-link:hover {
-  border: none;
-}
+
 .project-tab thead {
   background: #f3f3f3;
   color: #333;

@@ -1,25 +1,56 @@
+	PARTRIDGE, Shirley	62	Female	Shirley is 62 years old
 <template>
-  <div class="devis">
-    <Navbar />
-    <sidebar />
-    <!-- <Table /> -->
-    <div class="Content col-md-8 mx-auto">
-      <div class="Content1"></div>
-    </div>
+  <div>
+    <b-table small :fields="fields" :items="items" responsive="sm">
+      <!-- A virtual column -->
+      <template v-slot:cell(index)="data">{{ data.index + 1 }}</template>
+
+      <!-- A custom formatted column -->
+      <template v-slot:cell(name)="data">
+        <b class="text-info">{{ data.value.last.toUpperCase() }}</b>,
+        <b>{{ data.value.first }}</b>
+      </template>
+
+      <!-- A virtual composite column -->
+      <template
+        v-slot:cell(nameage)="data"
+      >{{ data.item.name.first }} is {{ data.item.age }} years old</template>
+
+      <!-- Optional default data cell scoped slot -->
+      <template v-slot:cell()="data">
+        <i>{{ data.value }}</i>
+      </template>
+    </b-table>
   </div>
 </template>
 
 <script>
-import Navbar from "@/components/Devis/Navbar.vue";
-import Sidebar from "@/components/Sidebar.vue";
 export default {
-  name: "Devis",
-  components: {
-    Navbar,
-    Sidebar
+  data() {
+    return {
+      fields: [
+        // A virtual column that doesn't exist in items
+        "index",
+        // A column that needs custom formatting
+        { key: "name", label: "Full Name" },
+        // A regular column
+        "age",
+        // A regular column
+        "sex",
+        // A virtual column made up from two fields
+        { key: "nameage", label: "First name and age" }
+      ],
+      items: [
+        { name: { first: "John", last: "Doe" }, sex: "Male", age: 42 },
+        { name: { first: "Jane", last: "Doe" }, sex: "Female", age: 36 },
+        { name: { first: "Rubin", last: "Kincade" }, sex: "Male", age: 73 },
+        {
+          name: { first: "Shirley", last: "Partridge" },
+          sex: "Female",
+          age: 62
+        }
+      ]
+    };
   }
 };
 </script>
-
-<style>
-</style>

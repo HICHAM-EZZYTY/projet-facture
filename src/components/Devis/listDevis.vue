@@ -17,9 +17,6 @@
     <hr />
     <div class="projects">
       <b-tabs class="forms" content-class="mt-3" fill>
-        <!-- <span class="badge badge-inf badge-facture" active>
-          <p class="facture">7</p>
-        </span>-->
         <!-- <b-tab active>
           <template v-slot:title>
             <p class="Usera">title</p>
@@ -31,41 +28,53 @@
         <b-tab active>
           <template v-slot:title :title-link-class="'tab-title-class'">
             <p class="Fact">Tous Les Devis</p>
-            <!-- <span class="badge badge-inf" active>
+            <span class="badge badge-inf badge-facture">
               <p class="facture">7</p>
-            </span>-->
+            </span>
           </template>
           <b-table small :fields="fields" :items="items" responsive="sm">
             <!-- A virtual column -->
 
-            <template v-slot:cell(N_de_devis)="data">{{ data.index + 1 }}</template>
+            <template v-slot:cell(N_de_devis)="data">
+              <p class="column_1">{{ data.index + 1 }}</p>
+            </template>
 
             <template v-slot:cell(Actions)>
-              <svg
-                class="bi bi-three-dots-vertical"
-                width="1em"
-                height="1em"
-                viewBox="0 0 16 16"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
-                />
-              </svg>
+              <!-- Drop Down Menu Parametres -->
+
+              <div class="dropdown my-class">
+                <a
+                  type="text"
+                  id="dropdownMenuButton"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="fa fa-ellipsis-v"></i>
+                </a>
+                <div class="dropdown-menu dropdown-left" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item active" href="#">Marquer comme signé</a>
+                  <a class="dropdown-item" href="#">Marquer comme refusé</a>
+                  <a class="dropdown-item" href="#">Modifier les mots-clés</a>
+                  <a class="dropdown-item" href="#">Créer une opportunité</a>
+                  <a class="dropdown-item" href="#">Dupliquer une oppurtunité</a>
+                  <a class="dropdown-item" href="#">Dupliquer en facture</a>
+                  <a class="dropdown-item" href="#">Dupliquer le devis</a>
+                  <a class="dropdown-item" href="#">Envoyer par email</a>
+                  <a class="dropdown-item" href="#">Télécharger</a>
+                  <a class="dropdown-item" href="#">Copier l'url</a>
+                </div>
+              </div>
+
               <!-- You can also use the font-awesome-icon component here -->
             </template>
 
             <!-- A custom formatted column -->
             <template v-slot:cell(name)="data">
-              {{ data.value.first + " " }}
-              {{ data.value.last }}
-            </template>
-
-            <!-- Optional default data cell scoped slot -->
-            <template v-slot:cell()="data">
-              <i>{{ data.value }}</i>
+              <p>
+                {{ data.value.first + " " }}
+                {{ data.value.last }}
+              </p>
             </template>
           </b-table>
         </b-tab>
@@ -73,31 +82,34 @@
         <b-tab>
           <template v-slot:title :title-link-class="'tab-title-class'">
             <p class="Fact">Provisoires</p>
-            <!-- <span class="badge badge-inf badge-provi">
+            <span class="badge badge-inf badge-provi">
               <p class="facture">1</p>
-            </span>-->
+            </span>
           </template>
         </b-tab>
 
         <b-tab>
           <template v-slot:title :title-link-class="'tab-title-class'">
             <p class="Fact">Finalisées</p>
+            <span class="badge badge-inf badge-payes" :title-link-class="'tab-title-class'">
+              <p class="facture">2</p>
+            </span>
           </template>
         </b-tab>
-        <!-- <span class="badge badge-inf badge-payes" :title-link-class="'tab-title-class'">
-          <p class="facture">2</p>
-        </span>-->
         <b-tab>
           <template v-slot:title :title-link-class="'tab-title-class'">
             <p class="Fact">Refusés</p>
+            <span class="badge badge-inf badge-apaye">
+              <p class="facture">2</p>
+            </span>
           </template>
         </b-tab>
-        <!-- <span class="badge badge-inf badge-apaye">
-          <p class="facture">2</p>
-        </span>-->
         <b-tab>
           <template v-slot:title :title-link-class="'tab-title-class'">
             <p class="Fact">Signés</p>
+            <span class="badge badge-inf badge-signe" active>
+              <p class="facture">7</p>
+            </span>
           </template>
         </b-tab>
       </b-tabs>
@@ -241,13 +253,13 @@ b-tabs {
 }
 
 .badge-facture {
-  margin-left: -21.5rem;
-  top: 5.3rem;
+  margin-left: 0.5rem;
+  top: 5rem;
 }
 
 .badge-provi {
-  top: 5.3rem;
-  margin-left: -7.5rem;
+  top: 5rem;
+  margin-left: -1rem;
 }
 
 .badge-final {
@@ -256,17 +268,18 @@ b-tabs {
 }
 
 .badge-payes {
-  margin-left: 18.1rem;
-  top: 5.3rem;
+  margin-left: -1.9rem;
+  top: 5rem;
 }
 
 .badge-apaye {
-  top: 5.3rem;
-  margin-left: 30.5rem;
+  top: 5rem;
+  margin-left: -2.8rem;
 }
 
-.badge-provi {
-  margin-right: 2rem !important;
+.badge-signe {
+  margin-left: -3rem;
+  top: 5rem;
 }
 
 .Fact {
@@ -274,6 +287,7 @@ b-tabs {
   margin-top: -33px;
   position: absolute;
 }
+
 .Apaye {
   margin-left: -166px;
   margin-top: -33px;
@@ -289,6 +303,17 @@ b-tabs {
   background: #007b5e;
   color: #eee;
 } */
+.dropdown-item.active,
+.dropdown-item:active {
+  color: black !important;
+  text-decoration: none;
+  background-color: #fff !important;
+}
+
+.dropdown-item {
+  color: #616467 !important;
+}
+
 .project-tab #tabs h6.section-title {
   color: #eee;
 }
@@ -303,6 +328,7 @@ b-tabs {
   border-left: none !important;
   font-size: 16px;
 }
+
 .nav-fill .nav-item > a {
   font-weight: bold;
   font-style: normal;
@@ -335,6 +361,41 @@ b-tabs {
   /* color: #212529; */
   margin-top: 2rem;
   background-color: #ecf1f8;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
 }
+.table-sm th,
+.table-sm td {
+  padding: 0.3rem;
+  height: 3.5rem;
+}
+
+.table-sm td > p {
+  margin-left: 1rem !important;
+  /* text-align: -webkit-left; */
+}
+
+.table-sm td > .column_1 {
+  margin-left: -4.4rem !important;
+}
+
+.table thead th {
+  font-size: 14px;
+  line-height: 26px;
+  color: #616467;
+}
+
+.fa-ellipsis-v:before {
+  content: "\f142";
+  color: #616467;
+  position: absolute;
+}
+
+.my-class .dropdown-menu {
+  max-height: 100px;
+  overflow-y: auto;
+}
+
 /* FIN Table Information */
 </style>

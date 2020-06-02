@@ -172,6 +172,40 @@ export default {
           Status: "Finalisé",
           Créer_le: "12/02/20",
           Signé_le: "______"
+        },
+        {
+          name: { first: "Chaimaa", last: "Ess-bbah" },
+          Montant_totale: "46,56 Dh",
+          Nom_de_société: "Youcode",
+          Status: "Signés",
+          Créer_le: "12/02/20",
+          Signé_le: "15/02/20",
+          icon: "fa-user-secret"
+        },
+        {
+          name: { first: "Fouzia", last: "Balibla" },
+          Montant_totale: "230,36 Dh",
+          Nom_de_société: "Youcode",
+          Status: "Signés",
+          Créer_le: "14/02/20",
+          Signé_le: "16/02/20",
+          isMember: "fa-user-secret"
+        },
+        {
+          name: { first: "Hicham", last: "Ezzyti" },
+          Montant_totale: "230,36 Dh",
+          Nom_de_société: "Youcode",
+          Status: "Finalisé",
+          Créer_le: "14/02/20",
+          Signé_le: "______"
+        },
+        {
+          name: { first: "Chiamaa", last: "Ess-bbah" },
+          Montant_totale: "46,56 Dh",
+          Nom_de_société: "Youcode",
+          Status: "Finalisé",
+          Créer_le: "12/02/20",
+          Signé_le: "______"
         }
       ]
     };
@@ -393,8 +427,9 @@ b-tabs {
 }
 
 .my-class .dropdown-menu {
-  max-height: 100px;
+  /* max-height: 100px; */
   overflow-y: auto;
+  height: 14rem;
 }
 
 /* FIN Table Information */

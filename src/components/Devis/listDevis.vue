@@ -431,6 +431,9 @@ b-tabs {
   overflow-y: auto;
   height: 14rem;
 }
-
 /* FIN Table Information */
+
+/* Responsive page */
+
+/* Fin Responsive Page */
 </style>

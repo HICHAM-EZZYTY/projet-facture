@@ -39,10 +39,12 @@
           </a>
         </li>
         <li class="sidenav--list__item">
-          <a class="s-sidebar__nav-link" href="#0">
-            <img class="sidenav-button__icon" src="../assets/img/61.png" alt />
-            <em>Paramétres</em>
-          </a>
+          <router-link to="/settings">
+            <a class="s-sidebar__nav-link" href="#0">
+              <img class="sidenav-button__icon" src="../assets/img/61.png" alt />
+              <em>Paramétres</em>
+            </a>
+          </router-link>
         </li>
         <li class="sidenav--list__item">
           <a class="s-sidebar__nav-link" href="#0">
@@ -63,7 +65,6 @@
 
   <!-- Content -->
   <!-- </div> -->
-
 </template>
 
 <script>
@@ -123,7 +124,6 @@ img {
   min-height: 100vh;
 }
 
-
 .s-layout__content {
   display: flex;
   justify-content: center;
@@ -181,7 +181,6 @@ img {
 /* .s-sidebar__nav ul li {
   width: 100%;
 } */
-
 
 .s-sidebar__nav-link {
   position: relative;

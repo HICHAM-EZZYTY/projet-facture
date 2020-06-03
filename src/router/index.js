@@ -5,12 +5,14 @@ import Devis from "./../views/Devis.vue";
 import CreateDevis from "./../components/Devis/CreateDevis.vue";
 import listClient from "../components/client/listClient.vue";
 import addClient from "../components/client/addClient.vue";
+import homeSeting from "../views/setings/homeSeting";
+import preference from "../components/setings/preference.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "",
+    path: "/",
     name: "Devis",
     component: Devis
   },
@@ -28,7 +30,18 @@ const routes = [
     path: "/addClient",
     name: "addClient",
     component: addClient
-  }
+  },
+  {
+    path: "/settings",
+    name: "homeSeting",
+    component: homeSeting
+  },
+  {
+    path: "/Préférences",
+    name: "preference",
+    component: preference
+  },
+
 ];
 
 const router = new VueRouter({

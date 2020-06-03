@@ -36,7 +36,6 @@
       </b-collapse>
     </b-navbar>
   </div>
-
 </template>
 
 <script>
@@ -225,5 +224,4 @@ body {
 /* @media screen and (min-width: 1200px) {
   
 } */
-
 </style>

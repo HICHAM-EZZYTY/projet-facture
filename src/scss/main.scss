@@ -1,56 +1,6 @@
-@import "global/reset";
-
-/* You can add global styles to this file, and also import other style files */
-@font-face {
-    font-family: 'Gilroy-Black';
-    src: url("../../src/assets/fonts/Gilroy-Black.woff") format("opentype");
-  }
-  
-  @font-face {
-    font-family: 'Gilroy-UltraLightItalic';
-    src: url('../../src/assets/fonts/Gilroy-UltraLightItalic.woff') format('opentype');
-  }
-  
-  @font-face {
-    font-family: 'Gilroy-ExtraboldItalic';
-    src: url("../../src/assets/fonts/Gilroy-ExtraboldItalic.woff") format("opentype");
-  }
-  
-  @font-face {
-    font-family: 'Gilroy-HeavyItalic';
-    src: url("../../src/assets/fonts/Gilroy-HeavyItalic.woff") format("opentype");
-  }
-
-  
-  :root {
-    --f-gb:"Gilroy-Black";
-    --f-gbi:"Gilroy-Black";
-    --f-gbd:"Gilroy-Bold";
-    --f-gbdi:"Gilroy-BoldItalic";
-    --f-geb:"Gilroy-ExtraBold";
-    --f-gebi:"Gilroy-ExtraBoldItalic";
-    --f-gh:"Gilroy-Heavy";
-    --f-ghi:"Gilroy-HeavyItalic";
-    --f-gl:"Gilroy-Light";
-    --f-gli:"Gilroy-LightItalic";
-    --f-gm:"Gilroy-Medium";
-    --f-gmi:"Gilroy-MediumItalic";
-    --f-r:"Gilroy-Regular";
-    --f-ri:"Gilroy-RegularItalic";
-    --f-sb:"Gilroy-SemiBold";
-    --f-sbi:"Gilroy-SemiBoldItalic";
-    --f-gt:"Gilroy-Thin";
-    --f-gti:"Gilroy-ThinItalic";
-    --f-gul:"Gilroy-UltraLight";
-    --f-guli:"Gilroy-UltraLightItalic";
-    --f-pb:"Poppins-Bold";
-
-    --c-r:"red";
-  }
-  
 
 
-  body {
-    margin: 0px;
-    
-  }
+
+
+$primary: #333;
+

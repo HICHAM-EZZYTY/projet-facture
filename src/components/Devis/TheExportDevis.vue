@@ -1,7 +1,6 @@
 <template>
 
 <p>This is testing right now</p>
-  
 
 </template>
 
@@ -29,12 +28,16 @@ export default {
 }
 </script>
 
-<style >
+<style  lang="scss" >
+
+@import "../../scss/main.scss" ;   
+
+
 
 p{
-    font-family:var(--f-sb);
-    color: var(--c-r);
-    background-color: var(--c-r);
+    color: $primary;
+    background-color:$primary;
+
 }
 
 </style>

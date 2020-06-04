@@ -1,6 +1,114 @@
 
+@font-face {
+  font-family: 'Gilroy-Black';
+  src: url('~@/assets/fonts/Gilroy-Black.ttf') format('truetype');
+
+} 
+@font-face {
+    font-family: 'Gilroy-BlackItalic';
+    src: url('~@/assets/fonts/Gilroy-BlackItalic.ttf') format('truetype');
+  } 
+
+  @font-face {
+    font-family: 'Gilroy-Bold';
+    src: url('~@/assets/fonts/Gilroy-Bold.ttf') format('truetype');
+  } 
+
+  
+  @font-face {
+    font-family: 'Gilroy-BoldItalic';
+    src: url('~@/assets/fonts/Gilroy-BoldItalic.ttf') format('truetype');
+  } 
+
+  @font-face {
+    font-family: 'Gilroy-ExtraBold';
+    src: url('~@/assets/fonts/Gilroy-Extrabold.ttf') format('truetype');
+  } 
+  
+  @font-face {
+    font-family: 'Gilroy-ExtraBoldItalic';
+    src: url('~@/assets/fonts/Gilroy-ExtraboldItalic.ttf') format('truetype');
+  } 
+
+  @font-face {
+    font-family: 'Gilroy-Heavy';
+    src: url('~@/assets/fonts/Gilroy-Heavy.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'Gilroy-HeavyItalic';
+    src: url('~@/assets/fonts/Gilroy-HeavyItalic.ttf') format('truetype');
+  } 
+  
+  @font-face {
+    font-family: 'Gilroy-Light';
+    src: url('~@/assets/fonts/Gilroy-Light.ttf') format('truetype');
+  } 
+
+  @font-face {
+    font-family: 'Gilroy-LightItalic';
+    src: url('~@/assets/fonts/Gilroy-LightItalic.ttf') format('truetype');
+  } 
+
+  @font-face {
+    font-family: 'Gilroy-Medium';
+    src: url('~@/assets/fonts/Gilroy-Medium.ttf') format('truetype');
+  } 
+
+  @font-face {
+    font-family: 'Gilroy-MediumItalic';
+    src: url('~@/assets/fonts/Gilroy-MediumItalic.ttf') format('truetype');
+  } 
+
+  @font-face {
+    font-family: 'Gilroy-Regular';
+    src: url('~@/assets/fonts/Gilroy-Regular.ttf') format('truetype');
+  } 
+  @font-face {
+    font-family: 'Gilroy-RegularItalic';
+    src: url('~@/assets/fonts/Gilroy-RegularItalic.ttf') format('truetype');
+  } 
+  @font-face {
+    font-family: 'Gilroy-SemiBold';
+    src: url('~@/assets/fonts/Gilroy-Semibold.ttf') format('truetype');
+  } 
+  @font-face {
+    font-family: 'Gilroy-SemiBoldItalic';
+    src: url('~@/assets/fonts/Gilroy-SemiboldItalic.ttf') format('truetype');
+  } 
+  @font-face {
+    font-family: 'Gilroy-Thin';
+    src: url('~@/assets/fonts/Gilroy-Thin.ttf') format('truetype');
+  } 
+  @font-face {
+    font-family: 'Gilroy-ThinItalic';
+    src: url('~@/assets/fonts/Gilroy-ThinItalic.ttf') format('truetype');
+  } 
+  @font-face {
+    font-family: 'Gilroy-UltraLight';
+    src: url('~@/assets/fonts/Gilroy-UltraLight.ttf') format('truetype');
+  } 
+  
 
 
-
-$primary: #333;
+  $gb:"Gilroy-Black";
+  $bi:"Gilroy-Black";
+  $bd:"Gilroy-Bold";
+  $bdi:"Gilroy-BoldItalic";
+  $eb:"Gilroy-ExtraBold";
+  $ebi:"Gilroy-ExtraBoldItalic";
+  $h:"Gilroy-Heavy";
+  $ghi:"Gilroy-HeavyItalic";
+  $gl:"Gilroy-Light";
+  $gli:"Gilroy-LightItalic";
+  $gm:"Gilroy-Medium";
+  $gmi:"Gilroy-MediumItalic";
+  $r:"Gilroy-Regular";
+  $ri:"Gilroy-RegularItalic";
+  $sb:"Gilroy-SemiBold";
+  $sbi:"Gilroy-SemiBoldItalic";
+  $gt:"Gilroy-Thin";
+  $gti:"Gilroy-ThinItalic";
+  $gul:"Gilroy-UltraLight";
+  $primary: #333;
 

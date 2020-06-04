@@ -35,8 +35,8 @@ export default {
 
 
 p{
-    color: $primary;
-    background-color:$primary;
+    color: black;
+    font-family: $gb;
 
 }
 

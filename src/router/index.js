@@ -20,8 +20,22 @@ const routes = [
   {
     path: "/listDevis",
     name: "listDevis",
-    component: listDevis
+    component:()=> import(/* webpackChunkName: "listDevis" */ "./../components/Devis/listDevis.vue"),    
+    children:[
+      {
+        path:':Export/:DevisId',
+        name:'exportdevis',
+        props:true,
+        component:()=> import(/* webpackChunkName: "experienceDetails" */ "../views/ExperienceDetails"),
+      }
+    ]
   }
+  // {
+  //   path:'/destination/:slug',
+  //   name:"destinationsDetails",
+  //   component:()=> import(/* webpackChunkName: "destinationsDetails" */ "../components/TheDestinationDetails"),
+   
+  // },
 ];
 
 const router = new VueRouter({

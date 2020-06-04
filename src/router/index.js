@@ -1,8 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-// import Devis from "../views/Devis.vue";
-import Devis from "./../views/Devis.vue";
 import CreateDevis from "./../components/Devis/createDevis.vue";
+import listDevis from "./../components/Devis/listDevis.vue";
+
 
 Vue.use(VueRouter);
 
@@ -10,12 +10,17 @@ const routes = [
   {
     path: "",
     name: "Devis",
-    component: Devis
+    component: listDevis
   },
   {
     path: "/CreateDevis",
     name: "CreateDevis",
-    component: CreateDevis
+    component:  CreateDevis
+  },
+  {
+    path: "/listDevis",
+    name: "listDevis",
+    component: listDevis
   }
 ];
 

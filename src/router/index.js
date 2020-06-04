@@ -4,6 +4,7 @@ import CreateDevis from "./../components/Devis/createDevis.vue";
 import listDevis from "./../components/Devis/listDevis.vue";
 
 
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -23,19 +24,14 @@ const routes = [
     component:()=> import(/* webpackChunkName: "listDevis" */ "./../components/Devis/listDevis.vue"),    
     children:[
       {
-        path:':Export/:DevisId',
-        name:'exportdevis',
+        path:':exportDevis/:DevisId',
+        name:'exportDevis',
         props:true,
-        component:()=> import(/* webpackChunkName: "experienceDetails" */ "../views/ExperienceDetails"),
+        component:()=> import(/* webpackChunkName: "exportDevis" */ "./../components/Devis/TheExportDevis.vue"),
       }
     ]
   }
-  // {
-  //   path:'/destination/:slug',
-  //   name:"destinationsDetails",
-  //   component:()=> import(/* webpackChunkName: "destinationsDetails" */ "../components/TheDestinationDetails"),
-   
-  // },
+
 ];
 
 const router = new VueRouter({

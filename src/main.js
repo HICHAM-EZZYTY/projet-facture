@@ -11,7 +11,9 @@ import "font-awesome/css/font-awesome.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
-import "./scss/main.scss";
+// import "./scss/main.scss";
+import '../src/css/main.css'
+
 
 // Install BootstrapVue
 Vue.use(BootstrapVue);

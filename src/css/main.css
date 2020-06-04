@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-
+/* 
 @font-face {
     font-family: 'Gilroy-Black';
     src: url('../src/assets/fonts/Gilroy-Black.ttf') format('truetype');
@@ -96,11 +96,11 @@
     @font-face {
       font-family: 'Poppins-Bold';
       src: url('../src/assets/fonts/Poppins-Bold.otf') format('opentype');
-    } 
+    }  */
     
     
   :root {
-      --f-gb:"Gilroy-Black";
+      /* --f-gb:"Gilroy-Black";
       --f-gbi:"Gilroy-Black";
       --f-gbd:"Gilroy-Bold";
       --f-gbdi:"Gilroy-BoldItalic";
@@ -120,11 +120,13 @@
       --f-gti:"Gilroy-ThinItalic";
       --f-gul:"Gilroy-UltraLight";
       --f-guli:"Gilroy-UltraLightItalic";
-      --f-pb:"Poppins-Bold";
+      --f-pb:"Poppins-Bold"; */
+
+      --c-r:"red";
     }
     
 
-    
+
     body {
       margin: 0px;
       

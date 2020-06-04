@@ -1,9 +1,7 @@
-
-
-
 <template>
+
+<p>This is testing right now</p>
   
-<p @click="test()">This Is juste testing</p>
 
 </template>
 
@@ -13,7 +11,7 @@ export default {
       
         DevisId:{
 
-            type:Number,
+            type:String,
             required:true
         }
     },
@@ -31,6 +29,12 @@ export default {
 }
 </script>
 
-<style scoped>
+<style >
+
+p{
+    font-family:var(--f-sb);
+    color: var(--c-r);
+    background-color: var(--c-r);
+}
 
 </style>

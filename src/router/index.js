@@ -22,15 +22,16 @@ const routes = [
     path: "/listDevis",
     name: "listDevis",
     component:()=> import(/* webpackChunkName: "listDevis" */ "./../components/Devis/listDevis.vue"),    
-    children:[
-      {
-        path:':exportDevis/:DevisId',
+  },
+
+  {
+        path:'/exportDevis/:DevisId',
         name:'exportDevis',
         props:true,
         component:()=> import(/* webpackChunkName: "exportDevis" */ "./../components/Devis/TheExportDevis.vue"),
-      }
-    ]
   }
+    
+
 
 ];
 

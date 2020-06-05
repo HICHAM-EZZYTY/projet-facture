@@ -1,24 +1,38 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-// import Devis from "../views/Devis.vue";
-// import Devis from "./../views/Devis.vue";
 import CreateDevis from "./../components/Devis/createDevis.vue";
-import ListDevis from "./../components/Devis/listDevis.vue";
-// import Login from "../views/Authentification/Login.vue";
+import listDevis from "./../components/Devis/listDevis.vue";
+
+
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "",
-    name: "Login",
-    component: ListDevis
+    name: "Devis",
+    component: listDevis
   },
   {
     path: "/CreateDevis",
     name: "CreateDevis",
     component: CreateDevis
+  },
+  {
+    path: "/listDevis",
+    name: "listDevis",
+    component: () => import(/* webpackChunkName: "listDevis" */ "./../components/Devis/listDevis.vue"),
+  },
+
+  {
+    path: '/exportDevis/:DevisId',
+    name: 'exportDevis',
+    props: true,
+    component: () => import(/* webpackChunkName: "exportDevis" */ "./../components/Devis/TheExportDevis.vue"),
   }
+
+
+
 ];
 
 const router = new VueRouter({

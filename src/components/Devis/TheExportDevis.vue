@@ -57,11 +57,9 @@
 
 <button id="btn1" type="button">Fermer</button>
 <button id="btn2" type="button"> <img src="../../assets/img/HeartEmoji.svg"> Ceci s'il vous plaît !</button>
-
-
-
 </div>
 
+<p id="nb">La génération des fichiers peut prendre plusieurs minutes.</p>
 
 
 
@@ -295,9 +293,54 @@ $tss:50vw;
 
         }
     }
+    .buttonContainer{
+        margin-left: 24%;
+        margin-top: 39px;
+    }
+    #nb{
+    margin-top: 13px;
+    font-size: 10.1px;
+    margin-left: 25%;
+    color: black;
+    }
 
 // start Styling the responsive for small devices 
 
+@media (max-width: 990px) {
+.buttonContainer {
+    margin-left: 16%;
+    margin-top: 39px;
+
+}
+}
+
+@media (max-width: 518px) {
+    .buttonContainer{
+        margin-left: 25%;
+        margin-top: 39px;
+    }
+
+}
+
+
+
+
+
+
+
+@media (max-width: 600px) {
+.buttonContainer {
+    margin-left: 25%;
+    margin-top: 39px;
+
+}
+#btn1{
+    margin-bottom: 10px;
+}
+#nb {
+    margin-left: 15%;
+}
+}
 
 @media (max-width: 480px) {
 .technos{
@@ -305,6 +348,7 @@ $tss:50vw;
     margin-left: 15%;
 }
 .containerCard{
+    height: 600px;
 h1{
     margin-top: 26%;
 }
@@ -312,9 +356,17 @@ p{
     padding-right: 10px;
 }
 }
+
 }
 
 @media (max-width: 379px) {
+.buttonContainer{
+    margin-top: 17px;
+    display: block;
+    margin-left: 15%;
+    position: relative;
+    width: 144px;
+}
 .technos{
     width: 70%;
     margin-left: 15%;
@@ -323,7 +375,6 @@ p{
     margin-top: 43px;
 }
 .containerCard{
-    height: 454px;
 h1{
     margin-top: 32%;
 }

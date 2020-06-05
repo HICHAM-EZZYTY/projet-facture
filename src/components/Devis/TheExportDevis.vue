@@ -258,6 +258,55 @@ $tss:50vw;
 
 // start Styling the responsive for small devices 
 
+
+@media (max-width: 480px) {
+.technos{
+    width: 70%;
+    margin-left: 15%;
+}
+.containerCard{
+h1{
+    margin-top: 26%;
+}
+p{
+    padding-right: 10px;
+}
+}
+}
+
+@media (max-width: 379px) {
+.technos{
+    width: 70%;
+    margin-left: 15%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 43px;
+}
+.containerCard{
+    height: 454px;
+h1{
+    margin-top: 32%;
+}
+button{
+    
+    margin-top: 11px;
+    margin-left: 0px;
+}
+}
+.fifth{
+    justify-self: start;
+    margin-top: 13px;
+}
+}
+
+
+@media (max-width: 766px) {
+.technos{
+    width: 70%;
+    margin-left: 15%;
+}
+}
+
 @media (max-width: 841px) {
 
 .rec1>img{

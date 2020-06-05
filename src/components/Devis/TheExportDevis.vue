@@ -16,8 +16,40 @@
 
     <div class="first">
         <div class="background">
+            <img src="../../assets/img/pdf.svg" alt="Pdf Icon">
         </div>
+        <p>PDF</p>
     </div>
+
+      <div class="second">
+        <div class="background">
+            <img src="../../assets/img/csv.svg" alt="csv Icon">
+        </div>
+        <p>CSV</p>
+    </div>
+
+    
+      <div class="third">
+        <div class="background">
+            <img src="../../assets/img/spreadsheet.svg" alt="spreadsheet Icon">
+        </div>
+        <p>EXCEL</p>
+    </div>
+
+       <div class="fourth">
+        <div class="background">
+            <img src="../../assets/img/json.svg" alt="json Icon">
+        </div>
+        <p>JSON</p>
+    </div>
+
+          <div class="fifth">
+        <div class="background">
+            <img src="../../assets/img/vcf.svg" alt="vcards Icon">
+        </div>
+        <p>VCARDS</p>
+    </div>
+
 
 
 </div>
@@ -61,9 +93,20 @@ export default {
 $Swr1:23%;
 $Swr2:53%;
 $Scr: 54%;
-
 $ts:20vw;
 $tss:50vw;
+
+
+@mixin paragraph() {
+        display: block;
+        margin: 0 auto;
+        margin-left: 8px;
+        margin-top: 6px;
+        color: $blacklight;
+        font-family: $sb;
+        font-size: 12px;
+        opacity: 0.7;
+}
 
 
 .containerGlobal {
@@ -155,11 +198,64 @@ $tss:50vw;
     margin-top: 17px;
     font-size: 14px;
     }
-    .technos{
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     }
-}
+    .technos{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    margin-top: 43px;
+    width: 47%;
+    margin-left: 24%;
+    }
+    .background{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: $white1;
+    box-shadow: none;
+    box-shadow: 32px 5px 62px rgba(0, 0, 0, 0.07);
+    img{
+    height: 33px;
+    display: block;
+    margin: 0 auto;
+    padding-top: 3px;
+    }
+    }
+    .first{
+        p{
+        @include paragraph();
+   
+        }
+    }
+
+    .second{
+        p{
+        @include paragraph();
+
+        }
+    }
+      .third{
+           p{
+            @include paragraph();
+
+        }
+      }
+
+         .fourth{
+           p{
+           @include paragraph();
+
+        }
+    }
+
+      .fifth{
+          justify-self: center;
+           p{
+           @include paragraph();
+           margin-left: 0px !important;
+
+        }
+    }
+
 // start Styling the responsive for small devices 
 
 @media (max-width: 841px) {

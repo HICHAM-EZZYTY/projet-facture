@@ -7,7 +7,7 @@
 <div class="circle">
     <img src="../../assets/img/delete.svg" alt="closing the modal">
 </div>
-<h1>Exporter la liste :  <button>12 devis</button>
+<h1>Exporter la liste :  <button id="btn">12 devis</button>
 <p>Quel type de fichiers source souhaitez-vous télécharger ?</p>
 </h1>
 
@@ -20,33 +20,33 @@
         <p  v-bind:class="{active:IsColor}">PDF</p>
     </div>
 
-      <div @mouseover="hoverIcons()"   v-on:mouseleave="hoverIconsLeave()" class="second">
+      <div @mouseover="hoverIcons1()"   v-on:mouseleave="hoverIconsLeave1()" class="second">
         <div class="background">
             <img src="../../assets/img/csv.svg" alt="csv Icon">
         </div>
-        <p v-bind:class="{active:IsColor}">CSV</p>
+        <p v-bind:class="{active:IsColor1}">CSV</p>
     </div>
 
     
-      <div  @mouseover="hoverIcons()"   v-on:mouseleave="hoverIconsLeave()"  class="third">
+      <div  @mouseover="hoverIcons2()"   v-on:mouseleave="hoverIconsLeave2()"  class="third">
         <div class="background">
             <img src="../../assets/img/spreadsheet.svg" alt="spreadsheet Icon">
         </div>
-        <p v-bind:class="{active:IsColor}" >EXCEL</p>
+        <p v-bind:class="{active:IsColor2}" >EXCEL</p>
     </div>
 
-       <div  @mouseover="hoverIcons()"   v-on:mouseleave="hoverIconsLeave()" class="fourth">
+       <div  @mouseover="hoverIcons3()"   v-on:mouseleave="hoverIconsLeave3()" class="fourth">
         <div class="background">
             <img src="../../assets/img/json.svg" alt="json Icon">
         </div>
-        <p v-bind:class="{active:IsColor}">JSON</p>
+        <p v-bind:class="{active:IsColor3}">JSON</p>
     </div>
 
-          <div  @mouseover="hoverIcons()"   v-on:mouseleave="hoverIconsLeave()" class="fifth">
+          <div  @mouseover="hoverIcons4()"   v-on:mouseleave="hoverIconsLeave4()" class="fifth">
         <div class="background">
             <img src="../../assets/img/vcf.svg" alt="vcards Icon">
         </div>
-        <p v-bind:class="{active:IsColor}">VCARDS</p>
+        <p v-bind:class="{active:IsColor4}">VCARDS</p>
     </div>
 
 
@@ -56,7 +56,7 @@
 <div class="buttonContainer">
 
 <button id="btn1" type="button">Fermer</button>
-<button id="btn2" type="button"> <img src="../../assets/img/HeartEmoji.svg"> Ceci s'il vous plaît !</button>
+<button id="btn2" type="button"> <img id="heart" src="../../assets/img/HeartEmoji.svg"> Ceci s'il vous plaît !</button>
 </div>
 
 <p id="nb">La génération des fichiers peut prendre plusieurs minutes.</p>
@@ -78,8 +78,10 @@ export default {
 
 
         IsColor: false, 
-        
-        
+        IsColor1: false, 
+        IsColor2: false, 
+        IsColor3: false, 
+        IsColor4: false, 
         }
 
     },
@@ -88,30 +90,41 @@ export default {
 
       props:{
       
-        DevisId:{
-
-            type:String,
-            required:true
-        }
     },
 
-
-   
-
         methods:{
-        test(){
-            console.log("hada tibiyen bali params khadma",this.DevisId)
-            
-        },
+    
         hoverIcons(){
-            console.log('hover khadma')
             this.IsColor=true;
-            console.log('color',this.IsColor)
         },
         hoverIconsLeave(){
             this.IsColor=false;
+        },
+        hoverIcons1(){
+            this.IsColor1=true;
+        },
+        hoverIconsLeave1(){
+            this.IsColor1=false;
+        },
+        hoverIcons2(){
+            this.IsColor2=true;
+        },
+        hoverIconsLeave2(){
+            this.IsColor2=false;
+        },
+        hoverIcons3(){
+            this.IsColor3=true;
+        },
+        hoverIconsLeave3(){
+            this.IsColor3=false;
+        },
+        hoverIcons4(){
+            this.IsColor4=true;
+        },
+        hoverIconsLeave4(){
+            this.IsColor4=false;
         }
-
+     
      
     },
  
@@ -210,6 +223,25 @@ $tss:50vw;
     position: relative;
     background-color: #F5F7FB;
     z-index: 1;
+    &:hover{
+    animation: rotating 2s linear infinite;
+    }
+    @keyframes rotating {
+    from {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+    }
     img
     {
     width: 11px;
@@ -239,7 +271,69 @@ $tss:50vw;
     margin-left: 10px;
     height: 23px;
     width: 79px;
+    // transition: background-color 2s ease-in;
     }
+    #btn:hover{
+    -webkit-animation: bounce-top 0.9s both;
+	animation: bounce-top 0.9s both;
+
+    }
+    
+    @keyframes bounce-top {
+  0% {
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    opacity: 1;
+  }
+  24% {
+    opacity: 1;
+  }
+    40% {
+        -webkit-transform: translateY(-16px);
+                transform: translateY(-16px);
+        -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+    }
+    65% {
+        -webkit-transform: translateY(-12px);
+                transform: translateY(-12px);
+        -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+    }
+    82% {
+        -webkit-transform: translateY(-6px);
+                transform: translateY(-6px);
+        -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+    }
+    93% {
+        -webkit-transform: translateY(-4px);
+                transform: translateY(-4px);
+        -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+    }
+    25%,
+    55%,
+    75%,
+    87% {
+        -webkit-transform: translateY(0px);
+                transform: translateY(0px);
+        -webkit-animation-timing-function: ease-out;
+                animation-timing-function: ease-out;
+    }
+    100% {
+        -webkit-transform: translateY(0px);
+                transform: translateY(0px);
+        -webkit-animation-timing-function: ease-out;
+                animation-timing-function: ease-out;
+        opacity: 1;
+    }
+    }
+  
+    
+   
     p{
     margin-top: 17px;
     font-size: 14px;
@@ -259,7 +353,7 @@ $tss:50vw;
     background-color: $white1;
     box-shadow: none;
     box-shadow: 32px 5px 62px rgba(0, 0, 0, 0.07);
-    transition: all 1s ease-out;
+    transition: all 0.7s  0.2s ease-out;
 
     &:hover{
         background-color: $blue;
@@ -284,6 +378,11 @@ $tss:50vw;
     color: #7A7E89;
     font-size: 11px;
     font-family: $sb;
+    &:hover{
+        background-color: #eb4d4b;
+        border:none;
+        color:white
+    }
     }
 
     #btn2{
@@ -293,9 +392,20 @@ $tss:50vw;
     font-family: $sb;
     font-size: 10px;
     font-family: "Gilroy-SemiBold";
+    &:hover{
+        animation: pulsate 3s 0.6s ease-out;
+        animation-iteration-count: infinite;
+        opacity: 1; 
+    }
     img {
         margin-right: 5px;
+   
     }
+    @keyframes pulsate {
+    10% {opacity: 0.4;}
+    50% {opacity: 1.0;}
+    100% {opacity: 0.4;}
+}
     }
 
 
@@ -358,6 +468,19 @@ $tss:50vw;
     font-size: 10.1px;
     margin-left: 25%;
     color: black;
+    &:hover{
+    animation: text-shadow-pop-left 0.6s both;
+    }
+    @keyframes text-shadow-pop-left {
+    0% {
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
+    }
+    100% {
+        -webkit-transform: translateX(8px);
+                transform: translateX(8px);
+    }
+    }
     }
 
 // start Styling the responsive for small devices 

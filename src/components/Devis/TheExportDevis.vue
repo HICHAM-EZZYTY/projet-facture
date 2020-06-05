@@ -13,40 +13,40 @@
 
 <div class="technos">
 
-    <div  @mouseover="hoverIcons()" class="first">
+    <div   @mouseover="hoverIcons()"   v-on:mouseleave="hoverIconsLeave()" class="first">
         <div class="background">
             <img src="../../assets/img/pdf.svg" alt="Pdf Icon">
         </div>
         <p  v-bind:class="{active:IsColor}">PDF</p>
     </div>
 
-      <div class="second">
+      <div @mouseover="hoverIcons()"   v-on:mouseleave="hoverIconsLeave()" class="second">
         <div class="background">
             <img src="../../assets/img/csv.svg" alt="csv Icon">
         </div>
-        <p>CSV</p>
+        <p v-bind:class="{active:IsColor}">CSV</p>
     </div>
 
     
-      <div class="third">
+      <div  @mouseover="hoverIcons()"   v-on:mouseleave="hoverIconsLeave()"  class="third">
         <div class="background">
             <img src="../../assets/img/spreadsheet.svg" alt="spreadsheet Icon">
         </div>
-        <p>EXCEL</p>
+        <p v-bind:class="{active:IsColor}" >EXCEL</p>
     </div>
 
-       <div class="fourth">
+       <div  @mouseover="hoverIcons()"   v-on:mouseleave="hoverIconsLeave()" class="fourth">
         <div class="background">
             <img src="../../assets/img/json.svg" alt="json Icon">
         </div>
-        <p>JSON</p>
+        <p v-bind:class="{active:IsColor}">JSON</p>
     </div>
 
-          <div class="fifth">
+          <div  @mouseover="hoverIcons()"   v-on:mouseleave="hoverIconsLeave()" class="fifth">
         <div class="background">
             <img src="../../assets/img/vcf.svg" alt="vcards Icon">
         </div>
-        <p>VCARDS</p>
+        <p v-bind:class="{active:IsColor}">VCARDS</p>
     </div>
 
 
@@ -71,6 +71,21 @@
 
 <script>
 export default {
+
+    data: function () {
+
+    return { 
+
+
+        IsColor: false, 
+        
+        
+        }
+
+    },
+ 
+   
+
       props:{
       
         DevisId:{
@@ -80,15 +95,8 @@ export default {
         }
     },
 
-    data:function(){
 
-        return {
-
-        IsColor:false,
-
-        }
-        
-    },
+   
 
         methods:{
         test(){
@@ -98,7 +106,10 @@ export default {
         hoverIcons(){
             console.log('hover khadma')
             this.IsColor=true;
-            console.log('color',this.Iscolor)
+            console.log('color',this.IsColor)
+        },
+        hoverIconsLeave(){
+            this.IsColor=false;
         }
 
      
@@ -139,8 +150,8 @@ $tss:50vw;
 }
 
 .active{
-    color:#2262C6;
-    opacity:100%;
+    color:#2262C6 !important;
+    opacity:100% !important;
 }
 
 

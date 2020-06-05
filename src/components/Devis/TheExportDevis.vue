@@ -4,7 +4,6 @@
 <div class="rec1"><img src="../../assets/img/Rec1.svg" alt="PictureOfRectange1"></div>
 <div class="rec2"><img id="rec" src="../../assets/img/Rec2.svg" alt="PictureOfRectange2">
 <div class="containerCard">
-<!-- <img src="../../assets/img/close.svg" alt="closing the modal"> -->
 <div class="circle">
     <img src="../../assets/img/delete.svg" alt="closing the modal">
 </div>
@@ -49,6 +48,15 @@
         </div>
         <p>VCARDS</p>
     </div>
+
+
+
+</div>
+
+<div class="buttonContainer">
+
+<button id="btn1" type="button">Fermer</button>
+<button id="btn2" type="button"> <img src="../../assets/img/HeartEmoji.svg"> Ceci s'il vous plaît !</button>
 
 
 
@@ -220,6 +228,38 @@ $tss:50vw;
     padding-top: 3px;
     }
     }
+    .buttonContainer{
+
+
+    #btn1{
+    margin-right: 0px;
+    height: 29px;
+    width: 147px;
+    background-color: transparent;
+    border: 0.9px solid #000000;
+    color: #7A7E89;
+    font-size: 11px;
+    font-family: $sb;
+    }
+
+    #btn2{
+    height: 29px;
+    width: 149px;
+    font-size: 11px;
+    font-family: $sb;
+    font-size: 10px;
+    font-family: "Gilroy-SemiBold";
+    img {
+        margin-right: 5px;
+    }
+    }
+
+
+
+    }
+
+
+
     .first{
         p{
         @include paragraph();

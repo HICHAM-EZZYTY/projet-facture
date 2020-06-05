@@ -2,9 +2,31 @@
 <div class="containerGlobal">
 
 <div class="rec1"><img src="../../assets/img/Rec1.svg" alt="PictureOfRectange1"></div>
-<div class="rec2"><img src="../../assets/img/Rec2.svg" alt="PictureOfRectange2">
-<div class="containerCard"></div>
+<div class="rec2"><img id="rec" src="../../assets/img/Rec2.svg" alt="PictureOfRectange2">
+<div class="containerCard">
+<!-- <img src="../../assets/img/close.svg" alt="closing the modal"> -->
+<div class="circle">
+    <img src="../../assets/img/delete.svg" alt="closing the modal">
+</div>
+<h1>Exporter la liste :  <button>12 devis</button>
+<p>Quel type de fichiers source souhaitez-vous télécharger ?</p>
+</h1>
 
+<div class="technos">
+
+    <div class="first">
+        <div class="background">
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+
+</div>
 </div>
 </div>
 </template>
@@ -62,7 +84,7 @@ $tss:50vw;
     z-index: 0;
 }
 
-.rec2>img{
+#rec{
    position: relative;
     width: $Swr2;
     height: 394px;
@@ -86,6 +108,57 @@ $tss:50vw;
     top: 102px;
     left: 25%;
     box-shadow: -2px -5px 24px rgba(0, 0, 0, 0.07);    
+}
+
+.containerCard{
+    .circle{
+   float: right;
+    margin-top: 26px;
+    margin-right: 5%;
+    width: 35px;
+    height: 35px;
+    border-radius: 70%;
+    position: relative;
+    background-color: #F5F7FB;
+    z-index: 1;
+    img
+    {
+    width: 11px;
+    height: 11px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 11px;
+    }
+    }
+    .circle:hover{
+    background-color:#F5F7FB;
+    }
+    h1{
+        font-family: $sb;
+        color:black;
+        font-size:17px;
+        margin-top: 9%;
+         margin-left: 8%;
+
+    }
+    button{
+    border: none;
+    background-color: #2262C6;
+    color: white;
+    border-radius: 3px;
+    font-size: 12px;
+    margin-left: 10px;
+    height: 23px;
+    width: 79px;
+    }
+    p{
+    margin-top: 17px;
+    font-size: 14px;
+    }
+    .technos{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
 }
 // start Styling the responsive for small devices 
 

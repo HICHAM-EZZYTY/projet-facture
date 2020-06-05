@@ -36,15 +36,26 @@ export default {
 <style  scoped lang="scss" >
 @import "../../scss/main.scss" ;   
 
+$Swr1:23%;
+$Swr2:53%;
+$Scr: 54%;
+
+$ts:20vw;
+$tss:50vw;
+
+
 .containerGlobal {
     background-color: $background;
+    height: 720px;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 .rec1>img{
     display: block;
     margin: 0 auto;
     position: relative;
-    width: 23%;
+    width: $Swr1;
     height: 209px;
     right: 17%;
     top: 75px;
@@ -53,7 +64,7 @@ export default {
 
 .rec2>img{
    position: relative;
-    width: 53%;
+    width: $Swr2;
     height: 394px;
     display: block;
     margin: 0 auto;
@@ -67,7 +78,7 @@ export default {
     background-color: $white;
     display: block;
     margin: 0 auto;
-    width: 53%;
+    width: $Scr;
     height: 400px;
     border-radius: 6px;
     z-index: 2;
@@ -78,9 +89,30 @@ export default {
 }
 // start Styling the responsive for small devices 
 
-@media (max-width: 1100px) {
+@media (max-width: 841px) {
 
+.rec1>img{
+ 
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    width: 30%;
+    height: 209px;
+    right: 160px;
+    top: 25px;
+    z-index: 0;
+}
 
+.containerCard{
+    width: $tss+20;
+    left: 10vw;
+}
+
+.rec2>img{
+    position: relative;
+    left: 12%;
+    top: 52px;
+}
 
 }
 

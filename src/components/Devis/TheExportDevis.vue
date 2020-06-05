@@ -1,7 +1,16 @@
 <template>
+<div class="containerGlobal">
 
-<p>This is testing right now</p>
+<div class="rec1"><img src="../../assets/img/Rec1.svg" alt="PictureOfRectange1"></div>
+<div class="rec2"><img src="../../assets/img/Rec2.svg" alt="PictureOfRectange2"></div>
 
+
+
+
+
+
+
+</div>
 </template>
 
 <script>
@@ -28,16 +37,31 @@ export default {
 }
 </script>
 
-<style  lang="scss" >
-
+<style  scoped lang="scss" >
 @import "../../scss/main.scss" ;   
 
-
-
-p{
-    color: black;
-    font-family: $gb;
-
+body {
+    background-color: $background;
 }
+
+.rec1>img{
+    position: relative;
+    width: 316px;
+    height: 209px;
+    left: 20.4%;
+    top: 75px;
+    z-index: 0;
+}
+
+.rec2>img{
+    position: relative;
+    width: 509px;
+    height: 394px;
+    left: 41.4%;
+    bottom: 57px;
+    z-index: 0;
+}
+
+
 
 </style>

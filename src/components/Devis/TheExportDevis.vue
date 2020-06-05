@@ -13,11 +13,11 @@
 
 <div class="technos">
 
-    <div class="first">
+    <div  @mouseover="hoverIcons()" class="first">
         <div class="background">
             <img src="../../assets/img/pdf.svg" alt="Pdf Icon">
         </div>
-        <p>PDF</p>
+        <p  v-bind:class="{active:IsColor}">PDF</p>
     </div>
 
       <div class="second">
@@ -80,11 +80,27 @@ export default {
         }
     },
 
+    data:function(){
+
+        return {
+
+        IsColor:false,
+
+        }
+        
+    },
+
         methods:{
         test(){
             console.log("hada tibiyen bali params khadma",this.DevisId)
             
         },
+        hoverIcons(){
+            console.log('hover khadma')
+            this.IsColor=true;
+            console.log('color',this.Iscolor)
+        }
+
      
     },
  
@@ -112,12 +128,19 @@ $tss:50vw;
         font-family: $sb;
         font-size: 12px;
         opacity: 0.7;
+
 }
 
 @mixin paraHover(){
     color:#2262C6;
-    opacity:100%
+    opacity:100%;
 
+
+}
+
+.active{
+    color:#2262C6;
+    opacity:100%;
 }
 
 
@@ -225,8 +248,11 @@ $tss:50vw;
     background-color: $white1;
     box-shadow: none;
     box-shadow: 32px 5px 62px rgba(0, 0, 0, 0.07);
+    transition: all 1s ease-out;
+
     &:hover{
         background-color: $blue;
+        transform: rotate(1080deg);
     }
     img{
     height: 33px;
@@ -308,7 +334,7 @@ $tss:50vw;
            @include paragraph();
            margin-left: 0px !important;
         }
-         #nb:hover{
+        p:hover{
              @include paraHover();
         }
     }

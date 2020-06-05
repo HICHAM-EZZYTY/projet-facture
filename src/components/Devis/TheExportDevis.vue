@@ -114,6 +114,12 @@ $tss:50vw;
         opacity: 0.7;
 }
 
+@mixin paraHover(){
+    color:#2262C6;
+    opacity:100%
+
+}
+
 
 .containerGlobal {
     background-color: $background;
@@ -219,6 +225,9 @@ $tss:50vw;
     background-color: $white1;
     box-shadow: none;
     box-shadow: 32px 5px 62px rgba(0, 0, 0, 0.07);
+    &:hover{
+        background-color: $blue;
+    }
     img{
     height: 33px;
     display: block;
@@ -261,36 +270,46 @@ $tss:50vw;
     .first{
         p{
         @include paragraph();
-   
+        }
+        p:hover{
+             @include paraHover();
         }
     }
 
     .second{
         p{
         @include paragraph();
-
+        }
+         p:hover{
+             @include paraHover();
         }
     }
       .third{
            p{
             @include paragraph();
-
+        }
+         p:hover{
+             @include paraHover();
         }
       }
 
          .fourth{
            p{
            @include paragraph();
-
+        }
+        p:hover{
+             @include paraHover();
         }
     }
 
       .fifth{
           justify-self: center;
-           p{
+        p{
            @include paragraph();
            margin-left: 0px !important;
-
+        }
+         #nb:hover{
+             @include paraHover();
         }
     }
     .buttonContainer{
@@ -321,12 +340,6 @@ $tss:50vw;
     }
 
 }
-
-
-
-
-
-
 
 @media (max-width: 600px) {
 .buttonContainer {

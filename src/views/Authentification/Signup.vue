@@ -1,48 +1,34 @@
 <template>
-  <div class="container" id="container">
-    <div class="form-container sign-in-container">
-      <!-- 
-        the form component
-      -->
-      <form action="#">
-        <img class="logo" src="../../assets/img/logo-login.svg" alt="" />
-        <h1 class="connex">Inscription</h1>
-        <span class="inscription">Connexion</span>
-        <input type="email" placeholder="EXEMPLE@EMAIL.Com" />
-        <input type="password" placeholder="mot de pass" />
-        <a class="mot" href="#">Mot de passe oublié ?</a>
-        <button @click.prevent="signup">s'inscrire</button>
-      </form>
-      <!-- 
-        the form component
-      -->
-
-    </div>
-    <div class="overlay-container">
-      <div class="overlay">
-          <img class="Shapes" src="../../assets/img/Shapes.png" alt="">
-        <div class="overlay-panel overlay-right">
-            <img class="vector3" src="../../assets/img/Vector3.png" alt="">
-          <h1 class="outil">Fatoura outil de devis et facturation</h1>
-          <p class="p-fato">100% gratuit fatoura est un outil gratuit et il restera toujours C'est promis !</p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <form action="#">
+    <img class="logo" src="../../assets/img/logo-login.svg" alt="" />
+    <h1 class="connex">Inscription</h1>
+    <router-link class="inscription" to="login">
+      <span >Connexion</span>
+    </router-link>
+    <input type="text" placeholder="Your name" v-model="user.name"/>
+    <input type="email" placeholder="EXEMPLE@EMAIL.Com" v-model="user.email" />
+    <input type="password" placeholder="mot de pass" v-model="user.password"/>
+    <a class="mot" href="#">Mot de passe oublié ?</a>
+    <button @click.prevent="signup">s'inscrire</button>
+  </form>
 </template>
 <script>
 export default {
   name: "Register", 
   data(){
     return {
-      name: '', 
-      email: '', 
-      passowrd: ''
+      user: {
+        name: '', 
+        email: '', 
+        passowrd: ''
+      }
     }
   }, 
   methods:{
     signup(){
-      console.log("signup")
+      console.log(this.user.email)
+      console.log(this.user.name)
+      console.log(this.user.password)
     }
   }
 };

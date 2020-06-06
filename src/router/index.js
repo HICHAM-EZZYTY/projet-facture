@@ -2,9 +2,9 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import CreateDevis from "./../components/Devis/createDevis.vue";
 import listDevis from "./../components/Devis/listDevis.vue";
-import LoginPage from "../views/LoginPage.vue"
+import Login from "../views/Authentification/Login.vue"
 import HomePage from "../views/HomePage.vue"
-import RegisterPage from "../views/RegisterPage.vue"
+import Register from "../views/Authentification/Signup.vue"
 import GateLayout from "../views/GateLayout.vue"
 
 
@@ -41,21 +41,24 @@ const routes = [
     ]
 
   }
-  ,
-  {
-    path: '/login',
-    name: 'login',
-    component: LoginPage
-  },
-  {
-    path: '/signup',
-    name: 'Signup',
-    component: RegisterPage
-  }, 
+  , 
   {
     path: '/gate', 
     name: 'Gate', 
-    component: GateLayout
+    component: GateLayout,
+    redirect: '/login',
+    children:[
+       {
+          path: 'login',
+          name: 'login',
+          component: Login
+        },
+        {
+          path: 'signup',
+          name: 'Signup',
+          component: Register
+        }
+    ]
   }
 
 

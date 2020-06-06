@@ -1,55 +1,42 @@
 <template>
-  <div class="container" id="container">
-    <div class="form-container sign-in-container">
-      <form action="#">
-        <img class="logo" src="../../assets/img/logo-login.svg" alt="" />
-        <h1 class="connex">connexion</h1>
-        <span class="inscription">iNSCRIPTION</span>
-        <input type="email" placeholder="EXEMPLE@EMAIL.Com" v-model="email" />
-        <input type="password" placeholder="mot de pass" v-model="password"/>
-        <a class="mot" href="#">Mot de passe oublié ?</a>
-        <button @click.prevent="login">S'identifier</button>
-        <a href="#"
-          ><img class="vector" src="../../assets/img/Vector1.svg" alt="" /> Vous
-          n'avez pas reçu l'email de confirmation ?</a
-        >
-        <a class="vector2" href=""
-          ><img class="vector" src="../../assets/img/Vector2.svg" alt="" />Vous
-          n'avez pas reçu l'email de déblocage ?</a
-        >
-      </form>
-    </div>
-    <div class="overlay-container">
-      <div class="overlay">
-          <img class="Shapes" src="../../assets/img/Shapes.png" alt="">
-        <div class="overlay-panel overlay-right">
-            <img class="vector3" src="../../assets/img/Vector3.png" alt="">
-          <h1 class="outil">Fatoura outil de devis et facturation</h1>
-          <p class="p-fato">100% gratuit fatoura est un outil gratuit et il restera toujours C'est promis !</p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <form action="#">
+    <img class="logo" src="../../assets/img/logo-login.svg" alt="" />
+    <h1 class="connex">connexion</h1>
+      <router-link class="inscription" to="signup">
+      <span >inscription</span>
+    </router-link>
+    <input type="email" placeholder="EXEMPLE@EMAIL.Com" v-model="user.email" />
+    <input type="password" placeholder="mot de pass" v-model="user.password"/>
+    <a class="mot" href="#">Mot de passe oublié ?</a>
+    <button @click.prevent="login">S'identifier</button>
+    <a href="#" >
+      <img class="vector" src="../../assets/img/Vector1.svg" alt="" /> 
+      Vous n'avez pas reçu l'email de confirmation ?
+    </a>
+    <a class="vector2" href=""> 
+    <img class="vector" src="../../assets/img/Vector2.svg" alt="" />Vous
+      n'avez pas reçu l'email de déblocage ?</a
+    >
+  </form>
 </template>
 <script>
 export default {
   name: "Login", 
   data(){
     return {
-      email: '', 
-      password: ''
+      user: {
+        email: '', 
+        password: ''
+      }
     }
   }, 
   methods:{
     login(){
-      
-      let user = {
-        email: this.email, 
-        password: this.password
-      }
+   
 
+      //this.$router.push("/")
       this.$http
-        .post("/login", user)
+        .post("/login", this.user)
         .then((res) => {
           console.log(res);
         })

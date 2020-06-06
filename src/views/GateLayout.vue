@@ -1,9 +1,7 @@
 <template>
     <div class="container" id="container">
       <div class="form-container sign-in-container">
-        <!-- 
-          the form component
-        -->
+          <router-view />
       </div>
       <div class="overlay-container">
         <div class="overlay">
@@ -19,13 +17,21 @@
 </template>
 
 <script>
+import Login from '@/views/Authentification/Login.vue';
+import Signup from './Authentification/Signup.vue';
+
 export default {
-    name: 'GateLayout', 
+    name: 'GateLayout',
+    component:{
+      Login, 
+      Signup
+    }
 }
+
 </script>
 
 
-<style>
+<style scoped>
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
 
 * {

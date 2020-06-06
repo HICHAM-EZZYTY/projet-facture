@@ -5,10 +5,10 @@
         <img class="logo" src="../../assets/img/logo-login.svg" alt="" />
         <h1 class="connex">connexion</h1>
         <span class="inscription">iNSCRIPTION</span>
-        <input type="email" placeholder="EXEMPLE@EMAIL.Com" />
-        <input type="password" placeholder="mot de pass" />
+        <input type="email" placeholder="EXEMPLE@EMAIL.Com" v-model="email" />
+        <input type="password" placeholder="mot de pass" v-model="password"/>
         <a class="mot" href="#">Mot de passe oublié ?</a>
-        <button>S'identifier</button>
+        <button @click.prevent="login">S'identifier</button>
         <a href="#"
           ><img class="vector" src="../../assets/img/Vector1.svg" alt="" /> Vous
           n'avez pas reçu l'email de confirmation ?</a
@@ -33,9 +33,22 @@
 </template>
 <script>
 export default {
-  name: "Login"
+  name: "Login", 
+  data(){
+    return {
+      email: '', 
+      password: ''
+    }
+  }, 
+  methods:{
+    login(){
+      //this.$router.push("/")
+    }
+  }
+
 };
 </script>
+
 <style scoped>
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
 

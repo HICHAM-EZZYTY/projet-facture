@@ -74,16 +74,13 @@ export default {
 
     data: function () {
 
-    return { 
-
-
-        IsColor: false, 
-        IsColor1: false, 
-        IsColor2: false, 
-        IsColor3: false, 
-        IsColor4: false, 
+        return { 
+            IsColor: false, 
+            IsColor1: false, 
+            IsColor2: false, 
+            IsColor3: false, 
+            IsColor4: false, 
         }
-
     },
  
    
@@ -91,8 +88,7 @@ export default {
       props:{
       
     },
-
-        methods:{
+    methods:{
     
         hoverIcons(){
             this.IsColor=true;
@@ -123,13 +119,8 @@ export default {
         },
         hoverIconsLeave4(){
             this.IsColor4=false;
-        }
-     
-     
+        }     
     },
- 
- 
-
 }
 </script>
 
@@ -144,29 +135,25 @@ $tss:50vw;
 
 
 @mixin paragraph() {
-        display: block;
-        margin: 0 auto;
-        margin-left: 8px;
-        margin-top: 6px;
-        color: $blacklight;
-        font-family: $sb;
-        font-size: 12px;
-        opacity: 0.7;
-
+    display: block;
+    margin: 0 auto;
+    margin-left: 8px;
+    margin-top: 6px;
+    color: $blacklight;
+    font-family: $sb;
+    font-size: 12px;
+    opacity: 0.7;
 }
 
 @mixin paraHover(){
     color:#2262C6;
     opacity:100%;
-
-
 }
 
 .active{
     color:#2262C6 !important;
     opacity:100% !important;
 }
-
 
 .containerGlobal {
     background-color: $background;
@@ -198,7 +185,6 @@ $tss:50vw;
 }
 
 .containerCard{
-
     background-color: $white;
     display: block;
     margin: 0 auto;
@@ -223,24 +209,25 @@ $tss:50vw;
     position: relative;
     background-color: #F5F7FB;
     z-index: 1;
+
     &:hover{
-    animation: rotating 2s linear infinite;
+        animation: rotating 2s linear infinite;
     }
     @keyframes rotating {
-    from {
-        -ms-transform: rotate(0deg);
-        -moz-transform: rotate(0deg);
-        -webkit-transform: rotate(0deg);
-        -o-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    to {
-        -ms-transform: rotate(360deg);
-        -moz-transform: rotate(360deg);
-        -webkit-transform: rotate(360deg);
-        -o-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
+        from {
+            -ms-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -webkit-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+        }
+        to {
+            -ms-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -webkit-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
     }
     img
     {

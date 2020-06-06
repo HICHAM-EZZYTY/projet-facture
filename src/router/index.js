@@ -25,7 +25,7 @@ const routes = [
   },
 
   {
-    path: '/exportDevis/:DevisId',
+    path: '/exportDevis',
     name: 'exportDevis',
     props: true,
     component: () => import(/* webpackChunkName: "exportDevis" */ "./../components/Devis/TheExportDevis.vue"),

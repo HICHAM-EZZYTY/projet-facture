@@ -1,6 +1,9 @@
 <template>
   <div class="container" id="container">
     <div class="form-container sign-in-container">
+      <!-- 
+        the form component
+      -->
       <form action="#">
         <img class="logo" src="../../assets/img/logo-login.svg" alt="" />
         <h1 class="connex">Inscription</h1>
@@ -8,8 +11,12 @@
         <input type="email" placeholder="EXEMPLE@EMAIL.Com" />
         <input type="password" placeholder="mot de pass" />
         <a class="mot" href="#">Mot de passe oublié ?</a>
-        <button>s'inscrire</button>
+        <button @click.prevent="signup">s'inscrire</button>
       </form>
+      <!-- 
+        the form component
+      -->
+
     </div>
     <div class="overlay-container">
       <div class="overlay">
@@ -25,7 +32,19 @@
 </template>
 <script>
 export default {
-  name: "Login"
+  name: "Register", 
+  data(){
+    return {
+      name: '', 
+      email: '', 
+      passowrd: ''
+    }
+  }, 
+  methods:{
+    signup(){
+      console.log("signup")
+    }
+  }
 };
 </script>
 <style scoped>

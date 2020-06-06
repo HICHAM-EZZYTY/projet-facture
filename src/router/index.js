@@ -4,6 +4,8 @@ import CreateDevis from "./../components/Devis/createDevis.vue";
 import listDevis from "./../components/Devis/listDevis.vue";
 import LoginPage from "../views/LoginPage.vue"
 import HomePage from "../views/HomePage.vue"
+import RegisterPage from "../views/RegisterPage.vue"
+import GateLayout from "../views/GateLayout.vue"
 
 
 
@@ -44,7 +46,18 @@ const routes = [
     path: '/login',
     name: 'login',
     component: LoginPage
+  },
+  {
+    path: '/signup',
+    name: 'Signup',
+    component: RegisterPage
+  }, 
+  {
+    path: '/gate', 
+    name: 'Gate', 
+    component: GateLayout
   }
+
 
 
 

@@ -42,7 +42,21 @@ export default {
   }, 
   methods:{
     login(){
+      
+      let user = {
+        email: this.email, 
+        password: this.password
+      }
+
       //this.$router.push("/")
+      this.$http
+        .post("/login", user)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((e) => {
+          console.error(e);
+        });
     }
   }
 

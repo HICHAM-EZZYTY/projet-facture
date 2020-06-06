@@ -223,6 +223,11 @@ export default {
 };
 </script>
 
+<script>
+export default {
+  name:"ListDevis"
+}
+</script>
 <style>
 /* TITLE HEAD */
 .Title {

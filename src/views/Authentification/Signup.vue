@@ -3,32 +3,32 @@
     <img class="logo" src="../../assets/img/logo-login.svg" alt="" />
     <h1 class="connex">Inscription</h1>
     <router-link class="inscription" to="login">
-      <span >Connexion</span>
+      <span>Connexion</span>
     </router-link>
-    <input type="text" placeholder="Your name" v-model="user.name"/>
+    <input type="text" placeholder="Your name" v-model="user.name" />
     <input type="email" placeholder="EXEMPLE@EMAIL.Com" v-model="user.email" />
-    <input type="password" placeholder="mot de pass" v-model="user.password"/>
+    <input type="password" placeholder="mot de pass" v-model="user.password" />
     <a class="mot" href="#">Mot de passe oublié ?</a>
     <button @click.prevent="signup">s'inscrire</button>
   </form>
 </template>
 <script>
 export default {
-  name: "Register", 
-  data(){
+  name: "Register",
+  data() {
     return {
       user: {
-        name: '', 
-        email: '', 
-        passowrd: ''
+        name: "",
+        email: "",
+        passowrd: ""
       }
-    }
-  }, 
-  methods:{
-    signup(){
-      console.log(this.user.email)
-      console.log(this.user.name)
-      console.log(this.user.password)
+    };
+  },
+  methods: {
+    signup() {
+      console.log(this.user.email);
+      console.log(this.user.name);
+      console.log(this.user.password);
     }
   }
 };
@@ -80,24 +80,23 @@ h2 {
   position: relative;
   left: -19%;
 }
-.p-fato{
-    text-align: start;
-    position: relative;
-    left: -19%;
-    font-size: small;
+.p-fato {
+  text-align: start;
+  position: relative;
+  left: -19%;
+  font-size: small;
 }
-.Shapes{
-    position: relative;
-    left: 7%;
-    height: 105%;
-
+.Shapes {
+  position: relative;
+  left: 7%;
+  height: 105%;
 }
-.vector3{
-    position: relative;
-    top: 54%;
-    right: 88%;
-    width: 10%;
-    height: 4%;
+.vector3 {
+  position: relative;
+  top: 54%;
+  right: 88%;
+  width: 10%;
+  height: 4%;
 }
 p {
   font-size: 14px;

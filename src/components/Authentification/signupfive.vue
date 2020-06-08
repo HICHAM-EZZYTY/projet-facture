@@ -6,32 +6,56 @@
       <form action="#">
         <!-- <span class="inscription">iNSCRIPTION</span> -->
         <div class="col-3 signup_input">
-          <input type="text" placeholder="Email" />
+          <input type="text" placeholder="Adresse compléte" />
+          <span class="focus-border"></span>
+          <b-button @click="addAdresse" class="button-plus btn-duplicat">
+            <i class="fa fa-plus" style="color: gray;"></i>
+          </b-button>
+          <b-button class="button-minus btn-duplicat">
+            <i class="fa fa-minus" style="color: gray;"></i>
+          </b-button>
+          <div
+            class="previous input-duplicate"
+            v-for="(applicant, counter) in applicants"
+            v-bind:key="counter"
+          >
+            <b-button @click="deleteAdresse(counter)" class="delete-Adresse btn-duplicat">
+              <i class="fa fa-minus" style="color: gray;"></i>
+            </b-button>
+
+            <input
+              type="text"
+              placeholder="Adresse compléte"
+              v-model="applicant.expiration"
+              required
+            />
+          </div>
+        </div>
+        <div class="col-3 signup_input postal-input">
+          <input type="text" placeholder="Code Postale" />
           <span class="focus-border"></span>
         </div>
+        <!-- //////// -->
+
+        <div>
+          <b-form-select v-model="selected" :options="options" class="mb-3">
+            <!-- This slot appears above the options from 'options' prop -->
+            <template v-slot:first>
+              <b-form-select-option :value="null" disabled>Ville</b-form-select-option>
+            </template>
+            <!-- These options will appear after the ones from 'options' prop -->
+            <b-form-select-option value="C">Khouribga</b-form-select-option>
+            <b-form-select-option value="D">Ben-guerrir</b-form-select-option>
+          </b-form-select>
+        </div>
+        <!-- //////// -->
 
         <div class="col-3 signup_input">
-          <input type="text" placeholder="Nom complet" />
+          <input type="text" placeholder="Numéro de téléphone" />
           <span class="focus-border"></span>
         </div>
         <div class="col-3 signup_input">
-          <input type="text" placeholder="Nom de la société" />
-          <span class="focus-border"></span>
-        </div>
-        <div class="col-3 signup_input">
-          <input type="text" placeholder="Société" />
-          <span class="focus-border"></span>
-        </div>
-        <div class="col-3 signup_input">
-          <input type="text" placeholder="Identifiant fiscale" />
-          <span class="focus-border"></span>
-        </div>
-        <div class="col-3 signup_input">
-          <input type="text" placeholder="Identifiant commun de l'entreprise" />
-          <span class="focus-border"></span>
-        </div>
-        <div class="col-3 signup_input">
-          <input type="text" placeholder="Taxe professionnelle" />
+          <input type="text" placeholder="Site internet " />
           <span class="focus-border"></span>
         </div>
         <button class="button_left">
@@ -63,6 +87,30 @@
 <script>
 export default {
   // name: "Login"
+  data() {
+    return {
+      selected: null,
+      options: [
+        { value: "A", text: "Youssoufia" },
+        { value: "B", text: "Marrakech" }
+      ],
+      applicants: [
+        {
+          previous: ""
+        }
+      ]
+    };
+  },
+  methods: {
+    addAdresse() {
+      this.applicants.push({
+        previous: ""
+      });
+    },
+    deleteAdresse(counter) {
+      this.applicants.splice(counter, 1);
+    }
+  }
 };
 </script>
 <style scoped>
@@ -102,6 +150,58 @@ h2 {
   font-size: 24px;
   margin-left: 6rem;
 }
+
+/* Duplicate input */
+.btn-duplicat {
+  width: 22px;
+  height: 21.5px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+  background-color: #ffffff;
+}
+
+.button-minus {
+  margin-top: -7.5rem;
+  margin-left: 9rem;
+}
+
+.fa-minus {
+  margin-top: -4px;
+  position: absolute;
+  margin-left: -4px;
+}
+
+.btn-secondary:hover {
+  color: #fff;
+  background-color: #2262c6 !important;
+  border-color: #2262c6 !important;
+}
+
+.button-plus {
+  margin-top: -4.5rem;
+  margin-left: 7rem;
+}
+
+.fa-plus {
+  margin-top: -4px;
+  position: absolute;
+  margin-left: -4.5px;
+}
+
+.delete-Adresse {
+  margin-left: 9rem;
+  margin-top: 7.5rem;
+  position: absolute;
+}
+
+.input-duplicate {
+  margin-top: -9rem;
+}
+
+/* Fin Duplicate Input */
 
 .inscription {
   position: relative;
@@ -168,7 +268,7 @@ button {
   width: 137px;
   height: 56px;
   left: 118px;
-  top: 36.5rem;
+  top: 37.5rem;
   border: 1px solid #aab5c6;
   box-sizing: border-box;
   border-radius: 4px;
@@ -202,7 +302,7 @@ form {
   padding: 0 50px;
   /* height: 100%; */
   text-align: center;
-  margin-top: 4rem;
+  margin-top: 5rem;
 }
 
 button,
@@ -215,7 +315,7 @@ input {
   color: grey;
   font-size: 13px;
   position: relative;
-  margin-top: 6rem;
+  margin-top: 8rem;
   width: 20rem;
   left: 7px;
 }
@@ -256,6 +356,10 @@ input[type="text"] {
 
 .custom-select {
   border-radius: 0px !important;
+}
+
+.postal-input {
+  margin-top: -84px;
 }
 
 /* FIN INPUT FOCUS EFFECTS CSS */

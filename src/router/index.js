@@ -5,8 +5,14 @@ import Devis from "./../views/Devis.vue";
 import CreateDevis from "./../components/Devis/CreateDevis.vue";
 import listClient from "../components/client/listClient.vue";
 import addClient from "../components/client/addClient.vue";
-import homeSeting from "../views/setings/homeSeting";
+import homeSeting from "../views/setings/homeSeting.vue";
 import preference from "../components/setings/preference.vue";
+import signup from "../views/Authentification/Signup.vue";
+import login from "../views/Authentification/Login.vue";
+import signupThree from "../components/Authentification/signupThree.vue";
+import singupFour from "../components/Authentification/singupFour.vue";
+import sigupfive from "../components/Authentification/signupfive.vue";
+
 
 Vue.use(VueRouter);
 
@@ -34,13 +40,47 @@ const routes = [
   {
     path: "/settings",
     name: "homeSeting",
-    component: homeSeting
+    component: homeSeting,
+    children: [
+      {
+        path: 'preference',
+        name: 'preference',
+        component: preference
+      },
+    ]
+  },
+  // {
+  //   path: "/preference",
+  //   name: "preference",
+  //   component: preference
+
+  // },
+  {
+    path: "/signup",
+    name: "signup",
+    component: signup
   },
   {
-    path: "/Préférences",
-    name: "preference",
-    component: preference
+    path: "/login",
+    name: "login",
+    component: login
   },
+  {
+    path: "/signupThree",
+    name: "signupThree",
+    component: signupThree
+  },
+  {
+    path: "/singupFour",
+    name: "singupFour",
+    component: singupFour
+  },
+  {
+    path: "/singupfive",
+    name: "sigupfive",
+    component: sigupfive
+  },
+
 
 ];
 

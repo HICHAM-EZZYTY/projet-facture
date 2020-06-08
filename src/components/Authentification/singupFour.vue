@@ -1,14 +1,42 @@
 <template>
-  <div class="row">
-    <div class="container1">
-      <b-form-input class="effect-1 simplebox" v-model="text" placeholder="Enter your name"></b-form-input>
-      <span class="focus-border"></span>
-    </div>
+  <div id="visa">
+    <h1>Vue Visa Application</h1>
+    <form>
+      <button @click="addVisa">Add another previous visa</button>
+      <button @click="deleteVisa(counter)">Delete visa</button>
+      <br />
+      <div class="previous" v-for="(applicant, counter) in applicants" v-bind:key="counter">
+        <span @click="deleteVisa(counter)">x</span>
+
+        <label for="duration">visa:</label>
+        <input type="text" v-model="applicant.expiration" required />
+      </div>
+    </form>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      applicants: [
+        {
+          previous: ""
+        }
+      ]
+    };
+  },
+  methods: {
+    addVisa() {
+      this.applicants.push({
+        previous: ""
+      });
+    },
+    deleteVisa(counter) {
+      this.applicants.splice(counter, 1);
+    }
+  }
+};
 </script>
 
 <style>
@@ -93,4 +121,36 @@ input[type="text"] {
   width: 100%;
   transition: 0.4s;
 }
+
+.effect-2 {
+  border: 0;
+  padding: 7px 0;
+  border-bottom: 1px solid #ccc;
+}
+.effect-2 ~ .focus-border {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #3399ff;
+  transition: 0.4s;
+}
+.effect-2:focus ~ .focus-border {
+  width: 100%;
+  transition: 0.4s;
+  left: 0;
+}
+input {
+  background: transparent;
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid #45494c;
+  font-size: 14px;
+  color: #959595;
+  padding: 8px 0;
+  margin-top: 20px;
+}
 </style>
+
+

@@ -1,7 +1,14 @@
 <template>
   <div :style="myStyle">
-    <navBar />
-    <sideBar />
+    <div class="Container">
+      <div class="col-6">
+        <navBar />
+        <sideBar />
+      </div>
+      <div class="contents">
+        <router-view></router-view>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -9,6 +16,7 @@
 // @ is an alias to /src
 import navBar from "@/components/setings/navBar.vue";
 import sideBar from "@/components/setings/sideBar.vue";
+// import preference from "@/components/setings/preference.vue";
 // import CreateDevis from "@/components/Devis/CreateDevis.vue";
 
 // import Table from "@/components/data-table/Table.vue";
@@ -18,30 +26,30 @@ export default {
   components: {
     navBar,
     sideBar
+    // preference
   },
   data() {
     return {
       myStyle: {
-        backgroundColor: "#000000"
+        backgroundColor: "#eceff9"
       }
     };
   }
 };
 </script>
 <style>
-/* .body {
-  font-family: "Gillroy", Arial, Helvetica, sans-serif;
-  background-color: red !important;
-} */
+.Container {
+  display: flex;
+  flex-direction: row;
+}
 
-.container-one {
-  position: absolute;
-  background-color: #ffffff;
-  border: 1px solid #ffffff;
-  width: 79rem;
-  border-radius: 20px;
-  left: 9rem;
-  top: 10.5rem;
-  height: 100%;
+.contents {
+  border: 2px solid white;
+  width: 57rem;
+  margin-left: -16.5rem;
+  margin-top: 10.9rem;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: white;
 }
 </style>

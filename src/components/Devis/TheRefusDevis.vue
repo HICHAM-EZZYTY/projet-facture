@@ -6,6 +6,8 @@
   </div>
   <div class="circle"></div>
   <div id="card"></div>
+  <div class="rec2"></div>
+  <div class="circleclose"></div>
 
 
 
@@ -25,12 +27,13 @@ export default {
 @import "../../scss/main.scss" ;   
 .containerGlobal {
     background-color: $background;
-    height: 720px;
+    height: 615px;
     width: 100%;
     overflow-x: hidden;
+    overflow-y: hidden;
 }
 .rec1{
-   background-image: url("../../assets/img/Rectangle 45.svg");
+    background-image: url("../../assets/img/Rectangle 45.svg");
     background-color: transparent;
     background-position: center;
     background-repeat: no-repeat;
@@ -39,7 +42,7 @@ export default {
     height: 183px;
     width: 331px;
     border-radius: 6px;
-    top: 14%;
+    top: 19%;
     left: 18.2%;
     z-index: 1;
     float:left;
@@ -60,7 +63,7 @@ export default {
     z-index: 2;
     position: relative;
     left: 24%;
-    top: 17%;
+    top: 24%;
 
 }
 .circle {
@@ -74,8 +77,37 @@ export default {
     width: 93px;
     z-index: 1;
     float: right;
-    top: 96px;
+    top: 120px;
     right: 29%;
+    }
+    .rec2{
+
+    background-image: url("../../assets/img/Rectangle 46.svg");
+    background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 137px;
+    width: 245px;
+    border-radius: 6px;
+    top: 46px;
+    right: 22%;
+    z-index: 1;
+    float: right;
+    }
+    .circleclose{
+    background-image: url("../../assets/img/Ellipse 33.svg");
+    background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    top: 162px;
+    float: left;
+    height: 192px;
+    width: 173px;
+
     }
 
 </style>

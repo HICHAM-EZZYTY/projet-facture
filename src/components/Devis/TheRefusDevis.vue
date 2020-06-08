@@ -252,6 +252,31 @@ export default {
           height: 40px;
           }
     }
+       @media (max-width: 362px) {
+         
+         .header{
+          grid-template-columns: 0.6fr 1fr 0.6fr;
+         }
+    } 
+     @media (max-width: 294px) {
+
+        .header{
+          h1{
+            font-size: 14px;
+          }
+        }
+         
+         #draw1{
+          height: 30px;
+
+         }
+         #draw2{
+          height: 30px;
+
+         }
+    } 
+
+
 
         // Ending of responsive layout 
 

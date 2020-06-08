@@ -30,9 +30,10 @@
           <img id="btnImage" src="../../assets/img/Emoji.svg" alt="AttentionEmoji">
           <p id="btnP">Non s'il vous plaît !</p>
         </button>
-
-
       </div>
+
+      <p id="finalP">si vous avez commis une erreur vous pouvez toujours modifier le devis</p>
+
 
 
       </div>
@@ -254,6 +255,16 @@ export default {
     margin-left: 12px;
     margin-right: 8px;
   }
+   #finalP{
+      margin-top: 13px;
+      font-family: $r ;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 10.9px;
+      text-transform: lowercase;
+      color: $white;
+      text-align: center;
+   }
 
 
 
@@ -396,7 +407,7 @@ export default {
          .btn2{
           grid-template-columns: 1fr 3fr;
           padding-left: 0%;
-          padding-right: 0%;
+          padding-right: 0% ;
          }
          #btnP{
            font-size: 10px;

@@ -8,6 +8,7 @@
       <div class="circlee">
         <img src="../../assets/img/delete.svg" alt="closing the modal">
       </div>
+      <h1>Sélectionner la date de signature <span>(d2000003)</span></h1>
     </div>
 
     <div class="rec2"></div>
@@ -66,6 +67,19 @@ export default {
     position: absolute;
     left: 24%;
     top: 90px;
+    h1{
+        font-family: $sb;
+        color:$white;
+        margin-top: 70px;
+        text-align: center;
+        font-size: 15px;
+        text-transform: capitalize;
+        span{
+
+        text-transform: lowercase;
+
+        }
+    }
 }
     .rec2{
 
@@ -136,6 +150,7 @@ export default {
     margin-top: 11px;
     }
     }
+
     @media (max-width: 1000px) {
 
       .circle{
@@ -196,29 +211,7 @@ export default {
         }
 
     
-       @media (max-width: 362px) {
-         
-         .header{
-          grid-template-columns: 0.6fr 1fr 0.6fr;
-         }
-    } 
-     @media (max-width: 294px) {
-
-        .header{
-          h1{
-            font-size: 14px;
-          }
-        }
-         
-         #draw1{
-          height: 30px;
-
-         }
-         #draw2{
-          height: 30px;
-
-         }
-    } 
+  
 
 
 

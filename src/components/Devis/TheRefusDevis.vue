@@ -134,6 +134,7 @@ export default {
   // Ending of the layout Styling 
   .header{
     display:grid;
+    margin-top: 3px;
     grid-template-columns: 2fr 1fr 2fr;
     position: absolute;
     width: 100%;
@@ -143,23 +144,29 @@ export default {
       color: #FFFFFF;
       margin-top: 113px;
       justify-self: center;
+      text-transform: lowercase;
+      margin-bottom: 0px;
     }
   }
 
   #draw1{
     
     justify-self: flex-end;
+    align-self: end;
     height: 78px;
-    margin-top: 55px;
   }
   #draw2{
     
     justify-self: flex-start;
+    align-self: end;
     height: 78px;
     margin-top: 55px;
   }
 
     // Start the responsive web 
+
+
+
     @media (max-width: 1000px) {
 
       .circle{
@@ -210,6 +217,21 @@ export default {
         width: 85%;
       }
     }
+    @media (max-width: 640px) {
+          .header{
+          grid-template-columns: 1fr 1fr 1fr;
+          }
+          #draw1{
+          justify-self: center;
+          height: 65px;
+
+          }
+          #draw2{
+          justify-self: center;
+          height: 65px;
+          }
+    }
+
         @media (max-width: 450px) {
            .rec1{
         img{
@@ -217,6 +239,19 @@ export default {
         }
       }
         }
+
+        @media (max-width: 397px) {
+        
+          #draw1{
+          justify-self: center;
+          height: 40px;
+
+          }
+          #draw2{
+          justify-self: center;
+          height: 40px;
+          }
+    }
 
         // Ending of responsive layout 
 

@@ -107,7 +107,67 @@ export default {
     float: left;
     height: 192px;
     width: 173px;
-
     }
+    // Start the responsive web 
+    @media (max-width: 1000px) {
+
+      .circle{
+        right:13%;
+      }
+      .rec2{
+        right: 12%;
+      }
+      .rec1{
+        left: 10%;
+      }
+      #card{
+        left: 18%;
+      }
+    }
+      @media (max-width: 850px) {
+
+      .circle{
+        right:13%;
+      }
+      .rec2{
+        right: 12%;
+      }
+      .rec1{
+        left: 4%;
+      }
+      #card{
+        left: 13%;
+      }
+    }
+    @media (max-width: 792px) {
+
+      .circle{
+        display:none
+      }
+      .rec2{
+        right: 12%;
+      }
+      .rec1{
+        left: 1%;
+        img{
+          left: 3%;
+        }
+      }
+      #card{
+        left: 9%;
+        height: 70%;
+        width: 85%;
+      }
+    }
+
+        @media (max-width: 450px) {
+           .rec1{
+        img{
+          display: none;
+        }
+      }
+        }
+
+
 
 </style>

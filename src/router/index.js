@@ -12,6 +12,12 @@ import login from "../views/Authentification/Login.vue";
 import signupThree from "../components/Authentification/signupThree.vue";
 import singupFour from "../components/Authentification/singupFour.vue";
 import sigupfive from "../components/Authentification/signupfive.vue";
+import devisRef from "../components/setings/devisRef.vue";
+import factureRef from "../components/setings/factureRef.vue";
+import avoirRef from "../components/setings/avoirRef.vue";
+import factureAcompte from "../components/setings/factureAcompte.vue";
+import avoirAcompte from "../components/setings/avoirAcompte.vue";
+import numerotation from "../components/setings/numerotation.vue";
 
 
 Vue.use(VueRouter);
@@ -46,6 +52,36 @@ const routes = [
         path: 'preference',
         name: 'preference',
         component: preference
+      },
+      {
+        path: 'devisRef',
+        name: 'devisRef',
+        component: devisRef
+      },
+      {
+        path: 'factureRef',
+        name: 'factureRef',
+        component: factureRef
+      },
+      {
+        path: 'avoirRef',
+        name: 'avoirRef',
+        component: avoirRef
+      },
+      {
+        path: 'factureAcompte',
+        name: 'factureAcompte',
+        component: factureAcompte
+      },
+      {
+        path: 'avoirAcompte',
+        name: 'avoirAcompte',
+        component: avoirAcompte
+      },
+      {
+        path: 'numerotation',
+        name: 'numerotation',
+        component: numerotation
       },
     ]
   },

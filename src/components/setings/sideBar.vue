@@ -4,7 +4,8 @@
       <ul class="sidebar-nav">
         <li class="sidebar-brand" active>
           <!-- <router-link to="/Préférences"> -->
-          <router-link to="preference">
+          <!-- <router-link to="preference"> -->
+          <router-link :to="{ name: 'preference' }">
             <a class="preference">
               Préférences
               <i class="fa fa-caret-right" style="font-size: 2rem;"></i>
@@ -13,28 +14,40 @@
           <!-- </router-link> -->
         </li>
         <li class="sidebar-brand">
-          <a href="#">Devis</a>
+          <router-link :to="{ name: 'devisRef' }">
+            <a>Devis</a>
+          </router-link>
         </li>
         <li class="sidebar-brand">
-          <a href="#">Factures</a>
+          <router-link :to="{ name: 'factureRef' }">
+            <a>Factures</a>
+          </router-link>
         </li>
         <li class="sidebar-brand">
-          <a href="#">Avoirs</a>
+          <router-link :to="{ name: 'avoirRef' }">
+            <a>Avoirs</a>
+          </router-link>
         </li>
         <li class="sidebar-brand">
-          <a href="#">Factures d'acompte</a>
+          <router-link :to="{ name: 'factureAcompte' }">
+            <a>Factures d'acompte</a>
+          </router-link>
         </li>
         <li class="sidebar-brand">
-          <a href="#">Avoirs d'acompte</a>
+          <router-link :to="{ name: 'avoirAcompte' }">
+            <a>Avoirs d'acompte</a>
+          </router-link>
         </li>
         <li class="sidebar-brand">
-          <a href="#">Numérotation</a>
+          <router-link :to="{ name: 'numerotation' }">
+            <a>Numérotation</a>
+          </router-link>
         </li>
         <li class="sidebar-brand">
-          <a href="#">Types d'article</a>
+          <a>Types d'article</a>
         </li>
         <li class="sidebar-brand">
-          <a href="#">Thème des documents</a>
+          <a>Thème des documents</a>
         </li>
       </ul>
     </b-navbar>
@@ -57,9 +70,11 @@ export default {
 .navBar {
   /* background-color: #e5e5e5 !important; */
   margin-top: 3.5rem;
-  margin-left: 8rem;
-  width: 22rem;
-  height: 70rem;
+  /* position: fixed; */
+  margin-left: 10rem;
+  overflow-y: scroll;
+  width: 20rem;
+  height: 32rem;
   /* margin-left: 8rem; */
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
@@ -124,7 +139,7 @@ export default {
   display: block;
   text-decoration: none;
   color: #999999;
-  padding: 15px;
+  padding: 8px;
 }
 /* 
 .sidebar-nav li a:hover {

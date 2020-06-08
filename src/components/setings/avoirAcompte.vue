@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1 class="title-ref">Préférences Générales :</h1>
-    <h5 class="sous-title">ici, vous pouvez modifier les préférences générales</h5>
+    <h1 class="title-ref">Préférences Pour Les Avoirs D'acomptes :</h1>
+    <h5 class="sous-title">ici, vous pouvez modifier les préférences des avoirs d'acomptes</h5>
   </div>
 </template>
 

@@ -21,9 +21,9 @@ export default {};
 
 <style>
 .bg-light {
-  width: 79rem;
+  width: 73rem;
   top: 1.5rem;
-  left: 8rem;
+  left: 10rem;
   border-radius: 20px;
   height: 118px;
 }
@@ -38,7 +38,7 @@ export default {};
 
 .button-back {
   border-radius: 22px !important;
-  margin-left: 53rem;
+  margin-left: 49rem;
   background-color: #0062cc !important;
   width: 34px;
   height: 34px;
@@ -51,7 +51,7 @@ export default {};
   color: #0062cc;
   font-weight: bold;
   top: 71px;
-  left: 72.5rem;
+  left: 68.5rem;
 }
 
 .logo-fatoura {

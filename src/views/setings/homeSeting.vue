@@ -41,15 +41,19 @@ export default {
 .Container {
   display: flex;
   flex-direction: row;
+  height: 62rem;
+  overflow: hidden;
 }
 
 .contents {
   border: 2px solid white;
-  width: 57rem;
+  width: 53rem;
   margin-left: -16.5rem;
   margin-top: 10.9rem;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   background-color: white;
+  height: 32rem;
+  overflow: hidden;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1 class="title-ref">Préférences Générales :</h1>
-    <h5 class="sous-title">ici, vous pouvez modifier les préférences générales</h5>
+    <h1 class="title-ref">Préférences Pour La Numérotation :</h1>
+    <h5 class="sous-title">ici, vous pouvez modifier les préférences de numérotation</h5>
   </div>
 </template>
 

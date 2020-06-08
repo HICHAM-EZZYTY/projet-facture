@@ -9,7 +9,6 @@
   </div>
   <div class="circle"></div>
 
-  <div id="cc">
   <div id="card">
       <!-- <div id="cardd"> -->
       <div class="circlee">
@@ -22,7 +21,20 @@
                 <img id="draw2" src="../../assets/img/path (1).svg" alt="DrawingOfapath">
       </div>
 
-      <p>Voulez-vous vraiment marquer ce devis comme étant refusé ?</p>
+      <p id="cardP">Voulez-vous vraiment marquer ce devis comme étant refusé ?</p>
+
+      <div class="containBtn">
+
+        <button class="btn1">Oui</button>
+        <button class="btn2">
+          <img id="btnImage" src="../../assets/img/Emoji.svg" alt="AttentionEmoji">
+          <p id="btnP">Non s'il vous plaît !</p>
+        </button>
+
+
+      </div>
+
+
       </div>
 
   <!-- </div> -->
@@ -36,7 +48,6 @@
 
 
 
-</div>
 </div>
   
 </template>
@@ -92,7 +103,8 @@ export default {
     position: absolute;
     left: 24%;
     top: 141px;
-    p{
+}
+  #cardP{
     display: block;
     width: 100%;
     float: none;
@@ -102,7 +114,7 @@ export default {
     font-family: $sb;
     font-size: 14px;
     }
-}
+
  .circlee{
     float: right; 
     margin-top: 8%;
@@ -172,6 +184,7 @@ export default {
     width: 100%;
     height: 86px;
     margin-top: 50px;
+    margin-bottom: 10px;
     h1{
       font-family:  $bd;
       font-size: 17px;
@@ -197,6 +210,52 @@ export default {
     height: 78px;
   }
    
+  .containBtn{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* width: 75%; */
+    padding-left: 23%;
+    padding-right: 23%;
+  }
+  .btn1{
+    height: 33px;
+    margin-right: 10px;
+    border-radius: 3px;
+    border: none;
+    color:$blue;
+    font-family: $sb;
+    font-size: 12px;
+
+  }
+  .btn2{
+    height: 33px;
+    margin-left: 10px;
+    border-radius: 3px;
+    background-color: none;
+    background-color: transparent;
+    border: 0.5px solid white;
+    display: grid;
+    grid-template-columns: 0.8fr 3fr;
+  } 
+  #btnP{
+    font-family: $sb;
+    align-self: center;
+    font-family: "Gilroy-SemiBold";
+    font-size: 12px;
+    color: $white;
+    justify-self: baseline;
+    margin-bottom: 0px;
+    }
+  #btnImage{
+   height: 13px;
+    width: 17px;
+    justify-self: center;
+    align-self: center;
+    margin-left: 12px;
+    margin-right: 8px;
+  }
+
+
 
     // Start the responsive web 
 

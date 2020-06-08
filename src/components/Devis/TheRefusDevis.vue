@@ -65,6 +65,13 @@ export default {
 
 // Starting of the layout Styling
 
+button:focus {
+
+  outline:0;
+  
+  }
+
+
 .containerGlobal {
     background-color: $background;
     height: 615px;
@@ -127,6 +134,28 @@ export default {
     background-color: #F5F7FB;
     z-index: 4;
     right: 0;
+    &:hover{
+        animation-name: rotate-in-center;
+        animation-duration: 1s;
+        animation-timing-function: ease;
+        animation-delay: 0s;
+        animation-iteration-count: 1;
+        animation-direction: normal;
+        animation-fill-mode: none;
+    }
+    @keyframes rotate-in-center {
+      0%{
+        -webkit-transform: rotate(-360deg);
+        transform: rotate(-360deg);
+        opacity: 1;
+      }
+      100%{
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+        opacity: 1;
+      }
+    }
+
     img{
     width: 11px;
     height: 11px;
@@ -264,6 +293,19 @@ export default {
       text-transform: lowercase;
       color: $white;
       text-align: center;
+        &:hover {
+      animation: text-shadow-pop-left 0.6s both;
+      }
+      @keyframes text-shadow-pop-left {
+        0% {
+          -webkit-transform: translateX(0);
+          transform: translateX(0);
+        }
+        100% {
+          -webkit-transform: translateX(8px);
+          transform: translateX(8px);
+        }
+      }
    }
 
 

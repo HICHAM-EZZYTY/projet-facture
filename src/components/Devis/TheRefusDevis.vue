@@ -11,7 +11,7 @@
 
   <div id="cc">
   <div id="card">
-      <div id="cardd">
+      <!-- <div id="cardd"> -->
       <div class="circlee">
         <img src="../../assets/img/delete.svg" alt="closing the modal">
       </div>
@@ -25,7 +25,7 @@
       <p>Voulez-vous vraiment marquer ce devis comme étant refusé ?</p>
       </div>
 
-  </div>
+  <!-- </div> -->
   <div class="rec2"></div>
   <div class="circleclose"></div>
 
@@ -73,7 +73,7 @@ export default {
     top: 19%;
     left: 18.2%;
     z-index: 1;
-    float:left;
+    float: left;
 
     img{
     height: 128px;
@@ -89,7 +89,7 @@ export default {
     width: 665px;
     border-radius: 10px;
     z-index: 2;
-    position: relative;
+    position: absolute;
     left: 24%;
     top: 141px;
     p{
@@ -102,11 +102,6 @@ export default {
     font-family: $sb;
     font-size: 14px;
     }
-}
-#cardd{
-    position: absolute;
-    height: 100%;
-    width: 100%;
 }
  .circlee{
     float: right; 
@@ -129,7 +124,6 @@ export default {
     }
 .circle {
     background-image: url("../../assets/img/Ellipse 41.svg");
-    background-color: transparent;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -137,9 +131,9 @@ export default {
     height: 93px;
     width: 93px;
     z-index: 1;
+    right: 328px;
     float: right;
     top: 120px;
-    right: 29%;
     }
     .rec2{
 
@@ -148,11 +142,11 @@ export default {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
+    position: absolute;
     height: 137px;
     width: 245px;
     border-radius: 6px;
-    top: 46px;
+    top: 323px;
     right: 22%;
     z-index: 1;
     float: right;
@@ -163,11 +157,12 @@ export default {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
-    top: 162px;
+    position: absolute;
+    top: 428px;
     float: left;
     height: 192px;
     width: 173px;
+
     }
   // Ending of the layout Styling 
   .header{

@@ -307,7 +307,7 @@ export default {
       }
       #card{
         left: 9%;
-        height: 70%;
+        height: 450px;
         width: 85%;
       }
     }
@@ -325,6 +325,100 @@ export default {
           height: 65px;
           }
     }
+
+    
+    @media (max-width: 705px) {
+
+      #btnImage{
+        margin-left: 0px;
+        margin-right: 0px;
+      }
+
+    }
+     
+    @media (max-width: 655px) {
+
+      #btnP{
+        font-size:11px
+      }
+
+    }
+
+    @media (max-width: 615px) {
+
+      #btnP{
+        font-size:9px
+      }
+
+    }
+
+     @media (max-width: 615px) {
+
+      #btnP{
+        font-size:9px
+      }
+
+    }
+
+     @media (max-width: 567px) {
+       .containBtn {
+        display: grid;
+        grid-template-columns: none;
+        grid-template-rows: 1fr 1fr;
+        padding-left: 23%;
+        padding-right: 23%;
+       }
+       .btn1{
+         height: 33px;
+        border-radius: 3px;
+        border: none;
+        color: #2262C6;
+        font-family: "Gilroy-SemiBold";
+        font-size: 12px;
+        margin-bottom: 14px;
+       }
+      .btn2{
+        height: 33px;
+        border-radius: 3px;
+        background-color: none;
+        background-color: transparent;
+        border: 0.5px solid white;
+        display: grid;
+        grid-template-columns: 0.8fr 3fr;
+        margin-left: 0px;
+        padding-left: 20%;
+        padding-right: 20%;
+      }
+    }
+
+       @media (max-width: 404px) {
+
+         .btn2{
+          grid-template-columns: 1fr 3fr;
+          padding-left: 0%;
+          padding-right: 0%;
+         }
+         #btnP{
+           font-size: 10px;
+         }
+
+       }
+
+
+
+
+
+    @media (max-width: 584px) {
+
+      #btnP{
+        font-size: 10px;
+      }
+      #btnImage{
+        margin-left: 0px; 
+        margin-right: 0px;
+      }
+    }
+
 
         @media (max-width: 450px) {
            .rec1{

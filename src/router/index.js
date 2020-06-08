@@ -29,6 +29,15 @@ const routes = [
       )
   },
   {
+    path: "/calendardevis",
+    name: "calendardevis",
+    props: true,
+    component: () =>
+      import(
+        /* webpackChunkName: "exportDevis" */ "./../components/Devis/TheCalendarDevis.vue"
+      )
+  },
+  {
     path: "/",
     name: "Home",
     component: HomePage,

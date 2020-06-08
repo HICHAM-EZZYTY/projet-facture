@@ -8,18 +8,22 @@
   <img src="../../assets/img/Group 34.svg" alt="PictureOfRectange1">
   </div>
   <div class="circle"></div>
-  <div id="card">
 
-      <div class="header">
-          <!-- <div id="draw1"> -->
-                <img  id="draw1" src="../../assets/img/path.svg" alt="DrawingOfapath">
-          <!-- </div> -->
-        <h1>Hé, attends !!</h1>
-          <!-- <div id="draw2"> -->
-                <img id="draw2" src="../../assets/img/path (1).svg" alt="DrawingOfapath">
-          <!-- </div> -->
+  <div id="cc">
+  <div id="card">
+      <div id="cardd">
+      <div class="circlee">
+        <img src="../../assets/img/delete.svg" alt="closing the modal">
       </div>
 
+      <div class="header">
+                <img  id="draw1" src="../../assets/img/path.svg" alt="DrawingOfapath">
+        <h1>Hé, attends !!</h1>
+                <img id="draw2" src="../../assets/img/path (1).svg" alt="DrawingOfapath">
+      </div>
+
+      <p>Voulez-vous vraiment marquer ce devis comme étant refusé ?</p>
+      </div>
 
   </div>
   <div class="rec2"></div>
@@ -32,6 +36,7 @@
 
 
 
+</div>
 </div>
   
 </template>
@@ -79,16 +84,49 @@ export default {
 }
 #card{
 
-    background-color: $blue;
+    background-color: #2262C6;
     height: 288px;
     width: 665px;
     border-radius: 10px;
     z-index: 2;
     position: relative;
     left: 24%;
-    top: 24%;
-
+    top: 141px;
+    p{
+    display: block;
+    width: 100%;
+    float: none;
+    position: relative;
+    text-align: center;
+    color:$white;
+    font-family: $sb;
+    font-size: 14px;
+    }
 }
+#cardd{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+ .circlee{
+    float: right; 
+    margin-top: 8%;
+    margin-right: 6%;
+    width: 35px;
+    height: 35px;
+    border-radius: 70%;
+    position: absolute;
+    background-color: #F5F7FB;
+    z-index: 4;
+    right: 0;
+    img{
+    width: 11px;
+    height: 11px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 11px;
+    }
+    }
 .circle {
     background-image: url("../../assets/img/Ellipse 41.svg");
     background-color: transparent;
@@ -133,17 +171,19 @@ export default {
     }
   // Ending of the layout Styling 
   .header{
-    display:grid;
-    margin-top: 3px;
+    display: grid;
     grid-template-columns: 2fr 1fr 2fr;
-    position: absolute;
+    position: relative;
     width: 100%;
+    height: 86px;
+    margin-top: 50px;
     h1{
       font-family:  $bd;
       font-size: 17px;
       color: #FFFFFF;
-      margin-top: 113px;
+      /* margin-top: 113px; */
       justify-self: center;
+      align-self: end;
       text-transform: lowercase;
       margin-bottom: 0px;
     }
@@ -160,8 +200,8 @@ export default {
     justify-self: flex-start;
     align-self: end;
     height: 78px;
-    margin-top: 55px;
   }
+   
 
     // Start the responsive web 
 

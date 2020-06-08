@@ -1,35 +1,36 @@
 <template>
-    <div class="container" id="container">
-      <div class="form-container sign-in-container">
-          <router-view />
-      </div>
-      <div class="overlay-container">
-        <div class="overlay">
-            <img class="Shapes" src="../assets/img/Shapes.png" alt="">
-          <div class="overlay-panel overlay-right">
-              <img class="vector3" src="../assets/img/Vector3.png" alt="">
-            <h1 class="outil">Fatoura outil de devis et facturation</h1>
-            <p class="p-fato">100% gratuit fatoura est un outil gratuit et il restera toujours C'est promis !</p>
-          </div>
+  <div class="container" id="container">
+    <div class="form-container sign-in-container">
+      <router-view />
+    </div>
+    <div class="overlay-container">
+      <div class="overlay">
+        <img class="Shapes" src="../assets/img/Shapes.png" alt="" />
+        <div class="overlay-panel overlay-right">
+          <img class="vector3" src="../assets/img/Vector3.png" alt="" />
+          <h1 class="outil">Fatoura outil de devis et facturation</h1>
+          <p class="p-fato">
+            100% gratuit fatoura est un outil gratuit et il restera toujours
+            C'est promis !
+          </p>
         </div>
       </div>
     </div>
+  </div>
 </template>
 
 <script>
-import Login from '@/views/Authentification/Login.vue';
-import Signup from './Authentification/Signup.vue';
+import Login from "@/views/Authentification/Login.vue";
+import Signup from "./Authentification/Signup.vue";
 
 export default {
-    name: 'GateLayout',
-    component:{
-      Login, 
-      Signup
-    }
-}
-
+  name: "GateLayout",
+  component: {
+    Login,
+    Signup
+  }
+};
 </script>
-
 
 <style scoped>
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
@@ -78,24 +79,23 @@ h2 {
   position: relative;
   left: -19%;
 }
-.p-fato{
-    text-align: start;
-    position: relative;
-    left: -19%;
-    font-size: small;
+.p-fato {
+  text-align: start;
+  position: relative;
+  left: -19%;
+  font-size: small;
 }
-.Shapes{
-    position: relative;
-    left: 7%;
-    height: 105%;
-
+.Shapes {
+  position: relative;
+  left: 7%;
+  height: 105%;
 }
-.vector3{
-    position: relative;
-    top: 54%;
-    right: 88%;
-    width: 10%;
-    height: 4%;
+.vector3 {
+  position: relative;
+  top: 54%;
+  right: 88%;
+  width: 10%;
+  height: 4%;
 }
 p {
   font-size: 14px;

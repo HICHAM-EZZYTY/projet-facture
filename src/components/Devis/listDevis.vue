@@ -20,12 +20,18 @@
         <span class="badge badge-inf badge-facture">
           <p class="facture">7</p>
         </span>
-        <b-tab title="Tous Les Factures" :title-link-class="'tab-title-class'" active>
+        <b-tab
+          title="Tous Les Factures"
+          :title-link-class="'tab-title-class'"
+          active
+        >
           <b-table small :fields="fields" :items="items" responsive="sm">
             <!-- A virtual column -->
-            <template v-slot:cell(N_de_devis)="data">{{ data.index + 1 }}</template>
+            <template v-slot:cell(N_de_devis)="data">{{
+              data.index + 1
+            }}</template>
 
-            <template slot="isMember" slot-scope="{ item: { isMember }}">
+            <template slot="isMember" slot-scope="{ item: { isMember } }">
               <i :class="'fa ' + isMember"></i>
               <!-- You can also use the font-awesome-icon component here -->
             </template>
@@ -48,9 +54,11 @@
         <b-tab title="Provisoires" :title-link-class="'tab-title-class'">
           <b-table small :fields="fields" :items="items" responsive="sm">
             <!-- A virtual column -->
-            <template v-slot:cell(N_de_devis)="data">{{ data.index + 1 }}</template>
+            <template v-slot:cell(N_de_devis)="data">{{
+              data.index + 1
+            }}</template>
 
-            <template slot="isMember" slot-scope="{ item: { isMember }}">
+            <template slot="isMember" slot-scope="{ item: { isMember } }">
               <i :class="'fas ' + isMember"></i>
               <!-- You can also use the font-awesome-icon component here -->
             </template>
@@ -77,9 +85,11 @@
         <b-tab title="Finalisées" :title-link-class="'tab-title-class'">
           <b-table small :fields="fields" :items="items" responsive="sm">
             <!-- A virtual column -->
-            <template v-slot:cell(N_de_devis)="data">{{ data.index + 1 }}</template>
+            <template v-slot:cell(N_de_devis)="data">{{
+              data.index + 1
+            }}</template>
 
-            <template slot="isMember" slot-scope="{ item: { isMember }}">
+            <template slot="isMember" slot-scope="{ item: { isMember } }">
               <i :class="'fas ' + isMember"></i>
               <!-- You can also use the font-awesome-icon component here -->
             </template>
@@ -100,15 +110,20 @@
             </template>
           </b-table>
         </b-tab>
-        <span class="badge badge-inf badge-payes" :title-link-class="'tab-title-class'">
+        <span
+          class="badge badge-inf badge-payes"
+          :title-link-class="'tab-title-class'"
+        >
           <p class="facture">2</p>
         </span>
         <b-tab title="Payées" :title-link-class="'tab-title-class'">
           <b-table small :fields="fields" :items="items" responsive="sm">
             <!-- A virtual column -->
-            <template v-slot:cell(N_de_devis)="data">{{ data.index + 1 }}</template>
+            <template v-slot:cell(N_de_devis)="data">{{
+              data.index + 1
+            }}</template>
 
-            <template slot="isMember" slot-scope="{ item: { isMember }}">
+            <template slot="isMember" slot-scope="{ item: { isMember } }">
               <i :class="'fas ' + isMember"></i>
               <!-- You can also use the font-awesome-icon component here -->
             </template>
@@ -135,9 +150,11 @@
         <b-tab title="A payer" :title-link-class="'tab-title-class'">
           <b-table small :fields="fields" :items="items" responsive="sm">
             <!-- A virtual column -->
-            <template v-slot:cell(N_de_devis)="data">{{ data.index + 1 }}</template>
+            <template v-slot:cell(N_de_devis)="data">{{
+              data.index + 1
+            }}</template>
 
-            <template slot="isMember" slot-scope="{ item: { isMember }}">
+            <template slot="isMember" slot-scope="{ item: { isMember } }">
               <i :class="'fa ' + isMember"></i>
               <!-- You can also use the font-awesome-icon component here -->
             </template>
@@ -158,9 +175,7 @@
     </div>
     <div></div>
   </div>
-
 </template>
-
 
 <script>
 export default {
@@ -225,8 +240,8 @@ export default {
 
 <script>
 export default {
-  name:"ListDevis"
-}
+  name: "ListDevis"
+};
 </script>
 <style>
 /* TITLE HEAD */

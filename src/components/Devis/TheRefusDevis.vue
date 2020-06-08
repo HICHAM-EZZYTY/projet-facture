@@ -3,7 +3,8 @@
 <div class="containerGlobal">
 
 <div class="rec1">
-    
+  <img src="../../assets/img/Group 34.svg" alt="PictureOfRectange1">
+  <div class="circle"></div>
 </div>
 
 
@@ -37,9 +38,15 @@ export default {
     height: 183px;
     width: 331px;
     border-radius: 6px;
-    top: 142px;
-    left: 231px;
+    top: 20%;
+    left: 18.2%;
     z-index: 1;
+    img{
+    height: 128px;
+    position: relative;
+    bottom: 50px;
+    left: 13%;
+    }
 }
 
 

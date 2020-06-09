@@ -10,15 +10,7 @@ import GateLayout from "../views/GateLayout.vue";
 Vue.use(VueRouter);
 
 const routes = [
-  {
-    path: "/test",
-    name: "test",
-    props: true,
-    component: () =>
-      import(
-        /* webpackChunkName: "test" */ "./../components/Devis/test.vue"
-      )
-  },
+
   {
     path: "/exportDevis",
     name: "exportDevis",

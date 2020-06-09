@@ -60,8 +60,6 @@ export default {
 }
 .form input[type="text"] {
   padding-left: 3rem;
-  font-family: 'Gilroy-Regular';
-
 }
 /* .form-inline {
   display: flex;
@@ -74,8 +72,7 @@ export default {
   height: 44px;
   font-size: 15px;
   font-weight: bold;
-  font-family: 'Gilroy-Bold';
-
+  font-family: Gilroy;
 }
 .icon {
   position: absolute;
@@ -93,7 +90,6 @@ export default {
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-    font-family: 'Gilroy-Regular';
     color: #495057;
     background-color: #fff;
     background-clip: padding-box;
@@ -111,8 +107,6 @@ export default {
   color: rgb(177, 172, 172);
   margin: 1.5rem;
   margin-left: auto;
-    font-family: 'Gilroy-Regular';
-
 }
 .btn-primary {
   color: #fff;

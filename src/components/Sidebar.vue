@@ -39,10 +39,12 @@
           </a>
         </li>
         <li class="sidenav--list__item">
-          <a class="s-sidebar__nav-link" href="#0">
-            <img class="sidenav-button__icon" src="../assets/img/61.png" alt />
-            <em>Paramétres</em>
-          </a>
+          <router-link to="/settings">
+            <a class="s-sidebar__nav-link" href="#0">
+              <img class="sidenav-button__icon" src="../assets/img/61.png" alt />
+              <em>Paramétres</em>
+            </a>
+          </router-link>
         </li>
         <li class="sidenav--list__item">
           <a class="s-sidebar__nav-link" href="#0">

@@ -25,7 +25,7 @@
         <img src="../../assets/img/cancel.svg" alt="Cancel icon" /><p>Annuler</p></button>
       </div>
         <p id="nb">
-          La génération des fichiers peut prendre plusieurs minutes.
+          si vous avez commis une erreur vous pouvez toujours modifier le devis
         </p>
     </div>
 
@@ -312,6 +312,31 @@ export default {
       }
       }
     }
+    #nb {
+    font-family: $r;
+    font-size: 9.1px;
+    display: block;
+    float: none;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    color: #FFFFFF;
+
+    color:$white;
+    &:hover {
+      animation: text-shadow-pop-left 0.6s both;
+    }
+    @keyframes text-shadow-pop-left {
+      0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+      }
+      100% {
+        -webkit-transform: translateX(8px);
+        transform: translateX(8px);
+      }
+    }
+  }
     @media (max-width: 1000px) {
 
       .circle{
@@ -425,16 +450,20 @@ export default {
         }
         }
 
-            @media (max-width: 400px) {
-                  .containBtns{
+        @media (max-width: 400px) {
+        #card {
+        height: 503px;
+        }
+        .containBtns{
 
-                  button:nth-child(1) {
+        button:nth-child(1) {
                     width: 80%;
                   }
-                  button:nth-child(2) {
+        button:nth-child(2) {
                     width: 80%;
                   }
-                  }
+      
+        }
             }
 
 </style>

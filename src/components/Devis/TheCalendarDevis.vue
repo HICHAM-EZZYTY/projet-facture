@@ -24,6 +24,9 @@
         <button type="button">
         <img src="../../assets/img/cancel.svg" alt="Cancel icon" /><p>Annuler</p></button>
       </div>
+        <p id="nb">
+          La génération des fichiers peut prendre plusieurs minutes.
+        </p>
     </div>
 
     <div class="rec2"></div>
@@ -122,6 +125,13 @@ export default {
     --day-content-dark-bg-color-focus: rgba(34,98,198,0.4);
         --day-content-margin: 0.6px auto;
 }
+
+    @media (max-width: 400px) {
+      .vc-grid-container{
+  grid-template-columns: repeat(1, minmax(48px, 1fr)) !important;
+}
+    }
+
 </style>
 
 
@@ -259,10 +269,10 @@ export default {
     margin: 0 auto;
     }
     .containBtns{
-      display: grid;
-    grid-template-columns: 2.6fr 1fr;
-    width: 52%;
-    margin-left: 25%;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    width: 57%;
+    margin-left: 22%;
     margin-right: 25%;
     margin-top: 12px;
       button:nth-child(1){
@@ -353,6 +363,60 @@ export default {
       }
     }
  
+
+    @media (max-width: 752px) {
+
+    .containBtns{
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: none;
+        width: 100%;
+        margin-top: 12px;
+        margin-left: 0px;
+        margin-right: 0px;
+        button:nth-child(1) {
+        display: block;
+        float: none;
+        margin: 0 auto;
+        width: 316px;
+        float: center;
+        background-color: #FFFFFF;
+        border: none;
+        border-radius: 3px;
+        font-family: "Gilroy-SemiBold";
+        color: #2262C6;
+        font-size: 12px;
+        }
+        button:nth-child(2) {
+        display: block;
+        float: none;
+        margin: 0 auto;
+        width: 316px;
+        background-color: transparent;
+        border: 0.8px solid white;
+        color: #FFFFFF;
+        border-radius: 3px;
+        display: inline-flex;
+        height: 31px;
+        margin-top: 12px;
+        p{
+          font-family: "Gilroy-SemiBold";
+          display: block;
+          float: none;
+          width: 50%;
+          margin: 0 auto;
+          font-size: 11px;
+          text-align: center;
+          padding-top: 6px;
+        }
+        img{
+          display: none;
+        }
+        }
+    }          
+}
+
+
         @media (max-width: 450px) {
            .rec1{
         img{
@@ -360,5 +424,17 @@ export default {
         }
         }
         }
+
+            @media (max-width: 400px) {
+                  .containBtns{
+
+                  button:nth-child(1) {
+                    width: 80%;
+                  }
+                  button:nth-child(2) {
+                    width: 80%;
+                  }
+                  }
+            }
 
 </style>

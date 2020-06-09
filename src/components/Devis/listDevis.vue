@@ -17,6 +17,7 @@
     <hr />
     <div class="projects">
       <b-tabs class="forms" content-class="mt-3" fill>
+
         <!-- <b-tab active>
           <template v-slot:title>
             <p class="Usera">title</p>
@@ -66,6 +67,7 @@
                 </div>
               </div>
 
+
               <!-- You can also use the font-awesome-icon component here -->
             </template>
 
@@ -79,6 +81,7 @@
           </b-table>
         </b-tab>
 
+
         <b-tab>
           <template v-slot:title :title-link-class="'tab-title-class'">
             <p class="Fact">Provisoires</p>
@@ -88,6 +91,8 @@
           </template>
         </b-tab>
 
+  
+
         <b-tab>
           <template v-slot:title :title-link-class="'tab-title-class'">
             <p class="Fact">Finalisées</p>
@@ -95,7 +100,7 @@
               <p class="facture">2</p>
             </span>
           </template>
-        </b-tab>
+        </b-tab
         <b-tab>
           <template v-slot:title :title-link-class="'tab-title-class'">
             <p class="Fact">Refusés</p>
@@ -213,6 +218,11 @@ export default {
 };
 </script>
 
+<script>
+export default {
+  name: "ListDevis"
+};
+</script>
 <style>
 /* TITLE HEAD */
 .Title {
@@ -433,7 +443,9 @@ b-tabs {
 }
 /* FIN Table Information */
 
+
 /* Responsive page */
 
 /* Fin Responsive Page */
 </style>
+

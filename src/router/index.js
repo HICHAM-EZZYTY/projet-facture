@@ -1,5 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+
 // import Devis from "../views/Devis.vue";
 import Devis from "./../views/Devis.vue";
 import CreateDevis from "./../components/Devis/CreateDevis.vue";
@@ -20,10 +21,18 @@ import avoirAcompte from "../components/setings/avoirAcompte.vue";
 import numerotation from "../components/setings/numerotation.vue";
 
 
+import CreateDevis from "./../components/Devis/createDevis.vue";
+import listDevis from "./../components/Devis/listDevis.vue";
+import Login from "../views/Authentification/Login.vue";
+import HomePage from "../views/HomePage.vue";
+import Register from "../views/Authentification/Signup.vue";
+import GateLayout from "../views/GateLayout.vue";
+
+
 Vue.use(VueRouter);
 
 const routes = [
-  {
+  
     path: "/",
     name: "Devis",
     component: Devis
@@ -39,7 +48,7 @@ const routes = [
     component: listClient
   },
   {
-    path: "/addClient",
+    path: "/addClient"
     name: "addClient",
     component: addClient
   },
@@ -117,7 +126,66 @@ const routes = [
     component: sigupfive
   },
 
-
+    path: "/exportDevis",
+    name: "exportDevis",
+    props: true,
+    component: () =>
+      import(
+        /* webpackChunkName: "exportDevis" */ "./../components/Devis/TheExportDevis.vue"
+      )
+  },
+  {
+    path: "/refusDevis",
+    name: "refusDevis",
+    props: true,
+    component: () =>
+      import(
+        /* webpackChunkName: "exportDevis" */ "./../components/Devis/TheRefusDevis.vue"
+      )
+  },
+  {
+    path: "/",
+    name: "Home",
+    component: HomePage,
+    children: [
+      {
+        path: "",
+        name: "Devis",
+        component: listDevis
+      },
+      {
+        path: "/CreateDevis",
+        name: "CreateDevis",
+        component: CreateDevis
+      },
+      {
+        path: "/listDevis",
+        name: "listDevis",
+        component: () =>
+          import(
+            /* webpackChunkName: "listDevis" */ "./../components/Devis/listDevis.vue"
+          )
+      }
+    ]
+  },
+  {
+    path: "/gate",
+    name: "Gate",
+    component: GateLayout,
+    redirect: "/login",
+    children: [
+      {
+        path: "login",
+        name: "login",
+        component: Login
+      },
+      {
+        path: "signup",
+        name: "Signup",
+        component: Register
+      }
+    ]
+  }
 ];
 
 const router = new VueRouter({

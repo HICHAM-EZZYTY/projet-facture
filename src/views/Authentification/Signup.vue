@@ -1,31 +1,36 @@
 <template>
-  <div class="container" id="container">
-    <div class="form-container sign-in-container">
-      <form action="#">
-        <img class="logo" src="../../assets/img/logo-login.svg" alt="" />
-        <h1 class="connex">Inscription</h1>
-        <span class="inscription">Connexion</span>
-        <input type="email" placeholder="EXEMPLE@EMAIL.Com" />
-        <input type="password" placeholder="mot de pass" />
-        <a class="mot" href="#">Mot de passe oublié ?</a>
-        <button>s'inscrire</button>
-      </form>
-    </div>
-    <div class="overlay-container">
-      <div class="overlay">
-          <img class="Shapes" src="../../assets/img/Shapes.png" alt="">
-        <div class="overlay-panel overlay-right">
-            <img class="vector3" src="../../assets/img/Vector3.png" alt="">
-          <h1 class="outil">Fatoura outil de devis et facturation</h1>
-          <p class="p-fato">100% gratuit fatoura est un outil gratuit et il restera toujours C'est promis !</p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <form action="#">
+    <img class="logo" src="../../assets/img/logo-login.svg" alt="" />
+    <h1 class="connex">Inscription</h1>
+    <router-link class="inscription" to="login">
+      <span>Connexion</span>
+    </router-link>
+    <input type="text" placeholder="Your name" v-model="user.name" />
+    <input type="email" placeholder="EXEMPLE@EMAIL.Com" v-model="user.email" />
+    <input type="password" placeholder="mot de pass" v-model="user.password" />
+    <a class="mot" href="#">Mot de passe oublié ?</a>
+    <button @click.prevent="signup">s'inscrire</button>
+  </form>
 </template>
 <script>
 export default {
-  name: "Login"
+  name: "Register",
+  data() {
+    return {
+      user: {
+        name: "",
+        email: "",
+        passowrd: ""
+      }
+    };
+  },
+  methods: {
+    signup() {
+      console.log(this.user.email);
+      console.log(this.user.name);
+      console.log(this.user.password);
+    }
+  }
 };
 </script>
 <style scoped>
@@ -75,24 +80,23 @@ h2 {
   position: relative;
   left: -19%;
 }
-.p-fato{
-    text-align: start;
-    position: relative;
-    left: -19%;
-    font-size: small;
+.p-fato {
+  text-align: start;
+  position: relative;
+  left: -19%;
+  font-size: small;
 }
-.Shapes{
-    position: relative;
-    left: 7%;
-    height: 105%;
-
+.Shapes {
+  position: relative;
+  left: 7%;
+  height: 105%;
 }
-.vector3{
-    position: relative;
-    top: 54%;
-    right: 88%;
-    width: 10%;
-    height: 4%;
+.vector3 {
+  position: relative;
+  top: 54%;
+  right: 88%;
+  width: 10%;
+  height: 4%;
 }
 p {
   font-size: 14px;

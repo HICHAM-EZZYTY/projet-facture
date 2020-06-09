@@ -19,19 +19,31 @@
             ></b-form-input>
             <b-icon class="icon" icon="search" aria-hidden="true"></b-icon>
             <router-link to="/CreateDevis">
-              <b-button class="submit my-2 my-sm-0" type="submit" variant="primary">
-                <b-icon class="icon-plus" icon="plus" aria-hidden="true"></b-icon>Nouveau Devis
+              <b-button
+                class="submit my-2 my-sm-0"
+                type="submit"
+                variant="primary"
+              >
+                <b-icon
+                  class="icon-plus"
+                  icon="plus"
+                  aria-hidden="true"
+                ></b-icon
+                >Nouveau Devis
               </b-button>
             </router-link>
           </b-nav-form>
         </b-navbar-nav>
 
         <!-- FIN SEARCH AREA -->
-        <p class="bienvenue">
-          <strong>Bienvenue,</strong> Chaimaa Ess-bbah
-        </p>
+        <p class="bienvenue"><strong>Bienvenue,</strong> Chaimaa Ess-bbah</p>
         <div class="mb-2 mr-5">
-          <b-avatar variant="primary" class="avatar" text="CE" size="3.5rem"></b-avatar>
+          <b-avatar
+            variant="primary"
+            class="avatar"
+            text="CE"
+            size="3.5rem"
+          ></b-avatar>
         </div>
       </b-collapse>
     </b-navbar>

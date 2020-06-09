@@ -14,6 +14,7 @@
          title-position="left"
         :attributes='attrs'
         @dayclick='dayClicked'
+        locale="fr"
         >
         </vc-calendar>
       </div>
@@ -36,7 +37,7 @@ export default {
 
           highlight: true,
           popover: {
-            label: 'You just hovered over today\'s date!',
+            label: 'Vous avez passez la souris sur la date d\'aujourd\'hui',
           },
           dates: new Date(),
         },
@@ -67,7 +68,12 @@ export default {
 @import "../../scss/main.scss" ;   
 .vc-nav-container{
 .vc-grid-container{
-  grid-template-columns:repeat(3,1fr)
+    grid-template-columns: repeat(4, 1fr)!important;
+    width: 49%;
+    overflow-x: hidden;
+    margin-left: 55px;
+    margin-bottom: 25px;
+    gap: 2px 5px;
 }
 }
 .vc-border {

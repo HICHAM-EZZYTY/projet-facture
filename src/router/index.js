@@ -3,7 +3,7 @@ import VueRouter from "vue-router";
 
 // import Devis from "../views/Devis.vue";
 import Devis from "./../views/Devis.vue";
-import CreateDevis from "./../components/Devis/CreateDevis.vue";
+// import CreateDevis from "./../components/Devis/CreateDevis.vue";
 import listClient from "../components/client/listClient.vue";
 import addClient from "../components/client/addClient.vue";
 import homeSeting from "../views/setings/homeSeting.vue";
@@ -21,7 +21,7 @@ import avoirAcompte from "../components/setings/avoirAcompte.vue";
 import numerotation from "../components/setings/numerotation.vue";
 
 
-import CreateDevis from "./../components/Devis/createDevis.vue";
+import createDevis from "./../components/Devis/createDevis.vue";
 import listDevis from "./../components/Devis/listDevis.vue";
 import Login from "../views/Authentification/Login.vue";
 import HomePage from "../views/HomePage.vue";
@@ -40,7 +40,7 @@ const routes = [
   {
     path: "/CreateDevis",
     name: "CreateDevis",
-    component: CreateDevis
+    component: createDevis
   },
   {
     path: "/listClient",
@@ -48,7 +48,7 @@ const routes = [
     component: listClient
   },
   {
-    path: "/addClient"
+    path: "/addClient",
     name: "addClient",
     component: addClient
   },
@@ -125,7 +125,7 @@ const routes = [
     name: "sigupfive",
     component: sigupfive
   },
-
+  {
     path: "/exportDevis",
     name: "exportDevis",
     props: true,
@@ -165,7 +165,7 @@ const routes = [
       {
         path: "/CreateDevis",
         name: "CreateDevis",
-        component: CreateDevis
+        component: createDevis
       },
       {
         path: "/listDevis",

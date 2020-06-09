@@ -33,7 +33,7 @@ export default {
 </script>
 <style scoped>
 .Content1 {
-  border: 2px solid black;
+  /* border: 2px solid black; */
   text-align: center;
   display: flex;
   flex-direction: row;

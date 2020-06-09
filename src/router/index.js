@@ -11,6 +11,7 @@ import preference from "../components/setings/preference.vue";
 // import signupThree from "../components/Authentification/signupThree.vue";
 // import singupFour from "../components/Authentification/singupFour.vue";
 // import sigupfive from "../components/Authentification/signupfive.vue";
+import TypeArticles from './../components/setings/TypeArticles.vue'
 import devisRef from "../components/setings/devisRef.vue";
 import factureRef from "../components/setings/factureRef.vue";
 import avoirRef from "../components/setings/avoirRef.vue";
@@ -119,10 +120,11 @@ const routes = [
         name: "NumerotationPreferences", 
         component: numerotation
       },
-        
+      // articles 
       {
-        path: "articles",
-        name: "Articles"
+        path: "type-articles",
+        name: "TypeArticles", 
+        component: TypeArticles, 
       }, 
       {
         path: "bank-account", 
@@ -164,7 +166,7 @@ const routes = [
     children: [
       {
         path: "login",
-        name: "login",
+        name: "Login",
         component: Login
       },
       {

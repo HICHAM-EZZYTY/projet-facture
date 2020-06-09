@@ -44,7 +44,9 @@
           </router-link>
         </li>
         <li class="sidebar-brand">
-          <a>Types d'article</a>
+          <router-link :to="{ name: 'TypeArticles' }">
+            <a>Types d'article</a>
+          </router-link>
         </li>
         <li class="sidebar-brand">
           <a>Thème des documents</a>

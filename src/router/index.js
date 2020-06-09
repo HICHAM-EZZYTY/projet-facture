@@ -48,42 +48,42 @@ const routes = [
       {
         path: "facture",
         name: "Facture",
-        children: [
-          {
-            path: 'new',
-            name: "NewFacture"
-          }
-        ]
+
       },
+      {
+        path: 'facture/new',
+        name: "NewFacture"
+      },
+
 
       {
         path: "avoire",
         name: "Avoire",
         children: [
-          {
-            path: 'new',
-            name: "NewAvoire"
-          }
+
         ]
       },
-
+      {
+        path: 'avoire/new',
+        name: "NewAvoire"
+      },
       {
         path: "societe",
         name: "Societe",
-        children: [
-          {
-            path: 'new',
-            name: "NewSociete"
-          }
-        ]
+
       },
+      {
+        path: 'Societe/new',
+        name: "NewSociete"
+      }
     ]
   },
-  // parameters 
+  // parameter  s 
   {
     path: "/settings",
     name: "Settings",
     component: homeSeting,
+    redirect: { name: "Preferences" },
     children: [
       {
         path: "preferences",

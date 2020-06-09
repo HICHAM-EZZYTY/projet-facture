@@ -1,7 +1,7 @@
 <template>
   <div class="containe mt-1">
     <b-navbar toggleable="lg" type="white" variant="white">
-      <img class="logo" src="../../assets/Group 4.png" alt="logo" />
+      <img class="logo" src="../assets/Group 4.png" alt="logo" />
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -18,7 +18,7 @@
               type="text"
             ></b-form-input>
             <b-icon class="icon" icon="search" aria-hidden="true"></b-icon>
-            <router-link to="/CreateDevis">
+            <router-link to="createDevis">
               <b-button
                 class="submit my-2 my-sm-0"
                 type="submit"

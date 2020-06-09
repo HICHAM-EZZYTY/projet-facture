@@ -9,14 +9,15 @@
         <img src="../../assets/img/delete.svg" alt="closing the modal">
       </div>
       <h1>Sélectionner la date de signature <span>(d2000003)</span></h1>
-      <div class="calendar">
+      <div class="calendar" >
         <vc-calendar
+         title-position="left"
         :attributes='attrs'
         @dayclick='dayClicked'
         >
         </vc-calendar>
       </div>
-      <p>{{selectedDay}}</p>
+      <p>{{selectedDay['ariaLabel']}}</p>
     </div>
 
     <div class="rec2"></div>
@@ -62,10 +63,19 @@ export default {
 
 </script>
 
-<style scoped lang="scss">
+<style  lang="scss">
 @import "../../scss/main.scss" ;   
 
 
+.vc-grid-container{
+  grid-template-columns: repeat(1, minmax(306px, 1fr)) !important;
+}
+.vc-w-full{
+  height: 226px;
+}
+.vc-text-sm {
+    font-size: 12px;
+}
 .containerGlobal {
     background-color: $background;
     height: 615px;

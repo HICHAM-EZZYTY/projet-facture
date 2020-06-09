@@ -4,13 +4,7 @@ import router from "./router";
 import store from "./store";
 import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
 import VCalendar from 'v-calendar';
-import SingleDatePicker from 'vue-single-date-picker';
 
-export default {
-  components: {
-    SingleDatePicker
-  }
-}
 
 // import "jquery";
 // import "popper.js";

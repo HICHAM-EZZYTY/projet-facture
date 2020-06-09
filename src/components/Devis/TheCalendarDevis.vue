@@ -11,11 +11,12 @@
       <h1>Sélectionner la date de signature <span>(d2000003)</span></h1>
       <div class="calendar">
         <vc-calendar
-       :attributes='attrs'
-         />
+        :attributes='attrs'
+        @dayclick='dayClicked'
+        >
+        </vc-calendar>
       </div>
-      <p>{{tst}}</p>
-
+      <p>{{selectedDay}}</p>
     </div>
 
     <div class="rec2"></div>
@@ -31,7 +32,7 @@ export default {
     return {
         attrs: [
         {
-          key: 'today',
+
           highlight: true,
           popover: {
             label: 'You just hovered over today\'s date!',
@@ -39,9 +40,17 @@ export default {
           dates: new Date(),
         },
       ],
-      tst:"anas"
+      selectedDay:new Date(),
     }
-   }
+   },
+  
+   methods:{
+      dayClicked(day) {
+      this.selectedDay = day;
+      console.log(this.selectedDay)
+    },
+      
+   },
 }
 
     // data:function(){

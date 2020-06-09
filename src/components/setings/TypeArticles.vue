@@ -1,6 +1,10 @@
 <template>
-    <div>
-        <table border="1" >
+    
+    <div class="tableplus" >
+        <div v-if="isLoading">
+            Loading ... 
+        </div>
+        <table border="1" v-else >
             <thead>
                 <th>nom</th>
                 <th>name</th>
@@ -12,30 +16,73 @@
                 </tr>
             </tbody>
         </table>
+        
+        <button>
+            Add new Article.
+        </button>
     </div>
 </template>
 
+<style scoped>
+    .tableplus{
+        padding-right: 40px;
+        border: 4px;
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+    } 
+    table{
+        width: 50%;
+        text-align: center;
+    }
+    button{
+        text-transform : uppercase; 
+        margin: 20px;
+        height: 40px; 
+        border-radius: 30px;  
+    }
+</style>
 
 <script>
 export default {
+    // when this gets linked to the API the is loading field should be initialied with a true value,
+    // to indicat that the dat still loading from the server
     name: "TypeArticles",
     data: function(){
         return {
-            articles: []
+            isLoading: false,
+            articles: [
+                {
+                    article_type_value : "....", 
+                    article_type_value_eng : "...."  
+                },
+                {
+                    article_type_value : "....", 
+                    article_type_value_eng : "...."  
+                }, 
+                {
+                    article_type_value : "....", 
+                    article_type_value_eng : "...."  
+                },
+                {
+                    article_type_value : "....", 
+                    article_type_value_eng : "...."  
+                }
+            ]
         }
     }, 
     methods: {
         getArticles(){
-            let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTU5MTcwNTYxNCwiZXhwIjoxNTkxNzA5MjE0LCJuYmYiOjE1OTE3MDU2MTQsImp0aSI6InMxOW1HajhBbHd4RzFNVXEiLCJzdWIiOjEzLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.u9hnLwMQ99bhbCY7weaWX3vvpju8pVJqZFIfcaV8dW4";
+            let token = "....";
             this.$http.defaults.headers.common = { Authorization: `Bearer ${token}` };
             
             this.$http
                 .get("/type_articles")
-                .then(
-                    (res) => {
+                .then((res) => {
+                        
+                        this.isLoading = false ; 
                         this.articles = res.data;
-                    }
-                )
+                })
                 .catch();
         },
         addArticles(){

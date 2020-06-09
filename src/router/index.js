@@ -29,118 +29,118 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/", 
-    name: "Home", 
+    path: "/",
+    name: "Home",
     component: HomePage,
-    children:[
+    children: [
       {
-        path: "devis", 
-        name: "Devis", 
+        path: "devis",
+        name: "Devis",
         component: listDevis,
       },
       {
         path: "devis/new",
         name: "NewDevis",
         component: CreateDevis
-         
+
       },
 
       {
-        path: "facture", 
-        name: "Facture", 
+        path: "facture",
+        name: "Facture",
         children: [
           {
-            path: 'new', 
+            path: 'new',
             name: "NewFacture"
           }
         ]
       },
 
       {
-        path: "avoire", 
-        name: "Avoire", 
+        path: "avoire",
+        name: "Avoire",
         children: [
           {
-            path: 'new', 
+            path: 'new',
             name: "NewAvoire"
           }
         ]
       },
 
       {
-        path: "societe", 
-        name: "Societe", 
+        path: "societe",
+        name: "Societe",
         children: [
           {
-            path: 'new', 
+            path: 'new',
             name: "NewSociete"
           }
         ]
-      }, 
+      },
     ]
   },
   // parameters 
   {
-    path: "/settings", 
+    path: "/settings",
     name: "Settings",
     component: homeSeting,
     children: [
       {
-        path: "preferences", 
-        name: "Preferences", 
+        path: "preferences",
+        name: "Preferences",
         component: preference,
-      }, 
+      },
       {
-        path: "preferences/devis", 
-        name: "DevisPreferences", 
+        path: "preferences/devis",
+        name: "DevisPreferences",
         component: devisRef,
       },
       {
-        path: "preferences/facture", 
+        path: "preferences/facture",
         name: "FacturePreferences",
         component: factureRef,
       },
       {
-        path: "preferences/avoire", 
+        path: "preferences/avoire",
         name: "AvoirePreferences",
         component: avoirRef
       },
       {
-        path: "preferences/avoire-acompte", 
+        path: "preferences/avoire-acompte",
         name: "AvoireAcomptePreferences",
         component: avoirAcompte
       },
       {
-        path: "preferences/facture-acompte", 
+        path: "preferences/facture-acompte",
         name: "FactureAcomptePreferences",
         component: factureAcompte
       },
       {
-        path: "preferences/numerotation", 
-        name: "NumerotationPreferences", 
+        path: "preferences/numerotation",
+        name: "NumerotationPreferences",
         component: numerotation
       },
       // articles 
       {
         path: "type-articles",
-        name: "TypeArticles", 
-        component: TypeArticles, 
-      }, 
+        name: "TypeArticles",
+        component: TypeArticles,
+      },
       {
-        path: "bank-account", 
+        path: "bank-account",
         name: "BackAccount",
       },
       {
-        path: "Cordonné", 
-        name: "Cordonne", 
+        path: "Cordonné",
+        name: "Cordonne",
       },
       {
-        path: "compte", 
-        name: "Account", 
+        path: "compte",
+        name: "Account",
       },
       {
-        path: "delete-account", 
-        name: "DeleteAccount", 
+        path: "delete-account",
+        name: "DeleteAccount",
       }
     ]
   },
@@ -175,6 +175,11 @@ const routes = [
         component: Register
       }
     ]
+  },
+  {
+    path: "*",
+    name: "NotFound",
+    redirect: { name: "Home" }
   }
 ];
 

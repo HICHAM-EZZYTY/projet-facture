@@ -4,8 +4,8 @@ import VueRouter from "vue-router";
 // import Devis from "../views/Devis.vue";
 // import Devis from "./../views/Devis.vue";
 import CreateDevis from "./../components/Devis/createDevis.vue";
-// // import listClient from "../components/client/listClient.vue";
-// // import addClient from "../components/client/addClient.vue";
+import listClient from "../components/client/listClient.vue";
+import addClient from "../components/client/addClient.vue";
 import homeSeting from "../views/setings/homeSeting.vue";
 import preference from "../components/setings/preference.vue";
 // import signupThree from "../components/Authentification/signupThree.vue";
@@ -67,6 +67,7 @@ const routes = [
         path: 'avoire/new',
         name: "NewAvoire"
       },
+
       {
         path: "societe",
         name: "Societe",
@@ -75,10 +76,21 @@ const routes = [
       {
         path: 'Societe/new',
         name: "NewSociete"
+      },
+
+      {
+        path: "client",
+        name: "Client",
+        component: listClient,
+      },
+      {
+        path: 'client/new',
+        name: "NewClient",
+        component: addClient
       }
     ]
   },
-  // parameter  s 
+  // parameters 
   {
     path: "/settings",
     name: "Settings",
@@ -127,16 +139,16 @@ const routes = [
         component: TypeArticles,
       },
       {
-        path: "bank-account",
-        name: "BackAccount",
+        path: "bank-accounts",
+        name: "BackAccounts",
       },
       {
-        path: "Cordonné",
-        name: "Cordonne",
+        path: "user-contact",
+        name: "UserContact",
       },
       {
-        path: "compte",
-        name: "Account",
+        path: "user",
+        name: "User",
       },
       {
         path: "delete-account",

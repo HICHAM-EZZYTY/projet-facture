@@ -66,9 +66,19 @@ export default {
 <style  lang="scss">
 @import "../../scss/main.scss" ;   
 
+.vc-border {
+    border: none;
+}
 
+.vc-svg-icon{
+  color:$blue;
+}
 .vc-grid-container{
-  grid-template-columns: repeat(1, minmax(306px, 1fr)) !important;
+  grid-template-columns: repeat(1, minmax(340px, 1fr)) !important;
+}
+.vc-weeks{
+    grid-template-columns: repeat(7, 1fr)!important;
+    gap: 0px;
 }
 .vc-w-full{
   height: 226px;

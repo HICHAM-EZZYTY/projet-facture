@@ -19,6 +19,9 @@
         </vc-calendar>
       </div>
       <p>{{selectedDay['ariaLabel']}}</p>
+      <div class="containBtns">
+
+      </div>
     </div>
 
     <div class="rec2"></div>
@@ -64,14 +67,16 @@ export default {
 
 </script>
 
-<style  lang="scss">
+<style lang="scss">
 @import "../../scss/main.scss" ;   
+
 .vc-nav-container{
 .vc-grid-container{
-    grid-template-columns: repeat(4, 1fr)!important;
-    width: 49%;
+    grid-template-columns: repeat(4, 1fr) !important;
+    width: 87%;
     overflow-x: hidden;
-    margin-left: 55px;
+    margin-left: 40px;
+    margin-right: 40px;
     margin-bottom: 25px;
     gap: 2px 5px;
 }
@@ -106,6 +111,52 @@ export default {
     --day-content-dark-bg-color-focus: rgba(34,98,198,0.4);
         --day-content-margin: 0.6px auto;
 }
+</style>
+
+
+<style  lang="scss">
+@import "../../scss/main.scss" ;   
+// .vc-nav-container{
+// .vc-grid-container{
+//     grid-template-columns: repeat(4, 1fr) !important;
+//     width: 87%;
+//     overflow-x: hidden;
+//     margin-left: 40px;
+//     margin-right: 40px;
+//     margin-bottom: 25px;
+//     gap: 2px 5px;
+// }
+// }
+// .vc-border {
+//     border: none;
+// }
+
+// .vc-svg-icon{
+//   color:$blue;
+// }
+// .vc-grid-container{
+//   grid-template-columns: repeat(1, minmax(340px, 1fr)) !important;
+// }
+// .vc-weeks{
+//     grid-template-columns: repeat(7, 1fr)!important;
+//     gap: 0px;
+// }
+// .vc-w-full{
+//   height: 226px;
+// }
+// .vc-text-sm {
+//     font-size: 12px;
+// }
+// .vc-text-gray-800 {
+//     color: $blue;
+// }
+// .vc-container{
+//       --day-content-bg-color-hover: rgba(34,98,198, 0.3);
+//     --day-content-dark-bg-color-hover: rgba( 34,98,198,0.3);
+//     --day-content-bg-color-focus: rgba(34,98,198,0.4);
+//     --day-content-dark-bg-color-focus: rgba(34,98,198,0.4);
+//         --day-content-margin: 0.6px auto;
+// }
 
 .containerGlobal {
     background-color: $background;

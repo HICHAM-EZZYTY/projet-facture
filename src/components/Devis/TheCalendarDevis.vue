@@ -9,6 +9,13 @@
         <img src="../../assets/img/delete.svg" alt="closing the modal">
       </div>
       <h1>Sélectionner la date de signature <span>(d2000003)</span></h1>
+      <div class="calendar">
+        <vc-calendar
+       :attributes='attrs'
+         />
+      </div>
+      <p>{{tst}}</p>
+
     </div>
 
     <div class="rec2"></div>
@@ -20,8 +27,30 @@
 
 <script>
 export default {
-
+  data() {
+    return {
+        attrs: [
+        {
+          key: 'today',
+          highlight: true,
+          popover: {
+            label: 'You just hovered over today\'s date!',
+          },
+          dates: new Date(),
+        },
+      ],
+      tst:"anas"
+    }
+   }
 }
+
+    // data:function(){
+    //     return{
+    //         date:Number,
+    //     }
+    // }
+
+
 </script>
 
 <style scoped lang="scss">
@@ -150,7 +179,14 @@ export default {
     margin-top: 11px;
     }
     }
-
+    .calendar{
+        display: block;
+        margin: 0 auto;
+    }
+    .vc-container{
+    display: block;
+    margin: 0 auto;
+    }
     @media (max-width: 1000px) {
 
       .circle{
@@ -209,13 +245,5 @@ export default {
         }
         }
         }
-
-    
-  
-
-
-
-
-
 
 </style>

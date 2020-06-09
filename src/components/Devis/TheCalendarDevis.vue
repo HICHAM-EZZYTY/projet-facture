@@ -18,9 +18,11 @@
         >
         </vc-calendar>
       </div>
-      <p>{{selectedDay['ariaLabel']}}</p>
+      <!-- <p></p> -->
       <div class="containBtns">
-
+        <button type="button">Marquer comme signé le <span>{{Thedate}}</span></button>
+        <button type="button">
+        <img src="../../assets/img/cancel.svg" alt="Cancel icon" /><p>Annuler</p></button>
       </div>
     </div>
 
@@ -33,6 +35,7 @@
 
 <script>
 export default {
+  
   data() {
     return {
         attrs: [
@@ -45,25 +48,33 @@ export default {
           dates: new Date(),
         },
       ],
+      
       selectedDay:new Date(),
     }
    },
-  
+
    methods:{
       dayClicked(day) {
-      this.selectedDay = day;
-      console.log(this.selectedDay)
+      this.selectedDay=new Date();
+      this.selectedDay = day['ariaLabel'];
     },
       
    },
+    computed:{
+
+     Thedate: function () {
+
+       if(typeof(this.selectedDay)==='string'){
+         return this.selectedDay
+       }
+       else{
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        return  this.selectedDay.toLocaleDateString('fr-FR', options)
+       }
+     }
+
+   },
 }
-
-    // data:function(){
-    //     return{
-    //         date:Number,
-    //     }
-    // }
-
 
 </script>
 
@@ -116,47 +127,6 @@ export default {
 
 <style  lang="scss">
 @import "../../scss/main.scss" ;   
-// .vc-nav-container{
-// .vc-grid-container{
-//     grid-template-columns: repeat(4, 1fr) !important;
-//     width: 87%;
-//     overflow-x: hidden;
-//     margin-left: 40px;
-//     margin-right: 40px;
-//     margin-bottom: 25px;
-//     gap: 2px 5px;
-// }
-// }
-// .vc-border {
-//     border: none;
-// }
-
-// .vc-svg-icon{
-//   color:$blue;
-// }
-// .vc-grid-container{
-//   grid-template-columns: repeat(1, minmax(340px, 1fr)) !important;
-// }
-// .vc-weeks{
-//     grid-template-columns: repeat(7, 1fr)!important;
-//     gap: 0px;
-// }
-// .vc-w-full{
-//   height: 226px;
-// }
-// .vc-text-sm {
-//     font-size: 12px;
-// }
-// .vc-text-gray-800 {
-//     color: $blue;
-// }
-// .vc-container{
-//       --day-content-bg-color-hover: rgba(34,98,198, 0.3);
-//     --day-content-dark-bg-color-hover: rgba( 34,98,198,0.3);
-//     --day-content-bg-color-focus: rgba(34,98,198,0.4);
-//     --day-content-dark-bg-color-focus: rgba(34,98,198,0.4);
-//         --day-content-margin: 0.6px auto;
-// }
 
 .containerGlobal {
     background-color: $background;
@@ -287,6 +257,50 @@ export default {
     .vc-container{
     display: block;
     margin: 0 auto;
+    }
+    .containBtns{
+      display: grid;
+    grid-template-columns: 2.6fr 1fr;
+    width: 52%;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 12px;
+      button:nth-child(1){
+      background-color: #FFFFFF;
+      border: none;
+      border-radius: 3px;
+      font-family: "Gilroy-SemiBold";
+      color: #2262C6;
+      font-size: 12px;
+      /* padding: 0px; */
+      margin-right: 5px;
+      }
+      button:nth-child(2){
+      background-color: transparent;
+      border: 0.8px solid white;
+      color:$white;
+      border-radius: 3px;
+      display: inline-flex;
+      height: 31px;
+      width: 85%;
+      margin-left: 3px;
+      img{
+      display: inline-block;
+      height: 12px;
+      padding-left: -7px;
+       margin-top: 9px; 
+      margin-right: 6px;
+      padding-right: -2px;
+      }
+      p{
+      font-family: $sb;
+      display: inline-block;
+      font-size: 11px;
+      text-align: center;
+      margin-right: 5px;
+      margin-top: 6px;
+      }
+      }
     }
     @media (max-width: 1000px) {
 

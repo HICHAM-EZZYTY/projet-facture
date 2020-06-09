@@ -10,7 +10,6 @@
   <div class="circle"></div>
 
   <div id="card">
-      <!-- <div id="cardd"> -->
       <div class="circlee">
         <img src="../../assets/img/delete.svg" alt="closing the modal">
       </div>
@@ -38,7 +37,6 @@
 
       </div>
 
-  <!-- </div> -->
   <div class="rec2"></div>
   <div class="circleclose"></div>
 

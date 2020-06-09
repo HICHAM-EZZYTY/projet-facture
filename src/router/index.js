@@ -10,6 +10,7 @@ import GateLayout from "../views/GateLayout.vue";
 Vue.use(VueRouter);
 
 const routes = [
+
   {
     path: "/exportDevis",
     name: "exportDevis",
@@ -26,6 +27,15 @@ const routes = [
     component: () =>
       import(
         /* webpackChunkName: "exportDevis" */ "./../components/Devis/TheRefusDevis.vue"
+      )
+  },
+  {
+    path: "/calendardevis",
+    name: "calendardevis",
+    props: true,
+    component: () =>
+      import(
+        /* webpackChunkName: "exportDevis" */ "./../components/Devis/TheCalendarDevis.vue"
       )
   },
   {

@@ -6,14 +6,13 @@ import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
 import VCalendar from 'v-calendar';
 
 
-// import "jquery";
-// import "popper.js";
-import "bootstrap";
+import "jquery";
+import "popper.js";
 import "font-awesome/css/font-awesome.min.css";
-
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/css/bootstrap.css";
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap-vue/dist/bootstrap-vue.css";
+import "./scss/main.scss";
 
 // import axios from "axios";
 

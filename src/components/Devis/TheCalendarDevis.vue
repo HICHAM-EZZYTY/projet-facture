@@ -65,7 +65,11 @@ export default {
 
 <style  lang="scss">
 @import "../../scss/main.scss" ;   
-
+.vc-nav-container{
+.vc-grid-container{
+  grid-template-columns:repeat(3,1fr)
+}
+}
 .vc-border {
     border: none;
 }
@@ -86,6 +90,17 @@ export default {
 .vc-text-sm {
     font-size: 12px;
 }
+.vc-text-gray-800 {
+    color: $blue;
+}
+.vc-container{
+      --day-content-bg-color-hover: rgba(34,98,198, 0.3);
+    --day-content-dark-bg-color-hover: rgba( 34,98,198,0.3);
+    --day-content-bg-color-focus: rgba(34,98,198,0.4);
+    --day-content-dark-bg-color-focus: rgba(34,98,198,0.4);
+        --day-content-margin: 0.6px auto;
+}
+
 .containerGlobal {
     background-color: $background;
     height: 615px;

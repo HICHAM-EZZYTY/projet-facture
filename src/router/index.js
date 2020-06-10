@@ -58,10 +58,7 @@ const routes = [
 
       {
         path: "avoire",
-        name: "Avoire",
-        children: [
-
-        ]
+        name: "Avoire"
       },
       {
         path: 'avoire/new',
@@ -157,16 +154,7 @@ const routes = [
     ]
   },
 
-  {
-    path: "/signup",
-    name: "signup",
-    redirect: "gate/login",
-  },
-  {
-    path: "/login",
-    name: "login",
-    redirect: "gate/login",
-  },
+  
   {
     path: "/Gate",
     name: "Gate",
@@ -188,6 +176,7 @@ const routes = [
       }
     ]
   },
+
   {
     path: "*",
     name: "NotFound",

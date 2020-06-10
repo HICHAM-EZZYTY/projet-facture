@@ -118,7 +118,7 @@ const routes = [
     name: "sigupfive",
     component: sigupfive
   },
-{
+  {
     path: "/exportDevis",
     name: "exportDevis",
     props: true,

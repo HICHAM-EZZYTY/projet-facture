@@ -5,7 +5,7 @@
         <li class="sidebar-brand" active>
           <!-- <router-link to="/Préférences"> -->
           <!-- <router-link to="preference"> -->
-          <router-link :to="{ name: 'preference' }">
+          <router-link :to="{ name: 'Preferences' }">
             <a class="preference">
               Préférences
               <i class="fa fa-caret-right" style="font-size: 2rem;"></i>
@@ -14,37 +14,39 @@
           <!-- </router-link> -->
         </li>
         <li class="sidebar-brand">
-          <router-link :to="{ name: 'devisRef' }">
+          <router-link :to="{ name: 'DevisPreferences' }">
             <a>Devis</a>
           </router-link>
         </li>
         <li class="sidebar-brand">
-          <router-link :to="{ name: 'factureRef' }">
+          <router-link :to="{ name: 'FacturePreferences' }">
             <a>Factures</a>
           </router-link>
         </li>
         <li class="sidebar-brand">
-          <router-link :to="{ name: 'avoirRef' }">
+          <router-link :to="{ name: 'AvoirePreferences' }">
             <a>Avoirs</a>
           </router-link>
         </li>
         <li class="sidebar-brand">
-          <router-link :to="{ name: 'factureAcompte' }">
+          <router-link :to="{ name: 'FactureAcomptePreferences' }">
             <a>Factures d'acompte</a>
           </router-link>
         </li>
         <li class="sidebar-brand">
-          <router-link :to="{ name: 'avoirAcompte' }">
+          <router-link :to="{ name: 'AvoireAcomptePreferences' }">
             <a>Avoirs d'acompte</a>
           </router-link>
         </li>
         <li class="sidebar-brand">
-          <router-link :to="{ name: 'numerotation' }">
+          <router-link :to="{ name: 'NumerotationPreferences' }">
             <a>Numérotation</a>
           </router-link>
         </li>
         <li class="sidebar-brand">
-          <a>Types d'article</a>
+          <router-link :to="{ name: 'TypeArticles' }">
+            <a>Types d'article</a>
+          </router-link>
         </li>
         <li class="sidebar-brand">
           <a>Thème des documents</a>

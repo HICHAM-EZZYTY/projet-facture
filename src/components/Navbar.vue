@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD:src/components/Devis/Navbar.vue
   <nav class="navbar navbar-expand-lg navbar-dark ">
     <a class="navbar-brand" href="#"><img class="logo" src="../../assets/Group.svg" alt="logo" /></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContentLG" aria-controls="navbarSupportedContentLG" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,6 +20,47 @@
         </form>
         <div id="navbar" class="navbar-collapse collapse">
            <p class="bienvenue"><strong>Bienvenue,</strong> hicham ezzyty</p>
+=======
+  <div class="containe mt-1">
+    <b-navbar toggleable="lg" type="white" variant="white">
+      <img class="logo" src="../assets/Group 4.png" alt="logo" />
+
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+      <b-collapse id="nav-collapse" is-nav>
+        <!-- Right aligned nav items -->
+        <!-- SEARCH AREA -->
+
+        <b-navbar-nav class="ml-auto">
+          <b-nav-form class="form">
+            <b-form-input
+              class="search mr-2"
+              id="iconified"
+              placeholder="Rechercher des Devis"
+              type="text"
+            ></b-form-input>
+            <b-icon class="icon" icon="search" aria-hidden="true"></b-icon>
+            <router-link to="createDevis">
+              <b-button
+                class="submit my-2 my-sm-0"
+                type="submit"
+                variant="primary"
+              >
+                <b-icon
+                  class="icon-plus"
+                  icon="plus"
+                  aria-hidden="true"
+                ></b-icon
+                >Nouveau Devis
+              </b-button>
+            </router-link>
+          </b-nav-form>
+        </b-navbar-nav>
+
+        <!-- FIN SEARCH AREA -->
+        <p class="bienvenue"><strong>Bienvenue,</strong> Chaimaa Ess-bbah</p>
+        <div class="mb-2 mr-5">
+>>>>>>> routes:src/components/Navbar.vue
           <b-avatar
             variant="primary"
             class="avatar"
@@ -60,6 +102,8 @@ export default {
 }
 .form input[type="text"] {
   padding-left: 3rem;
+  font-family: 'Gilroy-Regular';
+
 }
 /* .form-inline {
   display: flex;
@@ -72,7 +116,8 @@ export default {
   height: 44px;
   font-size: 15px;
   font-weight: bold;
-  font-family: Gilroy;
+  font-family: 'Gilroy-Bold';
+
 }
 .icon {
   position: absolute;
@@ -90,6 +135,7 @@ export default {
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
+    font-family: 'Gilroy-Regular';
     color: #495057;
     background-color: #fff;
     background-clip: padding-box;
@@ -107,6 +153,8 @@ export default {
   color: rgb(177, 172, 172);
   margin: 1.5rem;
   margin-left: auto;
+    font-family: 'Gilroy-Regular';
+
 }
 .btn-primary {
   color: #fff;

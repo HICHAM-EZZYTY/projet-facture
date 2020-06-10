@@ -16,6 +16,7 @@
     </div>
     <hr />
     <div class="projects">
+    
       <b-tabs class="forms" content-class="mt-3" fill>
 
         <!-- <b-tab active>
@@ -81,7 +82,6 @@
           </b-table>
         </b-tab>
 
-
         <b-tab>
           <template v-slot:title :title-link-class="'tab-title-class'">
             <p class="Fact">Provisoires</p>
@@ -91,8 +91,6 @@
           </template>
         </b-tab>
 
-  
-
         <b-tab>
           <template v-slot:title :title-link-class="'tab-title-class'">
             <p class="Fact">Finalisées</p>
@@ -101,6 +99,10 @@
             </span>
           </template>
         </b-tab>
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> routes
         <b-tab>
           <template v-slot:title :title-link-class="'tab-title-class'">
             <p class="Fact">Refusés</p>
@@ -109,6 +111,7 @@
             </span>
           </template>
         </b-tab>
+
         <b-tab>
           <template v-slot:title :title-link-class="'tab-title-class'">
             <p class="Fact">Signés</p>
@@ -117,6 +120,7 @@
             </span>
           </template>
         </b-tab>
+        
       </b-tabs>
     </div>
   </div>

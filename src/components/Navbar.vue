@@ -1,26 +1,4 @@
 <template>
-<<<<<<< HEAD:src/components/Devis/Navbar.vue
-  <nav class="navbar navbar-expand-lg navbar-dark ">
-    <a class="navbar-brand" href="#"><img class="logo" src="../../assets/Group.svg" alt="logo" /></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContentLG" aria-controls="navbarSupportedContentLG" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContentLG">
-        <form class="form-inline my-2 my-lg-0">
-            <b-form-input
-            class="search mr-2"
-            id="iconified"
-            placeholder="Rechercher des Devis"
-            type="text"
-          ></b-form-input>
-          <b-icon class="icon" icon="search" aria-hidden="true"></b-icon>
-          <b-button class="submit  my-sm-1" type="submit" variant="primary"
-            >+ Nouveau Devis
-          </b-button>
-        </form>
-        <div id="navbar" class="navbar-collapse collapse">
-           <p class="bienvenue"><strong>Bienvenue,</strong> hicham ezzyty</p>
-=======
   <div class="containe mt-1">
     <b-navbar toggleable="lg" type="white" variant="white">
       <img class="logo" src="../assets/Group 4.png" alt="logo" />
@@ -60,130 +38,202 @@
         <!-- FIN SEARCH AREA -->
         <p class="bienvenue"><strong>Bienvenue,</strong> Chaimaa Ess-bbah</p>
         <div class="mb-2 mr-5">
->>>>>>> routes:src/components/Navbar.vue
           <b-avatar
             variant="primary"
             class="avatar"
-            text="HZ"
+            text="CE"
             size="3.5rem"
           ></b-avatar>
         </div>
-    </div>
-</nav>
+      </b-collapse>
+    </b-navbar>
+  </div>
 </template>
 
 <script>
 export default {
-  name: "Navbar",
-  
+  name: "Navbar"
 };
 </script>
 
 <style scoped>
+.containe {
+  font-family: Arial, Helvetica, sans-serif;
+}
+/****  NavBar Content  ****/
 
-.btn-outline-dark {
-    color: rgb(34, 98, 198);
-    border-color: rgb(34, 98, 198);
+* {
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: "Gilroy", sans-serif;
 }
-.btn-outline-dark:hover {
-	border-color: #343a40;	
+body {
+  width: 100%;
 }
-.navbar-toggler {
-    padding: .25rem .75rem;
-    font-size: 1.25rem;
-    line-height: 1;
-    background-color: #2262c6;
-    border: 1px solid #2262c6;
-    border-radius: .25rem;
+
+.navbar {
+  height: 8rem;
+  background-color: white;
 }
+
+.containe .b-navbar {
+  position: fixed;
+}
+
+.logo {
+  position: absolute;
+  width: 14rem;
+}
+
+/* Search part */
+
 .search {
   width: 30rem !important;
   margin-right: 1rem !important;
 }
+
 .form input[type="text"] {
   padding-left: 3rem;
-  font-family: 'Gilroy-Regular';
-
 }
-/* .form-inline {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  margin-left: 3em;
-} */
+
 .submit {
-  width: 9rem;
-  height: 44px;
+  width: 11rem;
+  margin-right: 8.5rem;
+
   font-size: 15px;
   font-weight: bold;
-  font-family: 'Gilroy-Bold';
-
+  font-family: Gilroy;
 }
+.form input[type="text"]:focus + .icon {
+  color: dodgerBlue;
+}
+
+.form-inline {
+  margin-right: 8rem;
+}
+
+/* Avatar part */
 .icon {
   position: absolute;
-  top: 8px;
-  padding: 9px 14px;
+  top: 47px;
+  padding: 9px 8px;
   color: #aaa;
   transition: 0.3s;
 }
 
-.form-control {
-    display: block;
-    width: 100%;
-    height: calc(1.5em + .75rem + 2px);
-    padding: 1.375rem 3.75rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    font-family: 'Gilroy-Regular';
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: .25rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+.icon-plus {
+  margin-right: 10px;
 }
-.form-inline {
-    display: flex;
-    position: relative;
-    /* align-items: center; */
-    left: 12%;
-}
- .bienvenue {
+
+.bienvenue {
   color: rgb(177, 172, 172);
   margin: 1.5rem;
-  margin-left: auto;
-    font-family: 'Gilroy-Regular';
+}
 
-}
-.btn-primary {
-  color: #fff;
-  background-color: #2262c6;
-  border-color: #2262c6;
-}
-.badge-primary {
-  color: #fff;
-  background-color: #2262c6;
-}  
-.form-inline {
-    display: flex;
-    align-items: center;
-}
-/* @media (min-width: 1614px) {
- .form-inline {
-   position: relative;
-   left: 2em;
-}
-} */
-/* @media only screen and (min-width: 1200px) {
+/* responsive part */
+/* *************** */
+
+/* extralarge */
+@media only screen and (max-width: 1200px) {
+  .form-control {
+    margin-left: 256px;
+  }
+  .icon {
+    margin: -20px 260px;
+    top: 64px;
+  }
   .form-inline {
-    margin-left: 7em;
+    margin-left: 2rem;
+  }
+
+  .submit {
+    padding: 10px;
+    margin-left: 590px;
+    top: 3rem;
+    position: absolute;
+    width: 105px;
+    font-size: 9px;
+  }
+  /* .form-inline {
+    margin-right: 4rem;
   } */
-   /* .submit{
-    width: 30rem;
+  form input[type="text"] {
+    padding-left: 40px;
+    max-width: 20rem;
+  }
+  /* avatar responsive */
+  .avatar {
+    width: 3rem;
+    height: 3rem;
+    margin-top: 12px;
+  }
+  .bienvenue {
+    margin-left: 92.5px;
+  }
+  /* .form-inline {
+    margin-right: -2rem;
+  } */
+  .form input[type="text"] {
+    height: 2.9rem;
+  }
+}
+
+/* large */
+
+@media screen and (min-width: 576px) {
+  .mb-sm-0,
+  .my-sm-0 {
+    margin-bottom: 1px !important;
+  }
+  .submit {
+    width: 10rem;
+    margin-right: 0.5rem;
     font-size: 15px;
     font-weight: bold;
     font-family: Gilroy;
-}  */
+  }
+  .search {
+    width: 26rem !important;
+  }
+  .mr-5,
+  .mx-5 {
+    margin-right: 1rem !important;
+  }
+  .bienvenue {
+    font-size: 15px;
+  }
+  .mb-sm-0,
+  .my-sm-0 {
+    margin-top: 1px !important;
+    height: 49.5px;
+  }
+  .form input[type="text"] {
+    height: 3rem;
+  }
+  /* .submit {
+    width: 11rem;
+    margin-right: 1.5rem;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: Gilroy;
+  }
+  .avatar {
+    margin-right: 1rem;
+  } */
+}
+/* @media screen and (min-width: 1000px) {
+  .submit {
+    width: 11rem;
+    margin-right: 1.5rem;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: Gilroy;
+  } */
 /* } */
+
+/* @media screen and (min-width: 1200px) {
+  
+} */
 </style>

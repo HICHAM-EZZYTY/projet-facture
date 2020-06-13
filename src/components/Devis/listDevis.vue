@@ -99,7 +99,6 @@
             </span>
           </template>
         </b-tab>
-
         <b-tab>
           <template v-slot:title :title-link-class="'tab-title-class'">
             <p class="Fact">Refusés</p>

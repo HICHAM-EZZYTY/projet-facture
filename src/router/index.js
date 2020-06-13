@@ -4,7 +4,7 @@ import VueRouter from "vue-router";
 // import Devis from "../views/Devis.vue";
 // import Devis from "./../views/Devis.vue";
 import CreateDevis from "./../components/Devis/createDevis.vue";
-import listClient from "../components/client/listClient.vue";
+// import listClient from "../components/client/listClient.vue";
 import addClient from "../components/client/addClient.vue";
 import homeSeting from "../views/setings/homeSeting.vue";
 import preference from "../components/setings/preference.vue";
@@ -23,7 +23,7 @@ import Login from "../views/Authentification/Login.vue";
 import HomePage from "../views/HomePage.vue";
 import Register from "../views/Authentification/Signup.vue";
 import GateLayout from "../views/GateLayout.vue";
-
+import cards from "../components/Clients-page/cards.vue";
 
 Vue.use(VueRouter);
 
@@ -78,7 +78,7 @@ const routes = [
       {
         path: "client",
         name: "Client",
-        component: listClient,
+        component: cards,
       },
       {
         path: 'client/new',

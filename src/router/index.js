@@ -24,6 +24,7 @@ import HomePage from "../views/HomePage.vue";
 import Register from "../views/Authentification/Signup.vue";
 import GateLayout from "../views/GateLayout.vue";
 import cards from "../components/Clients-page/cards.vue";
+
 Vue.use(VueRouter);
 
 const routes = [

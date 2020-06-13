@@ -34,7 +34,6 @@
             </router-link>
           </b-nav-form>
         </b-navbar-nav>
-
         <!-- FIN SEARCH AREA -->
         <p class="bienvenue"><strong>Bienvenue,</strong> Chaimaa Ess-bbah</p>
         <div class="mb-2 mr-5">

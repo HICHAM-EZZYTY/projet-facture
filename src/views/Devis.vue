@@ -7,6 +7,7 @@
       <div class="Content1">
         <!-- <listDevis /> -->
       </div>
+      <cards />
     </div>
   </div>
 </template>
@@ -15,6 +16,7 @@
 // @ is an alias to /src
 import Navbar from "@/components/Devis/Navbar.vue";
 import Sidebar from "@/components/Sidebar.vue";
+import cards from "@/components/Clients-page/cards.vue";
 // import listDevis from "@/components/Devis/listDevis.vue";
 // import CreateDevis from "@/components/Devis/CreateDevis.vue";
 
@@ -25,6 +27,7 @@ export default {
   components: {
     Navbar,
     Sidebar,
+    cards,
     // listDevis
     // CreateDevis
     // Table,

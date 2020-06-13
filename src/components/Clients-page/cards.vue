@@ -1,0 +1,372 @@
+<template>
+
+<div class="container">
+
+	<div class="cards-card">
+		<div class="box"></div>
+		<div class="cards-content">
+			<div class="cards-content-header">
+				<a href="#">
+					<h3 class="cards-title">Mehdi Bezikha</h3>
+				</a>
+			</div>
+			<div class="cards-info">
+                <div class="info-section">
+					<label>Société : Marjane</label>
+					<span><img class="gmail" src="../../assets/img/Group.svg" alt="gmail"> hichamziti@gmail.com</span>
+					<p><img class="téléphone" src="../../assets/img/call 1.svg" alt="téléphone"> 07-00-34-14-59</p>
+					<ul>      
+					</ul>
+					<ul >      
+					</ul>
+				</div>
+                <div class="info-section">
+				</div>				
+			</div>
+			<div class="imax-logo">
+				<a href="#"><img src="../../assets/img/Vector.svg" alt=""></a>
+			</div>
+		</div>	
+	</div>
+    <div class="cards-card">
+		<div class="box"></div>
+		<div class="cards-content">
+			<div class="cards-content-header">
+				<a href="#">
+					<h3 class="cards-title">Hicham ZITI</h3>
+				</a>
+			</div>
+			<div class="cards-info">
+				<div class="info-section">
+					<label>Société : Marjane</label>
+					<span><img class="gmail" src="../../assets/img/Group.svg" alt="gmail"> hichamziti@gmail.com</span>
+					<p><img class="téléphone" src="../../assets/img/call 1.svg" alt="téléphone"> 07-00-34-14-59</p>
+				</div>
+			    <div class="info-section">
+				</div>	
+			</div>
+			<div class="imax-logo">
+				<a href="#"><img src="../../assets/img/Vector.svg" alt=""></a>
+			</div>
+		</div>
+	</div>
+    <div class="cards-card">
+		<div class="box"></div>
+		<div class="cards-content">
+			<div class="cards-content-header">
+				<a href="#">
+					<h3 class="cards-title">HICHAM ZITI</h3>
+				</a>
+			</div>
+			<div class="cards-info">
+				<div class="info-section">
+					<label>Société : Marjane</label>
+					<span><img class="gmail" src="../../assets/img/Group.svg" alt="gmail"> hichamziti@gmail.com</span>
+					<p><img class="téléphone" src="../../assets/img/call 1.svg" alt="téléphone"> 07-00-34-14-59</p>
+				</div>
+                <div class="info-section">
+				</div>	
+			</div>
+			<div class="imax-logo-x">
+				<a href="#"><img src="../../assets/img/Vector.svg" alt=""></a>
+			</div>
+		</div>
+	</div>
+    <div class="cards-card">
+		<div class="box"></div>
+		<div class="cards-content">
+			<div class="cards-content-header">
+				<a href="#">
+					<h3 class="cards-title">HICHAM ZITI</h3>
+				</a>
+			</div>
+			<div class="cards-info">
+				<div class="info-section">
+					<label>Société : Marjane</label>
+					<span><img class="gmail" src="../../assets/img/Group.svg" alt="gmail"> hichamziti@gmail.com</span>
+					<p><img class="téléphone" src="../../assets/img/call 1.svg" alt="téléphone"> 07-00-34-14-59</p>
+				</div>
+				<div class="info-section">
+				</div>	
+			</div>
+			<div class="imax-logo">
+				<a href="#"><img src="../../assets/img/Vector.svg" alt=""></a>
+			</div>
+		</div>
+	</div>
+    <div class="cards-card">
+		<div class="box"></div>
+		<div class="cards-content">
+			<div class="cards-content-header">
+				<a href="#">
+					<h3 class="cards-title">HICHAM ZITI</h3>
+				</a>
+			</div>
+			<div class="cards-info">
+				<div class="info-section">
+					<label>Société : Marjane</label>
+					<span><img class="gmail" src="../../assets/img/Group.svg" alt="gmail"> hichamziti@gmail.com</span>
+					<p><img class="téléphone" src="../../assets/img/call 1.svg" alt="téléphone"> 07-00-34-14-59</p>
+				</div>
+				<div class="info-section">
+				</div>
+			</div>
+			<div class="imax-logo">
+				<a href="#"><img src="../../assets/img/Vector.svg" alt=""></a>
+			</div>
+		</div>
+	</div>
+    <div class="cards-card">
+		<div class="box"></div>
+		<div class="cards-content">
+			<div class="cards-content-header">
+				<a href="#">
+					<h3 class="cards-title">HICHAM ZITI</h3>
+				</a>
+			</div>
+			<div class="cards-info">
+				<div class="info-section">
+					<label>Société : Marjane</label>
+					<span><img class="gmail" src="../../assets/img/Group.svg" alt="gmail"> hichamziti@gmail.com</span>
+					<p><img class="téléphone" src="../../assets/img/call 1.svg" alt="téléphone"> 07-00-34-14-59</p>		
+				</div>
+				<div class="info-section">
+				</div>	
+			</div>
+			<div class="imax-logo-x">
+				<a href="#"><img src="../../assets/img/Vector.svg" alt=""></a>
+			</div>
+		</div>
+	</div>
+    
+	</div>
+</template>
+<script>
+export default {
+    name: "cards",
+}
+</script>
+<style lang="scss" scoped>
+
+
+
+* {
+	transition: 300ms;
+}
+
+.intro {
+	text-align:center;
+}
+
+ul {
+	list-style-type:none;
+}
+
+h1,h2,h3,h4,h5,p {
+	font-weight: 400;
+}
+
+a {
+	text-decoration:none;
+	color:inherit;
+}
+
+a:hover {
+	color:#6ABCEA;
+}
+
+.container {
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 100%;
+
+	justify-content: center;
+}
+
+.cards-card {
+	background: #ffffff;
+	box-shadow: 0px 6px 18px rgba(0,0,0,.1);
+	width: 100%;
+	max-width: 315px;
+	margin: 2em;
+	border-radius: 15px;
+	display:inline-block;
+	z-index: 1;
+}
+.box{
+	position: relative;
+    width: 94px;
+    height: 49px;
+    left: 8%;
+    top: -1em;
+	background: #2262C6;
+	box-shadow: 0px 4px 15px rgba(223, 223, 223, 0.45);
+	border-radius: 20px;
+}
+.imax-logo{
+	position: relative;
+    width: 21px;
+    height: 21.64px;
+    left: 90%;
+    background: #2262C6;
+    border-radius: 5px;
+}
+.imax-logo-x{
+	position: relative;
+    width: 21px;
+    height: 21.64px;
+    left: 90%;
+    background: #FFC5A0;
+    border-radius: 5px;
+}
+img{
+	width: 14px;
+    margin-left: 3px;
+    margin-top: -6px;
+}
+
+.cards-header {
+	padding:0;
+	margin: 0;
+	height: 367px;
+	width: 100%;
+	display: block;
+	border-top-left-radius: 10px;
+	border-top-right-radius:10px;
+}
+
+ul {
+	position: relative;
+    width: 8.38px;
+    left: 86%;
+    bottom: 13Em;
+    border-radius: 46%;
+    height: 8px;
+    border: 2px solid #427FDE;
+    box-sizing: border-box;
+    transform: matrix(1, 0, 0, -1, 0, 0);
+}
+
+
+
+
+
+
+.header-icon-container {
+	position: relative;
+}
+
+.header-icon {
+	width: 100%;
+	height: 367px;
+	line-height: 367px;
+	text-align:center;
+	vertical-align:middle;
+	margin: 0 auto;
+	color: #ffffff;
+	font-size: 54px;
+	text-shadow:0px 0px 20px #6abcea, 0px 5px 20px #6ABCEA;
+	opacity: .85;
+}
+
+.header-icon:hover {
+	background:rgba(0,0,0,.15);
+	font-size: 74px;
+	text-shadow:0px 0px 20px #6abcea, 0px 5px 30px #6ABCEA;
+	border-top-left-radius: 10px;
+	border-top-right-radius:10px;
+	opacity: 1;
+}
+
+.cards-card:hover {
+	transform:scale(1.03);
+	box-shadow: 0px 10px 25px rgba(0,0,0,.08);
+}
+
+.cards-content {
+	padding: 90px 18px 24px 18px;
+	margin: 0;
+}
+
+.cards-content-header, .cards-info {
+	display: table;
+	width: 100%;
+}
+
+.cards-title {
+	font-size: 24px;
+	margin: 0;
+	position: relative;
+    display: table-cell;
+    bottom: 80px;
+}
+
+.cards-info {
+	margin-top: 1em;
+}
+
+.info-section {
+	display: table-cell;
+	text-transform: uppercase;
+	text-align:center;
+}
+
+.info-section:first-of-type {
+	text-align:left;
+}
+
+.info-section:last-of-type {
+	text-align:right;
+}
+
+.info-section label {
+	display: block;
+	color: rgba(0,0,0,.5);
+	margin-bottom: .5em;
+	font-size: 9px;
+    position: relative;
+    bottom: 10em;
+}
+
+.info-section span {
+	font-weight: 700;
+	font-size: 11px;
+    color: rgba(76, 76, 76, 0.596);
+    position: relative;
+    bottom: 7em;
+}
+p{
+	position: relative;
+    top: -5em;
+    font-size: 14px;
+	color: rgba(76, 76, 76, 0.596);
+
+}
+
+@media screen and (max-width: 500px) {
+	.cards-card {
+		position: relative;
+		left: 10%;
+		width: 95%;
+		max-width: 80%;
+		margin: 1em;
+		display: block;
+	}
+	
+	.container {
+        max-width: 100%;
+		padding: 0;
+		margin: 0;
+	}
+}
+@media (min-width: 1200px){
+.container{
+    max-width: 100%;
+    position: relative;
+    top: 10em;
+    right: 0%;
+}
+}
+
+
+</style>

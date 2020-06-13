@@ -2,25 +2,22 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 
 // import Devis from "../views/Devis.vue";
-import Devis from "./../views/Devis.vue";
+// import Devis from "./../views/Devis.vue";
+import CreateDevis from "./../components/Devis/createDevis.vue";
 import listClient from "../components/client/listClient.vue";
 import addClient from "../components/client/addClient.vue";
 import homeSeting from "../views/setings/homeSeting.vue";
 import preference from "../components/setings/preference.vue";
-import signup from "../views/Authentification/Signup.vue";
-import login from "../views/Authentification/Login.vue";
-import signupThree from "../components/Authentification/signupThree.vue";
-import singupFour from "../components/Authentification/singupFour.vue";
-import sigupfive from "../components/Authentification/signupfive.vue";
+// import signupThree from "../components/Authentification/signupThree.vue";
+// import singupFour from "../components/Authentification/singupFour.vue";
+// import sigupfive from "../components/Authentification/signupfive.vue";
+import TypeArticles from './../components/setings/TypeArticles.vue'
 import devisRef from "../components/setings/devisRef.vue";
 import factureRef from "../components/setings/factureRef.vue";
 import avoirRef from "../components/setings/avoirRef.vue";
 import factureAcompte from "../components/setings/factureAcompte.vue";
 import avoirAcompte from "../components/setings/avoirAcompte.vue";
 import numerotation from "../components/setings/numerotation.vue";
-
-
-import createDevis from "./../components/Devis/createDevis.vue";
 import listDevis from "./../components/Devis/listDevis.vue";
 import Login from "../views/Authentification/Login.vue";
 import HomePage from "../views/HomePage.vue";
@@ -33,147 +30,143 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    name: "Devis",
-    component: Devis
-  },
-  {
-    path: "/createDevis",
-    name: "createDevis",
-    component: createDevis
-  },
-  {
-    path: "/listClient",
-    name: "listClient",
-    component: listClient
-  },
-  {
-    path: "/addClient",
-    name: "addClient",
-    component: addClient
-  },
-  {
-    path: "/settings",
-    name: "homeSeting",
-    component: homeSeting,
-    children: [
-      {
-        path: 'preference',
-        name: 'preference',
-        component: preference
-      },
-      {
-        path: 'devisRef',
-        name: 'devisRef',
-        component: devisRef
-      },
-      {
-        path: 'factureRef',
-        name: 'factureRef',
-        component: factureRef
-      },
-      {
-        path: 'avoirRef',
-        name: 'avoirRef',
-        component: avoirRef
-      },
-      {
-        path: 'factureAcompte',
-        name: 'factureAcompte',
-        component: factureAcompte
-      },
-      {
-        path: 'avoirAcompte',
-        name: 'avoirAcompte',
-        component: avoirAcompte
-      },
-      {
-        path: 'numerotation',
-        name: 'numerotation',
-        component: numerotation
-      },
-    ]
-  },
-  {
-    path: "/signup",
-    name: "signup",
-    component: signup
-  },
-  {
-    path: "/login",
-    name: "login",
-    component: login
-  },
-  {
-    path: "/signupThree",
-    name: "signupThree",
-    component: signupThree
-  },
-  {
-    path: "/singupFour",
-    name: "singupFour",
-    component: singupFour
-  },
-  {
-    path: "/singupfive",
-    name: "sigupfive",
-    component: sigupfive
-  },
-{
-    path: "/exportDevis",
-    name: "exportDevis",
-    props: true,
-    component: () =>
-      import(
-        /* webpackChunkName: "exportDevis" */ "./../components/Devis/TheExportDevis.vue"
-      )
-  },
-  {
-    path: "/refusDevis",
-    name: "refusDevis",
-    props: true,
-    component: () =>
-      import(
-        /* webpackChunkName: "exportDevis" */ "./../components/Devis/TheRefusDevis.vue"
-      )
-  },
-  {
-    path: "/calendardevis",
-    name: "calendardevis",
-    props: true,
-    component: () =>
-      import(
-        /* webpackChunkName: "exportDevis" */ "./../components/Devis/TheCalendarDevis.vue"
-      )
-  },
-  {
-    path: "/",
     name: "Home",
     component: HomePage,
     children: [
       {
-        path: "",
+        path: "devis",
         name: "Devis",
-        component: listDevis
+        component: listDevis,
       },
       {
-        path: "/listDevis",
-        name: "listDevis",
-        component: () =>
-          import(
-            /* webpackChunkName: "listDevis" */ "./../components/Devis/listDevis.vue"
-          )
+        path: "devis/new",
+        name: "NewDevis",
+        component: CreateDevis
+
+      },
+
+      {
+        path: "facture",
+        name: "Facture",
+
+      },
+      {
+        path: 'facture/new',
+        name: "NewFacture"
+      },
+
+
+      {
+        path: "avoire",
+        name: "Avoire"
+      },
+      {
+        path: 'avoire/new',
+        name: "NewAvoire"
+      },
+
+      {
+        path: "societe",
+        name: "Societe",
+
+      },
+      {
+        path: 'Societe/new',
+        name: "NewSociete"
+      },
+
+      {
+        path: "client",
+        name: "Client",
+        component: listClient,
+      },
+      {
+        path: 'client/new',
+        name: "NewClient",
+        component: addClient
       }
     ]
   },
+  // parameters 
   {
-    path: "/gate",
+    path: "/settings",
+    name: "Settings",
+    component: homeSeting,
+    redirect: { name: "Preferences" },
+    children: [
+      {
+        path: "preferences",
+        name: "Preferences",
+        component: preference,
+      },
+      {
+        path: "preferences/devis",
+        name: "DevisPreferences",
+        component: devisRef,
+      },
+      {
+        path: "preferences/facture",
+        name: "FacturePreferences",
+        component: factureRef,
+      },
+      {
+        path: "preferences/avoire",
+        name: "AvoirePreferences",
+        component: avoirRef
+      },
+      {
+        path: "preferences/avoire-acompte",
+        name: "AvoireAcomptePreferences",
+        component: avoirAcompte
+      },
+      {
+        path: "preferences/facture-acompte",
+        name: "FactureAcomptePreferences",
+        component: factureAcompte
+      },
+      {
+        path: "preferences/numerotation",
+        name: "NumerotationPreferences",
+        component: numerotation
+      },
+      // articles 
+      {
+        path: "type-articles",
+        name: "TypeArticles",
+        component: TypeArticles,
+      },
+      {
+        path: "bank-accounts",
+        name: "BackAccounts",
+      },
+      {
+        path: "user-contact",
+        name: "UserContact",
+      },
+      {
+        path: "user",
+        name: "User",
+      },
+      {
+        path: "delete-account",
+        name: "DeleteAccount",
+      }
+    ]
+  },
+
+
+  {
+    path: "/Gate",
     name: "Gate",
     component: GateLayout,
-    redirect: "/login",
+    redirect: "gate/login",
+    meta: {
+      requiresAuth: false
+    },
     children: [
       {
         path: "login",
-        name: "login",
+        name: "Login",
         component: Login
       },
       {
@@ -182,6 +175,12 @@ const routes = [
         component: Register
       }
     ]
+  },
+
+  {
+    path: "*",
+    name: "NotFound",
+    redirect: { name: "Home" }
   }
 ];
 

@@ -1,29 +1,49 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-// import Devis from "../views/Devis.vue";
-// import Devis from "./../views/Devis.vue";
-import CreateDevis from "./../components/Devis/createDevis.vue";
+//home
+import HomePage from "../views/HomePage.vue";
+
+  // Devis 
+  import Devis from "../views/subLayouts/Devis.vue";
+    import CreateDevis from "./../components/Devis/createDevis.vue";
+    import listDevis from "./../components/Devis/listDevis.vue";
+
+  //clients
+  import Clients from "../views/subLayouts/Clients.vue";
+    import addClient from "../components/client/addClient.vue";
+    import cards from "../components/Clients-page/cards.vue";
+
+  //Facture
+  import factureAcompte from "../components/setings/factureAcompte.vue";
+
+  //Avoire
+  import avoirAcompte from "../components/setings/avoirAcompte.vue";
+
+  //settings
+  import homeSeting from "../views/setings/homeSeting.vue";
+    import preference from "../components/setings/preference.vue";
+    import TypeArticles from './../components/setings/TypeArticles.vue'
+    import devisRef from "../components/setings/devisRef.vue";
+    import factureRef from "../components/setings/factureRef.vue";
+    import avoirRef from "../components/setings/avoirRef.vue";
+    import numerotation from "../components/setings/numerotation.vue";
+
+  //register/login
+  import GateLayout from "../views/subLayouts/GateLayout.vue";
+    import Register from "../views/Authentification/Signup.vue";
+    import Login from "../views/Authentification/Login.vue";
+
+
+// comments
 // import listClient from "../components/client/listClient.vue";
-import addClient from "../components/client/addClient.vue";
-import homeSeting from "../views/setings/homeSeting.vue";
-import preference from "../components/setings/preference.vue";
 // import signupThree from "../components/Authentification/signupThree.vue";
 // import singupFour from "../components/Authentification/singupFour.vue";
 // import sigupfive from "../components/Authentification/signupfive.vue";
-import TypeArticles from './../components/setings/TypeArticles.vue'
-import devisRef from "../components/setings/devisRef.vue";
-import factureRef from "../components/setings/factureRef.vue";
-import avoirRef from "../components/setings/avoirRef.vue";
-import factureAcompte from "../components/setings/factureAcompte.vue";
-import avoirAcompte from "../components/setings/avoirAcompte.vue";
-import numerotation from "../components/setings/numerotation.vue";
-import listDevis from "./../components/Devis/listDevis.vue";
-import Login from "../views/Authentification/Login.vue";
-import HomePage from "../views/HomePage.vue";
-import Register from "../views/Authentification/Signup.vue";
-import GateLayout from "../views/GateLayout.vue";
-import cards from "../components/Clients-page/cards.vue";
+
+/**
+ * End Of Imports
+ */
 
 Vue.use(VueRouter);
 
@@ -36,15 +56,38 @@ const routes = [
       {
         path: "devis",
         name: "Devis",
-        component: listDevis,
+        component: Devis,
+        children: [
+          {
+            path: "",
+            name: "ListDevis",
+            component: listDevis,
+          },
+          {
+            path: "new",
+            name: "NewDevis",
+            component: CreateDevis
+
+          }
+        ]
       },
       {
-        path: "devis/new",
-        name: "NewDevis",
-        component: CreateDevis
-
+        path: "client",
+        name: "Client",
+        component: Clients,
+        children: [
+          {
+            path: "",
+            name: "Client",
+            component: cards,
+          },
+          {
+            path: 'new',
+            name: "NewClient",
+            component: addClient
+          }
+        ]
       },
-
       {
         path: "facture",
         name: "Facture",
@@ -75,16 +118,7 @@ const routes = [
         name: "NewSociete"
       },
 
-      {
-        path: "client",
-        name: "Client",
-        component: cards,
-      },
-      {
-        path: 'client/new',
-        name: "NewClient",
-        component: addClient
-      }
+      
     ]
   },
   // parameters 

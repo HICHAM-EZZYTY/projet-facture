@@ -9,7 +9,7 @@
 			</div>
 			<div class="cards-info">
 				<div class="info-section">
-					<label>Société : {{  " none " }}</label>
+					<label>Société : {{ (user.societe == null) ? "none" : user.societe.Societe_Nom  }}</label>
 					<span>
 						<img class="gmail" src="../../assets/img/Group.svg" alt="gmail"> {{user.Client_Email}}
 					</span>
@@ -42,7 +42,13 @@ export default {
     }, 
     props: {
 		user: Object
-    }
+    }, 
+	computed: {
+		// societeName: function () {
+		// 	if(this.user.societe) return "none"; 
+		// 	return this.user.societe.Societe_Nom;
+		// }
+	}
 
 }
 </script>

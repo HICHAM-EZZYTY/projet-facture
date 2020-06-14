@@ -1,14 +1,12 @@
 <template>
-
 	<div class="container">
-		
-	<Card v-for="client in clients" :key="client.name" :user="client" />
-		
-    
+		<Card v-for="client in clients" :key="client.name" :user="client" />	
 	</div>
 </template>
+
 <script>
 import Card from './Card.vue'
+
 export default {
     name: "cards",
 	data: function () {
@@ -22,8 +20,10 @@ export default {
 	methods:{
 		getClients: function () {
 			// get clients. 
-			let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTU5MjEzOTQwOSwiZXhwIjoxNTkyMTQzMDA5LCJuYmYiOjE1OTIxMzk0MDksImp0aSI6IjIwVXIwQ1VBYUhlUXc3TWMiLCJzdWIiOjIyLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.pvlo6C9FhPB2QWjsKFvybEt2Euunx_LAJRU2gZDCUcg";
+			let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTU5MjE0NTEzNiwiZXhwIjoxNTkyMTQ4NzM2LCJuYmYiOjE1OTIxNDUxMzYsImp0aSI6IkxYOENFMG5wYkRPVW01aHAiLCJzdWIiOjIyLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.w_vBxpPNPiAJBpKg1BIzE5d7rSMbzIvksosXrGdgCSs";
+
 			this.$http.defaults.headers.common = { Authorization: `Bearer ${token}` }
+			
 			this.$http
 				.get("/clients")
 				.then((result) => {

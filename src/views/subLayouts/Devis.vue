@@ -1,15 +1,11 @@
 <template>
   <div >
-    add a new Clients  
+    <router-view/>
   </div>
 </template>
 
 <script>
-
 export default {
-  name: "Devis",
+  name: "Devis"
 };
 </script>
-
-<style>
-</style>

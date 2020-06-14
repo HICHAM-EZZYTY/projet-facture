@@ -9,52 +9,52 @@
       <nav class="s-sidebar__nav">
         <ul>
           <li>
-            <a class="s-sidebar__nav-link" href="#0">
+            <router-link class="s-sidebar__nav-link" to="/client">
               <img src="../assets/img/11.png" alt />
               <em>Clients</em>
-            </a>
+            </router-link>
           </li>
           <li>
-            <a class="s-sidebar__nav-link" href="#0">
+            <router-link class="s-sidebar__nav-link" to="/client">
               <img src="../assets/img/21.png" alt />
               <em>Sociétés</em>
-            </a>
+            </router-link>
           </li>
           <li>
-            <a class="s-sidebar__nav-link" href="#0">
+            <router-link class="s-sidebar__nav-link" to="/devis">
               <img src="../assets/img/31.png" alt />
               <em>Devis</em>
-            </a>
+            </router-link>
           </li>
           <li>
-            <a class="s-sidebar__nav-link" href="#0">
+            <router-link class="s-sidebar__nav-link" to="/facture">
               <img src="../assets/img/41.png" alt />
               <em>Factures</em>
-            </a>
+            </router-link>
           </li>
           <li>
-            <a class="s-sidebar__nav-link" href="#0">
+            <router-link class="s-sidebar__nav-link" to="/OP">
               <img src="../assets/img/51.png" alt />
               <em>Opportunités</em>
-            </a>
+            </router-link>
           </li>
           <li>
-            <a class="s-sidebar__nav-link" href="#0">
+            <router-link class="s-sidebar__nav-link" to="/settings">
               <img src="../assets/img/61.png" alt />
               <em>Paramétres</em>
-            </a>
+            </router-link>
           </li>
           <li>
-            <a class="s-sidebar__nav-link" href="#0">
+            <router-link class="s-sidebar__nav-link" to="/feedback">
               <img src="../assets/img/71.png" alt />
               <em>Feedback</em>
-            </a>
+            </router-link>
           </li>
           <li class="sidenav--list__item sign-out">
-            <a class="s-sidebar__nav-link" href="#0">
+            <router-link class="s-sidebar__nav-link" to="/logout">
               <img class="sidenav-button__icon" src="../assets/img/81.png" alt />
               <em>Déconnexion</em>
-            </a>
+            </router-link>
           </li>
         </ul>
       </nav>

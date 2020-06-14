@@ -5,9 +5,9 @@
     </div>
     <div class="overlay-container">
       <div class="overlay">
-        <img class="Shapes" src="../assets/img/Shapes.png" alt="" />
+        <img class="Shapes" src="../../assets/img/Shapes.png" alt="" />
         <div class="overlay-panel overlay-right">
-          <img class="vector3" src="../assets/img/Vector3.png" alt="" />
+          <img class="vector3" src="../../assets/img/Vector3.png" alt="" />
           <h1 class="outil">Fatoura outil de devis et facturation</h1>
           <p class="p-fato">
             100% gratuit fatoura est un outil gratuit et il restera toujours
@@ -21,7 +21,7 @@
 
 <script>
 import Login from "@/views/Authentification/Login.vue";
-import Signup from "./Authentification/Signup.vue";
+import Signup from "@/views/Authentification/Signup.vue";
 
 export default {
   name: "GateLayout",
@@ -245,7 +245,7 @@ input {
 }
 
 .overlay {
-  background: url("../assets/img/background.png");
+  background: url("../../assets/img/background.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;

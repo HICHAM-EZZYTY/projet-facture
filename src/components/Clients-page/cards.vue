@@ -15,16 +15,67 @@
 					<label>Société : Marjane</label>
 					<span><img class="gmail" src="../../assets/img/Group.svg" alt="gmail"> hichamziti@gmail.com</span>
 					<p><img class="téléphone" src="../../assets/img/call 1.svg" alt="téléphone"> 07-00-34-14-59</p>
-					<ul>      
-					</ul>
-					<ul >      
-					</ul>
 				</div>
                 <div class="info-section">
 				</div>				
 			</div>
 			<div class="imax-logo">
 				<a href="#"><img src="../../assets/img/Vector.svg" alt=""></a>
+			</div>
+			<div class="Ellipse">
+			</div>
+			<div class="Ellipse1">
+			</div>
+		</div>	
+	</div>
+   	<div class="cards-card">
+		<div class="box"></div>
+		<div class="cards-content">
+			<div class="cards-content-header">
+				<a href="#">
+					<h3 class="cards-title">Mehdi Bezikha</h3>
+				</a>
+			</div>
+			<div class="cards-info">
+                <div class="info-section">
+					<label>Société : Marjane</label>
+					<span><img class="gmail" src="../../assets/img/Group.svg" alt="gmail"> hichamziti@gmail.com</span>
+					<p><img class="téléphone" src="../../assets/img/call 1.svg" alt="téléphone"> 07-00-34-14-59</p>
+				</div>
+                <div class="info-section">
+				</div>				
+			</div>
+			<div class="imax-logo">
+				<a href="#"><img src="../../assets/img/Vector.svg" alt=""></a>
+			</div>
+			<div class="Ellipse">
+			</div>
+			<div class="Ellipse1">
+			</div>
+		</div>	
+	</div>	<div class="cards-card">
+		<div class="box"></div>
+		<div class="cards-content">
+			<div class="cards-content-header">
+				<a href="#">
+					<h3 class="cards-title">Mehdi Bezikha</h3>
+				</a>
+			</div>
+			<div class="cards-info">
+                <div class="info-section">
+					<label>Société : Marjane</label>
+					<span><img class="gmail" src="../../assets/img/Group.svg" alt="gmail"> hichamziti@gmail.com</span>
+					<p><img class="téléphone" src="../../assets/img/call 1.svg" alt="téléphone"> 07-00-34-14-59</p>
+				</div>
+                <div class="info-section">
+				</div>				
+			</div>
+			<div class="imax-logo-x">
+				<a href="#"><img src="../../assets/img/Vector.svg" alt=""></a>
+			</div>
+			<div class="Ellipse-x">
+			</div>
+			<div class="Ellipse1-x">
 			</div>
 		</div>	
 	</div>
@@ -33,50 +84,6 @@
 		<div class="cards-content">
 			<div class="cards-content-header">
 				<a href="#">
-					<h3 class="cards-title">Hicham ZITI</h3>
-				</a>
-			</div>
-			<div class="cards-info">
-				<div class="info-section">
-					<label>Société : Marjane</label>
-					<span><img class="gmail" src="../../assets/img/Group.svg" alt="gmail"> hichamziti@gmail.com</span>
-					<p><img class="téléphone" src="../../assets/img/call 1.svg" alt="téléphone"> 07-00-34-14-59</p>
-				</div>
-			    <div class="info-section">
-				</div>	
-			</div>
-			<div class="imax-logo">
-				<a href="#"><img src="../../assets/img/Vector.svg" alt=""></a>
-			</div>
-		</div>
-	</div>
-    <div class="cards-card">
-		<div class="box"></div>
-		<div class="cards-content">
-			<div class="cards-content-header">
-				<a href="#">
-					<h3 class="cards-title">HICHAM ZITI</h3>
-				</a>
-			</div>
-			<div class="cards-info">
-				<div class="info-section">
-					<label>Société : Marjane</label>
-					<span><img class="gmail" src="../../assets/img/Group.svg" alt="gmail"> hichamziti@gmail.com</span>
-					<p><img class="téléphone" src="../../assets/img/call 1.svg" alt="téléphone"> 07-00-34-14-59</p>
-				</div>
-                <div class="info-section">
-				</div>	
-			</div>
-			<div class="imax-logo-x">
-				<a href="#"><img src="../../assets/img/Vector.svg" alt=""></a>
-			</div>
-		</div>
-	</div>
-    <div class="cards-card">
-		<div class="box"></div>
-		<div class="cards-content">
-			<div class="cards-content-header">
-				<a href="#">
 					<h3 class="cards-title">HICHAM ZITI</h3>
 				</a>
 			</div>
@@ -91,6 +98,10 @@
 			</div>
 			<div class="imax-logo">
 				<a href="#"><img src="../../assets/img/Vector.svg" alt=""></a>
+			</div>
+			<div class="Ellipse">
+			</div>
+			<div class="Ellipse1">
 			</div>
 		</div>
 	</div>
@@ -113,6 +124,10 @@
 			</div>
 			<div class="imax-logo">
 				<a href="#"><img src="../../assets/img/Vector.svg" alt=""></a>
+			</div>
+			<div class="Ellipse">
+			</div>
+			<div class="Ellipse1">
 			</div>
 		</div>
 	</div>
@@ -135,6 +150,10 @@
 			</div>
 			<div class="imax-logo-x">
 				<a href="#"><img src="../../assets/img/Vector.svg" alt=""></a>
+			</div>
+			<div class="Ellipse-x">
+			</div>
+			<div class="Ellipse1-x">
 			</div>
 		</div>
 	</div>
@@ -188,6 +207,7 @@ a:hover {
 	box-shadow: 0px 6px 18px rgba(0,0,0,.1);
 	width: 100%;
 	max-width: 315px;
+	height: 240px;
 	margin: 2em;
 	border-radius: 15px;
 	display:inline-block;
@@ -207,7 +227,8 @@ a:hover {
 	position: relative;
     width: 21px;
     height: 21.64px;
-    left: 90%;
+	left: 90%;
+	bottom: 4em;
     background: #2262C6;
     border-radius: 5px;
 }
@@ -215,7 +236,8 @@ a:hover {
 	position: relative;
     width: 21px;
     height: 21.64px;
-    left: 90%;
+	left: 90%;
+	bottom: 4em;
     background: #FFC5A0;
     border-radius: 5px;
 }
@@ -224,7 +246,54 @@ img{
     margin-left: 3px;
     margin-top: -6px;
 }
-
+.Ellipse{
+	position: relative;
+    left: 86%;
+    bottom: 14em;
+    border-radius: 6px;
+    width: 7px;
+    height: 7px;
+    list-style-type: circle;
+    border: 2px solid #2262C6;
+    box-sizing: border-box;
+    transform: matrix(1, 0, 0, -1, 0, 0);
+}
+.Ellipse1{
+	position: relative;
+    left: 91%;
+    bottom: 231px;
+    border-radius: 6px;
+    width: 7px;
+    height: 7px;
+    list-style-type: circle;
+    border: 2px solid #2262C6;
+    box-sizing: border-box;
+    transform: matrix(1, 0, 0, -1, 0, 0);
+}
+.Ellipse-x{
+	position: relative;
+    left: 86%;
+    bottom: 14em;
+    border-radius: 6px;
+    width: 7px;
+    height: 7px;
+    list-style-type: circle;
+    border: 2px solid #FFC5A0;
+    box-sizing: border-box;
+    transform: matrix(1, 0, 0, -1, 0, 0);
+}
+.Ellipse1-x{
+	position: relative;
+    left: 91%;
+    bottom: 231px;
+    border-radius: 6px;
+    width: 7px;
+    height: 7px;
+    list-style-type: circle;
+    border: 2px solid #FFC5A0;
+    box-sizing: border-box;
+    transform: matrix(1, 0, 0, -1, 0, 0);	
+}
 .cards-header {
 	padding:0;
 	margin: 0;
@@ -234,23 +303,6 @@ img{
 	border-top-left-radius: 10px;
 	border-top-right-radius:10px;
 }
-
-ul {
-	position: relative;
-    width: 8.38px;
-    left: 86%;
-    bottom: 13Em;
-    border-radius: 46%;
-    height: 8px;
-    border: 2px solid #427FDE;
-    box-sizing: border-box;
-    transform: matrix(1, 0, 0, -1, 0, 0);
-}
-
-
-
-
-
 
 .header-icon-container {
 	position: relative;

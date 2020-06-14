@@ -78,13 +78,17 @@ const routes = [
         children: [
           {
             path: "",
-            name: "Client",
+            name: "Clients",
             component: cards,
           },
           {
             path: 'new',
             name: "NewClient",
             component: addClient
+          }, 
+          {
+            path: ":id", 
+            name: "SingleClient",
           }
         ]
       },

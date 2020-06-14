@@ -6,7 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     user: {
-      name: "hicham ezzity",
+      name: "Hamdaoui hamza",
       email: "hhamdaoui31@gmail.com"
     }
   },

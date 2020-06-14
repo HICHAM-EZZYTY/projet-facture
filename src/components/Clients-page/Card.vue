@@ -1,11 +1,11 @@
 <template>
-    <div class="cards-card">
+	<div class="cards-card">
 		<div class="box"></div>
 		<div class="cards-content">
 			<div class="cards-content-header">
-				<a href="#" class="name">
+				<router-link to="client/1" class="name">
 					<h3 class="cards-title">{{user.Client_Nom + " " + user.Client_Prenom}}</h3>
-				</a>
+				</router-link>
 			</div>
 			<div class="cards-info">
 				<div class="info-section">
@@ -70,30 +70,11 @@ h1,h2,h3,h4,h5,p {
 	color:inherit;
 }
 .name:hover {
-	color:#6ABCEA;
+	text-decoration:none;
+	color:balck;
 }
 
-.cards-card {
-	background: #ffffff;
-	box-shadow: 0px 6px 18px rgba(0,0,0,.1);
-	width: 100%;
-	max-width: 315px;
-	height: 240px;
-	margin: 2em;
-	border-radius: 15px;
-	display:inline-block;
-	z-index: 1;
-}
-.box{
-	position: relative;
-    width: 94px;
-    height: 49px;
-    left: 8%;
-    top: -1em;
-	background: #2262C6;
-	box-shadow: 0px 4px 15px rgba(223, 223, 223, 0.45);
-	border-radius: 20px;
-}
+
 .imax-logo{
 	position: relative;
     width: 21px;
@@ -200,14 +181,40 @@ h1,h2,h3,h4,h5,p {
 	border-top-right-radius:10px;
 	opacity: 1;
 }
-
-.cards-card:hover {
-	transform:scale(1.03);
-	box-shadow: 0px 10px 25px rgba(0,0,0,.08);
+.cards-card {
+	width: 100%;
+	max-width: 315px;
+	height: 240px;
+	margin: 2em;
+	border-radius: 15px;
+	display:inline-block;
+	z-index: 22;
+	transition: 600ms;
+}
+.box{
+	position: relative;
+    width: 100px;
+    height: 49px;
+    left: 5%;
+    top: 2.2em;
+	background: #2262C6;
+	box-shadow: 0px 4px 15px rgba(223, 223, 223, 0.45);
+	border-radius: 20px;
+	z-index: -1;
+}
+.cards-card:hover{
+	transform:scale(1.04);
+	// z-index: 4000;
 }
 
+
 .cards-content {
-	padding: 90px 18px 24px 18px;
+	background: #ffffff;
+	box-shadow: 0px 6px 18px rgba(0,0,0,.1);
+	z-index: 4000;
+	border-radius: 15px;
+	height: inherit;
+	padding: 120px 18px 24px 18px;
 	margin: 0;
 }
 

@@ -14,13 +14,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap-vue/dist/bootstrap-vue.css";
 import "./scss/main.scss";
 
-// import axios from "axios";
 
-// import "./scss/main.scss";
 
-// add these before Vue is instantiated
-
-// Use v-calendar & v-date-picker components
 Vue.use(VCalendar, {
   componentPrefix: 'vc',  // Use <vc-calendar /> instead of <v-calendar />
   masks: { input: 'DD-MM-YYYY', data: 'DD-MM-YYYY' }
@@ -43,3 +38,4 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount("#app");
+

@@ -18,11 +18,11 @@
           </b-button>
         </form>
         <div id="navbar" class="navbar-collapse collapse">
-           <p class="bienvenue"><strong>Bienvenue,</strong> hicham ezzyty</p>
+           <p class="bienvenue"><strong>Bienvenue,</strong> {{this.$store.getters.user.name}}</p>
           <b-avatar
             variant="primary"
             class="avatar"
-            text="HZ"
+            :text="initials"
             size="3.5rem"
           ></b-avatar>
         </div>
@@ -33,7 +33,12 @@
 <script>
 export default {
   name: "Navbar",
-  
+  computed: {
+    initials: function () {
+      let words = this.$store.getters.user.name.split(' ');
+      return `${words[0][0]}${words[1][0]}`
+    }
+  }
 };
 </script>
 

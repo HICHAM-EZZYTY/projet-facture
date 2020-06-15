@@ -121,12 +121,12 @@ img {
   background: #2262c6;
   color: rgb(255, 255, 255);
 }
-.s-sidebar__nav:hover,
-.s-sidebar__nav:focus,
-.s-sidebar__trigger:focus + .s-sidebar__nav,
-.s-sidebar__trigger:hover + .s-sidebar__nav {
-  left: 0;
-}
+// .s-sidebar__nav:hover,
+// .s-sidebar__nav:focus,
+// .s-sidebar__trigger:focus + .s-sidebar__nav,
+// .s-sidebar__trigger:hover + .s-sidebar__nav {
+//   left: 0;
+// }
 .s-sidebar__nav ul {
   position: absolute;
   top: 4em;
@@ -214,12 +214,12 @@ img {
     left: 9%;
     top: 20px;
   }
-  .s-sidebar__nav:hover,
-  .s-sidebar__nav:focus,
-  .s-sidebar__trigger:hover + .s-sidebar__nav,
-  .s-sidebar__trigger:focus + .s-sidebar__nav {
-    width: 15em;
-  }
+  // .s-sidebar__nav:hover,
+  // .s-sidebar__nav:focus,
+  // .s-sidebar__trigger:hover + .s-sidebar__nav,
+  // .s-sidebar__trigger:focus + .s-sidebar__nav {
+  //   width: 15em;
+  // }
 }
 @media (min-width: 68em) {
   .s-layout__content {
@@ -245,8 +245,9 @@ img {
 @media (min-width: 670px) {
   img {
     position: relative;
-    left: 9%;
-    top: 20px;
+    left: 16%;
+    top: 17px;
+    width: 14px;
   }
 }
 </style>

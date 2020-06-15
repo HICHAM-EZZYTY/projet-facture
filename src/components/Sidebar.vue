@@ -6,49 +6,49 @@
         <ul>
           <li>
             <router-link class="s-sidebar__nav-link" to="/client">
-              <img src="../assets/img/11.png" alt />
+              <img src="../assets/img/menu1.svg" alt />
               <em>Clients</em>
             </router-link>
           </li>
           <li>
             <router-link class="s-sidebar__nav-link" to="/client">
-              <img src="../assets/img/21.png" alt />
+              <img src="../assets/img/menu2.svg" alt />
               <em>Sociétés</em>
             </router-link>
           </li>
           <li>
             <router-link class="s-sidebar__nav-link" to="/devis">
-              <img src="../assets/img/31.png" alt />
+              <img src="../assets/img/menu3.svg" alt />
               <em>Devis</em>
             </router-link>
           </li>
           <li>
             <router-link class="s-sidebar__nav-link" to="/facture">
-              <img src="../assets/img/41.png" alt />
+              <img src="../assets/img/menu4.svg" alt />
               <em>Factures</em>
             </router-link>
           </li>
           <li>
             <router-link class="s-sidebar__nav-link" to="/OP">
-              <img src="../assets/img/51.png" alt />
+              <img src="../assets/img/menu5.svg" alt />
               <em>Opportunités</em>
             </router-link>
           </li>
           <li>
             <router-link class="s-sidebar__nav-link" to="/settings">
-              <img src="../assets/img/61.png" alt />
+              <img src="../assets/img/menu6.svg" alt />
               <em>Paramétres</em>
             </router-link>
           </li>
           <li>
             <router-link class="s-sidebar__nav-link" to="/feedback">
-              <img src="../assets/img/71.png" alt />
+              <img src="../assets/img/menu7.svg" alt />
               <em>Feedback</em>
             </router-link>
           </li>
           <li class="sidenav--list__item sign-out">
             <router-link class="s-sidebar__nav-link" to="/logout">
-              <img class="sidenav-button__icon" src="../assets/img/81.png" alt />
+              <img class="sidenav-button__icon" src="../assets/img/menu8.svg" alt />
               <em>Déconnexion</em>
             </router-link>
           </li>
@@ -156,9 +156,9 @@ img {
   left: 5em;
   transform: translateY(-50%);
 }
-.s-sidebar__nav-link:hover {
-  background: rgb(253, 253, 253);
-}
+// .s-sidebar__nav-link:hover {
+//   background: rgb(253, 253, 253);
+// }
 .s-sidebar__nav-link > i {
   position: absolute;
   top: 0;
@@ -190,12 +190,12 @@ img {
 .sign-out {
   /* margin-top: 5rem; */
 }
-.sidenav--list li a:hover {
-  text-decoration: none;
-  color: #fff;
-  background: rgba(255, 255, 255, 0.2);
-  border-left: rgb(117, 117, 117) 2px solid;
-}
+// .sidenav--list li a:hover {
+//   text-decoration: none;
+//   color: #fff;
+//   background: rgba(255, 255, 255, 0.2);
+//   border-left: rgb(117, 117, 117) 2px solid;
+// }
 /* Mobile First */
 @media (min-width: 42em) {
   .s-layout__content {

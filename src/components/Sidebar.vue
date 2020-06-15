@@ -64,7 +64,9 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import "/../scss/main.scss" ;   
+
 * {
   margin: 0;
   padding: 0;
@@ -140,9 +142,13 @@ img {
 .s-sidebar__nav-link {
   position: relative;
   display: inline-block;
+  font-size: $bd;
   width: 100%;
   height: 4em;
   top: 3em;
+  right: 36px;
+  font-size: 13px;
+  opacity: 90%;
 }
 .s-sidebar__nav-link em {
   position: absolute;
@@ -232,7 +238,8 @@ img {
     top: 20px;
   }
   .s-sidebar__nav ul {
-    top: 0.29em;
+    top: 12px;
+    left: 16px;
   }
 }
 @media (min-width: 670px) {

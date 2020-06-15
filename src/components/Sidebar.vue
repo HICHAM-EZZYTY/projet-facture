@@ -108,14 +108,14 @@ img {
   flex: 1;
 }
 .s-sidebar__nav {
-  position: fixed;
-  top: 10em;
-  border-radius: 0px 121px 0px 0px;
+  position: absolute;
+  top: 7.38rem;
+  border-radius: 0px 76px 0px 0px;
   left: 0em;
   overflow: hidden;
   transition: all 0.3s ease-in;
   width: 4em;
-  height: 100%;
+  height: 610px;
   background: #2262c6;
   color: rgb(255, 255, 255);
 }

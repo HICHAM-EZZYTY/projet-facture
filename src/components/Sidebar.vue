@@ -135,6 +135,7 @@ img {
 }
 .s-sidebar__nav ul li {
   width: 100%;
+  height: 32px;
 }
 .s-sidebar__nav-link {
   position: relative;
@@ -181,7 +182,7 @@ img {
   margin-top: 10px;
 }
 .sign-out {
-  margin-top: 5rem;
+  /* margin-top: 5rem; */
 }
 .sidenav--list li a:hover {
   text-decoration: none;
@@ -231,7 +232,7 @@ img {
     top: 20px;
   }
   .s-sidebar__nav ul {
-    top: 1.3em;
+    top: 0.29em;
   }
 }
 @media (min-width: 670px) {

@@ -1,11 +1,7 @@
 <template>
-  <div class="s-layout">
-    <!-- Sidebar -->
-    <div class="s-layout__sidebar">
-      <!-- <a class="s-sidebar__trigger" href="#0">
-        <i class="fa fa-bars"></i>
-      </a>-->
 
+<div class="s-layout">
+    <div class="s-layout__sidebar">
       <nav class="s-sidebar__nav">
         <ul>
           <li>
@@ -111,21 +107,6 @@ img {
   align-items: center;
   flex: 1;
 }
-/* Sidebar */
-/* .s-sidebar__trigger {
-  z-index: 2;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4em;
-  background: #2262c6;
-}
-.s-sidebar__trigger > i {
-  display: inline-block;
-  margin: 1.5em 0 0 1.5em;
-  color: #ffffff;
-} */
 .s-sidebar__nav {
   position: fixed;
   top: 10em;

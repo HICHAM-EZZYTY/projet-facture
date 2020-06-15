@@ -2,17 +2,17 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 
 //home
-import HomePage from "../views/HomePage.vue";
+// import HomePage from "../views/HomePage.vue";
 
   // Devis 
-  import Devis from "../views/subLayouts/Devis.vue";
-    import CreateDevis from "./../components/Devis/createDevis.vue";
-    import listDevis from "./../components/Devis/listDevis.vue";
+  // import Devis from "../views/subLayouts/Devis.vue";
+  //   import CreateDevis from "./../components/Devis/createDevis.vue";
+  //   import listDevis from "./../components/Devis/listDevis.vue";
 
   //clients
-  import Clients from "../views/subLayouts/Clients.vue";
-    import addClient from "../components/client/addClient.vue";
-    import cards from "../components/Clients-page/cards.vue";
+  // import Clients from "../views/subLayouts/Clients.vue";
+  //   import addClient from "../components/client/addClient.vue";
+  //   import cards from "../components/Clients-page/cards.vue";
 
   //Facture
   import factureAcompte from "../components/setings/factureAcompte.vue";
@@ -35,6 +35,12 @@ import HomePage from "../views/HomePage.vue";
     import Login from "../views/Authentification/Login.vue";
 
 
+  // testing for fixing sideBar
+
+  import Sidebar from "../components/Sidebar.vue";
+
+
+
 // comments
 // import listClient from "../components/client/listClient.vue";
 // import signupThree from "../components/Authentification/signupThree.vue";
@@ -49,81 +55,87 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/",
-    name: "Home",
-    component: HomePage,
-    children: [
-      {
-        path: "devis",
-        name: "Devis",
-        component: Devis,
-        children: [
-          {
-            path: "",
-            name: "ListDevis",
-            component: listDevis,
-          },
-          {
-            path: "new",
-            name: "NewDevis",
-            component: CreateDevis
-
-          }
-        ]
-      },
-      {
-        path: "client",
-        name: "Client",
-        component: Clients,
-        children: [
-          {
-            path: "",
-            name: "Clients",
-            component: cards,
-          },
-          {
-            path: 'new',
-            name: "NewClient",
-            component: addClient
-          }, 
-          {
-            path: ":id", 
-            name: "SingleClient",
-          }
-        ]
-      },
-      {
-        path: "facture",
-        name: "Facture",
-
-      },
-      {
-        path: 'facture/new',
-        name: "NewFacture"
-      },
 
 
-      {
-        path: "avoire",
-        name: "Avoire"
-      },
-      {
-        path: 'avoire/new',
-        name: "NewAvoire"
-      },
+    path:"/SideBar",
+    name:"SideBar",
+    component:Sidebar,
 
-      {
-        path: "societe",
-        name: "Societe",
+    // path: "/",
+    // name: "Home",
+    // component: HomePage,
+    // children: [
+    //   {
+    //     path: "devis",
+    //     name: "Devis",
+    //     component: Devis,
+    //     children: [
+    //       {
+    //         path: "",
+    //         name: "ListDevis",
+    //         component: listDevis,
+    //       },
+    //       {
+    //         path: "new",
+    //         name: "NewDevis",
+    //         component: CreateDevis
 
-      },
-      {
-        path: 'Societe/new',
-        name: "NewSociete"
-      },
+    //       }
+    //     ]
+    //   },
+    //   {
+    //     path: "client",
+    //     name: "Client",
+    //     component: Clients,
+    //     children: [
+    //       {
+    //         path: "",
+    //         name: "Clients",
+    //         component: cards,
+    //       },
+    //       {
+    //         path: 'new',
+    //         name: "NewClient",
+    //         component: addClient
+    //       }, 
+    //       {
+    //         path: ":id", 
+    //         name: "SingleClient",
+    //       }
+    //     ]
+    //   },
+    //   {
+    //     path: "facture",
+    //     name: "Facture",
+
+    //   },
+    //   {
+    //     path: 'facture/new',
+    //     name: "NewFacture"
+    //   },
+
+
+    //   {
+    //     path: "avoire",
+    //     name: "Avoire"
+    //   },
+    //   {
+    //     path: 'avoire/new',
+    //     name: "NewAvoire"
+    //   },
+
+    //   {
+    //     path: "societe",
+    //     name: "Societe",
+
+    //   },
+    //   {
+    //     path: 'Societe/new',
+    //     name: "NewSociete"
+    //   },
 
       
-    ]
+    // ]
   },
   // parameters 
   {
@@ -215,11 +227,11 @@ const routes = [
     ]
   },
 
-  {
-    path: "*",
-    name: "NotFound",
-    redirect: { name: "Home" }
-  }
+  // {
+  //   path: "*",
+  //   name: "NotFound",
+  //   redirect: { name: "Home" }
+  // }
 ];
 
 const router = new VueRouter({

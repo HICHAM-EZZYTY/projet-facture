@@ -20,7 +20,7 @@ export default {
 	methods:{
 		getClients: function () {
 			// get clients. 
-			let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTU5MjMzMTkwNiwiZXhwIjoxNTkyMzM1NTA2LCJuYmYiOjE1OTIzMzE5MDYsImp0aSI6IlFEY2lBY0hBdHg2OEN2TEMiLCJzdWIiOjgsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.YSXzuueCU6kS7XHpNcdE0dDwveA-zl2pTJ6p_T29Z_8";
+			let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTU5MjMzNTY0OCwiZXhwIjoxNTkyMzM5MjQ4LCJuYmYiOjE1OTIzMzU2NDgsImp0aSI6IldLeUtlNHRKck41cW83WDMiLCJzdWIiOjgsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.A1W5lW6WFmFmKKEw5JQaMTiPQH9Fcic7AtQ44YoIjhQ";
 
 			this.$http.defaults.headers.common = { Authorization: `Bearer ${token}` }
 			
@@ -43,10 +43,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-	::-webkit-scrollbar { 
-		display: none; 
+	::-webkit-scrollbar {
+	width: 6px;
 	}
-
+	::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 2px grey; 
+	border-radius: 10px;
+	}
+	::-webkit-scrollbar-thumb {
+	background: #2262C6; 
+	border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2e74e6; 
+}
+	
 	.container {
 		display: flex;
 		flex-wrap: wrap;

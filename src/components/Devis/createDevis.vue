@@ -1,26 +1,30 @@
-	PARTRIDGE, Shirley	62	Female	Shirley is 62 years old
 <template>
-  <div>
-    <b-table small :fields="fields" :items="items" responsive="sm">
-      <!-- A virtual column -->
-      <template v-slot:cell(index)="data">{{ data.index + 1 }}</template>
+  <div class="contain">
 
-      <!-- A custom formatted column -->
-      <template v-slot:cell(name)="data">
-        <b class="text-info">{{ data.value.last.toUpperCase() }}</b>,
-        <b>{{ data.value.first }}</b>
-      </template>
+      <div class="header">
+        <h1>Nouveau Devis</h1>
+        <div class="header_logo">
+        <img src="../../assets/img/eye.svg" alt="eyes icon">
+        <img  id="leftIcon" src="../../assets/img/print.svg" alt="print icon">
+      </div>
 
-      <!-- A virtual composite column -->
-      <template
-        v-slot:cell(nameage)="data"
-      >{{ data.item.name.first }} is {{ data.item.age }} years old</template>
+      <img id="ellipse" src="../../assets/img/Ellipse.svg" alt="ellipse icon">
 
-      <!-- Optional default data cell scoped slot -->
-      <template v-slot:cell()="data">
-        <i>{{ data.value }}</i>
-      </template>
-    </b-table>
+      <hr class="solid">
+
+
+      <div class="whitePaper">
+
+
+
+
+      </div>
+
+
+
+
+      </div>
+
   </div>
 </template>
 
@@ -28,29 +32,137 @@
 export default {
   data() {
     return {
-      fields: [
-        // A virtual column that doesn't exist in items
-        "index",
-        // A column that needs custom formatting
-        { key: "name", label: "Full Name" },
-        // A regular column
-        "age",
-        // A regular column
-        "sex",
-        // A virtual column made up from two fields
-        { key: "nameage", label: "First name and age" }
-      ],
-      items: [
-        { name: { first: "John", last: "Doe" }, sex: "Male", age: 42 },
-        { name: { first: "Jane", last: "Doe" }, sex: "Female", age: 36 },
-        { name: { first: "Rubin", last: "Kincade" }, sex: "Male", age: 73 },
-        {
-          name: { first: "Shirley", last: "Partridge" },
-          sex: "Female",
-          age: 62
-        }
-      ]
     };
   }
 }
 </script>
+
+<style scoped lang="scss">
+@import "../../scss/main.scss" ;   
+
+#ellipse{
+  position: absolute;
+  right: -3px;
+  width: 65px;
+}
+#leftIcon{
+  position: relative;
+  right: 12px;
+}
+
+.whitePaper{
+    width: 53.5vw;
+    margin-left: 77px;
+    margin-top: 56px;
+    height: 86vh;
+    background: white;
+    box-shadow: 0px 4px 18px rgba(71, 71, 71, 0.3)
+}
+
+
+
+
+
+hr{
+    width: 87%;
+    margin-top: 15px;
+    margin-bottom: 1rem;
+}
+
+.header{
+  display: block;
+  margin-top: 13px;
+  h1{
+    position: relative;
+    top: 19px;
+    width: 74%;
+    font-size: 19px;
+    margin-left: 80px;
+    margin-right: 0px !important;
+    display: inline-block;
+    font-family: "Gilroy-Bold";
+    color: #2262C6;
+  }
+  .header_logo{
+    display: inline-block;
+    position: relative;
+    top: 18px;
+    left: 5px;
+    img{
+      width: 55px;
+      position: relative;
+    }
+  }
+}
+
+
+ @media (max-width: 1000px) {
+
+   .header h1{
+    margin-left: 9%;
+   }
+}
+
+ @media (max-width: 777px) {
+
+   .header h1{
+    margin-left: 9%;
+    width: 60%;
+   }
+   hr{
+    position: relative;
+    right: 6%;
+    width: 83%;
+   }
+}
+
+ @media (max-width: 577px) {
+.header h1{
+    margin-left: 12%;
+    width: 60%;
+}
+hr {
+    position: relative;
+    right: 0%;
+    width: 74%;
+}
+
+}
+
+ @media (max-width: 409px) {
+
+hr {
+    position: relative;
+    left: 3%;
+    width: 77%;
+}
+
+}
+
+ @media (max-width:  395px) {
+
+hr {
+    position: relative;
+    left: 3%;
+    width: 49%;
+}
+.header h1{
+    margin-left: 12%;
+    width: 81%;
+    text-align: center;
+}
+.header .header_logo{
+    display: block;
+    position: relative;
+    float: none;
+    width: 111px;
+    margin:0 auto
+}
+
+}
+
+
+
+
+
+</style>

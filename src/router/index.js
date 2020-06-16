@@ -65,7 +65,7 @@ const routes = [
         path: "devis",
         name: "Devis",
         component: Devis,
-        children: [
+         children: [
           {
             path: "",
             name: "ListDevis",

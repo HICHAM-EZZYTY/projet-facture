@@ -1,6 +1,4 @@
 <template>
-
-<div>
     <div class="s-layout__sidebar">
       <nav class="s-sidebar__nav">
         <ul>
@@ -55,7 +53,6 @@
         </ul>
       </nav>
     </div>
-  </div>
 </template>
 
 <script>
@@ -81,11 +78,7 @@ export default {
 *::after {
   box-sizing: border-box;
 }
-body {
-  // font-family: 'Gilroy-Bold';
-  font-size: 1em;
-  color: #333;
-}
+
 h1 {
   font-size: 1.4em;
 }
@@ -120,15 +113,14 @@ img {
   overflow: hidden;
   transition: all 0.3s ease-in;
   width: 14em;
-  height: 498px;
+  height: 84vh;
   background: #2262c6;
   color: rgb(255, 255, 255);
 }
-a:hover 
-{
-     color:white; 
-     text-decoration:none; 
-     cursor:pointer;  
+a:hover{
+  color:white; 
+  text-decoration:none; 
+  cursor:pointer;  
 }
 // .s-sidebar__nav:hover,
 // .s-sidebar__nav:focus,

@@ -3,13 +3,10 @@
     <Navbar />
     <sidebar />
     <!-- <Table /> -->
-    <!-- <div class="Content col-md-8 mx-auto">
-      <div class="Content1"> -->
-        <div class="contain">
-                  <router-view />
-        </div>
-      <!-- </div>
-    </div> -->
+
+    <div class="Content col-md-10 offset-md-2 p-0 my-0 .col-sm-8 offset-sm-2">
+        <router-view />
+    </div>
   </div>
 </template>
 
@@ -27,8 +24,8 @@ export default {
 
 <style scoped>
 
-.contain{
-  
+.container{
+  height: 100%
 }
 
 </style>

@@ -1,6 +1,6 @@
 <template>
 
-<div class="s-layout">
+<div>
     <div class="s-layout__sidebar">
       <nav class="s-sidebar__nav">
         <ul>
@@ -104,7 +104,7 @@ img {
   width: 14px;
 }
 .s-layout{
-  height: 617px;
+  height: 490px;
 }
 .s-layout__content {
   display: flex;

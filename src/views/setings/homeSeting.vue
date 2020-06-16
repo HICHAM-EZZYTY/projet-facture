@@ -7,6 +7,9 @@
       </div>
       <div class="contents">
         <router-view></router-view>
+        <b-button class="load">
+          <p class="mise">Mettre à jour votre compte</p>
+        </b-button>
       </div>
     </div>
   </div>
@@ -41,7 +44,7 @@ export default {
 .Container {
   display: flex;
   flex-direction: row;
-  height: 62rem;
+  height: 48rem;
   overflow: hidden;
 }
 
@@ -49,11 +52,31 @@ export default {
   border: 2px solid white;
   width: 53rem;
   margin-left: -16.5rem;
-  margin-top: 10.9rem;
+  margin-top: 8.4rem;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   background-color: white;
-  height: 32rem;
+  height: 35.5rem;
   overflow: hidden;
+}
+
+.load {
+  position: absolute;
+  width: 354px;
+  height: 64px;
+  left: 991px;
+  top: 639px;
+  background: #2262c6 !important;
+  border-top-left-radius: 25px !important;
+  border-bottom-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 20px !important;
+}
+
+.mise {
+  font-size: 15px;
+  padding: 14px;
+  font-style: normal;
+  font-weight: bold;
 }
 </style>

@@ -5,7 +5,7 @@
       <h6 class="logo-title">Configurer votre application fatoura</h6>
       <router-link to="/">
         <b-button class="button-back">
-          <i class="fa fa-arrow-right" style="color: #ffffff;">
+          <i class="fa fa-arrow-right arrow" style="color: #ffffff;">
             <!-- icon -->
           </i>
         </b-button>
@@ -22,16 +22,16 @@ export default {};
 <style>
 .bg-light {
   width: 73rem;
-  top: 1.5rem;
+  top: 1rem;
   left: 10rem;
   border-radius: 20px;
-  height: 118px;
+  height: 94px;
 }
 
 .logo-title {
   font-size: 15px;
   left: 125px;
-  top: 70px;
+  top: 55px;
   color: gray;
   position: absolute;
 }
@@ -50,11 +50,17 @@ export default {};
   font-size: 18px;
   color: #0062cc;
   font-weight: bold;
-  top: 71px;
+  top: 62px;
   left: 68.5rem;
 }
 
 .logo-fatoura {
   margin-left: 4rem;
+}
+
+.arrow {
+  margin-top: -8px;
+  margin-left: -5px;
+  position: absolute;
 }
 </style>

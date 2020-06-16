@@ -39,7 +39,8 @@
           </a>
         </li>
         <li class="sidenav--list__item">
-          <router-link to="/settings">
+          <!-- <router-link to="/settings"> -->
+          <router-link :to="{ name: 'preference' }">
             <a class="s-sidebar__nav-link" href="#0">
               <img class="sidenav-button__icon" src="../assets/img/61.png" alt />
               <em>Paramétres</em>

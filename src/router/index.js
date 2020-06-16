@@ -35,6 +35,13 @@ import HomePage from "../views/HomePage.vue";
     import Login from "../views/Authentification/Login.vue";
 
 
+  // testing for fixing sideBar
+
+  // import Sidebar from "../components/Sidebar.vue";
+  // import Navbar from "../components/Navbar.vue";
+
+
+
 // comments
 // import listClient from "../components/client/listClient.vue";
 // import signupThree from "../components/Authentification/signupThree.vue";
@@ -49,6 +56,7 @@ Vue.use(VueRouter);
 
 const routes = [
   {
+
     path: "/",
     name: "Home",
     component: HomePage,
@@ -125,6 +133,8 @@ const routes = [
       
     ]
   },
+  
+
   // parameters 
   {
     path: "/settings",

@@ -223,7 +223,7 @@ export default {
   name: "ListDevis"
 };
 </script>
-<style>
+<style scoped>
 /* TITLE HEAD */
 .Title {
   text-transform: capitalize;

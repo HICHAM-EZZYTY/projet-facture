@@ -1,58 +1,54 @@
 <template>
-  <div class="s-layout">
-    <!-- Sidebar -->
-    <div class="s-layout__sidebar">
-      <!-- <a class="s-sidebar__trigger" href="#0">
-        <i class="fa fa-bars"></i>
-      </a>-->
 
+<div class="s-layout">
+    <div class="s-layout__sidebar">
       <nav class="s-sidebar__nav">
         <ul>
           <li>
             <router-link class="s-sidebar__nav-link" to="/client">
-              <img src="../assets/img/11.png" alt />
+              <img src="../assets/img/menu1.svg" alt />
               <em>Clients</em>
             </router-link>
           </li>
           <li>
             <router-link class="s-sidebar__nav-link" to="/client">
-              <img src="../assets/img/21.png" alt />
+              <img src="../assets/img/menu2.svg" alt />
               <em>Sociétés</em>
             </router-link>
           </li>
           <li>
             <router-link class="s-sidebar__nav-link" to="/devis">
-              <img src="../assets/img/31.png" alt />
+              <img src="../assets/img/menu3.svg" alt />
               <em>Devis</em>
             </router-link>
           </li>
           <li>
             <router-link class="s-sidebar__nav-link" to="/facture">
-              <img src="../assets/img/41.png" alt />
+              <img src="../assets/img/menu4.svg" alt />
               <em>Factures</em>
             </router-link>
           </li>
           <li>
             <router-link class="s-sidebar__nav-link" to="/OP">
-              <img src="../assets/img/51.png" alt />
+              <img id="mn" src="../assets/img/menu5.svg" alt />
               <em>Opportunités</em>
             </router-link>
           </li>
           <li>
             <router-link class="s-sidebar__nav-link" to="/settings">
-              <img src="../assets/img/61.png" alt />
+              <img src="../assets/img/menu6.svg" alt />
               <em>Paramétres</em>
             </router-link>
           </li>
           <li>
             <router-link class="s-sidebar__nav-link" to="/feedback">
-              <img src="../assets/img/71.png" alt />
+              <img src="../assets/img/menu7.svg" alt />
               <em>Feedback</em>
             </router-link>
           </li>
           <li class="sidenav--list__item sign-out">
             <router-link class="s-sidebar__nav-link" to="/logout">
-              <img class="sidenav-button__icon" src="../assets/img/81.png" alt />
+              <img class="sidenav-button__icon" src="../assets/img/menu8.svg" alt />
               <em>Déconnexion</em>
             </router-link>
           </li>
@@ -68,7 +64,9 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import "/../scss/main.scss" ;   
+
 * {
   margin: 0;
   padding: 0;
@@ -84,7 +82,7 @@ export default {
   box-sizing: border-box;
 }
 body {
-  font-family: 'Gilroy-Bold';
+  // font-family: 'Gilroy-Bold';
   font-size: 1em;
   color: #333;
 }
@@ -101,66 +99,65 @@ a {
 }
 img {
   position: relative;
-  left: 9%;
-  top: 20px;
+  left: 16%;
+  top: 17px;
+  width: 14px;
 }
-
+.s-layout{
+  height: 617px;
+}
 .s-layout__content {
   display: flex;
   justify-content: center;
   align-items: center;
   flex: 1;
 }
-/* Sidebar */
-/* .s-sidebar__trigger {
-  z-index: 2;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4em;
-  background: #2262c6;
-}
-.s-sidebar__trigger > i {
-  display: inline-block;
-  margin: 1.5em 0 0 1.5em;
-  color: #ffffff;
-} */
 .s-sidebar__nav {
-  position: fixed;
-  top: 10em;
-  border-radius: 0px 121px 0px 0px;
+  position: absolute;
+  top: 7.38rem;
+  border-radius: 0px 76px 0px 0px;
   left: 0em;
   overflow: hidden;
   transition: all 0.3s ease-in;
-  width: 4em;
-  height: 100%;
+  width: 14em;
+  height: 498px;
   background: #2262c6;
   color: rgb(255, 255, 255);
 }
-.s-sidebar__nav:hover,
-.s-sidebar__nav:focus,
-.s-sidebar__trigger:focus + .s-sidebar__nav,
-.s-sidebar__trigger:hover + .s-sidebar__nav {
-  left: 0;
+a:hover 
+{
+     color:white; 
+     text-decoration:none; 
+     cursor:pointer;  
 }
+// .s-sidebar__nav:hover,
+// .s-sidebar__nav:focus,
+// .s-sidebar__trigger:focus + .s-sidebar__nav,
+// .s-sidebar__trigger:hover + .s-sidebar__nav {
+//   left: 0;
+// }
 .s-sidebar__nav ul {
-  position: absolute;
-  top: 4em;
-  left: 0;
-  margin: 0;
-  padding: 0;
-  width: 15em;
+    position: absolute;
+    top: 0.8em;
+    left: 16px;
+    margin: 0;
+    padding: 0;
+    width: 15em;
 }
 .s-sidebar__nav ul li {
   width: 100%;
+  height: 32px;
 }
 .s-sidebar__nav-link {
   position: relative;
   display: inline-block;
+  font-size: $bd;
   width: 100%;
   height: 4em;
   top: 3em;
+  right: 36px;
+  font-size: 13px;
+  opacity: 90%;
 }
 .s-sidebar__nav-link em {
   position: absolute;
@@ -168,9 +165,9 @@ img {
   left: 5em;
   transform: translateY(-50%);
 }
-.s-sidebar__nav-link:hover {
-  background: rgb(253, 253, 253);
-}
+// .s-sidebar__nav-link:hover {
+//   background: rgb(253, 253, 253);
+// }
 .s-sidebar__nav-link > i {
   position: absolute;
   top: 0;
@@ -200,64 +197,138 @@ img {
   margin-top: 10px;
 }
 .sign-out {
-  margin-top: 5rem;
+   margin-top: 122px;
+   em{
+     line-height: 2em;
+     border-bottom: 0.6px solid #FFFCFC;
+   }
 }
-.sidenav--list li a:hover {
-  text-decoration: none;
-  color: #fff;
-  background: rgba(255, 255, 255, 0.2);
-  border-left: rgb(117, 117, 117) 2px solid;
+#mn{
+  width: 11px;
 }
+// .sidenav--list li a:hover {
+//   text-decoration: none;
+//   color: #fff;
+//   background: rgba(255, 255, 255, 0.2);
+//   border-left: rgb(117, 117, 117) 2px solid;
+// }
+
+@media (max-width: 1088px) {
+
+  .s-sidebar__nav{
+        width: 14em;
+  }
+
+}
+
+@media (max-width: 1020px) {
+
+  .s-sidebar__nav{
+        width: 10em;
+  }
+}
+
+
+@media (max-width: 820px) {
+
+  .s-sidebar__nav{
+        width: 8em;
+  }
+  .s-sidebar__nav ul{
+    left: 4px;
+  }
+}
+
+
+@media (max-width: 740px) {
+
+  .s-sidebar__nav{
+        width: 4em;
+  }
+  .s-sidebar__nav ul{
+    left: 13px;
+  }
+  .s-sidebar__nav ul li{
+    height: 35px;
+  }
+  em{
+    display: none ;
+  }
+  img{
+    width: 18px;
+  }
+  .sidenav-button__icon{
+    width: 22px;
+  }
+  #mn{
+  width: 16px;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 /* Mobile First */
 @media (min-width: 42em) {
-  .s-layout__content {
-    margin-left: 4em;
-  }
+  // .s-layout__content {
+  //   margin-left: 4em;
+  // }
   /* Sidebar */
-  .s-sidebar__trigger {
-    width: 4em;
-  }
-  .s-sidebar__nav {
-    width: 4em;
-    left: 0;
-  }
-  img {
-    position: relative;
-    left: 9%;
-    top: 20px;
-  }
-  .s-sidebar__nav:hover,
-  .s-sidebar__nav:focus,
-  .s-sidebar__trigger:hover + .s-sidebar__nav,
-  .s-sidebar__trigger:focus + .s-sidebar__nav {
-    width: 15em;
-  }
+  // .s-sidebar__trigger {
+  //   width: 4em;
+  // }
+  // .s-sidebar__nav {
+  //   width: 4em;
+  //   left: 0;
+  // }
+  // img {
+  //   position: relative;
+  //   left: 9%;
+  //   top: 20px;
+  // }
+  // .s-sidebar__nav:hover,
+  // .s-sidebar__nav:focus,
+  // .s-sidebar__trigger:hover + .s-sidebar__nav,
+  // .s-sidebar__trigger:focus + .s-sidebar__nav {
+  //   width: 15em;
+  // }
 }
 @media (min-width: 68em) {
-  .s-layout__content {
-    /* margin-left: 14em; */
-  }
+  // .s-layout__content {
+  //    margin-left: 14em; 
+  // }
   /* Sidebar */
-  .s-sidebar__trigger {
-    display: none;
-  }
-  .s-sidebar__nav {
-    width: 14em;
-  }
-  img {
-    position: relative;
-    left: 14%;
-    top: 20px;
-  }
-  .s-sidebar__nav ul {
-    top: 1.3em;
-  }
+  // .s-sidebar__trigger {
+  //   display: none;
+  // }
+  // .s-sidebar__nav {
+  //   width: 14em;
+  // }
+  // img {
+  //   position: relative;
+  //   left: 14%;
+  //   top: 20px;
+  // }
+  // .s-sidebar__nav ul {
+  //   top: 12px;
+  //   left: 16px;
+  // }
 }
 @media (min-width: 670px) {
-  img {
-    position: relative;
-    left: 9%;
-    top: 20px;
-  }
+  // img {
+  //   position: relative;
+  //   left: 16%;
+  //   top: 17px;
+  //   width: 14px;
+  // }
 }
 </style>

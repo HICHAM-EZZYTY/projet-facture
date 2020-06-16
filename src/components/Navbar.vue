@@ -9,10 +9,11 @@
             <b-form-input
             class="search mr-2"
             id="iconified"
-            placeholder="Rechercher des Devis"
+            placeholder="Rechercher des Devis ... "
             type="text"
           ></b-form-input>
-          <b-icon class="icon" icon="search" aria-hidden="true"></b-icon>
+          <!-- <b-icon class="icon" icon="search" aria-hidden="true"></b-icon> -->
+          <img src="../assets/img/ssEarch.svg" class="icon">
           <b-button class="submit  my-sm-1" type="submit" variant="primary"
             >+ Nouveau Devis
           </b-button>
@@ -88,25 +89,29 @@ export default {
   font-family: Gilroy;
 }
 .icon {
-  position: absolute;
-  top: 8px;
-  padding: 9px 14px;
-  color: #aaa;
-  transition: 0.3s;
+    position: absolute;
+    width: 32px;
+    top: 8px;
+    left: 6px;
+    padding: 9px 7px;
+    color: #aaa;
+    transition: 0.3s;
 }
 
 .form-control {
     display: block;
     width: 100%;
     height: calc(1.5em + .75rem + 2px);
-    padding: 1.375rem 3.75rem;
-    font-size: 1rem;
+    padding: 19px 39px;
+    font-family:  $r;
+    opacity: 70%;
+    font-size: 13px;
     font-weight: 400;
     line-height: 1.5;
     color: #495057;
     background-color: #fff;
     background-clip: padding-box;
-    border: 1px solid #ced4da;
+    border: 1px solid #E9EBEE;
     border-radius: .25rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
@@ -114,8 +119,9 @@ export default {
     display: flex;
     position: relative;
     /* align-items: center; */
+  
     left: 6.4%;
-    top: 15px;
+    top: 19px;
 }
  .bienvenue {
   color: rgb(177, 172, 172);

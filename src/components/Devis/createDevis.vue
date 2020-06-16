@@ -94,5 +94,73 @@ hr{
 }
 
 
+ @media (max-width: 1000px) {
+
+   .header h1{
+    margin-left: 9%;
+   }
+}
+
+ @media (max-width: 777px) {
+
+   .header h1{
+    margin-left: 9%;
+    width: 60%;
+   }
+   hr{
+    position: relative;
+    right: 6%;
+    width: 83%;
+   }
+}
+
+ @media (max-width: 577px) {
+.header h1{
+    margin-left: 12%;
+    width: 60%;
+}
+hr {
+    position: relative;
+    right: 0%;
+    width: 74%;
+}
+
+}
+
+ @media (max-width: 409px) {
+
+hr {
+    position: relative;
+    left: 3%;
+    width: 77%;
+}
+
+}
+
+ @media (max-width:  395px) {
+
+hr {
+    position: relative;
+    left: 3%;
+    width: 49%;
+}
+.header h1{
+    margin-left: 12%;
+    width: 81%;
+    text-align: center;
+}
+.header .header_logo{
+    display: block;
+    position: relative;
+    float: none;
+    width: 111px;
+    margin:0 auto
+}
+
+}
+
+
+
+
 
 </style>

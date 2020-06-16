@@ -4,9 +4,9 @@
     <sidebar />
     <!-- <Table /> -->
     <div class="Content col-md-8 mx-auto">
-      <div class="Content1">
+    <div class="Content1">
         <router-view />
-      </div>
+    </div>
     </div>
   </div>
 </template>
@@ -22,3 +22,11 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+
+.container{
+}
+
+
+</style>

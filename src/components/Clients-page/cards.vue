@@ -20,7 +20,7 @@ export default {
 	methods:{
 		getClients: function () {
 			// get clients. 
-			let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTU5MjMzNTY0OCwiZXhwIjoxNTkyMzM5MjQ4LCJuYmYiOjE1OTIzMzU2NDgsImp0aSI6IldLeUtlNHRKck41cW83WDMiLCJzdWIiOjgsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.A1W5lW6WFmFmKKEw5JQaMTiPQH9Fcic7AtQ44YoIjhQ";
+			let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTU5MjM0MzM0NSwiZXhwIjoxNTkyMzQ2OTQ1LCJuYmYiOjE1OTIzNDMzNDUsImp0aSI6IjV5VjIydUlFYmJyTk5YeUgiLCJzdWIiOjIyLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.BC4nurF0gDYauQzhsDbNAKFZPAYbyWQUIV3sPZebOmY";
 
 			this.$http.defaults.headers.common = { Authorization: `Bearer ${token}` }
 			
@@ -43,32 +43,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-	::-webkit-scrollbar {
-	width: 6px;
-	}
-	::-webkit-scrollbar-track {
-	box-shadow: inset 0 0 2px grey; 
-	border-radius: 10px;
-	}
-	::-webkit-scrollbar-thumb {
-	background: #2262C6; 
-	border-radius: 10px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #2e74e6; 
-}
+
 	
 	.container {
 		display: flex;
 		flex-wrap: wrap;
 		// padding: 0;
 		width: 100%;
-		height: 80vh;
 		max-width: 100%;
 		// justify-content: space-around;
-		overflow-x: hidden; 
-		overflow-y: auto; 
-		text-align:justify; 
+	
 	}
 
 	@media screen and (max-width: 500px) {

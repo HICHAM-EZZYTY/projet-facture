@@ -53,7 +53,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss"  >
+<style lang="scss"  >
 
 
 
@@ -183,9 +183,9 @@ h1,h2,h3,h4,h5,p {
 }
 .cards-card {
 	width: 100%;
-	max-width: 315px;
-	height: 240px;
-	margin: 2em;
+	max-width: 320px;
+	height: 210px;
+	margin: 2.3em;
 	border-radius: 15px;
 	display:inline-block;
 	z-index: 22;
@@ -193,20 +193,31 @@ h1,h2,h3,h4,h5,p {
 }
 .box{
 	position: relative;
-    width: 100px;
+    width: 120px;
     height: 49px;
-    left: 5%;
+    left: 1em;
     top: 2.2em;
 	background: #2262C6;
 	box-shadow: 0px 4px 15px rgba(223, 223, 223, 0.45);
 	border-radius: 20px;
 	z-index: -1;
 }
+
+.cards-card:nth-child(3n+0) .box{
+	background: #FFC5A0;
+}
+.cards-card:nth-child(2n+1) .box{
+	background: #427FDE;
+}
+.cards-card:nth-child(3n+0) .box{
+	background: #FFC5A0;
+}
+
+
 .cards-card:hover{
 	transform:scale(1.04);
 	// z-index: 4000;
 }
-
 
 .cards-content {
 	background: #ffffff;
@@ -217,6 +228,7 @@ h1,h2,h3,h4,h5,p {
 	padding: 120px 18px 24px 18px;
 	margin: 0;
 }
+
 
 .cards-content-header, .cards-info {
 	display: table;
@@ -281,6 +293,13 @@ h1,h2,h3,h4,h5,p {
 		max-width: 80%;
 		margin: 1em;
 		display: block;
+	}
+	.cards-card{
+		transform:scale(0.8);
+	}
+	
+	.cards-card:hover{
+		transform:scale(0.9);
 	}
 }
 

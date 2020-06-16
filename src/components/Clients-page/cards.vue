@@ -11,7 +11,7 @@ export default {
     name: "cards",
 	data: function () {
 		return {
-			clients: []
+			clients: [],
 		}
 	},
 	components: {
@@ -20,15 +20,16 @@ export default {
 	methods:{
 		getClients: function () {
 			// get clients. 
-			let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTU5MjMxOTQ1OSwiZXhwIjoxNTkyMzIzMDU5LCJuYmYiOjE1OTIzMTk0NTksImp0aSI6ImJGZEk4ZWh0MXdNVGxkdDAiLCJzdWIiOjIyLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.SNqvGa3ke8jTVnx4kpgKylPUmhRhCmntfmcfAGNh1Gk";
+			let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTU5MjMzMTkwNiwiZXhwIjoxNTkyMzM1NTA2LCJuYmYiOjE1OTIzMzE5MDYsImp0aSI6IlFEY2lBY0hBdHg2OEN2TEMiLCJzdWIiOjgsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.YSXzuueCU6kS7XHpNcdE0dDwveA-zl2pTJ6p_T29Z_8";
 
 			this.$http.defaults.headers.common = { Authorization: `Bearer ${token}` }
 			
 			this.$http
 				.get("/clients")
 				.then((result) => {
-					console.log(result.data.data);
 					this.clients = result.data.data;
+					console.log(this.clients[0]);
+
 				})
 				.catch((error) => {
 					console.log(error)

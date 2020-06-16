@@ -1,6 +1,9 @@
 <template>
 	<div class="cards-card">
-		<div class="box"></div>
+		<div class="box"
+		
+		
+		></div>
 		<div class="cards-content">
 			<div class="cards-content-header">
 				<router-link to="client/1" class="name">
@@ -10,10 +13,14 @@
 			<div class="cards-info">
 				<div class="info-section">
 					<label>Société : {{ (user.societe == null) ? "none" : user.societe.Societe_Nom  }}</label>
+					<!-- <label>Société : Marjane</label> -->
+
 					<span>
 						<img class="gmail" src="../../assets/img/Group.svg" alt="gmail"> {{user.Client_Email}}
+						<!-- <img class="gmail" src="../../assets/img/Group.svg" alt="gmail"> Chamkhianas@gmail.Com -->
+
 					</span>
-					<p><img class="telephone" src="../../assets/img/call 1.svg" alt="téléphone"> {{user.Phones[0].number}}</p>
+					<p><img class="telephone" src="../../assets/img/call 1.svg" alt="téléphone">0700341459</p>
 				</div>
 				<div class="info-section">
 				</div>	
@@ -37,24 +44,29 @@ export default {
     name: "Card", 
     data: function () {
         return {
-        
+        colors:["#2262C6","#427FDE","#FFC5A0"]
         };
     }, 
     props: {
 		user: Object
     }, 
 	computed: {
-		// societeName: function () {
-		// 	if(this.user.societe) return "none"; 
-		// 	return this.user.societe.Societe_Nom;
-		// }
+	
+	},
+	methods:{
+	
 	}
-
 }
+
+
+
 </script>
 
 <style lang="scss"  >
 
+$color1:#2262C6;
+$color2:#427FDE;
+$color3:#FFC5A0;
 
 
 .intro {
@@ -197,20 +209,103 @@ h1,h2,h3,h4,h5,p {
     height: 49px;
     left: 1em;
     top: 2.2em;
-	background: #2262C6;
+	background:green;
 	box-shadow: 0px 4px 15px rgba(223, 223, 223, 0.45);
 	border-radius: 20px;
 	z-index: -1;
 }
 
-.cards-card:nth-child(3n+0) .box{
-	background: #FFC5A0;
+// .cards-card:nth-child(3n+0) .box{
+// 	background: #FFC5A0;
+// }
+.cards-card:nth-child(1) {
+	.box{
+	background: $color1;
+	}
+	.imax-logo{
+		background-color: $color1 ;
+	}
+	.Ellipse{
+	border: 2px solid  $color1;
+	}
+	.Ellipse1{
+	border: 2px solid  $color1;
+	}
 }
-.cards-card:nth-child(2n+1) .box{
-	background: #427FDE;
+.cards-card:nth-child(1n+1) {
+	.box{
+	background: $color1;
+	}
+	.imax-logo{
+		background-color:$color1 ;
+	}
+	.Ellipse{
+	border: 2px solid $color1;
+	}
+	.Ellipse1{
+	border: 2px solid $color1;
+	}
 }
-.cards-card:nth-child(3n+0) .box{
-	background: #FFC5A0;
+
+
+.cards-card:nth-child(2) {
+	.box{
+	background: $color2;
+	}
+	.imax-logo{
+		background-color:$color2 ;
+	}
+	.Ellipse{
+	border: 2px solid $color2;
+	}
+	.Ellipse1{
+	border: 2px solid $color2;
+	}
+}
+.cards-card:nth-child(2n+3) {
+	.box{
+	background: $color2;
+	}
+	.imax-logo{
+		background-color:$color2 ;
+	}
+	.Ellipse{
+	border: 2px solid $color2;
+	}
+	.Ellipse1{
+	border: 2px solid $color2;
+	}
+}
+
+
+.cards-card:nth-child(3) {
+	.box{
+	background: $color3;
+	}
+	.imax-logo{
+		background-color:$color3 ;
+	}
+	.Ellipse{
+	border: 2px solid $color3;
+	}
+	.Ellipse1{
+	border: 2px solid $color3;
+	}
+}
+
+.cards-card:nth-child(3n+3) {
+	.box{
+	background: $color3;
+	}
+	.imax-logo{
+		background-color:$color3 ;
+	}
+	.Ellipse{
+	border: 2px solid $color3;
+	}
+	.Ellipse1{
+	border: 2px solid $color3;
+	}
 }
 
 

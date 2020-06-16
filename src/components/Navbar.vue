@@ -169,6 +169,35 @@ export default {
     bottom: 0.6px;
 }
 
+@media (max-width: 1182px) {
+
+  .bienvenue{
+    display: none;
+  }
+  .avatar{
+    margin-left: 85%;
+  }
+
+}
+
+@media (max-width: 1130px) {
+
+
+  .avatar{
+    margin-left: 75%;
+  }
+
+}
+
+@media (max-width: 1020px) {
+
+
+  .avatar{
+    margin-left: 60%;
+  }
+
+}
+
 
 
 </style>

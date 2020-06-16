@@ -30,7 +30,7 @@
           </li>
           <li>
             <router-link class="s-sidebar__nav-link" to="/OP">
-              <img src="../assets/img/menu5.svg" alt />
+              <img id="mn" src="../assets/img/menu5.svg" alt />
               <em>Opportunités</em>
             </router-link>
           </li>
@@ -98,9 +98,14 @@ a {
   color: inherit;
 }
 img {
+  // position: relative;
+  // left: 9%;
+  // top: 20px;
   position: relative;
-  left: 9%;
-  top: 20px;
+  left: 16%;
+  top: 17px;
+  width: 14px;
+
 }
 
 .s-layout__content {
@@ -116,10 +121,16 @@ img {
   left: 0em;
   overflow: hidden;
   transition: all 0.3s ease-in;
-  width: 4em;
-  height: 610px;
+  width: 14em;
+  height: 498px;
   background: #2262c6;
   color: rgb(255, 255, 255);
+}
+a:hover 
+{
+     color:white; 
+     text-decoration:none; 
+     cursor:pointer;  
 }
 // .s-sidebar__nav:hover,
 // .s-sidebar__nav:focus,
@@ -188,7 +199,14 @@ img {
   margin-top: 10px;
 }
 .sign-out {
-  /* margin-top: 5rem; */
+   margin-top: 122px;
+   em{
+     line-height: 2em;
+     border-bottom: 0.6px solid #FFFCFC;
+   }
+}
+#mn{
+  width: 11px;
 }
 // .sidenav--list li a:hover {
 //   text-decoration: none;
@@ -196,24 +214,39 @@ img {
 //   background: rgba(255, 255, 255, 0.2);
 //   border-left: rgb(117, 117, 117) 2px solid;
 // }
+
+@media (max-width: 1088px) {
+
+  .s-sidebar__nav{
+        width: 14em;
+  }
+
+
+}
+
+
+
+
+
+
 /* Mobile First */
 @media (min-width: 42em) {
-  .s-layout__content {
-    margin-left: 4em;
-  }
+  // .s-layout__content {
+  //   margin-left: 4em;
+  // }
   /* Sidebar */
-  .s-sidebar__trigger {
-    width: 4em;
-  }
-  .s-sidebar__nav {
-    width: 4em;
-    left: 0;
-  }
-  img {
-    position: relative;
-    left: 9%;
-    top: 20px;
-  }
+  // .s-sidebar__trigger {
+  //   width: 4em;
+  // }
+  // .s-sidebar__nav {
+  //   width: 4em;
+  //   left: 0;
+  // }
+  // img {
+  //   position: relative;
+  //   left: 9%;
+  //   top: 20px;
+  // }
   // .s-sidebar__nav:hover,
   // .s-sidebar__nav:focus,
   // .s-sidebar__trigger:hover + .s-sidebar__nav,
@@ -222,25 +255,25 @@ img {
   // }
 }
 @media (min-width: 68em) {
-  .s-layout__content {
-    /* margin-left: 14em; */
-  }
+  // .s-layout__content {
+  //    margin-left: 14em; 
+  // }
   /* Sidebar */
-  .s-sidebar__trigger {
-    display: none;
-  }
-  .s-sidebar__nav {
-    width: 14em;
-  }
-  img {
-    position: relative;
-    left: 14%;
-    top: 20px;
-  }
-  .s-sidebar__nav ul {
-    top: 12px;
-    left: 16px;
-  }
+  // .s-sidebar__trigger {
+  //   display: none;
+  // }
+  // .s-sidebar__nav {
+  //   width: 14em;
+  // }
+  // img {
+  //   position: relative;
+  //   left: 14%;
+  //   top: 20px;
+  // }
+  // .s-sidebar__nav ul {
+  //   top: 12px;
+  //   left: 16px;
+  // }
 }
 @media (min-width: 670px) {
   img {

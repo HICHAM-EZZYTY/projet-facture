@@ -81,7 +81,7 @@ export default {
 
 </script>
 
-<style lang="scss">
+<style  scoped lang="scss">
 @import "../../scss/main.scss" ;   
 
 .vc-nav-container{
@@ -135,7 +135,7 @@ export default {
 </style>
 
 
-<style  lang="scss">
+<style  scoped lang="scss">
 @import "../../scss/main.scss" ;   
 
 .containerGlobal {

@@ -51,10 +51,12 @@ export default {
 }
 
 .whitePaper{
-  width: 1vw;
-  height:  20vh;
-  background: #FFFFFF;
-  box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.06);
+    width: 53.5vw;
+    margin-left: 77px;
+    margin-top: 56px;
+    height: 86vh;
+    background: white;
+    box-shadow: 0px 4px 18px rgba(71, 71, 71, 0.3)
 }
 
 

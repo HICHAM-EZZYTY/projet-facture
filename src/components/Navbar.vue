@@ -15,16 +15,21 @@
           <!-- <b-icon class="icon" icon="search" aria-hidden="true"></b-icon> -->
           <img src="../assets/img/ssEarch.svg" class="icon">
           <b-button class="submit  my-sm-1" type="submit" variant="primary"
-            >+ Nouveau Devis
+          > 
+          <img src="../assets/img/Plus.svg" class="plus">
+          Nouveau Devis
           </b-button>
+
+
         </form>
         <div id="navbar" class="navbar-collapse collapse">
-           <p class="bienvenue"><strong>Bienvenue,</strong> {{this.$store.getters.user.name}}</p>
+           <p class="bienvenue"><span>Bienvenue,</span> {{this.$store.getters.user.name}}</p>
           <b-avatar
             variant="primary"
             class="avatar"
             :text="initials"
-            size="3.5rem"
+            size="2.7rem"
+            id="tt"
           ></b-avatar>
         </div>
     </div>
@@ -45,8 +50,15 @@ export default {
 
 <style scoped lang="scss">
 @import "/../scss/main.scss" ;   
-
-
+#navbar{
+    position: relative;
+    top: 18px;
+}
+#tt {
+      font-size: 15px;
+      color:#F4F6F9;
+      font-family:  $gm;
+}
 .logo {
     position: relative;
     width: 161px;
@@ -75,29 +87,30 @@ export default {
 .form input[type="text"] {
   padding-left: 3rem;
 }
-/* .form-inline {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  margin-left: 3em;
-} */
+
 .submit {
-  width: 9rem;
-  height: 44px;
-  font-size: 15px;
-  font-weight: bold;
-  font-family: Gilroy;
+  width: 176px;
+  height: 37px;
+  font-family:$bd;
+  font-size: 13px;
 }
 .icon {
     position: absolute;
     width: 32px;
-    top: 8px;
+    top: 4px;
     left: 6px;
     padding: 9px 7px;
     color: #aaa;
     transition: 0.3s;
 }
-
+.avatar{
+    width: 42px;
+    height: 42px;
+    position: relative;
+    right: 4px;
+    top: 2px;
+    font-size: 8px;
+}
 .form-control {
     display: block;
     width: 100%;
@@ -124,9 +137,16 @@ export default {
     top: 19px;
 }
  .bienvenue {
-  color: rgb(177, 172, 172);
-  margin: 1.5rem;
-  margin-left: auto;
+    font-family: $r;
+    position: relative;
+    top: 2px;
+    color: #AAB5C6;
+    margin: 1.5rem;
+    margin-left: auto;
+    font-size: 14px;
+    span{
+    font-family: $bd;
+    }
 }
 .btn-primary {
   color: #fff;
@@ -141,21 +161,14 @@ export default {
     display: flex;
     align-items: center;
 }
-/* @media (min-width: 1614px) {
- .form-inline {
-   position: relative;
-   left: 2em;
+.plus{
+
+    width: 12px;
+    position: relative;
+    right: 14px;
+    bottom: 0.6px;
 }
-} */
-/* @media only screen and (min-width: 1200px) {
-  .form-inline {
-    margin-left: 7em;
-  } */
-   /* .submit{
-    width: 30rem;
-    font-size: 15px;
-    font-weight: bold;
-    font-family: Gilroy;
-}  */
-/* } */
+
+
+
 </style>

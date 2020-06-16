@@ -12,12 +12,12 @@
 			</div>
 			<div class="cards-info">
 				<div class="info-section">
-					<!-- <label>Société : {{ (user.societe == null) ? "none" : user.societe.Societe_Nom  }}</label> -->
-					<label>Société : Marjane</label>
+					<label>Société : {{ (user.societe == null) ? "none" : user.societe.Societe_Nom  }}</label>
+					<!-- <label>Société : Marjane</label> -->
 
 					<span>
-						<!-- <img class="gmail" src="../../assets/img/Group.svg" alt="gmail"> {{user.Client_Email}} -->
-						<img class="gmail" src="../../assets/img/Group.svg" alt="gmail"> Chamkhianas@gmail.Com
+						<img class="gmail" src="../../assets/img/Group.svg" alt="gmail"> {{user.Client_Email}}
+						<!-- <img class="gmail" src="../../assets/img/Group.svg" alt="gmail"> Chamkhianas@gmail.Com -->
 
 					</span>
 					<p><img class="telephone" src="../../assets/img/call 1.svg" alt="téléphone">0700341459</p>
@@ -220,30 +220,30 @@ h1,h2,h3,h4,h5,p {
 // }
 .cards-card:nth-child(1) {
 	.box{
-	background: red;
+	background: $color1;
 	}
 	.imax-logo{
-		background-color:red ;
+		background-color: $color1 ;
 	}
 	.Ellipse{
-	border: 2px solid red;
+	border: 2px solid  $color1;
 	}
 	.Ellipse1{
-	border: 2px solid red;
+	border: 2px solid  $color1;
 	}
 }
 .cards-card:nth-child(1n+1) {
 	.box{
-	background: red;
+	background: $color1;
 	}
 	.imax-logo{
-		background-color:red ;
+		background-color:$color1 ;
 	}
 	.Ellipse{
-	border: 2px solid red;
+	border: 2px solid $color1;
 	}
 	.Ellipse1{
-	border: 2px solid red;
+	border: 2px solid $color1;
 	}
 }
 
@@ -296,20 +296,6 @@ h1,h2,h3,h4,h5,p {
 .cards-card:nth-child(3n+3) {
 	.box{
 	background: $color3;
-	}
-	.imax-logo{
-		background-color:$color3 ;
-	}
-	.Ellipse{
-	border: 2px solid $color3;
-	}
-	.Ellipse1{
-	border: 2px solid $color3;
-	}
-}
-.cards-card:first-child {
-	.box{
-	background: red;
 	}
 	.imax-logo{
 		background-color:$color3 ;

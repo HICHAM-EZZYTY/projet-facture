@@ -1,26 +1,17 @@
-	PARTRIDGE, Shirley	62	Female	Shirley is 62 years old
 <template>
-  <div>
-    <b-table small :fields="fields" :items="items" responsive="sm">
-      <!-- A virtual column -->
-      <template v-slot:cell(index)="data">{{ data.index + 1 }}</template>
+  <div class="contain">
 
-      <!-- A custom formatted column -->
-      <template v-slot:cell(name)="data">
-        <b class="text-info">{{ data.value.last.toUpperCase() }}</b>,
-        <b>{{ data.value.first }}</b>
-      </template>
+      <div class="header">
+        <h1>Nouveau Devis</h1>
+        <div class="header_logo">
+        <img src="../../assets/img/eye.svg" alt="eyes icon">
+        <img src="../../assets/img/print.svg" alt="print icon">
+      </div>
 
-      <!-- A virtual composite column -->
-      <template
-        v-slot:cell(nameage)="data"
-      >{{ data.item.name.first }} is {{ data.item.age }} years old</template>
+      <hr class="solid">
 
-      <!-- Optional default data cell scoped slot -->
-      <template v-slot:cell()="data">
-        <i>{{ data.value }}</i>
-      </template>
-    </b-table>
+      </div>
+
   </div>
 </template>
 
@@ -28,29 +19,24 @@
 export default {
   data() {
     return {
-      fields: [
-        // A virtual column that doesn't exist in items
-        "index",
-        // A column that needs custom formatting
-        { key: "name", label: "Full Name" },
-        // A regular column
-        "age",
-        // A regular column
-        "sex",
-        // A virtual column made up from two fields
-        { key: "nameage", label: "First name and age" }
-      ],
-      items: [
-        { name: { first: "John", last: "Doe" }, sex: "Male", age: 42 },
-        { name: { first: "Jane", last: "Doe" }, sex: "Female", age: 36 },
-        { name: { first: "Rubin", last: "Kincade" }, sex: "Male", age: 73 },
-        {
-          name: { first: "Shirley", last: "Partridge" },
-          sex: "Female",
-          age: 62
-        }
-      ]
     };
   }
 }
 </script>
+
+<style scoped lang="scss">
+.header{
+  display: block;
+  h1{
+    width: 80%;
+    margin-right: 0px !important;
+    display: inline-block;
+  }
+  div{
+    display: inline-block;
+  }
+}
+
+
+
+</style>

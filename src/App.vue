@@ -4,7 +4,13 @@
   </div>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+  #app{
+    
+  width:100vw;
+  max-width:100vw;
+  }
+</style>
 
 <script>
 export default {

@@ -82,7 +82,7 @@ export default {
   box-sizing: border-box;
 }
 body {
-  font-family: 'Gilroy-Bold';
+  // font-family: 'Gilroy-Bold';
   font-size: 1em;
   color: #333;
 }
@@ -98,16 +98,14 @@ a {
   color: inherit;
 }
 img {
-  // position: relative;
-  // left: 9%;
-  // top: 20px;
   position: relative;
   left: 16%;
   top: 17px;
   width: 14px;
-
 }
-
+.s-layout{
+  height: 617px;
+}
 .s-layout__content {
   display: flex;
   justify-content: center;

@@ -38,6 +38,7 @@ import VueRouter from "vue-router";
   // testing for fixing sideBar
 
   import Sidebar from "../components/Sidebar.vue";
+  import Navbar from "../components/Navbar.vue";
 
 
 
@@ -137,6 +138,19 @@ const routes = [
       
     // ]
   },
+  
+  {
+    path:"/Navbar",
+    name:"NavBar",
+    component:Navbar,
+  },
+
+
+
+
+
+
+
   // parameters 
   {
     path: "/settings",

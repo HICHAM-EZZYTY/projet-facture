@@ -42,7 +42,15 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import "/../scss/main.scss" ;   
+
+
+.logo {
+    position: relative;
+    width: 161px;
+    top: 16px;
+}
 
 .btn-outline-dark {
     color: rgb(34, 98, 198);
@@ -60,8 +68,8 @@ export default {
     border-radius: .25rem;
 }
 .search {
-  width: 30rem !important;
-  margin-right: 1rem !important;
+  width: 28.4rem !important;
+  margin-right: 0.6em !important;
 }
 .form input[type="text"] {
   padding-left: 3rem;
@@ -106,7 +114,8 @@ export default {
     display: flex;
     position: relative;
     /* align-items: center; */
-    left: 12%;
+    left: 6.4%;
+    top: 15px;
 }
  .bienvenue {
   color: rgb(177, 172, 172);

@@ -71,20 +71,20 @@
 
       <div class="counter">
         <div class="rec">
-          <p>1</p>
+          <p>{{counter}}</p>
         </div>
         <div class="ligne"></div>
         <div class="circle"></div>
       </div>
 
 
-      <div class="artcl">
+      <div class="artcl"  v-for="Article in Articles" :key="Article.id">
         <div class="ss1">
           <div class="inp6">
               <label>Type</label>
               <br>
               <select class="select-css">
-                  <option value="">Service</option>
+                  <option value="">{{Article.service}}</option>
                   <option value="dog">Dog</option>
                   <option value="cat">Cat</option>
                   <option value="hamster">Hamster</option>
@@ -96,31 +96,33 @@
 
           <div class="icns">
             
-            <img src="../../assets/img/pls.svg" alt="add icon">
+            <img  @click="addInput" src="../../assets/img/pls.svg" alt="add icon">
             <img src="../../assets/img/rmv.svg" alt="remove icon">
 
 
           </div>
         </div>
+
+
         <div class="ss2">
 
 
 
               <div class="inp7">
 
-                  <input  id="in1" type="text" value="Quantité">
-                  <input   id="in2" type="text" value="prix HT">
+                  <input  id="in1" type="text" v-model="Article.quantité">
+                  <input   id="in2" type="text" v-model="Article.prixht">
                 <div class="tva">
                       <label id="in5">Tva</label>
                       <div class="on_off">
-                          <input id="in3" type="text" value="20.00">
+                          <input id="in3" type="text"  v-model="Article.tva">
                           <input  id="in4" type="checkbox" class="toggle" checked>
                       </div>
                 </div>
 
                 <div class="percentage">
                     <select class="select-css">
-                      <option value="">%</option>
+                      <option value="">{{Article.percent}}</option>
                       <option value="dog">Dog</option>
                       <option value="cat">Cat</option>
                       <option value="hamster">Hamster</option>
@@ -131,33 +133,29 @@
                 </div>
 
                 <div class="reduction">
-                      <input id="in6" type="text" value="Réduction">
+                      <input id="in6" type="text" v-model="Article.Reduction">
                 </div>
 
                 <div class="totalHt">
                       <label id="in7">Total HT</label>
-                      <input id="in8" type="text" value="0">
+                      <input id="in8" type="text" v-model="Article.totalht">
                 </div>
                 <div class="totalttc">
                       <label id="in9">Total TTC</label>
-                      <input id="in10" type="text" value="0">
+                      <input id="in10" type="text" v-model="Article.totalttc">
                 </div>
-
-               
-
-
-
-
 
           </div>
 
-          <textarea id="textAreaArtcl">
-                  Description de l’article 
+          <textarea id="textAreaArtcl"  v-model="Article.Decrp">
+              
+                  
           </textarea>
 
 
 
         </div>
+
       </div>
 
      
@@ -183,20 +181,33 @@
 export default {
   data() {
     return {
-      counter: 0,
-      inputs: [{
-      id: 'fruit0',
-      label: 'Enter Fruit Name',
-      value: 'Marjane',
+      counter: 1,
+      Articles: [{
+      service: 'Service',
+      quantité: 'Quantité',
+      prixht: 'Prix HT',
+      tva : 20,
+      percent:'%',
+      Reduction: 'Réduction',
+      totalht:0,
+      totalttc:0,
+      Decrp:"Description de l'article",
     }],
     };
   },
   methods: {
     addInput() {
-      this.inputs.push({
-        id: `fruit${++this.counter}`,
-        label: 'Enter Fruit Name',
-        value: '',
+      this.Articles.push({
+      id:0,
+      service: 'Service',
+      quantité: 'Quantité',
+      prixht: 'Prix HT',
+      tva : 20,
+      percent:'%',
+      Reduction: 'Réduction',
+      totalht:0,
+      totalttc:0,
+      Decrp:"Description de l'article",
       });
     },
       removeInput() {
@@ -461,6 +472,7 @@ hr{
       img{
             width: 21px;
             margin-left: 4px;
+            cursor: pointer;
       }
     }
 

@@ -67,10 +67,10 @@ export default {};
 }
 
 .textarea01 {
-  margin-top: 4.5rem;
+  margin-top: 6rem;
 }
 
 .textarea02 {
-  margin-top: 7rem;
+  margin-top: 13rem;
 }
 </style>

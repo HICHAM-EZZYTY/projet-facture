@@ -86,8 +86,11 @@ export default {
 .montant {
   position: absolute;
   width: 150px !important;
-  /* margin-left: 0px; */
-  margin-top: -18px;
+  margin-top: -4.4px;
+  border-top: none;
+  border-bottom: 1px solid black;
+  border-right: none;
+  border-left: none;
 }
 
 .montantRef {

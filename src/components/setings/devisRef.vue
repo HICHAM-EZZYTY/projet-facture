@@ -114,16 +114,16 @@ export default {};
 
 .textarea1 {
   left: 15px;
-  top: -11.5rem;
+  top: -10rem !important;
 }
 
 .descr-devis2 {
-  margin-left: -22.5rem;
+  margin-left: 0rem;
   top: 12rem;
 }
 
 .textarea2 {
-  top: -9rem;
+  top: -3rem !important;
 }
 
 .descr-devis3 {
@@ -132,6 +132,6 @@ export default {};
 }
 
 .textarea3 {
-  top: -6.5rem;
+  top: 3.5rem !important;
 }
 </style>

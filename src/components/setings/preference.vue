@@ -116,13 +116,13 @@ export default {
 }
 
 .custom-select0 {
-  margin-top: 1rem;
+  margin-top: 1.8rem;
 }
 
 .angle {
   margin-left: 16.5rem;
   position: absolute;
-  top: 32px;
+  top: 45px;
 }
 
 .custom-select1 {
@@ -153,7 +153,7 @@ input[type="text"] {
 
 .descr-pay {
   position: absolute;
-  top: -10px;
+  top: 4px;
   color: #b3b8c3;
   font-size: 14px;
 }

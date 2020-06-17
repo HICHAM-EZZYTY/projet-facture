@@ -51,7 +51,7 @@ export default {
 .contents {
   border: 2px solid white;
   width: 53rem;
-  margin-left: -16.5rem;
+  margin-left: -17.5rem;
   margin-top: 8.4rem;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;

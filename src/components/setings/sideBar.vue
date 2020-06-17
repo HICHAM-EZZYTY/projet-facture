@@ -17,7 +17,7 @@
           <!-- </router-link> -->
         </li>
         <li class="sidebar-brand" @click="activate(1)" :class="{ active : active_el == 1 }">
-          <router-link :to="{ name: 'devisRef' }">
+          <router-link :to="{ name: 'DevisPreferences' }">
             <a>
               Devis
               <!-- <i class="fa fa-caret-right caret-right caret-right1" style="font-size: 2rem;"></i> -->
@@ -25,7 +25,7 @@
           </router-link>
         </li>
         <li class="sidebar-brand" @click="activate(2)" :class="{ active : active_el == 2 }">
-          <router-link :to="{ name: 'factureRef' }">
+          <router-link :to="{ name: 'FacturePreferences' }">
             <a>
               Factures
               <!-- <i
@@ -36,7 +36,7 @@
           </router-link>
         </li>
         <li class="sidebar-brand" @click="activate(3)" :class="{ active : active_el == 3 }">
-          <router-link :to="{ name: 'avoirRef' }">
+          <router-link :to="{ name: 'AvoirePreferences' }">
             <a>
               Avoirs
               <!-- <i class="fa fa-caret-right caret-right caret-right3" style="font-size: 2rem;"></i> -->
@@ -44,7 +44,7 @@
           </router-link>
         </li>
         <li class="sidebar-brand" @click="activate(4)" :class="{ active : active_el == 4 }">
-          <router-link :to="{ name: 'factureAcompte' }">
+          <router-link :to="{ name: 'FactureAcomptePreferences' }">
             <a>
               Factures d'acompte
               <!-- <i
@@ -55,7 +55,7 @@
           </router-link>
         </li>
         <li class="sidebar-brand" @click="activate(5)" :class="{ active : active_el == 5 }">
-          <router-link :to="{ name: 'avoirAcompte' }">
+          <router-link :to="{ name: 'AvoireAcomptePreferences' }">
             <a>
               Avoirs d'acompte
               <!-- <i
@@ -66,7 +66,7 @@
           </router-link>
         </li>
         <li class="sidebar-brand" @click="activate(6)" :class="{ active : active_el == 6 }">
-          <router-link :to="{ name: 'numerotation' }">
+          <router-link :to="{ name: 'NumerotationPreferences' }">
             <a>
               Numérotation
               <!-- <i

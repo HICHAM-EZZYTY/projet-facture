@@ -116,7 +116,7 @@ export default {};
 }
 
 .descr-facture2 {
-  margin-left: -22.5rem;
+  margin-left: 0rem;
   top: 12rem;
 }
 

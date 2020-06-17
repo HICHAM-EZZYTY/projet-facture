@@ -1,58 +1,58 @@
 <template>
-    <div class="s-layout__sidebar">
-      <nav class="s-sidebar__nav">
-        <ul>
-          <li>
-            <router-link class="s-sidebar__nav-link" to="/client">
-              <img src="../assets/img/menu1.svg" alt />
-              <em>Clients</em>
-            </router-link>
-          </li>
-          <li>
-            <router-link class="s-sidebar__nav-link" to="/client">
-              <img src="../assets/img/menu2.svg" alt />
-              <em>Sociétés</em>
-            </router-link>
-          </li>
-          <li>
-            <router-link class="s-sidebar__nav-link" to="/devis">
-              <img src="../assets/img/menu3.svg" alt />
-              <em>Devis</em>
-            </router-link>
-          </li>
-          <li>
-            <router-link class="s-sidebar__nav-link" to="/facture">
-              <img src="../assets/img/menu4.svg" alt />
-              <em>Factures</em>
-            </router-link>
-          </li>
-          <li>
-            <router-link class="s-sidebar__nav-link" to="/OP">
-              <img id="mn" src="../assets/img/menu5.svg" alt />
-              <em>Opportunités</em>
-            </router-link>
-          </li>
-          <li>
-            <router-link class="s-sidebar__nav-link" to="/settings">
-              <img src="../assets/img/menu6.svg" alt />
-              <em>Paramétres</em>
-            </router-link>
-          </li>
-          <li>
-            <router-link class="s-sidebar__nav-link" to="/feedback">
-              <img src="../assets/img/menu7.svg" alt />
-              <em>Feedback</em>
-            </router-link>
-          </li>
-          <li class="sidenav--list__item sign-out">
-            <router-link class="s-sidebar__nav-link" to="/logout">
-              <img class="sidenav-button__icon" src="../assets/img/menu8.svg" alt />
-              <em>Déconnexion</em>
-            </router-link>
-          </li>
-        </ul>
-      </nav>
-    </div>
+  <div class="s-layout__sidebar">
+    <nav class="s-sidebar__nav">
+      <ul>
+        <li>
+          <router-link class="s-sidebar__nav-link" to="/client">
+            <img src="../assets/img/menu1.svg" alt />
+            <em>Clients</em>
+          </router-link>
+        </li>
+        <li>
+          <router-link class="s-sidebar__nav-link" to="/client">
+            <img src="../assets/img/menu2.svg" alt />
+            <em>Sociétés</em>
+          </router-link>
+        </li>
+        <li>
+          <router-link class="s-sidebar__nav-link" to="/devis">
+            <img src="../assets/img/menu3.svg" alt />
+            <em>Devis</em>
+          </router-link>
+        </li>
+        <li>
+          <router-link class="s-sidebar__nav-link" to="/facture">
+            <img src="../assets/img/menu4.svg" alt />
+            <em>Factures</em>
+          </router-link>
+        </li>
+        <li>
+          <router-link class="s-sidebar__nav-link" to="/OP">
+            <img id="mn" src="../assets/img/menu5.svg" alt />
+            <em>Opportunités</em>
+          </router-link>
+        </li>
+        <li>
+          <router-link class="s-sidebar__nav-link" to="/settings">
+            <img src="../assets/img/menu6.svg" alt />
+            <em>Paramétres</em>
+          </router-link>
+        </li>
+        <li>
+          <router-link class="s-sidebar__nav-link" to="/feedback">
+            <img src="../assets/img/menu7.svg" alt />
+            <em>Feedback</em>
+          </router-link>
+        </li>
+        <li class="sidenav--list__item sign-out">
+          <router-link class="s-sidebar__nav-link" to="/logout">
+            <img class="sidenav-button__icon" src="../assets/img/menu8.svg" alt />
+            <em>Déconnexion</em>
+          </router-link>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </template>
 
 <script>
@@ -62,7 +62,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "/../scss/main.scss" ;   
+@import "/../scss/main.scss";
 
 * {
   margin: 0;
@@ -84,7 +84,7 @@ h1 {
 }
 em {
   font-style: normal;
-  font-family: 'Gilroy-Bold';
+  font-family: "Gilroy-Bold";
 }
 a {
   text-decoration: none;
@@ -96,7 +96,7 @@ img {
   top: 17px;
   width: 14px;
 }
-.s-layout{
+.s-layout {
   height: 490px;
 }
 .s-layout__content {
@@ -117,10 +117,10 @@ img {
   background: #2262c6;
   color: rgb(255, 255, 255);
 }
-a:hover{
-  color:white; 
-  text-decoration:none; 
-  cursor:pointer;  
+a:hover {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
 }
 // .s-sidebar__nav:hover,
 // .s-sidebar__nav:focus,
@@ -129,12 +129,12 @@ a:hover{
 //   left: 0;
 // }
 .s-sidebar__nav ul {
-    position: absolute;
-    top: 0.8em;
-    left: 16px;
-    margin: 0;
-    padding: 0;
-    width: 15em;
+  position: absolute;
+  top: 0.8em;
+  left: 16px;
+  margin: 0;
+  padding: 0;
+  width: 15em;
 }
 .s-sidebar__nav ul li {
   width: 100%;
@@ -189,13 +189,13 @@ a:hover{
   margin-top: 10px;
 }
 .sign-out {
-   margin-top: 122px;
-   em{
-     line-height: 2em;
-     border-bottom: 0.6px solid #FFFCFC;
-   }
+  margin-top: 122px;
+  em {
+    line-height: 2em;
+    border-bottom: 0.6px solid #fffcfc;
+  }
 }
-#mn{
+#mn {
   width: 11px;
 }
 // .sidenav--list li a:hover {
@@ -206,68 +206,49 @@ a:hover{
 // }
 
 @media (max-width: 1088px) {
-
-  .s-sidebar__nav{
-        width: 14em;
+  .s-sidebar__nav {
+    width: 14em;
   }
-
 }
 
 @media (max-width: 1020px) {
-
-  .s-sidebar__nav{
-        width: 10em;
+  .s-sidebar__nav {
+    width: 10em;
   }
 }
 
-
 @media (max-width: 820px) {
-
-  .s-sidebar__nav{
-        width: 8em;
+  .s-sidebar__nav {
+    width: 8em;
   }
-  .s-sidebar__nav ul{
+  .s-sidebar__nav ul {
     left: 4px;
   }
 }
 
-
 @media (max-width: 740px) {
-
-  .s-sidebar__nav{
-        width: 4em;
+  .s-sidebar__nav {
+    width: 4em;
   }
-  .s-sidebar__nav ul{
+  .s-sidebar__nav ul {
     left: 13px;
   }
-  .s-sidebar__nav ul li{
+  .s-sidebar__nav ul li {
     height: 35px;
   }
-  em{
-    display: none ;
+  em {
+    display: none;
   }
-  img{
+  img {
     width: 18px;
   }
-  .sidenav-button__icon{
+  .sidenav-button__icon {
     width: 22px;
   }
-  #mn{
-  width: 16px;
+  #mn {
+    width: 16px;
+  }
 }
-
-}
-
-
-
-
-
-
-
-
-
-
-
 
 /* Mobile First */
 @media (min-width: 42em) {
@@ -296,7 +277,7 @@ a:hover{
 }
 @media (min-width: 68em) {
   // .s-layout__content {
-  //    margin-left: 14em; 
+  //    margin-left: 14em;
   // }
   /* Sidebar */
   // .s-sidebar__trigger {

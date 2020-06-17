@@ -283,10 +283,12 @@ hr{
     .contain2{
      grid-template-columns: none;
      grid-template-rows: 1fr 1fr;
+    margin-top: 0px;
    }
   .inp1{
     display: block;
     margin:0 auto;
+    padding-bottom: 10px;
     label{
       margin-left: 0px;
     }

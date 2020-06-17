@@ -17,11 +17,59 @@
       <div class="heading">Marjane</div>
       <div class="informations">
         <h1>Informations :</h1>
-        <div class="inp1">
-          <label>Nom de devis</label>
-          <br>
-          <input type="text" value="# D2000001">
+        <div class="contain1">
+          <div class="inp1">
+              <label>Nom de devis</label>
+              <br>
+              <input type="text" value="# D2000001">
+          </div>
+           <div class="inp2">
+              <label>Durée de validité</label>
+              <br>
+              <select class="select-css">
+                  <option value="">Jours</option>
+                  <option value="dog">Dog</option>
+                  <option value="cat">Cat</option>
+                  <option value="hamster">Hamster</option>
+                  <option value="parrot">Parrot</option>
+                  <option value="spider">Spider</option>
+                  <option value="goldfish">Goldfish</option>
+             </select>
+          </div>
         </div>
+          <div class="contain2">
+          <div class="inp3">
+              <label>Nom de devis</label>
+              <br>
+              <select class="select-css">
+                  <option value="">Jours</option>
+                  <option value="dog">Dog</option>
+                  <option value="cat">Cat</option>
+                  <option value="hamster">Hamster</option>
+                  <option value="parrot">Parrot</option>
+                  <option value="spider">Spider</option>
+                  <option value="goldfish">Goldfish</option>
+             </select>
+          </div>
+           <div class="inp4">
+              <label>Durée de validité</label>
+              <br>
+              <select class="select-css">
+                  <option value="">Jours</option>
+                  <option value="dog">Dog</option>
+                  <option value="cat">Cat</option>
+                  <option value="hamster">Hamster</option>
+                  <option value="parrot">Parrot</option>
+                  <option value="spider">Spider</option>
+                  <option value="goldfish">Goldfish</option>
+             </select>
+          </div>
+        </div>
+
+
+
+
+
       </div>
 
 
@@ -119,6 +167,14 @@ hr{
   }
 }
 
+.contain1{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.contain2{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 .inp1{
   label{
     font-family: $gm;
@@ -138,8 +194,75 @@ hr{
 }
 
 
+.inp2{
+  label{
+    font-family: $gm;
+    font-size: 12px;
+    color:$white2;
+    margin-left: 72px;
+    padding-top: 7px;
+    margin-bottom: 7px;
+  }
+  .select-css{
+    outline: none;
+    cursor: pointer;
+    color:#6E7275;
+    font-size: 14px;
+    font-family: $gm;
+    border: none;
+    width: 10em;
+    border-bottom: 0.6px solid #616467;
+    padding-bottom: 4px;
+    margin-left: 70px;
+  }
+}
 
 
+.inp3{
+  label{
+    font-family: $gm;
+    font-size: 12px;
+    color:$white2;
+    margin-left: 72px;
+    padding-top: 7px;
+    margin-bottom: 7px;
+  }
+  .select-css{
+    outline: none;
+    cursor: pointer;
+    color:#6E7275;
+    font-size: 14px;
+    font-family: $gm;
+    border: none;
+    width: 10em;
+    border-bottom: 0.6px solid #616467;
+    padding-bottom: 4px;
+    margin-left: 70px;
+  }
+}
+
+.inp4{
+  label{
+    font-family: $gm;
+    font-size: 12px;
+    color:$white2;
+    margin-left: 72px;
+    padding-top: 7px;
+    margin-bottom: 7px;
+  }
+  .select-css{
+    outline: none;
+    cursor: pointer;
+    color:#6E7275;
+    font-size: 14px;
+    font-family: $gm;
+    border: none;
+    width: 10em;
+    border-bottom: 0.6px solid #616467;
+    padding-bottom: 4px;
+    margin-left: 70px;
+  }
+}
 
  @media (max-width: 1000px) {
 

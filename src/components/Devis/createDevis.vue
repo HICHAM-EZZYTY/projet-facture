@@ -305,9 +305,10 @@ hr{
 }
 
 .counter{
+  position: absolute;
   .rec{
-    width: 2.8%;
-    background-color:hsl(217, 71%, 45%);
+    width: 20px;
+    background-color: #2160c4;
     position: relative;
     top: 13px;
     left: 22px;
@@ -318,15 +319,24 @@ hr{
     }
   } 
   .ligne{
-    height: 200px;
-    width: 1px;
-    background-color: #616467;
+    position: relative;
     top: 13px;
+    height: 200px;
+    width: 0.8px;
+    background-color: #616467;
     left: 31px;
     z-index: 0;
     margin-right: 0px !important;
   }
 
+  .circle{
+    position: relative;
+    height: 25px;
+    width: 25px;
+    background-color: $blue;
+    border-radius: 50%;
+    left: 19px;
+  }
 }
 
 

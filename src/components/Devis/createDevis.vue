@@ -39,10 +39,10 @@
         </div>
           <div class="contain2">
           <div class="inp3">
-              <label>Nom de devis</label>
+              <label>Destinataire</label>
               <br>
               <select class="select-css">
-                  <option value="">Jours</option>
+                  <option value="">Marjane</option>
                   <option value="dog">Dog</option>
                   <option value="cat">Cat</option>
                   <option value="hamster">Hamster</option>
@@ -52,10 +52,10 @@
              </select>
           </div>
            <div class="inp4">
-              <label>Durée de validité</label>
+              <label>Devise</label>
               <br>
               <select class="select-css">
-                  <option value="">Jours</option>
+                  <option value="">Dirham  (MAD)</option>
                   <option value="dog">Dog</option>
                   <option value="cat">Cat</option>
                   <option value="hamster">Hamster</option>
@@ -171,10 +171,7 @@ hr{
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-.contain2{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
+
 .inp1{
   label{
     font-family: $gm;
@@ -217,13 +214,18 @@ hr{
   }
 }
 
+.contain2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 18px;
+}
 
 .inp3{
   label{
     font-family: $gm;
     font-size: 12px;
     color:$white2;
-    margin-left: 72px;
+    margin-left: 51px;
     padding-top: 7px;
     margin-bottom: 7px;
   }
@@ -237,7 +239,8 @@ hr{
     width: 10em;
     border-bottom: 0.6px solid #616467;
     padding-bottom: 4px;
-    margin-left: 70px;
+    margin-left: 51px;
+
   }
 }
 

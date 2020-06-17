@@ -23,7 +23,6 @@
           </div>
            <div class="inp2">
               <label>Durée de validité</label>
-              <br>
               <select class="select-css">
                   <option value="">Jours</option>
                   <option value="dog">Dog</option>
@@ -66,6 +65,10 @@
 
 
       <h1>Articles :</h1>
+
+
+      <div class="wrapArticles"></div>
+
       <div class="counter">
         <div class="rec">
           <p>1</p>
@@ -74,6 +77,32 @@
         <div class="circle"></div>
       </div>
 
+
+      <div class="artcl">
+        <div class="ss1">
+          <div class="inp6">
+              <label>Type</label>
+              <br>
+              <select class="select-css">
+                  <option value="">Service</option>
+                  <option value="dog">Dog</option>
+                  <option value="cat">Cat</option>
+                  <option value="hamster">Hamster</option>
+                  <option value="parrot">Parrot</option>
+                  <option value="spider">Spider</option>
+                  <option value="goldfish">Goldfish</option>
+             </select>
+          </div>
+
+          <div class="icns">
+            
+            <img src="../../assets/img/pls.svg" alt="add icon">
+            <img src="../../assets/img/rmv.svg" alt="remove icon">
+
+
+          </div>
+        </div>
+      </div>
 
      
 
@@ -340,6 +369,46 @@ hr{
 }
 
 
+.artcl{
+  position: relative;
+    left: 8%;
+    top: 0px;
+    width: 50%;
+    .ss1{
+      display: grid;
+      grid-template-columns: 1.78fr 1fr;
+      .inp6{
+        label{
+              font-family: $gm;
+              font-size: 12px;
+              color:$white2;
+              margin-left: 0px;
+              padding-top: 7px;
+              margin-bottom: 0px;
+        }
+        .select-css{
+          outline: none;
+          cursor: pointer;
+          color:#6E7275;
+          font-size: 14px;
+          font-family: $gm;
+          border: none;
+          width: 13em;
+          border-bottom: 0.6px solid #616467;
+          padding-bottom: 4px;
+          margin-left: 0px;
+        }
+      }
+    }
+    .icns{
+      padding-top: 26px;
+      img{
+            width: 21px;
+            margin-left: 4px;
+      }
+    }
+
+}
 
 
 

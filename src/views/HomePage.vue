@@ -22,7 +22,11 @@ export default {
 };
 </script>
 
-<style scoped>
+<style >
+
+body{
+  margin: 0;
+}
 
 ::-webkit-scrollbar {
   width: 6px;
@@ -41,7 +45,8 @@ export default {
 
 .Content{
   margin-top: 30px; 
-  height: 88vh;
+  /* height: 88vh; */
+  height: 85vh;
   overflow-x: hidden; 
   overflow-y: auto; 
   text-align:justify; 

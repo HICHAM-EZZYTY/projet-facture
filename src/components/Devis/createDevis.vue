@@ -104,15 +104,16 @@
         </div>
         <div class="ss2">
           <div class="inp7">
+
               <input  id="in1" type="text" value="Quantité">
               <input   id="in2" type="text" value="prix HT">
-                <div class="tva">
-                <label>Tva</label>
-                <div class="on_off">
-                <input id="in3" type="text" value="20.00">
-                <input  id="in4" type="checkbox" class="toggle" checked>
-                </div>
-                </div>
+            <div class="tva">
+                  <label id="in5">Tva</label>
+                  <div class="on_off">
+                      <input id="in3" type="text" value="20.00">
+                      <input  id="in4" type="checkbox" class="toggle" checked>
+                  </div>
+            </div>
 
 
           </div>
@@ -437,6 +438,9 @@ hr{
     margin-left: 51px;
     padding-top: 7px;
     margin-bottom: 7px;
+    margin-left: 51px;
+    padding-top: 13px;
+    margin-bottom: 0px;
     }
     input{
       border: none;
@@ -459,31 +463,34 @@ hr{
           }
 
           .toggle {
+       
             height: 11px;
-            width: 38px;
+            width: 28px;
             border-radius: 16px;
             display: inline-block;
             position: relative;
             margin: 0;
             /* border: 2px solid #474755; */
-            background: #2262C6;
+            background: #ecf0f1;
             transition: all 0.2s ease;
+            border:none;
           }
           .toggle:after {
             content: "";
                 content: "";
                 position: absolute;
-                top: -4px;
+                top: -1px;
                 left: -1px;
-                width: 18px;
-                height: 18px;
+                width: 12px;
+                height: 12px;
                 border-radius: 50%;
                 background: #CCE0FF;
-                box-shadow: 0 1px 2px rgba(44, 44, 44, 0.2);
                 transition: all 0.2s cubic-bezier(0.5, 0.1, 0.75, 1.35);
+                border:none;
           }
           .toggle:checked {
-            border-color: #654FEC;
+            background-color: $blue;
+            border:none;
           }
           .toggle:checked:after {
             transform: translatex(20px);
@@ -494,6 +501,32 @@ hr{
           }
     }
 }
+
+ #in1{
+    margin-left: 2px;
+    font-size: 14px;
+    width: 67px;
+    padding-top:42px;
+ }
+ #in2{
+    margin-left: 14px;
+    font-size: 14px;
+    width: 60px;
+    padding-top: 42px;
+ }
+ #in3{
+   margin-left:14px;
+   width: 43px;
+ }
+ #in4{
+    margin-left: 10px;
+    margin-top: 15px;
+ }
+ #in5{
+ 
+    margin-left: 14px;
+    padding-top: 22px;
+ }
 
 
 

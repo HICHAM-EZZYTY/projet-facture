@@ -102,6 +102,23 @@
 
           </div>
         </div>
+        <div class="ss2">
+          <div class="inp7">
+              <input  id="in1" type="text" value="Quantité">
+              <input   id="in2" type="text" value="prix HT">
+                <div class="tva">
+                <label>Tva</label>
+                <div class="on_off">
+                <input id="in3" type="text" value="20.00">
+                <input  id="in4" type="checkbox" class="toggle" checked>
+                </div>
+                </div>
+
+
+          </div>
+
+
+        </div>
       </div>
 
      
@@ -409,6 +426,79 @@ hr{
     }
 
 }
+
+.inp7{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr  1fr;
+    label {
+    font-family: $gm;
+    font-size: 12px;
+    color:$white2;
+    margin-left: 51px;
+    padding-top: 7px;
+    margin-bottom: 7px;
+    }
+    input{
+      border: none;
+      border-bottom: 0.6px solid #616467;
+      background-color: transparent;
+      margin-left: 51px;
+      color:#6E7275;
+    }
+    .tva {
+
+          input[type="checkbox"] {
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          -webkit-tap-highlight-color: transparent;
+          cursor: pointer;
+          }
+          input[type="checkbox"]:focus {
+            outline: 0;
+          }
+
+          .toggle {
+            height: 11px;
+            width: 38px;
+            border-radius: 16px;
+            display: inline-block;
+            position: relative;
+            margin: 0;
+            /* border: 2px solid #474755; */
+            background: #2262C6;
+            transition: all 0.2s ease;
+          }
+          .toggle:after {
+            content: "";
+                content: "";
+                position: absolute;
+                top: -4px;
+                left: -1px;
+                width: 18px;
+                height: 18px;
+                border-radius: 50%;
+                background: #CCE0FF;
+                box-shadow: 0 1px 2px rgba(44, 44, 44, 0.2);
+                transition: all 0.2s cubic-bezier(0.5, 0.1, 0.75, 1.35);
+          }
+          .toggle:checked {
+            border-color: #654FEC;
+          }
+          .toggle:checked:after {
+            transform: translatex(20px);
+          }
+          .on_off{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+          }
+    }
+}
+
+
+
+
+
 
 
 

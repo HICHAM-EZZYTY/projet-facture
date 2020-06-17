@@ -115,6 +115,35 @@
                   </div>
             </div>
 
+            <div class="percentage">
+                <select class="select-css">
+                  <option value="">%</option>
+                  <option value="dog">Dog</option>
+                  <option value="cat">Cat</option>
+                  <option value="hamster">Hamster</option>
+                  <option value="parrot">Parrot</option>
+                  <option value="spider">Spider</option>
+                  <option value="goldfish">Goldfish</option>
+             </select>
+            </div>
+
+            <div class="reduction">
+                  <input id="in6" type="text" value="Réduction">
+            </div>
+
+            <div class="totalHt">
+                  <label id="in7">Total HT</label>
+                  <input id="in8" type="text" value="0">
+            </div>
+            <div class="totalttc">
+                  <label id="in9">Total TTC</label>
+                  <input id="in10" type="text" value="0">
+            </div>
+
+
+
+
+
 
           </div>
 
@@ -528,9 +557,41 @@ hr{
     padding-top: 22px;
  }
 
+.percentage{
+          padding-left: 17px;
+          padding-top: 37px;
+  .select-css{
+          width: 42px;
+          outline: none;
+          cursor: pointer;
+          color:#6E7275;
+          font-size: 14px;
+          font-family: $gm;
+          border: none;
+          border-bottom: 0.6px solid #616467;
+          padding-bottom: 4px;
+          margin-left: 0px;
+  }
+}
 
 
-
+ #in6{
+    margin-left: 14px;
+    font-size: 14px;
+    width: 67px;
+    padding-top:42px;
+ }
+ .totalHt{
+      padding-top: 5px;
+      margin-left: 8px;
+       #in7{
+      margin-left: 0px;
+       }
+       #in8{
+      margin-left: 6px;
+      width: 51px;
+       }
+ }
 
 
 

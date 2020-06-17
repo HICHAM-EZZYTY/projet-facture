@@ -103,49 +103,58 @@
           </div>
         </div>
         <div class="ss2">
-          <div class="inp7">
 
-              <input  id="in1" type="text" value="Quantité">
-              <input   id="in2" type="text" value="prix HT">
-            <div class="tva">
-                  <label id="in5">Tva</label>
-                  <div class="on_off">
-                      <input id="in3" type="text" value="20.00">
-                      <input  id="in4" type="checkbox" class="toggle" checked>
-                  </div>
-            </div>
 
-            <div class="percentage">
-                <select class="select-css">
-                  <option value="">%</option>
-                  <option value="dog">Dog</option>
-                  <option value="cat">Cat</option>
-                  <option value="hamster">Hamster</option>
-                  <option value="parrot">Parrot</option>
-                  <option value="spider">Spider</option>
-                  <option value="goldfish">Goldfish</option>
-             </select>
-            </div>
 
-            <div class="reduction">
-                  <input id="in6" type="text" value="Réduction">
-            </div>
+              <div class="inp7">
 
-            <div class="totalHt">
-                  <label id="in7">Total HT</label>
-                  <input id="in8" type="text" value="0">
-            </div>
-            <div class="totalttc">
-                  <label id="in9">Total TTC</label>
-                  <input id="in10" type="text" value="0">
-            </div>
+                  <input  id="in1" type="text" value="Quantité">
+                  <input   id="in2" type="text" value="prix HT">
+                <div class="tva">
+                      <label id="in5">Tva</label>
+                      <div class="on_off">
+                          <input id="in3" type="text" value="20.00">
+                          <input  id="in4" type="checkbox" class="toggle" checked>
+                      </div>
+                </div>
 
+                <div class="percentage">
+                    <select class="select-css">
+                      <option value="">%</option>
+                      <option value="dog">Dog</option>
+                      <option value="cat">Cat</option>
+                      <option value="hamster">Hamster</option>
+                      <option value="parrot">Parrot</option>
+                      <option value="spider">Spider</option>
+                      <option value="goldfish">Goldfish</option>
+                </select>
+                </div>
+
+                <div class="reduction">
+                      <input id="in6" type="text" value="Réduction">
+                </div>
+
+                <div class="totalHt">
+                      <label id="in7">Total HT</label>
+                      <input id="in8" type="text" value="0">
+                </div>
+                <div class="totalttc">
+                      <label id="in9">Total TTC</label>
+                      <input id="in10" type="text" value="0">
+                </div>
+
+               
 
 
 
 
 
           </div>
+
+          <textarea id="textAreaArtcl">
+                  Description de l’article 
+          </textarea>
+
 
 
         </div>
@@ -397,7 +406,7 @@ hr{
   .ligne{
     position: relative;
     top: 13px;
-    height: 200px;
+    height: 267px;
     width: 0.8px;
     background-color: #616467;
     left: 31px;
@@ -594,7 +603,40 @@ hr{
  }
 
 
+.totalttc{
+    padding-top: 5px;
+    margin-left: 8px;
+    #in9{
+    margin-left: 0px;
 
+    }
+    #in10{
+    margin-left: 6px;
+    width: 51px;
+    }
+}
+
+#textAreaArtcl{
+   margin-top: 35px;
+    margin-bottom: 0px;
+    height: 150px;
+    font-size: 14px;
+    width: 40vw;
+    border-radius: 5px;
+    border: 0.2px solid #AAB5C6;
+    resize: none;
+    font-family: $r;
+    font-size: 13px;
+    padding-top: 15px;
+    padding-left: 7px;
+    color: #8898AC;
+}
+#textAreaArtcl:focus{
+    outline: none !important;
+    border: 0.2px solid #AAB5C6;
+
+
+}
 
 
  @media (max-width: 1000px) {

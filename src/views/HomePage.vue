@@ -41,7 +41,8 @@ export default {
 
 .Content{
   margin-top: 30px; 
-  height: 88vh;
+  /* height: 88vh; */
+  height: 85vh;
   overflow-x: hidden; 
   overflow-y: auto; 
   text-align:justify; 

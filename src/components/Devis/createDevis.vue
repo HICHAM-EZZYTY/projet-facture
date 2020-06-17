@@ -14,7 +14,15 @@
 
 
       <div class="whitePaper">
-
+      <div class="heading">Marjane</div>
+      <div class="informations">
+        <h1>Informations :</h1>
+        <div class="inp1">
+          <label>Nom de devis</label>
+          <br>
+          <input type="text" value="# D2000001">
+        </div>
+      </div>
 
 
 
@@ -59,10 +67,6 @@ export default {
     box-shadow: 0px 4px 18px rgba(71, 71, 71, 0.3)
 }
 
-
-
-
-
 hr{
     width: 87%;
     margin-top: 15px;
@@ -94,6 +98,47 @@ hr{
     }
   }
 }
+
+.heading{
+    text-align: center;
+    font-family: "Gilroy-Bold";
+    color: #2262C6;
+    font-size: 21px;
+    padding-top: 39px
+}
+
+.informations{
+  h1{
+    font-family: $gm;
+    color: $black;
+    font-size: 16px;
+    padding-top: 20px;
+    margin-left: 51px;
+    padding-bottom: 14px;
+
+  }
+}
+
+.inp1{
+  label{
+    font-family: $gm;
+    font-size: 12px;
+    color:$white2;
+    margin-left: 51px;
+    padding-top: 7px;
+    margin-bottom: 7px;
+  }
+  input{
+    border: none;
+    border-bottom: 0.6px solid #616467;
+    background-color: transparent;
+    margin-left: 51px;
+    color:#6E7275;
+  }
+}
+
+
+
 
 
  @media (max-width: 1000px) {

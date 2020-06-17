@@ -11,8 +11,6 @@
       <img id="ellipse" src="../../assets/img/Ellipse.svg" alt="ellipse icon">
 
       <hr class="solid">
-
-
       <div class="whitePaper">
       <div class="heading">Marjane</div>
       <div class="informations">
@@ -37,7 +35,7 @@
              </select>
           </div>
         </div>
-          <div class="contain2">
+        <div class="contain2">
           <div class="inp3">
               <label>Destinataire</label>
               <br>
@@ -67,6 +65,19 @@
         </div>
 
 
+      <h1>Articles :</h1>
+
+        <div class="inp1" v-for="input in inputs" :key="input.id">
+              <label  :for="input.id" >{{input.label}}</label>
+              <br>
+              <input :id="input.id" v-model="input.value" type="text" value="# D2000001"> 
+        </div>
+
+
+        <div class="btnz">
+        <button @click="addInput">Add Another Input</button>
+        <button @click="removeInput">Delete This Input</button>
+        </div>
 
 
 
@@ -88,13 +99,37 @@
 export default {
   data() {
     return {
+      counter: 0,
+      inputs: [{
+      id: 'fruit0',
+      label: 'Enter Fruit Name',
+      value: 'Marjane',
+    }],
     };
+  },
+  methods: {
+    addInput() {
+      this.inputs.push({
+        id: `fruit${++this.counter}`,
+        label: 'Enter Fruit Name',
+        value: '',
+      });
+    },
+      removeInput() {
+      this.inputs.pop();
+    }
   }
 }
+
 </script>
 
 <style scoped lang="scss">
 @import "../../scss/main.scss" ;   
+
+button{
+  margin-right: 20px;
+  margin-left:40px;
+}
 
 #ellipse{
   position: absolute;
@@ -392,9 +427,4 @@ hr {
 }
 
 }
-
-
-
-
-
 </style>

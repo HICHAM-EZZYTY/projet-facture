@@ -22,7 +22,11 @@ export default {
 };
 </script>
 
-<style scoped>
+<style >
+
+body{
+  margin: 0;
+}
 
 ::-webkit-scrollbar {
   width: 6px;

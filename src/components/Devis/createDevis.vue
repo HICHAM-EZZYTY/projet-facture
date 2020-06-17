@@ -66,19 +66,18 @@
 
 
       <h1>Articles :</h1>
-
-        <div class="inp1" v-for="input in inputs" :key="input.id">
-              <label  :for="input.id" >{{input.label}}</label>
-              <br>
-              <input :id="input.id" v-model="input.value" type="text" value="# D2000001"> 
+      <div class="counter">
+        <div class="rec">
+          <p>1</p>
         </div>
+        <div class="ligne"></div>
+        <div class="circle"></div>
+      </div>
 
 
-        <div class="btnz">
-        <button @click="addInput">Add Another Input</button>
-        <button @click="removeInput">Delete This Input</button>
-        </div>
+     
 
+        
 
 
       </div>
@@ -125,6 +124,9 @@ export default {
 
 <style scoped lang="scss">
 @import "../../scss/main.scss" ;   
+body {
+  margin: 0;
+}
 
 button{
   margin-right: 20px;
@@ -145,7 +147,7 @@ button{
     width: 53.5vw;
     margin-left: 77px;
     margin-top: 56px;
-    height: 86vh;
+    height: 146vh;
     background: white;
     box-shadow: 0px 4px 18px rgba(71, 71, 71, 0.3)
 }
@@ -301,6 +303,36 @@ hr{
     margin-left: 70px;
   }
 }
+
+.counter{
+  .rec{
+    width: 2.8%;
+    background-color:hsl(217, 71%, 45%);
+    position: relative;
+    top: 13px;
+    left: 22px;
+    p{
+      text-align: center;
+      color:$white;
+      margin-bottom: 0px;
+    }
+  } 
+  .ligne{
+    height: 200px;
+    width: 1px;
+    background-color: #616467;
+    top: 13px;
+    left: 31px;
+    z-index: 0;
+    margin-right: 0px !important;
+  }
+
+}
+
+
+
+
+
 
  @media (max-width: 1000px) {
 

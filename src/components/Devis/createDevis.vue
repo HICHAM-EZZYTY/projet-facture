@@ -11,7 +11,7 @@
       <img id="ellipse" src="../../assets/img/Ellipse.svg" alt="ellipse icon">
 
       <hr class="solid">
-      <div class="whitePaper">
+      <div  ref="whitePaper" class="whitePaper">
       <div class="heading">Marjane</div>
       <div class="informations">
         <h1>Informations :</h1>
@@ -73,12 +73,14 @@
         <div class="rec">
           <p>{{counter}}</p>
         </div>
-        <div class="ligne"></div>
+        <div ref="ligne" class="ligne"></div>
         <div class="circle"></div>
       </div>
 
 
-      <div class="artcl"  v-for="Article in Articles" :key="Article.id">
+      <div class="artcl"  v-for="(Article,index) in Articles" :key="index">
+        <!-- v-for="(variant,index) in variants  :key='index'"> -->
+
         <div class="ss1">
           <div class="inp6">
               <label>Type</label>
@@ -97,7 +99,7 @@
           <div class="icns">
             
             <img  @click="addInput" src="../../assets/img/pls.svg" alt="add icon">
-            <img src="../../assets/img/rmv.svg" alt="remove icon">
+            <img @click="deleteInput(index)" src="../../assets/img/rmv.svg" alt="remove icon">
 
 
           </div>
@@ -182,6 +184,8 @@ export default {
   data() {
     return {
       counter: 1,
+      height:Number,
+      lineHeight:Number,
       Articles: [{
       service: 'Service',
       quantité: 'Quantité',
@@ -208,10 +212,27 @@ export default {
       totalht:0,
       totalttc:0,
       Decrp:"Description de l'article",
-      });
+      })
+      this.counter+=1
+      this.height=this.$refs.whitePaper.clientHeight
+      this.$refs.whitePaper.style.height=(this.height+300)+"px"
+      this.lineHeight=this.$refs.ligne.clientHeight
+      this.$refs.ligne.style.height=(this.lineHeight+310)+"px"
+
+
     },
-      removeInput() {
-      this.inputs.pop();
+      deleteInput(i) {
+        if (i>0){
+        this.Articles.splice(i, 1);
+        }
+        else{
+          console.log("sorry cant delete this one")
+        }
+      this.counter-=1
+      this.height=this.$refs.whitePaper.clientHeight
+      this.$refs.whitePaper.style.height=(this.height-300)+"px"
+      this.lineHeight=this.$refs.ligne.clientHeight
+      this.$refs.ligne.style.height=(this.lineHeight-310)+"px"
     }
   }
 }

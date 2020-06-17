@@ -274,6 +274,65 @@ hr{
    }
 }
 
+ @media (max-width: 877px) {
+
+   .contain1{
+     grid-template-columns: none;
+     grid-template-rows: 1fr 1fr;
+   }
+    .contain2{
+     grid-template-columns: none;
+     grid-template-rows: 1fr 1fr;
+   }
+  .inp1{
+    display: block;
+    margin:0 auto;
+    label{
+      margin-left: 0px;
+    }
+    input{
+      margin-left:0px
+    }
+  }
+  .inp2{
+    display: block;
+    margin:0 auto;
+    label{
+      margin-left: 0px;
+    }
+    .select-css{
+      margin-left:0px
+    }
+  }
+  .inp3{
+    display: block;
+    margin:0 auto;
+      label{
+      margin-left: 0px;
+    }
+    .select-css{
+      margin-left:0px
+    }
+  }
+  .inp4{
+    display: block;
+    margin:0 auto;
+    label{
+      margin-left: 0px;
+    }
+    .select-css{
+      margin-left:0px
+    }
+  }
+
+
+
+ }
+
+
+
+
+
  @media (max-width: 777px) {
 
    .header h1{

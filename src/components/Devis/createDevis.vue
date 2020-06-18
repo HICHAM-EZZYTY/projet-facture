@@ -382,7 +382,8 @@ button{
     width: 53.5vw;
     margin-left: 77px;
     margin-top: 56px;
-    height: 1800px;
+    // height: 1800px;
+    height: 2000px;
     background: white;
     box-shadow: 0px 4px 18px rgba(71, 71, 71, 0.3)
 }
@@ -901,7 +902,7 @@ width: 65%;
   }
   #ttl1{
     font-family: $r;
-    margin-left: 15%;
+    margin-left: 10%;
     margin-top: 35px;
     margin-bottom: 0px;
     height: 116px;
@@ -935,7 +936,7 @@ width: 65%;
   }
    #ttl3{
     font-family: $r;
-    margin-left: 15%;
+    margin-left: 10%;
     margin-top: 35px;
     margin-bottom: 0px;
     height: 116px;
@@ -1007,6 +1008,23 @@ width: 65%;
           margin-left: 17%;
     }
   }
+}
+
+
+
+@media (max-width: 879px) {
+  #diffInp{
+    width: 39%;
+  }
+.reglement #inp2{
+  width: 100%;
+}
+.reglement #inp1{
+  width: 100%;
+}
+.reglement #inp3{
+  width:100%;
+}
 }
 
 @media (max-width: 687px) {

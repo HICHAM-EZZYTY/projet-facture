@@ -103,8 +103,6 @@ export default {
             this.factureAcompte.footer = res.data.footer;
             this.factureAcompte.amount = res.data.amount;
 
-            console.log("inside variables");
-            console.log(this.factureAcompte);
           })
           .catch((e) => {console.error(e)});
     }, 
@@ -119,7 +117,6 @@ export default {
               let obj = { text: data.value, value: data.id }
               this.options.push(obj);
             });
-            console.log("inside units ");
           })
           .catch(
             (e) => console.error(e)

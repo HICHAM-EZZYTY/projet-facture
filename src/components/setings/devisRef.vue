@@ -74,10 +74,10 @@ export default {
       document : {
         type_text_document_parameter_id: 5,
         is_name_shown : false,
-        Introduction: "ddddddddddd",
-        Conclution: "sqdsqdsq",
-        footer: "qsdsqdsq",
-        condition_general: "qdsqsdsq"
+        Introduction: "",
+        Conclution: "",
+        footer: "",
+        condition_general: ""
       }
     };
   },

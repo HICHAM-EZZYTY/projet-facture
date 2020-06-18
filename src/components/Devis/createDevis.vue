@@ -167,7 +167,7 @@
           <div class="rg">Total HT : <span>42059,12</span></div>
           <div class="tva">TVA :   <span>3000,30</span></div>
           <div class="ttl">Total :   <span>53000,30</span></div>
-          <!-- <p>{{red}}</p> -->
+          <!-- <p>{{redic}}</p> -->
         </div>
 
       </div>
@@ -241,6 +241,22 @@
 
      </div>
 
+
+      <div class="footer">
+      <div class="icons">
+        <img id="fir"  src="../../assets/img/eye.svg" alt="eyes icon">
+        <img  id="fil" src="../../assets/img/print.svg" alt="print icon">
+      </div>
+      <div class="btnss">
+        <button class="buttn" id="bbtn1" type="button">Previous</button>    
+        <button class=buttn  id="bbtn2" type="submit">enregistrer & envoyer </button>
+
+
+      </div>
+
+
+        
+      </div>
         
 
 
@@ -260,6 +276,7 @@
 
 <script>
 export default {
+ 
   data() {
     return {
       counter: 1,
@@ -330,6 +347,7 @@ export default {
 
     }
   },
+
   computed:{
 
     red:function(){
@@ -342,12 +360,11 @@ export default {
           for(var i in numberArray) { 
               total=total+numberArray[i];
              }
-        //  console.log(this.redic=this.total);
-          return  total
+          return total
              
-    }
+    },
     
-
+ 
   },
     watch:{
 
@@ -661,7 +678,6 @@ hr{
             display: inline-block;
             position: relative;
             margin: 0;
-            /* border: 2px solid #474755; */
             background: #ecf0f1;
             transition: all 0.2s ease;
             border:none;
@@ -979,6 +995,51 @@ width: 65%;
 
   }
 
+}
+
+.footer{
+    display: grid;
+    grid-template-columns: 1.8fr 5fr;
+    margin-top: 47px;
+  .icons {
+    img{
+    width: 50px;
+    height: 50px;
+    }
+    #fir{
+    margin-left: 24%;
+    }
+    #fil{
+    position: relative;
+    right: 8px;
+    }
+  }
+  .btnss{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 20%;
+    .buttn{
+      border: none;
+      background-color: $blue;
+      border-radius: 8px;
+      color:$white;
+      font-family: $bd;
+      font-size: 12px;
+      text-transform: capitalize ;
+      margin-right: 0px;
+      margin-left: 0px;
+    }
+    #bbtn1{
+    height: 30px;
+    width: 103px;
+    margin-top: 11px;
+    color:#616467;
+    background-color: #E2E8F1;
+    }
+    #bbtn2{
+
+    }
+  }
 }
 
 

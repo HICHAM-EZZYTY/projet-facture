@@ -53,14 +53,13 @@ export default {
   data() {
     return {
       isUpdated : false ,
+
       Token: "", 
       checked: false,
       
       tvaDisabled: "", 
       tvaEnabled:  "",
       tvaValue: 0,
-
-
 
       selectedCountry: null,
       countries: [
@@ -70,6 +69,7 @@ export default {
         { value:"Korea",  text: "Korea" },
         { value:"Chine",  text: "Chine" }
       ],
+
       selectedCurrency: null,
       Currency: [
         { text: "Dirham (dh)" ,value: null },
@@ -88,7 +88,6 @@ export default {
 
       selectedInterest: null, 
       interests :[], 
-
 
       token : "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTU5MjQ4OTA1NywiZXhwIjoxNTkyNDkyNjU3LCJuYmYiOjE1OTI0ODkwNTcsImp0aSI6IlRQS2s1M2ZFS1JiUFpaNEUiLCJzdWIiOjIyLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.sdpGEL8iCs9Y0hzO1kTZEX7zev-O6ilTeO-jW9hf8SU"
     };

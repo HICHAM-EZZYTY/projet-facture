@@ -9,7 +9,6 @@
         <p>Afficher mon nom dans les PDF</p>
         <b-form-checkbox class="custom-switch1" v-model="document.is_name_shown" name="check-button" switch></b-form-checkbox>
         
-        <h4>Devis en français :</h4>
         <label class="descr-pay descr-devis">Texte D’introduction Par Défaut</label>
         
         <b-row class="mt-2">
@@ -38,7 +37,6 @@
         <p>Cacher le bloc de signature dans les PDF</p>
         <b-form-checkbox class="custom-switch1" v-model="hideSignature" name="check-button" switch></b-form-checkbox>
       
-        <h4>Devis en Anglais :</h4>
         <label class="descr-pay descr-devis">Default introductory text</label>
       
         <b-row class="mt-2">

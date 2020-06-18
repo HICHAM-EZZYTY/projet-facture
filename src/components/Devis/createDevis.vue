@@ -799,6 +799,9 @@ hr{
         // </div>
 }
 
+
+
+
 @media (max-width: 1033px) {
 
   .counter .rec{
@@ -845,6 +848,14 @@ hr{
  
 }
 
+@media (max-width: 579px) {
+
+ .results {
+  .wrapResult{
+    box-shadow: none;
+  }
+    }
+}
 @media (max-width: 533px) {
 
   .inp7{
@@ -858,6 +869,21 @@ hr{
 
 }
 
+@media (max-width: 400px) {
+
+  .inp7{
+    margin-left: 3%;
+  }
+
+}
+
+@media (max-width: 361px) {
+
+  .inp7{
+    margin-left: 3%;
+  }
+
+}
 
 
  @media (max-width: 1000px) {

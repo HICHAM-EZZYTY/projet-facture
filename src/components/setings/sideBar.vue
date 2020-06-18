@@ -117,7 +117,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .navBar {
   /* background-color: #e5e5e5 !important; */
   margin-top: 2.5rem;

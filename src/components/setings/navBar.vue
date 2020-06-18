@@ -19,7 +19,7 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
 .bg-light {
   width: 73rem;
   top: 1rem;

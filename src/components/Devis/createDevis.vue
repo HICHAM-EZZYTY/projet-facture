@@ -79,7 +79,6 @@
 
 
       <div class="artcl"  v-for="(Article,index) in Articles" :key="index">
-        <!-- v-for="(variant,index) in variants  :key='index'"> -->
 
         <div class="ss1">
           <div class="inp6">
@@ -160,6 +159,13 @@
 
       </div>
 
+
+      <div class="results">
+        <button type="text">Ajouter Une Ligne</button>
+        <div class="wrapResult">
+
+        </div>
+      </div>
      
 
         
@@ -224,15 +230,15 @@ export default {
       deleteInput(i) {
         if (i>0){
         this.Articles.splice(i, 1);
+        this.counter-=1
+        this.height=this.$refs.whitePaper.clientHeight
+        this.$refs.whitePaper.style.height=(this.height-300)+"px"
+        this.lineHeight=this.$refs.ligne.clientHeight
+        this.$refs.ligne.style.height=(this.lineHeight-310)+"px"
         }
         else{
           console.log("sorry cant delete this one")
         }
-      this.counter-=1
-      this.height=this.$refs.whitePaper.clientHeight
-      this.$refs.whitePaper.style.height=(this.height-300)+"px"
-      this.lineHeight=this.$refs.ligne.clientHeight
-      this.$refs.ligne.style.height=(this.lineHeight-310)+"px"
     }
   }
 }
@@ -667,8 +673,32 @@ hr{
 #textAreaArtcl:focus{
     outline: none !important;
     border: 0.2px solid #AAB5C6;
+}
 
+.results{
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  margin-left: 7%;
+  button {
+    background-color: $blue;
+    font-family: $bd;
+    color:$white;
+    border-radius: 4px;
+    border: none;
+    font-size: 11px;
+    width: 131px;
+    height: 30px;
+    margin-top: 11px;
+    margin-left: 8%;
 
+  }
+  .wrapResult{
+    background-color: $blue;
+    width: 95%;
+    height: 177px;
+    margin-top: 13px;
+    border-radius: 6px;
+  }
 }
 
 

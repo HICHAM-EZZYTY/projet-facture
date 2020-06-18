@@ -171,6 +171,54 @@
         </div>
 
       </div>
+
+      <div class="reglement">
+      <h1>Règlement : </h1>
+       <div class="contain2">
+          <div class="inp3">
+              <label>Destinataire</label>
+              <br>
+              <select class="select-css">
+                  <option value="">Marjane</option>
+                  <option value="dog">Dog</option>
+                  <option value="cat">Cat</option>
+                  <option value="hamster">Hamster</option>
+                  <option value="parrot">Parrot</option>
+                  <option value="spider">Spider</option>
+                  <option value="goldfish">Goldfish</option>
+             </select>
+          </div>
+           <div class="inp4">
+              <label>Devise</label>
+              <br>
+              <select class="select-css">
+                  <option value="">Dirham  (MAD)</option>
+                  <option value="dog">Dog</option>
+                  <option value="cat">Cat</option>
+                  <option value="hamster">Hamster</option>
+                  <option value="parrot">Parrot</option>
+                  <option value="spider">Spider</option>
+                  <option value="goldfish">Goldfish</option>
+             </select>
+          </div>
+          <div  id="diffInp" class="inp3">
+              <label>Devise</label>
+              <br>
+              <select class="select-css">
+                  <option value="">Dirham  (MAD)</option>
+                  <option value="dog">Dog</option>
+                  <option value="cat">Cat</option>
+                  <option value="hamster">Hamster</option>
+                  <option value="parrot">Parrot</option>
+                  <option value="spider">Spider</option>
+                  <option value="goldfish">Goldfish</option>
+             </select>
+          </div>
+        </div>
+
+        
+
+      </div>
      
 
         
@@ -315,7 +363,7 @@ button{
     width: 53.5vw;
     margin-left: 77px;
     margin-top: 56px;
-    height: 146vh;
+    height: 1800px;
     background: white;
     box-shadow: 0px 4px 18px rgba(71, 71, 71, 0.3)
 }
@@ -790,13 +838,15 @@ hr{
       }
     }
   }
-      
-        // <div class="wrapResult">
-        //   <div class="rg">Remise générale : <span>1000,121</span></div>
-        //   <div class="thf">Totat Ht final  : <span>42059,12</span></div>
-        //   <div class="tva">TVA :   <span>3000,30</span></div>
-        //   <div class="ttl">Total :   <span>53000,30</span></div>
-        // </div>
+}
+
+.reglement{
+  h1{
+    padding-top: 76px;
+  }
+  #diffInp{
+    margin-top:14px;
+  }
 }
 
 
@@ -879,8 +929,9 @@ hr{
 
 @media (max-width: 361px) {
 
-  .inp7{
-    margin-left: 3%;
+
+  .whitePaper{
+    width: 72.5vw;
   }
 
 }

@@ -51,7 +51,7 @@ export default {
         { text: "Tous les ans", value: "year"},
         { text: "Jamais", value: null }
       ],
-        token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTU5MjUwMDk1NCwiZXhwIjoxNTkyNTA0NTU0LCJuYmYiOjE1OTI1MDA5NTQsImp0aSI6IjBBSVJpWGF0cVVPbzlvSDIiLCJzdWIiOjIyLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.pZ-xcE4Hfp2k3fsnaI14E_a36bzoM4_tXkD87fQAlXg"
+        
     };
   }, 
   methods:{
@@ -108,7 +108,6 @@ export default {
       // console.log(convertedformat)
     },
     getNum(){
-      this.$http.defaults.headers.common = { Authorization: `Bearer ${this.token}` };
       this.$http
         .get("settings/uids")
         .then( (res) => {

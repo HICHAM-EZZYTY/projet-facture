@@ -23,9 +23,12 @@ Vue.use(VCalendar, {
 });
 
 const axios = require("axios").default;
+
+let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTU5MjUwOTYzNywiZXhwIjoxNTkyNTEzMjM3LCJuYmYiOjE1OTI1MDk2MzcsImp0aSI6IjkyS2dmZEp1OGtrVkFnUzMiLCJzdWIiOjIyLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0._RFHVfKr55xnOp_eaShRKrX5dDqlJZ8RPbadciQvrrU"; 
 Vue.prototype.$http = axios;
 Vue.prototype.$http.defaults.baseURL = "http://127.0.0.1:8000/api";
 
+Vue.prototype.$http.defaults.headers.common = { Authorization: `Bearer ${token}` };
 // Install BootstrapVue
 Vue.use(BootstrapVue);
 // Optionally install the BootstrapVue icon components plugin

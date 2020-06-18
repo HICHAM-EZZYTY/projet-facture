@@ -62,13 +62,11 @@ export default {
         "Introduction": "",
         "Conclution": "",
         "footer": ""	
-      }, 
-      token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTU5MjQ5Mjc4NCwiZXhwIjoxNTkyNDk2Mzg0LCJuYmYiOjE1OTI0OTI3ODQsImp0aSI6IlBLemJIMER2NDBrQ0owZ0giLCJzdWIiOjIyLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.vXvLsPK2IO5PWvLwYAap_1cytPR9MFrQkJhHCUXi96k"
+      }
     };
   } , 
   methods: {
     getValues: function () {
-       this.$http.defaults.headers.common = { Authorization: `Bearer ${this.token}` };
       this.$http
           .get(`/settings/text/${this.avoire.type_text_document_parameter_id}`)
           .then((res) => {
@@ -82,7 +80,6 @@ export default {
           );
     },
     update: function () {
-      // this.$http.defaults.headers.common = { Authorization: `Bearer ${this.token}` };
       this.$http
           .post(`/settings/text/`, this.avoire)
           .then((res) => {

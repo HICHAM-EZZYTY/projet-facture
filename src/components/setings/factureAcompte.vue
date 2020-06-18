@@ -76,21 +76,19 @@ export default {
         { text: "€"  , value: 3 }
       ], 
       factureAcompte: {
-        "type_text_document_parameter_id": 3,
-        "amount_unit_id": null,
-        "amount": 0,
-        "is_name_shown": false,
-        "Introduction": null,
-        "Conclution": null,
-        "footer":null
+        type_text_document_parameter_id: 3,
+        amount_unit_id: null,
+        amount: 0,
+        is_name_shown: false,
+        Introduction: null,
+        Conclution: null,
+        footer:null
       }, 
       
-      token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTU5MjUwMDk1NCwiZXhwIjoxNTkyNTA0NTU0LCJuYmYiOjE1OTI1MDA5NTQsImp0aSI6IjBBSVJpWGF0cVVPbzlvSDIiLCJzdWIiOjIyLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.pZ-xcE4Hfp2k3fsnaI14E_a36bzoM4_tXkD87fQAlXg"
     };
   }, 
   methods: {
     getValues: function() {
-      this.$http.defaults.headers.common = { Authorization: `Bearer ${this.token}` };
       this.$http
           .get(`/settings/text/${this.factureAcompte.type_text_document_parameter_id}`)
           .then((res) => {
@@ -105,6 +103,8 @@ export default {
             this.factureAcompte.footer = res.data.footer;
             this.factureAcompte.amount = res.data.amount;
 
+            console.log("inside variables");
+            console.log(this.factureAcompte);
           })
           .catch((e) => {console.error(e)});
     }, 
@@ -112,7 +112,6 @@ export default {
       this.options = [
         {text: "pick " , value: null}
       ]
-      this.$http.defaults.headers.common = { Authorization: `Bearer ${this.token}` };
       this.$http
           .get("/amount-unit")
           .then((res) => {
@@ -120,6 +119,7 @@ export default {
               let obj = { text: data.value, value: data.id }
               this.options.push(obj);
             });
+            console.log("inside units ");
           })
           .catch(
             (e) => console.error(e)
@@ -139,6 +139,7 @@ export default {
   created () {
     this.getUnits();
     this.getValues();
+    console.log("ok");
   }
 };
 </script>

@@ -89,7 +89,7 @@ export default {
       selectedInterest: null, 
       interests :[], 
 
-      token : "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTU5MjQ4OTA1NywiZXhwIjoxNTkyNDkyNjU3LCJuYmYiOjE1OTI0ODkwNTcsImp0aSI6IlRQS2s1M2ZFS1JiUFpaNEUiLCJzdWIiOjIyLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.sdpGEL8iCs9Y0hzO1kTZEX7zev-O6ilTeO-jW9hf8SU"
+    
     };
   }, 
   methods: {
@@ -106,8 +106,7 @@ export default {
         text: "Select a default article",
         value: null
       });     
-			this.$http.defaults.headers.common = { Authorization: `Bearer ${this.token}` }
-      this.$http
+		this.$http
         .get('/type_articles')
         .then( (res) => {
           res.data.forEach( (data) => {
@@ -127,8 +126,7 @@ export default {
         text: "Select a default condition",
         value: null
       });
-			this.$http.defaults.headers.common = { Authorization: `Bearer ${this.token}` }
-      this.$http
+		  this.$http
         .get('/condition_reglement')
         .then( (res) => {
           res.data.forEach( (data) => {
@@ -148,8 +146,7 @@ export default {
         text: "Select a default mode",
         value: null
       });
-      this.$http.defaults.headers.common = { Authorization: `Bearer ${this.token}` }
-			
+    	
       this.$http
         .get('/mode_reglement')
         .then( (res) => {
@@ -166,8 +163,7 @@ export default {
         });
     }, 
     getGeneralPref: function () {
-			this.$http.defaults.headers.common = { Authorization: `Bearer ${this.token}` }
-      this.$http
+		  this.$http
         .get('/settings/general')
         .then( (res) => {
 
@@ -211,8 +207,7 @@ export default {
         text: "Select a default interest",
         value: null
       });
-			this.$http.defaults.headers.common = { Authorization: `Bearer ${this.token}` }
-      this.$http
+		  this.$http
         .get('/interet_retard')
         .then( (res) => {
           res.data.forEach( (data) => {
@@ -238,8 +233,7 @@ export default {
         condition_reglement_id : this.selectedCondition,
         interet_retard_id : this.selectedInterest
       }; 
-      this.$http.defaults.headers.common = { Authorization: `Bearer ${this.token}` }
-      this.$http
+    this.$http
         .post('/settings/general', g)
         .then( (res) => {
           // res.data.forEach( (data) => {

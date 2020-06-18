@@ -161,10 +161,15 @@
 
 
       <div class="results">
-        <button type="text">Ajouter Une Ligne</button>
-        <div class="wrapResult">
+        <button  @click="getdata()" type="text">Ajouter Une Ligne</button>
 
+        <div class="wrapResult">
+          <div class="rg">Total HT : <span>42059,12</span></div>
+          <div class="tva">TVA :   <span>3000,30</span></div>
+          <div class="ttl">Total :   <span>53000,30</span></div>
+          <p>{{red}}</p>
         </div>
+
       </div>
      
 
@@ -192,6 +197,8 @@ export default {
       counter: 1,
       height:Number,
       lineHeight:Number,
+      redic:0,
+      total:0,
       Articles: [{
       service: 'Service',
       quantité: 'Quantité',
@@ -239,8 +246,53 @@ export default {
         else{
           console.log("sorry cant delete this one")
         }
+    },
+    getdata(){
+
+      
+          let v=this.Articles.map(a => a.Reduction)
+          let numberArray = v.map(Number)
+          let total=0;
+         
+          for(var i in numberArray) { 
+              total=total+numberArray[i];
+             }
+          
+          console.log(total)
+
     }
-  }
+  },
+  computed:{
+
+    red:function(){
+
+        
+          let v=this.Articles.map(a => a.Reduction)
+          let numberArray = v.map(Number)
+          let total=0;
+         
+          for(var i in numberArray) { 
+              total=total+numberArray[i];
+             }
+        //  console.log(this.redic=this.total);
+          return  total
+             
+    }
+    
+
+  },
+    watch:{
+
+        // red:function(){
+        //   let v=this.Articles.map(a => a.Reduction)
+        //   let numberArray = v.map(Number)
+        //   let total=0
+        //   for(var i in numberArray) { total += numberArray[i]; }
+        //   this.redic=total;
+        // },
+       
+    },
+
 }
 
 </script>
@@ -698,7 +750,55 @@ hr{
     height: 177px;
     margin-top: 13px;
     border-radius: 6px;
+    .rg{
+      text-align: center;
+      margin-top:30px;
+      color:$white;
+      font-family: $bd;
+      margin-bottom: 5px;
+      span{
+        border-bottom: 1px solid $orange;
+        border-bottom-width: thin;
+      }
+    }
+    .thf{
+      text-align: center;
+      color:$white;
+      font-family: $bd;
+      margin-bottom: 5px;
+      span{
+        border-bottom: 1px solid $orange;
+        border-bottom-width: thin;
+      }
+    }
+    .tva{
+      text-align:center;
+      color:$white;
+      font-family: $bd;
+      margin-bottom: 5px;
+       span{
+        border-bottom: 1px solid $orange;
+        border-bottom-width: thin;
+      }
+    }
+    .ttl{
+      text-align: center;
+      color:$white;
+      font-family: $bd;
+      margin-bottom: 5px;
+      span{
+        border-bottom: 1px solid $orange;
+        border-bottom-width: thin;
+      }
+    }
   }
+      
+        // <div class="wrapResult">
+        //   <div class="rg">Remise générale : <span>1000,121</span></div>
+        //   <div class="thf">Totat Ht final  : <span>42059,12</span></div>
+        //   <div class="tva">TVA :   <span>3000,30</span></div>
+        //   <div class="ttl">Total :   <span>53000,30</span></div>
+        // </div>
 }
 
 

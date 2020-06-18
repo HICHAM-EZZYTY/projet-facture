@@ -1,42 +1,49 @@
 <template>
   <div>
+    <div v-show="isUpdated">
+      <p style="color: green; ">
+        settings updated ...
+      </p>
+    </div>
     <h1 class="title-ref">Préférences Générales :</h1>
     <h5 class="sous-title">ici, vous pouvez modifier les préférences générales</h5>
     <div class="row">
       <div class="form1 col-md-6">
         <label class="descr-pay">Pays pour défault pour les clients</label>
-        <b-form-select class="custom-select0" v-model="selected" :options="options"></b-form-select>
+        <b-form-select class="custom-select0" v-model="selectedCountry" :options="countries"></b-form-select>
         <i class="fa fa-angle-down angle"></i>
         <label class="descr-devis">Devise Par défaut</label>
-        <b-form-select class="custom-select1" v-model="selected" :options="option"></b-form-select>
+        <b-form-select class="custom-select1" v-model="selectedCurrency" :options="Currency"></b-form-select>
         <i class="fa fa-angle-down angle"></i>
         <label class="descr-article">Type d'article par défaut</label>
-        <b-form-select class="custom-select2" v-model="selected" :options="type"></b-form-select>
+        <b-form-select class="custom-select2" v-model="selectedArticle" :options="typeArticles"></b-form-select>
+        
         <label class="descr-tva">Tva (%)</label>
-        <input class="tva" type="text" placeholder="20.0" />
-        <b-form-checkbox v-model="checked" name="check-button" switch>
-          <!-- Switch Checkbox
-          <b>(Checked: {{ checked }})</b>-->
-        </b-form-checkbox>
+        <input class="tva" type="text" placeholder="20.0" v-model="tvaValue" />
+        <b-form-checkbox v-model="checked" name="check-button" switch></b-form-checkbox>
 
-        <label class="description">Texte affiché si TVA n'est pas applicable en Français</label>
+        <label class="description">Texte affiché si TVA est applicable</label>
         <input
           type="text"
           class="select-info tva"
           placeholder="TVA non applicable, art. 293 B du CGI"
-          disabled
+          v-model="tvaEnabled"
         />
       </div>
       <div class="form2 col-md-6">
-        <label class="descr-pay">Texte affiché si TVA n'est pas applicable en Anglais</label>
-        <input class="custom-select custom-select0" placeholder="Reverse charge VAT" />
+        <label class="descr-pay">Texte affiché si TVA n'est pas applicable</label>
+        <input class="custom-select custom-select0" placeholder="Reverse charge VAT" v-model="tvaDisabled" />
         <label class="descr-devis">Conditions de règlement par défaut</label>
-        <b-form-select class="custom-select1" v-model="selected" :options="conditions"></b-form-select>
+        <b-form-select class="custom-select1" v-model="selectedCondition" :options="conditions"></b-form-select>
         <label class="descr-article">Mode de règlement par défaut</label>
-        <b-form-select class="custom-select2" v-model="selected" :options="mode"></b-form-select>
+        <b-form-select class="custom-select2" v-model="selectedMode" :options="mode"></b-form-select>
         <label class="descr-tva">Intérêt de retard par défaut</label>
-        <input class="tva" type="text" placeholder="Pas d'intérêts de retard" />
+        <b-form-select class="custom-select3" v-model="selectedInterest" :options="interests"></b-form-select>
       </div>
+
+      <b-button class="load" @click="updateGeneralThing">
+          <p class="mise">Mettre à jour votre compte</p>
+        </b-button>
     </div>
   </div>
 </template>
@@ -45,29 +52,219 @@
 export default {
   data() {
     return {
+      isUpdated : false ,
+      Token: "", 
       checked: false,
-      selected: null,
-      options: [
-        { text: "Maroc", selected: true },
-        { text: "Maroc" },
-        { text: "France" },
-        { text: "Korea" },
-        { text: "Chine" }
+      
+      tvaDisabled: "", 
+      tvaEnabled:  "",
+      tvaValue: 0,
+
+
+
+      selectedCountry: null,
+      countries: [
+        { value:null,  text: "Maroc"},
+        { value:"Maroc",  text: "Maroc" },
+        { value:"France", text: "France" },
+        { value:"Korea",  text: "Korea" },
+        { value:"Chine",  text: "Chine" }
       ],
-      option: [
-        { text: "Dirham (dh)", selected: true },
-        { text: "Dollar ($)" },
-        { text: "Euro (‎€)" }
+      selectedCurrency: null,
+      Currency: [
+        { text: "Dirham (dh)" ,value: null },
+        { text: "Dollar ($)" ,value: "HHHH"  },
+        { text: "Euro (‎€)" ,value: "HHHH"  }
       ],
-      type: [{ text: "Service", selected: true }],
-      conditions: [
-        { text: "45 jours fin de mois", selected: true },
-        { text: "60 jours" },
-        { text: "60 jours fin de mois" },
-        { text: "90 jours" }
-      ],
-      mode: [{ text: "lettre de change relevé", selected: true }]
+
+      selectedArticle: null, 
+      typeArticles: [],
+
+      selectedCondition: null, 
+      conditions: [],
+
+      selectedMode: null, 
+      mode: [],
+
+      selectedInterest: null, 
+      interests :[], 
+
+
+      token : "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTU5MjQ1MzE1OCwiZXhwIjoxNTkyNDU2NzU4LCJuYmYiOjE1OTI0NTMxNTgsImp0aSI6IkJqRlhxOHFibDY3Q29RaEsiLCJzdWIiOjIyLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.ZPW6H41UfxmLq0snm1R-5KcVRnAIgPEQ6znytc0fe8s"
     };
+  }, 
+  methods: {
+    getSelectedValueSync(array, value){
+      array.forEach( (a) => {
+        if(a.value === parseInt(value)){
+          return value;
+        }
+      });
+      return null;
+    },
+    getArticles: function () {
+      this.typeArticles.push({
+        text: "Select a default article",
+        value: null
+      });     
+			this.$http.defaults.headers.common = { Authorization: `Bearer ${this.token}` }
+      this.$http
+        .get('/type_articles')
+        .then( (res) => {
+          res.data.forEach( (data) => {
+            let obj = {
+              text: data.article_type_value, 
+              value: data.id
+            };
+            this.typeArticles.push(obj);
+          });
+        })
+        .catch((e) => {
+          console.error(e)
+        });
+    }, 
+    getConditions: function () {
+      this.conditions.push({
+        text: "Select a default condition",
+        value: null
+      });
+			this.$http.defaults.headers.common = { Authorization: `Bearer ${this.token}` }
+      this.$http
+        .get('/condition_reglement')
+        .then( (res) => {
+          res.data.forEach( (data) => {
+            let obj = {
+              text: data.Condition_value, 
+              value: data.id
+            };
+            this.conditions.push(obj);
+          });
+        })
+        .catch((e) => {
+          console.error(e)
+        });
+    }, 
+    getModes: function() {
+      this.mode.push({
+        text: "Select a default mode",
+        value: null
+      });
+      this.$http.defaults.headers.common = { Authorization: `Bearer ${this.token}` }
+			
+      this.$http
+        .get('/mode_reglement')
+        .then( (res) => {
+          res.data.forEach( (data) => {
+            let obj = {
+              text: data.mode_value, 
+              value: data.id
+            };
+            this.mode.push(obj);
+          });
+        })
+        .catch((e) => {
+          console.error(e)
+        });
+    }, 
+    getGeneralPref: function () {
+			this.$http.defaults.headers.common = { Authorization: `Bearer ${this.token}` }
+      this.$http
+        .get('/settings/general')
+        .then( (res) => {
+
+          this.tvaValue = res.data[0].tva_value;
+          this.checked = ( this.tvaValue != 0 ) ? true : false;
+          
+          this.tvaDisabled = res.data[0].text_tva_off;
+          this.tvaEnabled = res.data[0].text_tva_on;
+          
+          this.typeArticles.forEach( (a) => {
+            if(a.value == res.data[0].type_article_id){
+              this.selectedArticle = a.value;
+            }
+          })
+
+          this.mode.forEach( (a) => {
+            if(a.value == res.data[0].mode_reglement_id){
+              this.selectedMode = a.value;
+            }
+          })
+
+          this.conditions.forEach( (a) => {
+            if(a.value == res.data[0].condition_reglement_id){
+              this.selectedCondition = a.value;
+            }
+          })
+
+          this.interests.forEach( (a) => {
+            if(a.value == res.data[0].interet_retard_id){
+              this.selectedInterest = a.value;
+            }
+          })
+        
+        })
+        .catch((e) => {
+          console.error(e)
+        });
+    }, 
+    getInterests: function () {
+      this.interests.push({
+        text: "Select a default interest",
+        value: null
+      });
+			this.$http.defaults.headers.common = { Authorization: `Bearer ${this.token}` }
+      this.$http
+        .get('/interet_retard')
+        .then( (res) => {
+          res.data.forEach( (data) => {
+            let obj = {
+              text: data.inter_value, 
+              value: data.id
+            };
+            this.interests.push(obj);
+          });
+        })
+        .catch((e) => {
+          console.error(e)
+        });
+    }, 
+    updateGeneralThing: function(){
+      let tva = (this.checked == false ) ? 0 : parseInt(this.tvaValue);
+      let g = {
+        type_article_id: this.selectedArticle,
+        tva_value : tva, 
+        text_tva_on : this.tvaEnabled,
+        text_tva_off : this.tvaDisabled,
+        mode_reglement_id : this.selectedMode,
+        condition_reglement_id : this.selectedCondition,
+        interet_retard_id : this.selectedInterest
+      }; 
+      this.$http.defaults.headers.common = { Authorization: `Bearer ${this.token}` }
+      this.$http
+        .post('/settings/general', g)
+        .then( (res) => {
+          // res.data.forEach( (data) => {
+           console.log(res.data);
+           this.isUpdated = true; 
+          // });
+        })
+        .catch((e) => {
+          console.error(e)
+        });
+
+    }
+  }, 
+  watch: {
+    checked: function () {
+      console.log(this.checked)
+    }
+  },
+  created: function () {
+    this.getArticles();
+    this.getModes();
+    this.getConditions();
+    this.getInterests();
+    this.getGeneralPref();
   }
 };
 </script>
@@ -131,6 +328,9 @@ export default {
 
 .custom-select2 {
   margin-top: 11rem;
+}
+.custom-select3 {
+  margin-top: 16rem;
 }
 
 input[type="text"] {

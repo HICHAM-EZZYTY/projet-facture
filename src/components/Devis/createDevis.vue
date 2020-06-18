@@ -224,7 +224,7 @@
                   <textarea id="ttl2">Pied de page (visible sur le devis)</textarea>
                   <textarea id="ttl3">Conditions générales de vente (visible sur le devis)</textarea>
       </div>
-             <div  id="diffInp" class="inp3">
+             <div  id="diffInp1" class="inp33">
               <label>Mots clés :</label>
               <br>
               <select id="inp3" class="select-css">
@@ -950,9 +950,34 @@ width: 65%;
     color: #8898AC;
     width: 82%;
   }
+
 }
 
+.inp33{
+  margin-top: 33px;
+  label{
+    font-family: $gm;
+    font-size: 12px;
+    color:$white2;
+    margin-left: 51px;
+    padding-top: 7px;
+    margin-bottom: 7px;
+  }
+  .select-css{
+    outline: none;
+    cursor: pointer;
+    color:#6E7275;
+    font-size: 14px;
+    font-family: $gm;
+    border: none;
+    width: 38%;
+    border-bottom: 0.6px solid #616467;
+    padding-bottom: 4px;
+    margin-left: 51px;
 
+  }
+
+}
 
 
 @media (max-width: 1033px) {

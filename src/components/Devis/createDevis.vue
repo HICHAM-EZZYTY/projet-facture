@@ -313,7 +313,7 @@ export default {
       })
       this.counter+=1
       this.height=this.$refs.whitePaper.clientHeight
-      this.$refs.whitePaper.style.height=(this.height+300)+"px"
+      this.$refs.whitePaper.style.height=(this.height+310)+"px"
       this.lineHeight=this.$refs.ligne.clientHeight
       this.$refs.ligne.style.height=(this.lineHeight+310)+"px"
 
@@ -324,7 +324,7 @@ export default {
         this.Articles.splice(i, 1);
         this.counter-=1
         this.height=this.$refs.whitePaper.clientHeight
-        this.$refs.whitePaper.style.height=(this.height-300)+"px"
+        this.$refs.whitePaper.style.height=(this.height-310)+"px"
         this.lineHeight=this.$refs.ligne.clientHeight
         this.$refs.ligne.style.height=(this.lineHeight-310)+"px"
         }

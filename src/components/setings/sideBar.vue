@@ -77,6 +77,7 @@
           </router-link>
         </li>
         <li class="sidebar-brand" @click="activate(7)" :class="{ active : active_el == 7 }">
+          <router-link :to="{ name: 'TypeArticles' }">
           <a>
             Types d'article
             <!-- <i
@@ -84,6 +85,7 @@
               style="font-size: 2rem;"
             ></i>-->
           </a>
+          </router-link>
         </li>
         <li class="sidebar-brand" @click="activate(8)" :class="{ active : active_el == 8 }">
           <a>

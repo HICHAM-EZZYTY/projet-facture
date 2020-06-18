@@ -45,6 +45,9 @@
         </b-row>
       </div>
     </div>
+    <b-button class="load" @click="updateGeneralThing">
+        <p class="mise">Mettre à jour votre compte</p>
+      </b-button>
   </div>
 </template>
 

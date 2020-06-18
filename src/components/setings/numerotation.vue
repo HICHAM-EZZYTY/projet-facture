@@ -26,6 +26,10 @@
         <input class="custom-select tva1" type="number" placeholder="1" min="1" />
       </div>
     </div>
+
+    <b-button class="load" @click="updateGeneralThing">
+        <p class="mise">Mettre à jour votre compte</p>
+      </b-button>
   </div>
 </template>
 

@@ -7,9 +7,7 @@
       </div>
       <div class="contents">
         <router-view></router-view>
-        <b-button class="load">
-          <p class="mise">Mettre à jour votre compte</p>
-        </b-button>
+        
       </div>
     </div>
   </div>

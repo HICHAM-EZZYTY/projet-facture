@@ -6,12 +6,12 @@
     <div class="row">
       <div class="form1 col-md-6">
         <label class="descr-pay1">Format De La Numérotation</label>
-        <input class="custom-select custom-select00" placeholder="<doc><aa><cmp>" />
+        <input class="custom-select custom-select00" placeholder="<doc><aa><cmp>" v-model="codeFormat"/>
 
         <label class="descr-devis0">Aperçu Du Résultat</label>
-        <input class="custom-select custom-select001" placeholder="F2000001" />
+        <input class="custom-select custom-select001" placeholder="F2000001" :value="formatPreview" disabled/>
         <label class="descr-article1">Taille Minimale Du Compteur</label>
-        <input class="custom-select custom-select02" type="number" placeholder="5" min="1" />
+        <input class="custom-select custom-select02" type="number"  min="1"  :value="minCounterValue" />
         <label class="descr-tva descr-tva1">Rénitialisation Du Compteur</label>
         <b-form-select class="tva1" v-model="selected" :options="options"></b-form-select>
       </div>
@@ -34,6 +34,12 @@ export default {
   el: "#vue",
   data() {
     return {
+      
+      codes: [],
+      codeFormat: '',
+      formatPreview: '',
+      minCounterValue: 4, 
+      
       checked: false,
       selected: null,
       options: [
@@ -42,6 +48,68 @@ export default {
         { text: "Jamais" }
       ]
     };
+  }, 
+  methods:{
+    __init(){
+      var d = new Date();
+      
+      const ye = new Intl.DateTimeFormat('en', {
+          year: 'numeric'
+      }).format(d);
+      const mo = new Intl.DateTimeFormat('en', {
+          month: '2-digit'
+      }).format(d);
+      const da = new Intl.DateTimeFormat('en', {
+          day: '2-digit'
+      }).format(d);
+
+      this.codes["doc"] = "F";
+      this.codes["aa"]  = ye.substr(2);
+      this.codes["aaaa"] = ye; 
+      this.codes["m"] = mo;
+      this.codes["mm"] = mo;
+      this.codes["j"] = da;
+      this.codes["jj"] = da; 
+    } ,
+    __conveter(count){
+      this.__init();
+      // the count here  segnifies the number of the documments that a single user has. for now it gonna be static. 
+      var parts = this.codeFormat.split(">");
+      delete parts[parts.length - 1];
+      console.log(parts)
+      var convertedformat = this.codeFormat;
+      parts.forEach((part) => {
+        if (part != "") {
+                var sub = part.replace(/[^a-zA-Z]/, '');
+                // console.log(this.codes[sub])
+                if (sub == 'cmp') {
+
+                    for (let i = 0; i < this.minCounterValue - count.toString().length; i++) {
+                        convertedformat += '0';
+                    }
+
+                    convertedformat += count.toString();
+                    convertedformat = convertedformat.replace('<' + sub + '>', '');
+                } else {
+                    var ok = "";
+                    if (this.codes[sub] != null) {                   
+                        ok = this.codes[sub];  
+                    }
+                    convertedformat = convertedformat.replace('<' + sub + '>', ok);
+                }
+            }
+      });
+      this.formatPreview = convertedformat;
+      console.log(convertedformat)
+    } 
+  },
+  watch:{
+      codeFormat: function () {
+        this.__conveter(1);
+      }, 
+      minCounterValue: function(){
+        this.__conveter(1);
+      }
   }
 };
 </script>

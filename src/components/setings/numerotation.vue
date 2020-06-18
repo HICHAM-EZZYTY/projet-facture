@@ -11,7 +11,7 @@
         <label class="descr-devis0">Aperçu Du Résultat</label>
         <input class="custom-select custom-select001" placeholder="F2000001" :value="formatPreview" disabled/>
         <label class="descr-article1">Taille Minimale Du Compteur</label>
-        <input class="custom-select custom-select02" type="number"  min="1"  :value="minCounterValue" />
+        <input class="custom-select custom-select02" type="number"  min="1"  v-model="minCounterValue" />
         <label class="descr-tva descr-tva1">Rénitialisation Du Compteur</label>
         <b-form-select class="tva1" v-model="selected" :options="options"></b-form-select>
       </div>
@@ -27,7 +27,7 @@
       </div>
     </div>
 
-    <b-button class="load" @click="updateGeneralThing">
+    <b-button class="load" @click="update">
         <p class="mise">Mettre à jour votre compte</p>
       </b-button>
   </div>
@@ -35,7 +35,7 @@
 
 <script >
 export default {
-  el: "#vue",
+  name: "Numerotation",
   data() {
     return {
       
@@ -47,10 +47,11 @@ export default {
       checked: false,
       selected: null,
       options: [
-        { text: "Tous les mois" },
-        { text: "Tous les ans", selected: true },
-        { text: "Jamais" }
-      ]
+        { text: "Tous les mois" , value: "month"},
+        { text: "Tous les ans", value: "year"},
+        { text: "Jamais", value: null }
+      ],
+        token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTU5MjUwMDk1NCwiZXhwIjoxNTkyNTA0NTU0LCJuYmYiOjE1OTI1MDA5NTQsImp0aSI6IjBBSVJpWGF0cVVPbzlvSDIiLCJzdWIiOjIyLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.pZ-xcE4Hfp2k3fsnaI14E_a36bzoM4_tXkD87fQAlXg"
     };
   }, 
   methods:{
@@ -80,7 +81,7 @@ export default {
       // the count here  segnifies the number of the documments that a single user has. for now it gonna be static. 
       var parts = this.codeFormat.split(">");
       delete parts[parts.length - 1];
-      console.log(parts)
+      // console.log(parts)
       var convertedformat = this.codeFormat;
       parts.forEach((part) => {
         if (part != "") {
@@ -104,8 +105,37 @@ export default {
             }
       });
       this.formatPreview = convertedformat;
-      console.log(convertedformat)
-    } 
+      // console.log(convertedformat)
+    },
+    getNum(){
+      this.$http.defaults.headers.common = { Authorization: `Bearer ${this.token}` };
+      this.$http
+        .get("settings/uids")
+        .then( (res) => {
+          console.log(res.data[0]);
+          this.codeFormat = res.data[0].format;
+          this.minCounterValue = res.data[0].Min_compteur_valeur;
+        })
+        .catch(
+          () => {
+            console.log(":/")
+          }
+        ); 
+    },
+    update(){
+      let num = {
+        	format : this.codeFormat, 
+		      min_counter_value: this.minCounterValue
+      }; 
+      this.$http
+        .post("/settings/uids", num)
+        .then( () => {
+          console.log("done");
+        })
+        .catch( (e) => {
+          console.log(e)
+        });
+    }
   },
   watch:{
       codeFormat: function () {
@@ -114,6 +144,9 @@ export default {
       minCounterValue: function(){
         this.__conveter(1);
       }
+  }, 
+  created: function () {
+    this.getNum();
   }
 };
 </script>

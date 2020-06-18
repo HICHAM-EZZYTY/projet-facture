@@ -46,8 +46,8 @@
       -->
     </div>
     <b-button class="load" @click="update">
-        <p class="mise">Mettre à jour votre compte</p>
-      </b-button>
+      <p class="mise">Mettre à jour votre compte</p>
+    </b-button>
   </div>
 </template>
 

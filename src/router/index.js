@@ -81,12 +81,12 @@ const routes = [
       },
       {
         path: "client",
-        name: "Client",
+        // name: "Client",
         component: Clients,
         children: [
           {
             path: "",
-            name: "Clients",
+            name: "Client",
             component: cards,
           },
           {

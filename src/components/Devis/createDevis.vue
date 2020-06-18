@@ -176,10 +176,10 @@
       <h1>Règlement : </h1>
        <div class="contain2">
           <div class="inp3">
-              <label>Destinataire</label>
+              <label>Conditions de règlement</label>
               <br>
-              <select class="select-css">
-                  <option value="">Marjane</option>
+              <select id="inp1" class="select-css">
+                  <option value="">45 jours fin de mois</option>
                   <option value="dog">Dog</option>
                   <option value="cat">Cat</option>
                   <option value="hamster">Hamster</option>
@@ -189,10 +189,10 @@
              </select>
           </div>
            <div class="inp4">
-              <label>Devise</label>
+              <label>Mode de règlement</label>
               <br>
-              <select class="select-css">
-                  <option value="">Dirham  (MAD)</option>
+              <select id="inp2" class="select-css">
+                  <option value="">Virement bancaire</option>
                   <option value="dog">Dog</option>
                   <option value="cat">Cat</option>
                   <option value="hamster">Hamster</option>
@@ -202,10 +202,10 @@
              </select>
           </div>
           <div  id="diffInp" class="inp3">
-              <label>Devise</label>
+              <label>Intérêt de retard</label>
               <br>
-              <select class="select-css">
-                  <option value="">Dirham  (MAD)</option>
+              <select id="inp3" class="select-css">
+                  <option value="">Pas d'intérêts de retard</option>
                   <option value="dog">Dog</option>
                   <option value="cat">Cat</option>
                   <option value="hamster">Hamster</option>
@@ -215,11 +215,30 @@
              </select>
           </div>
         </div>
-
-        
-
       </div>
-     
+     <div class="textDoc">
+                <h1>Textes affichés sur le document:</h1>
+      <div class="textWrapping">
+                  <textarea id="ttl">texte d'introduction (visible sur le devis)</textarea>
+                  <textarea id="ttl1">Texte de conclusion (visible sur le devis)</textarea>
+                  <textarea id="ttl2">Pied de page (visible sur le devis)</textarea>
+                  <textarea id="ttl3">Conditions générales de vente (visible sur le devis)</textarea>
+      </div>
+             <div  id="diffInp" class="inp3">
+              <label>Mots clés :</label>
+              <br>
+              <select id="inp3" class="select-css">
+                  <option value="">Ajouter/Sélectionner des mots clés</option>
+                  <option value="dog">Dog</option>
+                  <option value="cat">Cat</option>
+                  <option value="hamster">Hamster</option>
+                  <option value="parrot">Parrot</option>
+                  <option value="spider">Spider</option>
+                  <option value="goldfish">Goldfish</option>
+             </select>
+              </div>
+
+     </div>
 
         
 
@@ -846,6 +865,90 @@ hr{
   }
   #diffInp{
     margin-top:14px;
+  }
+  #inp1{
+width: 65%;
+  }
+  #inp2{
+width: 65%;
+  }
+  #inp3{
+width: 65%;
+  }
+}
+.textDoc{
+  padding-top: 5px;
+}
+.textWrapping{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  #ttl{
+    font-family: $r;
+    margin-left: 15%;
+    margin-top: 35px;
+    margin-bottom: 0px;
+    height: 116px;
+    font-size: 14px;
+    width: 40vw;
+    border-radius: 5px;
+    border: 0.2px solid #AAB5C6;
+    resize: none;
+    font-size: 13px;
+    padding-top: 15px;
+    padding-left: 7px;
+    color: #8898AC;
+    width: 82%;
+  }
+  #ttl1{
+    font-family: $r;
+    margin-left: 15%;
+    margin-top: 35px;
+    margin-bottom: 0px;
+    height: 116px;
+    font-size: 14px;
+    width: 40vw;
+    border-radius: 5px;
+    border: 0.2px solid #AAB5C6;
+    resize: none;
+    font-size: 13px;
+    padding-top: 15px;
+    padding-left: 7px;
+    color: #8898AC;
+    width: 82%;
+  }
+   #ttl2{
+    font-family: $r;
+    margin-left: 15%;
+    margin-top: 35px;
+    margin-bottom: 0px;
+    height: 116px;
+    font-size: 14px;
+    width: 40vw;
+    border-radius: 5px;
+    border: 0.2px solid #AAB5C6;
+    resize: none;
+    font-size: 13px;
+    padding-top: 15px;
+    padding-left: 7px;
+    color: #8898AC;
+    width: 82%;
+  }
+   #ttl3{
+    font-family: $r;
+    margin-left: 15%;
+    margin-top: 35px;
+    margin-bottom: 0px;
+    height: 116px;
+    font-size: 14px;
+    width: 40vw;
+    border-radius: 5px;
+    border: 0.2px solid #AAB5C6;
+    resize: none;
+    font-size: 13px;
+    padding-top: 15px;
+    padding-left: 7px;
+    color: #8898AC;
+    width: 82%;
   }
 }
 

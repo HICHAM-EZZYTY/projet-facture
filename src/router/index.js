@@ -63,12 +63,12 @@ const routes = [
     children: [
       {
         path: "devis",
-        name: "Devis",
+        // name: "Devis",
         component: Devis,
          children: [
           {
             path: "",
-            name: "ListDevis",
+            name: "Devis",
             component: listDevis,
           },
           {

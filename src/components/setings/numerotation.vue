@@ -33,7 +33,7 @@
   </div>
 </template>
 
-<script>
+<script >
 export default {
   el: "#vue",
   data() {

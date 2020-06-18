@@ -100,7 +100,7 @@ export default {
 }
 </script>
 
-<style>
+<style >
 .title-ref {
   font-family: "Gilroy" sans-serif;
   font-size: 27px;

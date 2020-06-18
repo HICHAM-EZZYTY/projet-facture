@@ -201,11 +201,11 @@
                   <option value="goldfish">Goldfish</option>
              </select>
           </div>
-          <div  id="diffInp" class="inp3">
+          <div style="margin-top:15px" class="inp3">
               <label>Intérêt de retard</label>
               <br>
-              <select id="inp3" class="select-css">
-                  <option value="">Pas d'intérêts de retard</option>
+              <select id="inp1" class="select-css">
+                  <option value="">Pas d'intérêts </option>
                   <option value="dog">Dog</option>
                   <option value="cat">Cat</option>
                   <option value="hamster">Hamster</option>
@@ -214,6 +214,7 @@
                   <option value="goldfish">Goldfish</option>
              </select>
           </div>
+   
         </div>
       </div>
      <div class="textDoc">
@@ -1010,6 +1011,20 @@ width: 65%;
   }
 }
 
+@media (max-width: 920px) {
+
+    .inp33 .select-css{
+      width: 59%;
+    }
+  #diffInp1{
+    display: block;
+    margin: 0 auto;
+    padding-top: 27px;
+
+  }
+
+}
+
 
 
 @media (max-width: 879px) {
@@ -1050,6 +1065,9 @@ width: 65%;
   .wrapResult{
     box-shadow: none;
   }
+    }
+    .reglement h1{
+      padding-top: 0px;
     }
 }
 @media (max-width: 533px) {

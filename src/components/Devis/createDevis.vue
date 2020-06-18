@@ -167,7 +167,7 @@
           <div class="rg">Total HT : <span>42059,12</span></div>
           <div class="tva">TVA :   <span>3000,30</span></div>
           <div class="ttl">Total :   <span>53000,30</span></div>
-          <p>{{red}}</p>
+          <!-- <p>{{red}}</p> -->
         </div>
 
       </div>
@@ -283,14 +283,7 @@ export default {
   },
     watch:{
 
-        // red:function(){
-        //   let v=this.Articles.map(a => a.Reduction)
-        //   let numberArray = v.map(Number)
-        //   let total=0
-        //   for(var i in numberArray) { total += numberArray[i]; }
-        //   this.redic=total;
-        // },
-       
+    
     },
 
 }
@@ -721,6 +714,8 @@ hr{
     padding-top: 15px;
     padding-left: 7px;
     color: #8898AC;
+   
+
 }
 #textAreaArtcl:focus{
     outline: none !important;
@@ -750,6 +745,9 @@ hr{
     height: 177px;
     margin-top: 13px;
     border-radius: 6px;
+    -webkit-box-shadow:-26px 46px  0px 0px rgba(255,197,160,1);
+    -moz-box-shadow: -26px 46px  0px 0px rgba(255,197,160,1);
+    box-shadow: -26px 46px 0px 0px #ffc5a0;
     .rg{
       text-align: center;
       margin-top:30px;
@@ -801,6 +799,66 @@ hr{
         // </div>
 }
 
+@media (max-width: 1033px) {
+
+  .counter .rec{
+    left: 0%;
+  }
+  .counter .ligne{
+    left: 28%;
+  }
+  .counter .circle{
+    height: 18px;
+    width: 18px;
+    left: 0px;
+  }
+  .inp7{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-left: 20%;
+  }
+  .icns{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .artcl{
+    .ss1{
+          margin-left: 17%;
+    }
+  }
+}
+
+@media (max-width: 687px) {
+ .results{
+    display: grid;
+    grid-template-columns: none;
+    margin-left: 7%;
+  }
+}
+@media (max-width: 600px) {
+
+  .inp7{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 20%;
+  }
+ 
+}
+
+@media (max-width: 533px) {
+
+  .inp7{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 20%;
+  }
+  .artcl .ss1 .inp6 .select-css{
+    width: 7em;
+  }
+
+}
+
+
 
  @media (max-width: 1000px) {
 
@@ -836,6 +894,7 @@ hr{
     margin:0 auto;
     label{
       margin-left: 0px;
+      display: block;
     }
     .select-css{
       margin-left:0px

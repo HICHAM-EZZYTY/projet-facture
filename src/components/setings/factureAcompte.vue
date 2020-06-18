@@ -70,14 +70,11 @@
 export default {
   data() {
     return {
-      checked: false,
-      selected: null,
       options: [
         { text: "Dh" , value: 1 }, 
         { text: "$"  , value: 2 }, 
         { text: "€"  , value: 3 }
       ], 
-
       factureAcompte: {
         "type_text_document_parameter_id": 3,
         "amount_unit_id": null,

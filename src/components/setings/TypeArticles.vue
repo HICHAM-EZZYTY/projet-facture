@@ -84,7 +84,7 @@ export default {
     }
 }
 </script>
-<style scoped>
+<style scoped >
     .tableplus{
         padding-right: 40px;
         border: 4px;

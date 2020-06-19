@@ -1,14 +1,14 @@
 <template>
-  <div id="app">
+  <div id="app1">
     <router-view />
   </div>
 </template>
 
-<style lang="scss">
-  #app{
-    
-  width:100vw;
-  max-width:100vw;
+<style lang="scss" scoped>
+
+  #app1{
+    width:100vw;
+    max-width:100vw;
   }
 </style>
 

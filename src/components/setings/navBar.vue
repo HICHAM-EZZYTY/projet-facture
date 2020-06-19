@@ -1,66 +1,121 @@
 <template>
-  <div>
-    <b-navbar type="light" variant="light">
+   <!--
+      <b-navbar type="light" variant="light">
       <img class="logo-fatoura" src="../../assets/Group 4.png" alt="logo" />
       <h6 class="logo-title">Configurer votre application fatoura</h6>
       <router-link to="/">
         <b-button class="button-back">
           <i class="fa fa-arrow-right arrow" style="color: #ffffff;">
-            <!-- icon -->
+             icon 
           </i>
         </b-button>
       </router-link>
       <p class="text-back">Retour</p>
     </b-navbar>
-  </div>
+-->
+      <div class="row mt-5">
+        <div class="col-xl-12 col-md-12 col-sm-12 col-xs-12 navbar shadow">
+              
+            <nav class="navbar navbar-light p-0 border-0 burger-menu">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            </nav>
+           
+            <div class="logo">
+                <img src="../../assets/Group 4.png" alt="logo" />    
+            </div>
+
+            <router-link class="back-btn" to="/">
+              <b-button class="back-btn_arrow" >
+                <i class="fa fa-arrow-right">
+                  <!-- icon -->
+                </i>
+              </b-button>
+                <span id="back-btn_text">
+                  Retour
+                </span>
+               
+            </router-link>
+        </div>
+      </div>
 </template>
 
 <script>
 export default {};
 </script>
 
-<style scoped>
-.bg-light {
-  width: 73rem;
-  top: 1rem;
-  left: 10rem;
-  border-radius: 20px;
-  height: 94px;
+<style lang="scss" scoped >
+.navbar-toggler-icon{
+  color : black !important;
+}
+*{
+  font-family: Gilroy-Medium, sans-serif; 
 }
 
-.logo-title {
-  font-size: 15px;
-  left: 125px;
-  top: 55px;
-  color: gray;
-  position: absolute;
-}
+.navbar{
+  background-color: #fbfbfd;
+  display: flex; 
+  align-items: center;
+  padding: 30px 60px;  
+  border-radius: 20px;  
+  border: none; 
+  // border: 2px solid black;
+  &.shadow{
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3) ;
+  }  
+  & .logo{
+    margin: 0px; 
+  }
+  & .back-btn{
+    display: flex; 
+    flex-direction: column; 
+    &:focus{
+      outline: none;
+    }
+    &_arrow{
+      background-color: #2262c6;
+      border: none; 
+      border-radius: 100% !important;
+    }
 
-.button-back {
-  border-radius: 22px !important;
-  margin-left: 49rem;
-  background-color: #0062cc !important;
-  width: 34px;
-  height: 34px;
-}
+    &:hover {
+      text-decoration: none; 
+      color: #2350c4;
+    }
 
-.text-back {
-  position: absolute;
-  font-family: "Gillroy";
-  font-size: 18px;
-  color: #0062cc;
-  font-weight: bold;
-  top: 62px;
-  left: 68.5rem;
-}
+    &:hover .arrow{      
+      background-color: #2350c4;
+    }
 
-.logo-fatoura {
-  margin-left: 4rem;
+ }
+.burger-menu{
+  display: none;
 }
+ @media only screen and (min-width: 360px) and (max-width: 1000px) {
+    .burger-menu{
+      display: inline;
+      padding: 0px;
+    }
+    & {
+      flex-direction: row;
+      padding: 10px 20px;
+    }
+    & .logo img {
+      height: 2em;
+      width: 10em;
+    }
+    & .back-btn {
+      &_arrow{
+        font-size: 1em;
+      }
+      &_text{
 
-.arrow {
-  margin-top: -8px;
-  margin-left: -5px;
-  position: absolute;
+        font-size: 1em;
+      }
+    }
+  }
 }
+ 
+ 
 </style>

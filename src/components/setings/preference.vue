@@ -48,6 +48,135 @@
   </div>
 </template>
 
+
+
+<style  scoped>
+.title-ref {
+  font-family: "Gilroy" sans-serif;
+  font-size: 27px;
+  font-weight: bold;
+  margin-left: 49px;
+  margin-top: 34px;
+  color: #2f2e4d;
+}
+
+.sous-title {
+  font-size: 16px;
+  color: #696990;
+  margin-left: 51px;
+  margin-top: 17px;
+}
+
+.form1 {
+  left: 3rem;
+}
+
+.description {
+  font-size: 14px;
+  color: gray;
+  margin-top: 24px;
+}
+
+.custom-select,
+.tva {
+  position: absolute;
+  width: 18.6rem !important;
+  left: 13px;
+  height: 44px !important;
+  background: #f8f9fc !important;
+  border: 1px solid #eceef3 !important;
+  box-sizing: border-box;
+  border-radius: 4px !important;
+}
+
+.tva {
+  top: 16rem;
+}
+
+.custom-select0 {
+  margin-top: 1.8rem;
+}
+
+.angle {
+  margin-left: 16.5rem;
+  position: absolute;
+  top: 45px;
+}
+
+.custom-select1 {
+  margin-top: 6rem;
+}
+
+.custom-select2 {
+  margin-top: 11rem;
+}
+.custom-select3 {
+  margin-top: 16rem;
+}
+
+input[type="text"] {
+  font: 15px/24px "Gilroy", Arial, sans-serif;
+  color: #b3b8c3;
+  width: 100%;
+  box-sizing: border-box;
+  letter-spacing: 1.5px;
+  padding-left: 14px;
+}
+
+.custom-switch {
+  margin-left: 16.25rem !important;
+  margin-top: 14.5rem;
+}
+
+.select-info {
+  margin-top: 81px;
+}
+
+.descr-pay {
+  position: absolute;
+  top: 4px;
+  color: #b3b8c3;
+  font-size: 14px;
+}
+
+.descr-devis {
+  position: relative;
+  left: -2px;
+  color: #b3b8c3;
+  font-size: 14px;
+}
+
+.descr-article {
+  position: relative;
+  top: 147px;
+  color: #b3b8c3;
+  font-size: 14px;
+  left: -2px;
+}
+
+.descr-tva {
+  position: relative;
+  top: 228px;
+  color: #b3b8c3;
+  font-size: 14px;
+  left: -150px;
+}
+
+.form2 > .custom-select2 {
+  top: 0rem;
+}
+
+.form2 > .descr-article {
+  margin-left: 1rem;
+  position: absolute;
+}
+
+.form2 > .descr-tva {
+  margin-left: 10.3rem;
+  position: absolute;
+}
+</style>
+
 <script>
 export default {
   data() {
@@ -262,129 +391,3 @@ export default {
 };
 </script>
 
-<style scoped>
-.title-ref {
-  font-family: "Gilroy" sans-serif;
-  font-size: 27px;
-  font-weight: bold;
-  margin-left: 49px;
-  margin-top: 34px;
-  color: #2f2e4d;
-}
-
-.sous-title {
-  font-size: 16px;
-  color: #696990;
-  margin-left: 51px;
-  margin-top: 17px;
-}
-
-.form1 {
-  left: 3rem;
-}
-
-.description {
-  font-size: 14px;
-  color: gray;
-  margin-top: 24px;
-}
-
-.custom-select,
-.tva {
-  position: absolute;
-  width: 18.6rem !important;
-  left: 13px;
-  height: 44px !important;
-  background: #f8f9fc !important;
-  border: 1px solid #eceef3 !important;
-  box-sizing: border-box;
-  border-radius: 4px !important;
-}
-
-.tva {
-  top: 16rem;
-}
-
-.custom-select0 {
-  margin-top: 1.8rem;
-}
-
-.angle {
-  margin-left: 16.5rem;
-  position: absolute;
-  top: 45px;
-}
-
-.custom-select1 {
-  margin-top: 6rem;
-}
-
-.custom-select2 {
-  margin-top: 11rem;
-}
-.custom-select3 {
-  margin-top: 16rem;
-}
-
-input[type="text"] {
-  font: 15px/24px "Gilroy", Arial, sans-serif;
-  color: #b3b8c3;
-  width: 100%;
-  box-sizing: border-box;
-  letter-spacing: 1.5px;
-  padding-left: 14px;
-}
-
-.custom-switch {
-  margin-left: 16.25rem !important;
-  margin-top: 14.5rem;
-}
-
-.select-info {
-  margin-top: 81px;
-}
-
-.descr-pay {
-  position: absolute;
-  top: 4px;
-  color: #b3b8c3;
-  font-size: 14px;
-}
-
-.descr-devis {
-  position: relative;
-  left: -2px;
-  color: #b3b8c3;
-  font-size: 14px;
-}
-
-.descr-article {
-  position: relative;
-  top: 147px;
-  color: #b3b8c3;
-  font-size: 14px;
-  left: -2px;
-}
-
-.descr-tva {
-  position: relative;
-  top: 228px;
-  color: #b3b8c3;
-  font-size: 14px;
-  left: -150px;
-}
-
-.form2 > .custom-select2 {
-  top: 0rem;
-}
-
-.form2 > .descr-article {
-  margin-left: 1rem;
-  position: absolute;
-}
-
-.form2 > .descr-tva {
-  margin-left: 10.3rem;
-  position: absolute;
-}
-</style>

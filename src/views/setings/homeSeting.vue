@@ -1,33 +1,40 @@
 <template>
-  <div :style="myStyle">
-    <div class="Container">
-      <div class="col-6">
-        <navBar />
-        <sideBar />
+    <div class="container home-settings">
+      
+      
+      <navBar/>
+      
+      <div class="collapse" id="navbarToggleExternalContent">
+        <div class="bg-light p-4">
+          <sideBar/>
+        </div>
       </div>
-      <div class="contents">
-        <router-view></router-view>
-        
+
+      
+      <div class="row mt-4 content-section">
+            
+        <div class="col-xl-3 col-md-3 col-sm-12 col-xs-12 mx-0 px-0 con">
+          <sideBar/>
+        </div>
+
+        <div class="col-xl-9 col-md-9 col-sm-12 col-xs-12 mx-0 px-0 content-section_view">
+            <router-view/>
+        </div>
+     
       </div>
     </div>
-  </div>
 </template>
 
 <script>
-// @ is an alias to /src
+
 import navBar from "@/components/setings/navBar.vue";
 import sideBar from "@/components/setings/sideBar.vue";
-// import preference from "@/components/setings/preference.vue";
-// import CreateDevis from "@/components/Devis/CreateDevis.vue";
-
-// import Table from "@/components/data-table/Table.vue";
 
 export default {
   name: "homeSeting",
   components: {
     navBar,
     sideBar
-    // preference
   },
   data() {
     return {
@@ -38,43 +45,33 @@ export default {
   }
 };
 </script>
-<style>
-.Container {
-  display: flex;
-  flex-direction: row;
-  height: 48rem;
-  overflow: hidden;
+
+<style lang="scss" scoped>
+.home-settings{
+  & #navbarToggleExternalContent{
+    // border-radius: 30px !important;
+  }
+  
+  & .content-section{
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3) ;  
+    border-radius: 10px ;
+    min-height: 70vh; 
+  }
+  & .con{
+    overflow-y: scroll;
+    height:70vh;
+    // border-right: 2px solid black ;
+  }
+  @media only screen and (max-width: 1000px) {
+    & .con{
+      display: none; 
+    }
+  }
+  @media only screen and (min-width: 1000px) {
+    & .collapse{
+      display: none; 
+    }
+  }
 }
 
-.contents {
-  border: 2px solid white;
-  width: 53rem;
-  margin-left: -17.5rem;
-  margin-top: 8.4rem;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  background-color: white;
-  height: 35.5rem;
-  overflow: hidden;
-}
-
-.load {
-  position: absolute;
-  width: 354px;
-  height: 64px;
-  left: 991px;
-  top: 639px;
-  background: #2262c6 !important;
-  border-top-left-radius: 25px !important;
-  border-bottom-left-radius: 0px !important;
-  border-top-right-radius: 0px !important;
-  border-bottom-right-radius: 20px !important;
-}
-
-.mise {
-  font-size: 15px;
-  padding: 14px;
-  font-style: normal;
-  font-weight: bold;
-}
 </style>

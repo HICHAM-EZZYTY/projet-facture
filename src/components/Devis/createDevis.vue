@@ -111,8 +111,8 @@
 
               <div class="inp7">
 
-                  <input  id="in1" type="text" v-model="Article.quantité">
-                  <input   id="in2" type="text" v-model="Article.prixht">
+                  <input @keyup="quan(index)" id="in1" type="text" v-model="Article.quantité">
+                  <input  @keyup="ph(index)"  id="in2" type="text" v-model="Article.prixht">
                 <div class="tva">
                       <label id="in5">Tva</label>
                       <div class="on_off">
@@ -134,11 +134,11 @@
                 </div>
 
                 <div class="reduction">
-                      <input id="in6" type="text" v-model="Article.Reduction">
+                      <input @keyup="reduction(index)" id="in6" type="text" v-model="Article.Reduction">
                 </div>
 
                 <div class="totalHt">
-                      <label id="in7">Total HT</label>
+                      <label   id="in7">Total HT</label>
                       <input id="in8" type="text" v-model="Article.totalht">
                 </div>
                 <div class="totalttc">
@@ -167,7 +167,12 @@
           <div class="rg">Total HT : <span>42059,12</span></div>
           <div class="tva">TVA :   <span>3000,30</span></div>
           <div class="ttl">Total :   <span>53000,30</span></div>
-          <!-- <p>{{redic}}</p> -->
+          <p>Reduction{{redic}}</p>
+          <p>Quantité{{Quantité}}</p>
+          <p>PrixHT{{Prixht}}</p>
+          <p>PrixHTF{{prixhtf}}</p>
+
+
         </div>
 
       </div>
@@ -283,6 +288,9 @@ export default {
       height:Number,
       lineHeight:Number,
       redic:0,
+      Quantité:0,
+      Prixht:0,
+      prixhtf:0,
       total:0,
       Articles: [{
       service: 'Service',
@@ -332,42 +340,64 @@ export default {
           console.log("sorry cant delete this one")
         }
     },
-    getdata(){
+    reduction(value){
+  
 
-      
-          let v=this.Articles.map(a => a.Reduction)
-          let numberArray = v.map(Number)
-          let total=0;
-         
-          for(var i in numberArray) { 
-              total=total+numberArray[i];
-             }
-          
-          console.log(total)
+      let v=this.Articles[value].Reduction
+      let ttl=0;
+      ttl=parseInt(v);
+      if (ttl>=0){
+      this.redic=ttl;
+      }
+      else{
+        console.log('plz fill the input')
+      }
 
-    }
+
+    },
+    quan(value){
+
+      let v=this.Articles[value].quantité
+      let ttl=0;
+      ttl=parseInt(v);
+      if (ttl>=0){
+      this.Quantité=ttl;
+      }
+      else{
+        console.log('plz fill the input')
+      }
+
+
+    },
+     ph(value){
+
+       
+      let v=this.Articles[value].prixht
+      let ttl=0;
+      ttl=parseInt(v);
+      if (ttl>=0){
+      this.Prixht=ttl;
+      }
+      else{
+        console.log('plz fill the input')
+      }
+
+
+     }
+
   },
 
   computed:{
 
-    red:function(){
 
-        
-          let v=this.Articles.map(a => a.Reduction)
-          let numberArray = v.map(Number)
-          let total=0;
-         
-          for(var i in numberArray) { 
-              total=total+numberArray[i];
-             }
-          return total
-             
-    },
-    
- 
   },
     watch:{
-
+      Quantité:function(){
+        this.prixhtf=this.Quantité*this.Prixht
+      },
+      Prixht:function(){
+        this.prixhtf=this.Quantité*this.Prixht
+      }
     
     },
 

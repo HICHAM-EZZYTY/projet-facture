@@ -92,6 +92,7 @@
 
 <script>
 export default {
+  name : "TheExportDevis",
   data: function() {
     return {
       IsColor: false,

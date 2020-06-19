@@ -44,6 +44,7 @@ body{
 }
 
 .Content{
+  padding: 1em;
   margin-top: 30px; 
   /* height: 88vh; */
   height: 85vh;

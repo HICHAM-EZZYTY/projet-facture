@@ -18,10 +18,11 @@
         </div>
 
         <div class="col-xl-9 col-md-9 col-sm-12 col-xs-12 mx-0 px-0 content-section_view">
-            <router-view/>
+          <router-view/>
         </div>
-     
+      
       </div>
+
     </div>
 </template>
 
@@ -47,11 +48,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.home-settings{ 
+.home-settings { 
   & .content-section{
     box-shadow: 0px 4px 10px rgba(0,0,0,0.3) ;  
     border-radius: 10px ;
-    min-height: 70vh;
+    height: 70vh;  
+    &_view{
+      height: 70vh;
+      overflow-x: hidden; 
+      overflow-y: auto; 
+    }
   }
   & .con{
     overflow-y: scroll;

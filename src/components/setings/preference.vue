@@ -41,8 +41,8 @@
         <b-form-select class="custom-select3" v-model="selectedInterest" :options="interests"></b-form-select>
       </div>
 
-      <b-button class="load" @click="updateGeneralThing">
-        <p class="mise">Mettre à jour votre compte</p>
+      <b-button class="settings-btn btn btn-primary" @click="updateGeneralThing">
+        Mettre à jour votre compte
       </b-button>
     </div>
   </div>

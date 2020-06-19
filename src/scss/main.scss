@@ -90,27 +90,17 @@
     font-family: 'Gilroy-UltraLight';
     src: url('~@/assets/fonts/Gilroy-UltraLight.ttf') format('truetype');
   } 
-  .new-article{
-        &-container{
-            padding-top: 1.2em; 
-            display: flex;
-            flex-direction: column; 
-            align-items: center; 
-            width: 100%;
-        }
-        &-btn{
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            height: 50px;  
-            width: 180px;
-            border-bottom-left-radius: 0px;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 0px;
-            border-bottom-right-radius: 10px; 
-        }   
-    }
-
+  .settings-btn{
+    // position: absolute;
+    float: right;
+    height: 50px;  
+    width: 20em;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 10px; 
+    background-color : #2262c6;
+  }   
   
   // -----Font-Name-----
 

@@ -57,8 +57,8 @@
 
     </div>
 
-    <b-button class="load" @click="UpdateDevisSettings">
-        <p class="mise">Mettre à jour votre compte</p>
+    <b-button class="settings-btn btn btn-primary" @click="UpdateDevisSettings">
+        Mettre à jour votre compte
       </b-button>
   </div>
 </template>

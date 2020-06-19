@@ -57,7 +57,7 @@ export default {};
   background-color: #fbfbfd;
   display: flex; 
   align-items: center;
-  padding: 30px 60px;  
+  padding: 20px 60px;  
   border-radius: 20px;  
   border: none; 
   // border: 2px solid black;
@@ -76,9 +76,10 @@ export default {};
     &_arrow{
       background-color: #2262c6;
       border: none; 
+      height: 2em;
+      width: 2em;
       border-radius: 100% !important;
     }
-
     &:hover {
       text-decoration: none; 
       color: #2350c4;

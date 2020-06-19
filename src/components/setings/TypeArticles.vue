@@ -28,7 +28,7 @@
         </table>
 
         
-        <router-link class="new-article-btn btn btn-primary" :to="{ name: 'NewTypeArticles' }" >
+        <router-link class="settings-btn btn btn-primary" :to="{ name: 'NewTypeArticles' }" >
             Add new Article.
         </router-link>
     </div>

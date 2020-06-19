@@ -7,7 +7,7 @@
             
             <input type="text" class= "text-input" v-model="article.article_type_value_eng" placeholder="value in english" />
         </div>
-        <button class="new-article-btn btn btn-primary" @click="add">
+        <button class="settings-btn btn btn-primary" @click="add">
             Add
         </button>
     </div>
@@ -21,18 +21,7 @@
             flex-direction: column; 
             align-items: center; 
             width: 100%;
-        }
-        &-btn{
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            height: 50px;  
-            width: 180px;
-            border-bottom-left-radius: 0px;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 0px;
-            border-bottom-right-radius: 10px; 
-        }   
+        }  
     }
  
     .text{

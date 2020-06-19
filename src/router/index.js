@@ -35,6 +35,9 @@ import GateLayout from "../views/subLayouts/GateLayout.vue";
 import Register from "../views/Authentification/Signup.vue";
 import Login from "../views/Authentification/Login.vue";
 
+import TheExportDevis from "../components/Devis/TheExportDevis.vue"
+import TheCalendarDevis from "../components/Devis/TheCalendarDevis.vue"
+import TheRefusDevis from "../components/Devis/TheRefusDevis.vue"
 
 // testing for fixing sideBar
 
@@ -130,11 +133,9 @@ const routes = [
         path: 'Societe/new',
         name: "NewSociete"
       },
-
-
     ]
   },
-
+  
 
   // parameters 
   {
@@ -230,7 +231,21 @@ const routes = [
       }
     ]
   },
-
+  {
+    path: "/devis-calandar",
+    name: "devisCalandar",
+    component: TheExportDevis,
+  },
+  {
+    path: "/devis-refus",
+    name: "devisCalandar",
+    component: TheRefusDevis,
+  },
+  {
+    path: "/devis-export",
+    name: "devisExport",
+    component: TheCalendarDevis,
+  },
   {
     path: "*",
     name: "NotFound",

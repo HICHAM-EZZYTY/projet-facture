@@ -5,14 +5,17 @@
             Loading ... 
         </div>
         
-        <table border="1" v-else >
-            <thead>
-                <th>nom</th>
-                <th>name</th>
-                <th>name</th>
+        
+        <table class="table" v-else>
+            <thead class="thead-dark">
+                <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Handle</th>
+                </tr>
             </thead>
             <tbody>
-                <tr v-for="(article, index) in articles" :key="index">
+            <tr v-for="(article, index) in articles" :key="index">
                     <td>{{ article.English }}</td>
                     <td>{{ article.French }}</td>
                     <td>
@@ -25,8 +28,7 @@
         </table>
 
         
-        
-        <router-link :to="{ name: 'NewTypeArticles' }" >
+        <router-link class="new-article-btn btn btn-primary" :to="{ name: 'NewTypeArticles' }" >
             Add new Article.
         </router-link>
     </div>
@@ -84,22 +86,19 @@ export default {
     }
 }
 </script>
-<style scoped >
+<style lang="scss" scoped >
     .tableplus{
-        padding-right: 40px;
-        border: 4px;
+        padding-top: 2em;
         display: flex; 
         flex-direction: column; 
         align-items: center; 
     } 
     table{
-        width: 50%;
+        width: 80%;
+        margin: auto;
         text-align: center;
     }
     button{
-        text-transform : uppercase; 
-        margin: 20px;
-        height: 40px; 
-        border-radius: 30px;  
+        border-radius: 3px;  
     }
 </style>

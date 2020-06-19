@@ -47,15 +47,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.home-settings{
-  & #navbarToggleExternalContent{
-    // border-radius: 30px !important;
-  }
-  
+.home-settings{ 
   & .content-section{
     box-shadow: 0px 4px 10px rgba(0,0,0,0.3) ;  
     border-radius: 10px ;
-    min-height: 70vh; 
+    min-height: 70vh;
   }
   & .con{
     overflow-y: scroll;

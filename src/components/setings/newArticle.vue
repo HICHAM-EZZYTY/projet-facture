@@ -1,15 +1,72 @@
 <template>
-    <div>
-        <input type="text" v-model="article.article_type_value" placeholder="value en francais" />
-        <input type="text" v-model="article.article_type_value_eng" placeholder="value in english" />
-    
-        <button @click="add">
+    <div class="new-article-container">
+        <div class="text-group">
+            <input type="text" class= "text-input" v-model="article.article_type_value" placeholder="value en francais" />
+        </div>    
+        <div class="text-group">
+            
+            <input type="text" class= "text-input" v-model="article.article_type_value_eng" placeholder="value in english" />
+        </div>
+        <button class="new-article-btn btn btn-primary" @click="add">
             Add
         </button>
     </div>
 
 </template>
-
+<style lang="scss" scoped>
+    .new-article{
+        &-container{
+            padding-top: 1.2em; 
+            display: flex;
+            flex-direction: column; 
+            align-items: center; 
+            width: 100%;
+        }
+        &-btn{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            height: 50px;  
+            width: 180px;
+            border-bottom-left-radius: 0px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 10px; 
+        }   
+    }
+ 
+    .text{
+        &-group{
+            width: 100%; 
+            display: flex; 
+            flex-direction: row;
+            align-items: center;
+            @media screen and (max-width: 600px){
+                &{
+                    width: 100%
+                }
+            }
+        }
+        &-input{ 
+            border: 0px;
+            border-bottom: 1px solid black; 
+            width: 90%;
+            margin: auto;
+            display: block;
+            padding: 1em; 
+            
+            &::placeholder{
+                text-transform: uppercase;
+            }
+            &:focus{
+                outline:none;
+                border-bottom:1px solid red; 
+            }
+            
+        }
+    }
+    
+</style>
 <script>
 export default {
     name : "newArticle", 

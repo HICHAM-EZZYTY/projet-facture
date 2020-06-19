@@ -167,10 +167,10 @@
           <div class="rg">Total HT : <span>42059,12</span></div>
           <div class="tva">TVA :   <span>3000,30</span></div>
           <div class="ttl">Total :   <span>53000,30</span></div>
-          <p>Reduction{{redic}}</p>
+          <!-- <p>Reduction{{redic}}</p>
           <p>Quantité{{Quantité}}</p>
           <p>PrixHT{{Prixht}}</p>
-          <p>PrixHTF{{prixhtf}}</p>
+          <p>PrixHTF{{prixhtf}}</p> -->
 
 
         </div>
@@ -393,10 +393,14 @@ export default {
   },
     watch:{
       Quantité:function(){
-        this.prixhtf=this.Quantité*this.Prixht
+        let a=this.prixhtf
+        let vp=this.Quantité*this.Prixht;
+        this.prixhtf=vp+a
       },
       Prixht:function(){
-        this.prixhtf=this.Quantité*this.Prixht
+        let a=this.prixhtf
+        let vp=this.Quantité*this.Prixht;
+        this.prixhtf=vp+a
       }
     
     },

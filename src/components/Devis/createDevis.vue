@@ -79,7 +79,6 @@
 
 
       <div class="artcl"  v-for="(Article,index) in Articles" :key="index">
-        <!-- v-for="(variant,index) in variants  :key='index'"> -->
 
         <div class="ss1">
           <div class="inp6">
@@ -112,8 +111,8 @@
 
               <div class="inp7">
 
-                  <input  id="in1" type="text" v-model="Article.quantité">
-                  <input   id="in2" type="text" v-model="Article.prixht">
+                  <input @keyup="quan(index)" id="in1" type="text" v-model="Article.quantité">
+                  <input  @keyup="ph(index)"  id="in2" type="text" v-model="Article.prixht">
                 <div class="tva">
                       <label id="in5">Tva</label>
                       <div class="on_off">
@@ -135,11 +134,11 @@
                 </div>
 
                 <div class="reduction">
-                      <input id="in6" type="text" v-model="Article.Reduction">
+                      <input @keyup="reduction(index)" id="in6" type="text" v-model="Article.Reduction">
                 </div>
 
                 <div class="totalHt">
-                      <label id="in7">Total HT</label>
+                      <label   id="in7">Total HT</label>
                       <input id="in8" type="text" v-model="Article.totalht">
                 </div>
                 <div class="totalttc">
@@ -160,8 +159,109 @@
 
       </div>
 
-     
 
+      <div class="results">
+        <button  @click="getdata()" type="text">Ajouter Une Ligne</button>
+
+        <div class="wrapResult">
+          <div class="rg">Total HT : <span>42059,12</span></div>
+          <div class="tva">TVA :   <span>3000,30</span></div>
+          <div class="ttl">Total :   <span>53000,30</span></div>
+          <!-- <p>Reduction{{redic}}</p>
+          <p>Quantité{{Quantité}}</p>
+          <p>PrixHT{{Prixht}}</p>
+          <p>PrixHTF{{prixhtf}}</p> -->
+
+
+        </div>
+
+      </div>
+
+      <div class="reglement">
+      <h1>Règlement : </h1>
+       <div class="contain2">
+          <div class="inp3">
+              <label>Conditions de règlement</label>
+              <br>
+              <select id="inp1" class="select-css">
+                  <option value="">45 jours fin de mois</option>
+                  <option value="dog">Dog</option>
+                  <option value="cat">Cat</option>
+                  <option value="hamster">Hamster</option>
+                  <option value="parrot">Parrot</option>
+                  <option value="spider">Spider</option>
+                  <option value="goldfish">Goldfish</option>
+             </select>
+          </div>
+           <div class="inp4">
+              <label>Mode de règlement</label>
+              <br>
+              <select id="inp2" class="select-css">
+                  <option value="">Virement bancaire</option>
+                  <option value="dog">Dog</option>
+                  <option value="cat">Cat</option>
+                  <option value="hamster">Hamster</option>
+                  <option value="parrot">Parrot</option>
+                  <option value="spider">Spider</option>
+                  <option value="goldfish">Goldfish</option>
+             </select>
+          </div>
+          <div style="margin-top:15px" class="inp3">
+              <label>Intérêt de retard</label>
+              <br>
+              <select id="inp1" class="select-css">
+                  <option value="">Pas d'intérêts </option>
+                  <option value="dog">Dog</option>
+                  <option value="cat">Cat</option>
+                  <option value="hamster">Hamster</option>
+                  <option value="parrot">Parrot</option>
+                  <option value="spider">Spider</option>
+                  <option value="goldfish">Goldfish</option>
+             </select>
+          </div>
+   
+        </div>
+      </div>
+     <div class="textDoc">
+                <h1>Textes affichés sur le document:</h1>
+      <div class="textWrapping">
+                  <textarea id="ttl">texte d'introduction (visible sur le devis)</textarea>
+                  <textarea id="ttl1">Texte de conclusion (visible sur le devis)</textarea>
+                  <textarea id="ttl2">Pied de page (visible sur le devis)</textarea>
+                  <textarea id="ttl3">Conditions générales de vente (visible sur le devis)</textarea>
+      </div>
+             <div  id="diffInp1" class="inp33">
+              <label>Mots clés :</label>
+              <br>
+              <select id="inp3" class="select-css">
+                  <option value="">Ajouter/Sélectionner des mots clés</option>
+                  <option value="dog">Dog</option>
+                  <option value="cat">Cat</option>
+                  <option value="hamster">Hamster</option>
+                  <option value="parrot">Parrot</option>
+                  <option value="spider">Spider</option>
+                  <option value="goldfish">Goldfish</option>
+             </select>
+              </div>
+
+     </div>
+
+
+      <div class="footer">
+      <div class="icons">
+        <img id="fir"  src="../../assets/img/eye.svg" alt="eyes icon">
+        <img  id="fil" src="../../assets/img/print.svg" alt="print icon">
+      </div>
+      <div class="btnss">
+        <button class="buttn" id="bbtn1" type="button">Previous</button>    
+        <button class=buttn  id="bbtn2" type="submit">enregistrer & envoyer </button>
+
+
+      </div>
+
+
+        
+      </div>
         
 
 
@@ -181,11 +281,17 @@
 
 <script>
 export default {
+ 
   data() {
     return {
       counter: 1,
       height:Number,
       lineHeight:Number,
+      redic:0,
+      Quantité:0,
+      Prixht:0,
+      prixhtf:0,
+      total:0,
       Articles: [{
       service: 'Service',
       quantité: 'Quantité',
@@ -215,7 +321,7 @@ export default {
       })
       this.counter+=1
       this.height=this.$refs.whitePaper.clientHeight
-      this.$refs.whitePaper.style.height=(this.height+300)+"px"
+      this.$refs.whitePaper.style.height=(this.height+310)+"px"
       this.lineHeight=this.$refs.ligne.clientHeight
       this.$refs.ligne.style.height=(this.lineHeight+310)+"px"
 
@@ -224,17 +330,81 @@ export default {
       deleteInput(i) {
         if (i>0){
         this.Articles.splice(i, 1);
+        this.counter-=1
+        this.height=this.$refs.whitePaper.clientHeight
+        this.$refs.whitePaper.style.height=(this.height-310)+"px"
+        this.lineHeight=this.$refs.ligne.clientHeight
+        this.$refs.ligne.style.height=(this.lineHeight-310)+"px"
         }
         else{
           console.log("sorry cant delete this one")
         }
-      this.counter-=1
-      this.height=this.$refs.whitePaper.clientHeight
-      this.$refs.whitePaper.style.height=(this.height-300)+"px"
-      this.lineHeight=this.$refs.ligne.clientHeight
-      this.$refs.ligne.style.height=(this.lineHeight-310)+"px"
-    }
-  }
+    },
+    reduction(value){
+  
+
+      let v=this.Articles[value].Reduction
+      let ttl=0;
+      ttl=parseInt(v);
+      if (ttl>=0){
+      this.redic=ttl;
+      }
+      else{
+        console.log('plz fill the input')
+      }
+
+
+    },
+    quan(value){
+
+      let v=this.Articles[value].quantité
+      let ttl=0;
+      ttl=parseInt(v);
+      if (ttl>=0){
+      this.Quantité=ttl;
+      }
+      else{
+        console.log('plz fill the input')
+      }
+
+
+    },
+     ph(value){
+
+       
+      let v=this.Articles[value].prixht
+      let ttl=0;
+      ttl=parseInt(v);
+      if (ttl>=0){
+      this.Prixht=ttl;
+      }
+      else{
+        console.log('plz fill the input')
+      }
+
+
+     }
+
+  },
+
+  computed:{
+
+
+  },
+    watch:{
+      Quantité:function(){
+        let a=this.prixhtf
+        let vp=this.Quantité*this.Prixht;
+        this.prixhtf=vp+a
+      },
+      Prixht:function(){
+        let a=this.prixhtf
+        let vp=this.Quantité*this.Prixht;
+        this.prixhtf=vp+a
+      }
+    
+    },
+
 }
 
 </script>
@@ -264,7 +434,8 @@ button{
     width: 53.5vw;
     margin-left: 77px;
     margin-top: 56px;
-    height: 146vh;
+    // height: 1800px;
+      height: 1666px;
     background: white;
     box-shadow: 0px 4px 18px rgba(71, 71, 71, 0.3)
 }
@@ -541,7 +712,6 @@ hr{
             display: inline-block;
             position: relative;
             margin: 0;
-            /* border: 2px solid #474755; */
             background: #ecf0f1;
             transition: all 0.2s ease;
             border:none;
@@ -663,11 +833,450 @@ hr{
     padding-top: 15px;
     padding-left: 7px;
     color: #8898AC;
+   
+
 }
 #textAreaArtcl:focus{
     outline: none !important;
     border: 0.2px solid #AAB5C6;
+}
 
+.results{
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  margin-left: 7%;
+  button {
+    background-color: $blue;
+    font-family: $bd;
+    color:$white;
+    border-radius: 4px;
+    border: none;
+    font-size: 11px;
+    width: 131px;
+    height: 30px;
+    margin-top: 11px;
+    margin-left: 8%;
+
+  }
+  .wrapResult{
+    background-color: $blue;
+    width: 95%;
+    height: 177px;
+    margin-top: 13px;
+    border-radius: 6px;
+    -webkit-box-shadow:-26px 46px  0px 0px rgba(255,197,160,1);
+    -moz-box-shadow: -26px 46px  0px 0px rgba(255,197,160,1);
+    box-shadow: -26px 46px 0px 0px #ffc5a0;
+    .rg{
+      text-align: center;
+      margin-top:30px;
+      color:$white;
+      font-family: $bd;
+      margin-bottom: 5px;
+      span{
+        border-bottom: 1px solid $orange;
+        border-bottom-width: thin;
+      }
+    }
+    .thf{
+      text-align: center;
+      color:$white;
+      font-family: $bd;
+      margin-bottom: 5px;
+      span{
+        border-bottom: 1px solid $orange;
+        border-bottom-width: thin;
+      }
+    }
+    .tva{
+      text-align:center;
+      color:$white;
+      font-family: $bd;
+      margin-bottom: 5px;
+       span{
+        border-bottom: 1px solid $orange;
+        border-bottom-width: thin;
+      }
+    }
+    .ttl{
+      text-align: center;
+      color:$white;
+      font-family: $bd;
+      margin-bottom: 5px;
+      span{
+        border-bottom: 1px solid $orange;
+        border-bottom-width: thin;
+      }
+    }
+  }
+}
+
+.reglement{
+  h1{
+    padding-top: 76px;
+  }
+  #diffInp{
+    margin-top:14px;
+  }
+  #inp1{
+width: 65%;
+  }
+  #inp2{
+width: 65%;
+  }
+  #inp3{
+width: 65%;
+  }
+}
+.textDoc{
+  padding-top: 5px;
+}
+.textWrapping{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  #ttl{
+    font-family: $r;
+    margin-left: 15%;
+    margin-top: 35px;
+    margin-bottom: 0px;
+    height: 116px;
+    font-size: 14px;
+    width: 40vw;
+    border-radius: 5px;
+    border: 0.2px solid #AAB5C6;
+    resize: none;
+    font-size: 13px;
+    padding-top: 15px;
+    padding-left: 7px;
+    color: #8898AC;
+    width: 82%;
+  }
+  #ttl1{
+    font-family: $r;
+    margin-left: 10%;
+    margin-top: 35px;
+    margin-bottom: 0px;
+    height: 116px;
+    font-size: 14px;
+    width: 40vw;
+    border-radius: 5px;
+    border: 0.2px solid #AAB5C6;
+    resize: none;
+    font-size: 13px;
+    padding-top: 15px;
+    padding-left: 7px;
+    color: #8898AC;
+    width: 82%;
+  }
+   #ttl2{
+    font-family: $r;
+    margin-left: 15%;
+    margin-top: 35px;
+    margin-bottom: 0px;
+    height: 116px;
+    font-size: 14px;
+    width: 40vw;
+    border-radius: 5px;
+    border: 0.2px solid #AAB5C6;
+    resize: none;
+    font-size: 13px;
+    padding-top: 15px;
+    padding-left: 7px;
+    color: #8898AC;
+    width: 82%;
+  }
+   #ttl3{
+    font-family: $r;
+    margin-left: 10%;
+    margin-top: 35px;
+    margin-bottom: 0px;
+    height: 116px;
+    font-size: 14px;
+    width: 40vw;
+    border-radius: 5px;
+    border: 0.2px solid #AAB5C6;
+    resize: none;
+    font-size: 13px;
+    padding-top: 15px;
+    padding-left: 7px;
+    color: #8898AC;
+    width: 82%;
+  }
+
+}
+
+.inp33{
+  margin-top: 33px;
+  label{
+    font-family: $gm;
+    font-size: 12px;
+    color:$white2;
+    margin-left: 51px;
+    padding-top: 7px;
+    margin-bottom: 7px;
+  }
+  .select-css{
+    outline: none;
+    cursor: pointer;
+    color:#6E7275;
+    font-size: 14px;
+    font-family: $gm;
+    border: none;
+    width: 38%;
+    border-bottom: 0.6px solid #616467;
+    padding-bottom: 4px;
+    margin-left: 51px;
+
+  }
+
+}
+
+.footer{
+    display: grid;
+    grid-template-columns: 1.8fr 5fr;
+    margin-top: 47px;
+  .icons {
+    img{
+    width: 50px;
+    height: 50px;
+    }
+    #fir{
+    margin-left: 24%;
+    }
+    #fil{
+    position: relative;
+    right: 8px;
+    }
+  }
+  .btnss{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 20%;
+    .buttn{
+      border: none;
+      background-color: $blue;
+      border-radius: 8px;
+      color:$white;
+      font-family: $bd;
+      font-size: 12px;
+      text-transform: capitalize ;
+      margin-right: 0px;
+      margin-left: 0px;
+    }
+    #bbtn1{
+    height: 30px;
+    width: 103px;
+    margin-top: 11px;
+    color:#616467;
+    background-color: #E2E8F1;
+    border-radius: 17px;
+    justify-self: end;
+    
+    }
+    #bbtn2{
+    height: 30px;
+    width: 154px;
+    border-radius: 17px;
+    margin-top: 11px;
+    margin-left: 7%;
+    }
+  }
+}
+
+
+
+@media (max-width: 1034px) {
+  .whitePaper{
+  height: 1800px;
+  }
+
+}
+
+
+@media (max-width: 930px) {
+ .footer{
+    grid-template-columns: 2fr 5fr;
+ }
+
+}
+
+@media (max-width: 879px) {
+  .whitePaper{
+  height: 1961px;
+  }
+
+}
+
+@media (max-width: 873px) {
+  .footer {
+    grid-template-columns: 2fr 4fr;
+}
+.footer .btnss{
+     margin-left: 0%;
+}
+}
+@media (max-width: 747px) {
+  .footer {
+    grid-template-columns: none;
+    grid-template-rows: 1fr 1fr;
+  .icons{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    #fir{
+    justify-self: end;
+    }
+
+  }    
+ 
+}
+.footer .btnss{
+     margin-left: 0%;
+       #bbtn1{
+      justify-self: center;
+     }
+     #bbtn2{
+      justify-self: start;
+      margin-left: 0%;
+     }
+}
+ #bbtn2{
+        margin-left: 0%;
+      }
+  #bbtn1{
+        justify-self: center;
+      }
+ .whitePaper{
+    height: 2049px;
+  }
+}
+
+// @media (max-width: 579px) {
+//  .whitePaper{
+//     height: 2300px;
+//   }
+
+// }
+
+
+
+
+
+
+@media (max-width: 1033px) {
+
+  .counter .rec{
+    left: 0%;
+  }
+  .counter .ligne{
+    left: 28%;
+  }
+  .counter .circle{
+    height: 18px;
+    width: 18px;
+    left: 0px;
+  }
+  .inp7{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-left: 20%;
+  }
+  .icns{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .artcl{
+    .ss1{
+          margin-left: 17%;
+    }
+  }
+}
+
+@media (max-width: 920px) {
+
+    .inp33 .select-css{
+      width: 59%;
+    }
+  #diffInp1{
+    display: block;
+    margin: 0 auto;
+    padding-top: 27px;
+
+  }
+
+}
+
+
+
+@media (max-width: 879px) {
+  #diffInp{
+    width: 39%;
+  }
+.reglement #inp2{
+  width: 100%;
+}
+.reglement #inp1{
+  width: 100%;
+}
+.reglement #inp3{
+  width:100%;
+}
+}
+
+@media (max-width: 687px) {
+ .results{
+    display: grid;
+    grid-template-columns: none;
+    margin-left: 7%;
+  }
+}
+@media (max-width: 600px) {
+
+  .inp7{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 20%;
+  }
+ 
+}
+
+@media (max-width: 579px) {
+
+ .results {
+  .wrapResult{
+    box-shadow: none;
+  }
+    }
+    .reglement h1{
+      padding-top: 0px;
+    }
+}
+@media (max-width: 533px) {
+
+  .inp7{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 20%;
+  }
+  .artcl .ss1 .inp6 .select-css{
+    width: 7em;
+  }
+
+}
+
+@media (max-width: 400px) {
+
+  .inp7{
+    margin-left: 3%;
+  }
+
+}
+
+@media (max-width: 361px) {
+
+
+  .whitePaper{
+    width: 72.5vw;
+  }
 
 }
 
@@ -706,6 +1315,7 @@ hr{
     margin:0 auto;
     label{
       margin-left: 0px;
+      display: block;
     }
     .select-css{
       margin-left:0px
@@ -736,10 +1346,6 @@ hr{
 
  }
 
-
-
-
-
  @media (max-width: 777px) {
 
    .header h1{
@@ -752,6 +1358,13 @@ hr{
     width: 83%;
    }
 }
+@media (max-width: 581px)
+{
+.whitePaper {
+    height: 2193px;
+}
+}
+
 
  @media (max-width: 577px) {
 .header h1{
@@ -765,6 +1378,22 @@ hr {
 }
 
 }
+
+ @media (max-width: 488px) {
+   .footer{
+
+     .btnss{
+      display: grid;
+      grid-template-columns: none;
+       #bbtn2{
+         justify-self: center;
+       }
+     }
+   }
+
+
+ }
+
 
  @media (max-width: 409px) {
 

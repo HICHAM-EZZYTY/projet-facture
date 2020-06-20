@@ -15,7 +15,6 @@ import "bootstrap-vue/dist/bootstrap-vue.css";
 import "./scss/main.scss";
 
 
-
 Vue.use(VCalendar, {
   componentPrefix: 'vc',  // Use <vc-calendar /> instead of <v-calendar />
   masks: { input: 'DD-MM-YYYY', data: 'DD-MM-YYYY' }
@@ -24,13 +23,15 @@ Vue.use(VCalendar, {
 
 const axios = require("axios").default;
 
-let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTU5MjU5ODk3MCwiZXhwIjoxNTkyNjAyNTcwLCJuYmYiOjE1OTI1OTg5NzAsImp0aSI6ImZJeUhLZHlpN0ZlWmFMUGUiLCJzdWIiOjIyLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.5ZlHGTTMGh_zgW7yNSfmux895e4ArTglE-dW4yO1o2g";
+let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTU5MjY2NzEwOCwiZXhwIjoxNTkyNjcwNzA4LCJuYmYiOjE1OTI2NjcxMDgsImp0aSI6InY1M3Rkc0xZblZrem5ZY2kiLCJzdWIiOjIyLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.j-iR1bN4gnN00hxWl5kDqTmr6zBpxRmfSchp57SMrDA";
+
 Vue.prototype.$http = axios;
 Vue.prototype.$http.defaults.baseURL = "http://127.0.0.1:8000/api";
-
 Vue.prototype.$http.defaults.headers.common = { Authorization: `Bearer ${token}` };
+
 // Install BootstrapVue
 Vue.use(BootstrapVue);
+
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin);
 

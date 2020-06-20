@@ -1,180 +1,153 @@
 <template>
-  <div>
+  <div class="general-preferences pt-4">
     <div v-show="isUpdated">
       <p style="color: green; ">
         settings updated ...
       </p>
     </div>
-    <h1 class="title-ref">Préférences Générales :</h1>
-    <h5 class="sous-title">ici, vous pouvez modifier les préférences générales</h5>
+    
     <div class="row">
-      <div class="form1 col-md-6">
-        <label class="descr-pay">Pays pour défault pour les clients</label>
-        <b-form-select class="custom-select0" v-model="selectedCountry" :options="countries"></b-form-select>
-        <i class="fa fa-angle-down angle"></i>
-        <label class="descr-devis">Devise Par défaut</label>
-        <b-form-select class="custom-select1" v-model="selectedCurrency" :options="Currency"></b-form-select>
-        <i class="fa fa-angle-down angle"></i>
-        <label class="descr-article">Type d'article par défaut</label>
-        <b-form-select class="custom-select2" v-model="selectedArticle" :options="typeArticles"></b-form-select>
+      <div class="col-12 header">
+        <h1 class="pl-xl-4 pl-md-4 pl-sm-2 pl-xs-2 header-title">Préférences Générales :</h1>
+        <h5 class="pl-xl-4 pl-md-4 pl-sm-2 pl-xs-2 header-subtitle">Ici, Vous Pouvez Modifier Les Préférences Générales</h5>
+      </div>
+    </div>
+    
+    <div class="row forms p-xl-4 p-md-3 p-sm-2 p-xs-2">
+
+      <div class="forms-sides col-xl-6 col-md-12 col-sm-12 col-xs-12">
+
+        <div class="forms-sides--group">
+          <label class="forms-sides--group_label">Pays pour défault pour les clients</label>
+          <b-form-select class="forms-sides--group_select" v-model="selectedCountry" :options="countries"></b-form-select>    
+        </div>
         
-        <label class="descr-tva">Tva (%)</label>
-        <input class="tva" type="text" placeholder="20.0" v-model="tvaValue" />
-        <b-form-checkbox v-model="checked" name="check-button" switch></b-form-checkbox>
-
-        <label class="description">Texte affiché si TVA est applicable</label>
-        <input
-          type="text"
-          class="select-info tva"
-          placeholder="TVA non applicable, art. 293 B du CGI"
-          v-model="tvaEnabled"
-        />
+        <div class="forms-sides--group" >
+          <label class="forms-sides--group_label">Devise Par défaut</label>
+          <b-form-select class="forms-sides--group_select" v-model="selectedCurrency" :options="Currency"></b-form-select>
+        </div>
+        
+        <div class="forms-sides--group" >
+          <label class="forms-sides--group_label">Type d'article par défaut</label>
+          <b-form-select class="forms-sides--group_select" v-model="selectedArticle" :options="typeArticles"></b-form-select>
+        </div>
+        
+        <div class="forms-sides--group" >
+          <label class="forms-sides--group_label">Tva (%)</label>
+          <input class="forms-sides--group_text" type="text" placeholder="20.0" v-model="tvaValue" />
+          <b-form-checkbox v-model="checked" class="forms-sides--group_checkbox" name="check-button" switch></b-form-checkbox>
+        </div>
+      
+        <div class="forms-sides--group" >
+          <label class="forms-sides--group">Texte affiché si TVA est applicable</label>
+          <input type="text" class="forms-sides--group_text" placeholder="TVA non applicable, art. 293 B du CGI" v-model="tvaEnabled"/>
+        </div>
+      
       </div>
-      <div class="form2 col-md-6">
-        <label class="descr-pay">Texte affiché si TVA n'est pas applicable</label>
-        <input class="custom-select custom-select0" placeholder="Reverse charge VAT" v-model="tvaDisabled" />
-        <label class="descr-devis">Conditions de règlement par défaut</label>
-        <b-form-select class="custom-select1" v-model="selectedCondition" :options="conditions"></b-form-select>
-        <label class="descr-article">Mode de règlement par défaut</label>
-        <b-form-select class="custom-select2" v-model="selectedMode" :options="mode"></b-form-select>
-        <label class="descr-tva">Intérêt de retard par défaut</label>
-        <b-form-select class="custom-select3" v-model="selectedInterest" :options="interests"></b-form-select>
+
+      <div class="forms-sides col-xl-6 col-md-12 col-sm-12 col-xs-12">
+        
+        <div  class="forms-sides--group">
+          <label class="forms-sides--group_label">Texte affiché si TVA n'est pas applicable</label>
+          <input class="forms-sides--group_text" type="text" placeholder="Reverse charge VAT" v-model="tvaDisabled" />  
+        </div>
+
+        <div class="forms-sides--group">
+          <label class="forms-sides--group_label">Conditions de règlement par défaut</label>
+          <b-form-select class="forms-sides--group_select" v-model="selectedCondition" :options="conditions"></b-form-select>  
+        </div>
+        
+        <div class="forms-sides--group">
+          <label class="forms-sides--group_label">Mode de règlement par défaut</label>
+          <b-form-select class="forms-sides--group_select" v-model="selectedMode" :options="mode"></b-form-select>
+        </div>
+        
+        <div class="forms-sides--group">
+          <label class="forms-sides--group_label">Intérêt de retard par défaut</label>
+          <b-form-select class="forms-sides--group_select" v-model="selectedInterest" :options="interests"></b-form-select>
+        </div>
+        
       </div>
 
-      <b-button class="settings-btn btn btn-primary" @click="updateGeneralThing">
+      
+    </div>
+    <b-button class="settings-btn btn btn-primary" @click="updateGeneralThing">
         Mettre à jour votre compte
       </b-button>
-    </div>
   </div>
 </template>
 
 
 
-<style  scoped>
-.title-ref {
-  font-family: "Gilroy" sans-serif;
-  font-size: 27px;
-  font-weight: bold;
-  margin-left: 49px;
-  margin-top: 34px;
-  color: #2f2e4d;
-}
-
-.sous-title {
-  font-size: 16px;
-  color: #696990;
-  margin-left: 51px;
-  margin-top: 17px;
-}
-
-.form1 {
-  left: 3rem;
-}
-
-.description {
-  font-size: 14px;
-  color: gray;
-  margin-top: 24px;
-}
-
-.custom-select,
-.tva {
-  position: absolute;
-  width: 18.6rem !important;
-  left: 13px;
-  height: 44px !important;
-  background: #f8f9fc !important;
-  border: 1px solid #eceef3 !important;
-  box-sizing: border-box;
-  border-radius: 4px !important;
-}
-
-.tva {
-  top: 16rem;
-}
-
-.custom-select0 {
-  margin-top: 1.8rem;
-}
-
-.angle {
-  margin-left: 16.5rem;
-  position: absolute;
-  top: 45px;
-}
-
-.custom-select1 {
-  margin-top: 6rem;
-}
-
-.custom-select2 {
-  margin-top: 11rem;
-}
-.custom-select3 {
-  margin-top: 16rem;
-}
-
-input[type="text"] {
-  font: 15px/24px "Gilroy", Arial, sans-serif;
-  color: #b3b8c3;
+<style lang="scss"  scoped>
+.general-preferences{
   width: 100%;
-  box-sizing: border-box;
-  letter-spacing: 1.5px;
-  padding-left: 14px;
+  min-height: 100%;
+  // height: 100vh;
+}
+.header{
+  &-title{
+    font-size: 2em;
+    color: #2f2e4d;
+   
+  }
+  &-subtitle{
+    font-size: 1em;
+    color: #696990;
+  }
+  @media screen and(max-width: 700){
+    &-title {
+      font-size: 1em; 
+      text-align: center; 
+    }
+    &-subtitle{
+      font-size: 0.5em;
+      color: #696990;
+    }
+  }
+}
+.forms{
+  &-sides{
+    color: #b3b8c3; 
+    &--group{
+      position: relative;
+      width: 100%;
+
+      &_text,
+      &_select{
+        height: 3em; 
+        background-color: #F8F9FC;
+        border-radius: 0.3em;
+        color: #b3b8c3;
+        padding: 0em .9em;
+       
+        &::placeholder{
+          color: #b3b8c3;
+        }
+      }
+
+      &_label{
+      width: 100%;
+      }
+      
+      &_text{
+        border: none;
+        width: 100%;
+        
+      }
+      &_select{
+        border: none;
+        width: 100%;
+      }
+      &_checkbox{
+        position: absolute;
+        right: 0.3em;
+        bottom: 0.8em;
+      }
+    }
+  }
 }
 
-.custom-switch {
-  margin-left: 16.25rem !important;
-  margin-top: 14.5rem;
-}
-
-.select-info {
-  margin-top: 81px;
-}
-
-.descr-pay {
-  position: absolute;
-  top: 4px;
-  color: #b3b8c3;
-  font-size: 14px;
-}
-
-.descr-devis {
-  position: relative;
-  left: -2px;
-  color: #b3b8c3;
-  font-size: 14px;
-}
-
-.descr-article {
-  position: relative;
-  top: 147px;
-  color: #b3b8c3;
-  font-size: 14px;
-  left: -2px;
-}
-
-.descr-tva {
-  position: relative;
-  top: 228px;
-  color: #b3b8c3;
-  font-size: 14px;
-  left: -150px;
-}
-
-.form2 > .custom-select2 {
-  top: 0rem;
-}
-
-.form2 > .descr-article {
-  margin-left: 1rem;
-  position: absolute;
-}
-
-.form2 > .descr-tva {
-  margin-left: 10.3rem;
-  position: absolute;
-}
 </style>
 
 <script>

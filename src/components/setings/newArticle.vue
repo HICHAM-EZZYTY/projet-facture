@@ -7,7 +7,7 @@
             
             <input type="text" class= "text-input" v-model="article.article_type_value_eng" placeholder="value in english" />
         </div>
-        <button class="settings-btn btn btn-primary" @click="add">
+        <button class=" btn-primary" @click="add">
             Add
         </button>
     </div>
@@ -21,9 +21,10 @@
             flex-direction: column; 
             align-items: center; 
             width: 100%;
-        }  
+            height: 70vh;
+            background-color: red; 
+        }
     }
- 
     .text{
         &-group{
             width: 100%; 
@@ -56,6 +57,7 @@
     }
     
 </style>
+
 <script>
 export default {
     name : "newArticle", 

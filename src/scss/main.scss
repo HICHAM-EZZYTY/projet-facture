@@ -93,6 +93,8 @@
   .settings-btn{
     // position: absolute;
     float: right;
+    // right: 0;
+    bottom: 0; 
     height: 50px;  
     width: 20em;
     border-bottom-left-radius: 0px;
@@ -102,8 +104,8 @@
     background-color : #2262c6;
   }   
   
-  // -----Font-Name-----
 
+  // -----Font-Name-----
   $gb:"Gilroy-Black";
   $bi:"Gilroy-Black";
   $bd:"Gilroy-Bold";

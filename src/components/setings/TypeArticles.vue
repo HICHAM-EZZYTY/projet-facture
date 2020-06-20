@@ -88,14 +88,14 @@ export default {
 </script>
 <style lang="scss" scoped >
     .tableplus{
-        padding-top: 2em;
         display: flex; 
         flex-direction: column; 
         align-items: center; 
+        min-height: 70vh;
     } 
     table{
         width: 80%;
-        margin: auto;
+        margin-top: 2em;
         text-align: center;
     }
     button{

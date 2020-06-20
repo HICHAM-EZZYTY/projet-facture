@@ -1,7 +1,6 @@
 <template>
     <div class="container home-settings">
       
-      
       <navBar/>
       
       <div class="collapse" id="navbarToggleExternalContent">
@@ -9,7 +8,6 @@
           <sideBar/>
         </div>
       </div>
-
       
       <div class="row mt-4 content-section">
             
@@ -52,16 +50,16 @@ export default {
   & .content-section{
     box-shadow: 0px 4px 10px rgba(0,0,0,0.3) ;  
     border-radius: 10px ;
-    height: 70vh;  
+    height: 80vh;  
     &_view{
-      height: 70vh;
+      height: 100%;
       overflow-x: hidden; 
       overflow-y: auto; 
     }
   }
   & .con{
     overflow-y: scroll;
-    height:70vh;
+    height:80vh;
     // border-right: 2px solid black ;
   }
   @media only screen and (max-width: 1000px) {

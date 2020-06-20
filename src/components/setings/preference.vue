@@ -1,20 +1,27 @@
 <template>
-  <div class="general-preferences pt-4">
+  <div class="general-preferences pt-3">
+  
+    <!-- General Preferences Notification Message. -->
     <div v-show="isUpdated">
       <p style="color: green; ">
         settings updated ...
       </p>
     </div>
-    
+    <!-- End Of General Preferences Notification Message. -->
+  
+    <!-- General Preferences Header -->
     <div class="row">
       <div class="col-12 header">
         <h1 class="pl-xl-4 pl-md-4 pl-sm-2 pl-xs-2 header-title">Préférences Générales :</h1>
         <h5 class="pl-xl-4 pl-md-4 pl-sm-2 pl-xs-2 header-subtitle">Ici, Vous Pouvez Modifier Les Préférences Générales</h5>
       </div>
     </div>
+    <!-- End Of General Preferences Header -->
     
+      <!-- General Preferences inputs -->
     <div class="row forms p-xl-4 p-md-3 p-sm-2 p-xs-2">
-
+      
+      <!-- left Side of the General Preferences -->
       <div class="forms-sides col-xl-6 col-md-12 col-sm-12 col-xs-12">
 
         <div class="forms-sides--group">
@@ -44,7 +51,9 @@
         </div>
       
       </div>
-
+      <!-- End of left Side of the General Preferences -->
+      
+      <!-- Right Side of the General Preferences -->
       <div class="forms-sides col-xl-6 col-md-12 col-sm-12 col-xs-12">
         
         <div  class="forms-sides--group">
@@ -68,12 +77,17 @@
         </div>
         
       </div>
-
+      <!-- Enf of Right Side of the General Preferences -->
       
     </div>
+    <!-- End Of General Preferences inputs -->
+
+    <!-- General Preferences Submit button. -->
     <b-button class="settings-btn btn btn-primary" @click="updateGeneralThing">
-        Mettre à jour votre compte
-      </b-button>
+      Mettre à jour votre compte
+    </b-button>
+    <!-- End Of General Preferences Submit button. -->
+
   </div>
 </template>
 
@@ -81,73 +95,74 @@
 
 <style lang="scss"  scoped>
 .general-preferences{
+  position: relative; 
   width: 100%;
   min-height: 100%;
   // height: 100vh;
 }
-.header{
-  &-title{
-    font-size: 2em;
-    color: #2f2e4d;
+// .header{
+//   &-title{
+//     font-size: 2em;
+//     color: #2f2e4d;
    
-  }
-  &-subtitle{
-    font-size: 1em;
-    color: #696990;
-  }
-  @media screen and(max-width: 700){
-    &-title {
-      font-size: 1em; 
-      text-align: center; 
-    }
-    &-subtitle{
-      font-size: 0.5em;
-      color: #696990;
-    }
-  }
-}
-.forms{
-  &-sides{
-    color: #b3b8c3; 
-    &--group{
-      position: relative;
-      width: 100%;
+//   }
+//   &-subtitle{
+//     font-size: 1em;
+//     color: #696990;
+//   }
+//   @media screen and(max-width: 700){
+//     &-title {
+//       font-size: 1em; 
+//       text-align: center; 
+//     }
+//     &-subtitle{
+//       font-size: 0.5em;
+//       color: #696990;
+//     }
+//   }
+// }
+// .forms{
+//   &-sides{
+//     color: #b3b8c3; 
+//     &--group{
+//       position: relative;
+//       width: 100%;
+//       margin-top: 2.7px;
 
-      &_text,
-      &_select{
-        height: 3em; 
-        background-color: #F8F9FC;
-        border-radius: 0.3em;
-        color: #b3b8c3;
-        padding: 0em .9em;
+//       &_text,
+//       &_select{
+//         height: 3em; 
+//         background-color: #F8F9FC;
+//         border-radius: 0.3em;
+//         color: #b3b8c3;
+//         padding: 0em .9em;
        
-        &::placeholder{
-          color: #b3b8c3;
-        }
-      }
+//         &::placeholder{
+//           color: #b3b8c3;
+//         }
+//       }
 
-      &_label{
-      width: 100%;
-      }
+//       &_label{
+//       width: 100%;
+//       }
       
-      &_text{
-        border: none;
-        width: 100%;
+//       &_text{
+//         border: none;
+//         width: 100%;
         
-      }
-      &_select{
-        border: none;
-        width: 100%;
-      }
-      &_checkbox{
-        position: absolute;
-        right: 0.3em;
-        bottom: 0.8em;
-      }
-    }
-  }
-}
-
+//       }
+//       &_select{
+//         border: none;
+//         width: 100%;
+//       }
+//       &_checkbox{
+//         position: absolute;
+//         right: 0.3em;
+//         bottom: 0.8em;
+//       }
+//     }
+//   }
+// }
 </style>
 
 <script>
@@ -203,12 +218,15 @@ export default {
       });
       return null;
     },
+
     getArticles: function () {
+      
       this.typeArticles.push({
         text: "Select a default article",
         value: null
-      });     
-		this.$http
+      });
+
+      this.$http
         .get('/type_articles')
         .then( (res) => {
           res.data.forEach( (data) => {
@@ -224,11 +242,13 @@ export default {
         });
     }, 
     getConditions: function () {
+
       this.conditions.push({
         text: "Select a default condition",
         value: null
       });
-		  this.$http
+		  
+      this.$http
         .get('/condition_reglement')
         .then( (res) => {
           res.data.forEach( (data) => {
@@ -244,6 +264,7 @@ export default {
         });
     }, 
     getModes: function() {
+      
       this.mode.push({
         text: "Select a default mode",
         value: null
@@ -265,7 +286,8 @@ export default {
         });
     }, 
     getGeneralPref: function () {
-		  this.$http
+		  
+      this.$http
         .get('/settings/general')
         .then( (res) => {
 
@@ -305,11 +327,13 @@ export default {
         });
     }, 
     getInterests: function () {
+      
       this.interests.push({
         text: "Select a default interest",
         value: null
       });
-		  this.$http
+		  
+      this.$http
         .get('/interet_retard')
         .then( (res) => {
           res.data.forEach( (data) => {
@@ -325,6 +349,7 @@ export default {
         });
     }, 
     updateGeneralThing: function(){
+    
       let tva = (this.checked == false ) ? 0 : parseInt(this.tvaValue);
       let g = {
         type_article_id: this.selectedArticle,

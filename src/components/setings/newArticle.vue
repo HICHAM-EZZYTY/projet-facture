@@ -7,7 +7,7 @@
             
             <input type="text" class= "text-input" v-model="article.article_type_value_eng" placeholder="value in english" />
         </div>
-        <button class=" btn-primary" @click="add">
+        <button class="settings-btn btn btn-primary" @click="add">
             Add
         </button>
     </div>
@@ -22,7 +22,7 @@
             align-items: center; 
             width: 100%;
             height: 70vh;
-            background-color: red; 
+            // background-color: red; 
         }
     }
     .text{

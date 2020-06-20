@@ -1,0 +1,83 @@
+.settings-btn{
+  position: absolute;
+  right: 0;
+  bottom: 0; 
+  height: 50px;  
+  width: 20em;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 10px; 
+  background-color : #2262c6;
+  &:hover, &:focus{
+    border: none;
+    outline: none;
+    background-color: #1757b7 !important; 
+  }
+}   
+
+
+.header{
+  &-title{
+    font-size: 2em;
+    color: #2f2e4d;
+   
+  }
+  &-subtitle{
+    font-size: 1em;
+    color: #696990;
+  }
+  @media screen and(max-width: 700){
+    &-title {
+      font-size: 1em; 
+      text-align: center; 
+    }
+    &-subtitle{
+      font-size: 0.5em;
+      color: #696990;
+    }
+  }
+}
+
+.forms{
+  &-sides{
+    color: #b3b8c3; 
+    &--group{
+      position: relative;
+      width: 100%;
+      margin-top: 2.7px;
+
+      &_text,
+      &_select{
+        height: 3em; 
+        background-color: #F8F9FC;
+        border-radius: 0.3em;
+        color: #b3b8c3;
+        padding: 0em .9em;
+       
+        &::placeholder{
+          color: #b3b8c3;
+        }
+      }
+
+      &_label{
+      width: 100%;
+      }
+      
+      &_text{
+        border: none;
+        width: 100%;
+        
+      }
+      &_select{
+        border: none;
+        width: 100%;
+      }
+      &_checkbox{
+        position: absolute;
+        right: 0.3em;
+        bottom: 0.8em;
+      }
+    }
+  }
+}

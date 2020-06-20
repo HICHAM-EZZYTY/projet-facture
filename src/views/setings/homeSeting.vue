@@ -55,6 +55,8 @@ export default {
       height: 100%;
       overflow-x: hidden; 
       overflow-y: auto; 
+      padding: 0;
+      margin: 0;
     }
   }
   & .con{

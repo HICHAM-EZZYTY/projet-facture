@@ -23,8 +23,7 @@ Vue.use(VCalendar, {
 
 const axios = require("axios").default;
 
-let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTU5MjY2NzEwOCwiZXhwIjoxNTkyNjcwNzA4LCJuYmYiOjE1OTI2NjcxMDgsImp0aSI6InY1M3Rkc0xZblZrem5ZY2kiLCJzdWIiOjIyLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.j-iR1bN4gnN00hxWl5kDqTmr6zBpxRmfSchp57SMrDA";
-
+let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTU5MjY3MDk3NCwiZXhwIjoxNTkyNjc0NTc0LCJuYmYiOjE1OTI2NzA5NzQsImp0aSI6IlN6N1JmR25DVTNvNVE0UFQiLCJzdWIiOjIyLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.zjkxVLp7MMfgeW55-rvZMV5HigE8SQ2f3BojM_9RCRM";
 Vue.prototype.$http = axios;
 Vue.prototype.$http.defaults.baseURL = "http://127.0.0.1:8000/api";
 Vue.prototype.$http.defaults.headers.common = { Authorization: `Bearer ${token}` };

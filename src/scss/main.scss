@@ -1,5 +1,5 @@
 @import '~vue-single-date-picker/dist/vue-single-date-picker.css';
-
+@import "style.scss";
 
 @font-face {
   font-family: 'Gilroy-Black';
@@ -90,19 +90,6 @@
     font-family: 'Gilroy-UltraLight';
     src: url('~@/assets/fonts/Gilroy-UltraLight.ttf') format('truetype');
   } 
-  .settings-btn{
-    // position: absolute;
-    float: right;
-    // right: 0;
-    bottom: 0; 
-    height: 50px;  
-    width: 20em;
-    border-bottom-left-radius: 0px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 10px; 
-    background-color : #2262c6;
-  }   
   
 
   // -----Font-Name-----

@@ -19,7 +19,7 @@
                     <td>{{ article.English }}</td>
                     <td>{{ article.French }}</td>
                     <td>
-                        <button v-show='article.isDelitable' @click="deleteArticle(article.id)">
+                        <button v-show='article.isDelitable' class="btn btn-danger" @click="deleteArticle(article.id)">
                             delete
                         </button> 
                     </td>
@@ -99,6 +99,6 @@ export default {
         text-align: center;
     }
     button{
-        border-radius: 3px;  
+        border-radius: 3px;
     }
 </style>

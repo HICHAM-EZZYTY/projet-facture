@@ -11,11 +11,11 @@
       
       <div class="row mt-4 content-section">
             
-        <div class="col-xl-3 col-md-3 col-sm-12 col-xs-12 mx-0 px-0 con">
+        <div class="col-xl-3 col-md-3 col-sm-12 mx-0 px-0 con">
           <sideBar/>
         </div>
 
-        <div class="col-xl-9 col-md-9 col-sm-12 col-xs-12 mx-0 px-0 content-section_view">
+        <div class="col-xl-9 col-md-9 col-sm-12  mx-auto px-0 content-section_view">
           <router-view/>
         </div>
       
@@ -57,6 +57,14 @@ export default {
       overflow-y: auto; 
       padding: 0;
       margin: 0;
+      @media screen and (max-width: 600px){
+        & > div{
+          padding-bottom: 4em;
+          & label{
+            font-size: 1em !important;
+          }
+        }
+      }
     }
   }
   & .con{

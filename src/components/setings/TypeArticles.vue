@@ -1,11 +1,15 @@
 <template>
     
     <div class="tableplus" :key="componentKey">
+     
+        
+        <!-- 
+            this is a custom component . 
+        -->
+      <Title mainTitle="Préférences Type Articles :" subTitle="Ici, Vous Pouvez Modifier Les Préférences des Type Articles" />
         <div v-if="isLoading">
             Loading ... 
         </div>
-        
-        
         <table class="table" v-else>
             <thead class="thead-dark">
                 <tr>
@@ -35,10 +39,15 @@
 </template>
 
 <script>
+import Title from './Title.vue'; 
 export default {
     // when this gets linked to the API the is loading field should be initialied with a true value,
     // to indicat that the dat still loading from the server
     name: "TypeArticles",
+    components: {
+        Title,
+    }
+    ,
     data: function(){
         return {
             componentKey: 0,

@@ -1,8 +1,10 @@
 <template>
   <div>
-    <h1 class="title-ref">Préférences Pour Les Factures :</h1>
-    <h5 class="sous-title">ici, vous pouvez modifier les préférences de factures</h5>
-
+      <!-- 
+        this is a custom component . 
+      -->
+      <Title mainTitle="Préférences Pour Les Factures:" subTitle="ici, vous pouvez modifier les préférences des factures" />
+    
     <div class="row">
       <div class="form1 col-md-6">
         <p>Afficher mon nom dans les PDF</p>
@@ -53,8 +55,13 @@
 </template>
 
 <script>
+
+import Title from './Title.vue';
 export default {
   name: "factureRef", 
+  components: {
+    Title
+  },
   data: function () {
     return {
       facture: {
@@ -97,86 +104,86 @@ export default {
 }
 </script>
 
-<style scoped > 
-.title-ref {
-  font-family: "Gilroy" sans-serif;
-  font-size: 27px;
-  font-weight: bold;
-  margin-left: 49px;
-  margin-top: 34px;
-}
+<style lang="scss" scoped> 
+// .title-ref {
+//   font-family: "Gilroy" sans-serif;
+//   font-size: 27px;
+//   font-weight: bold;
+//   margin-left: 49px;
+//   margin-top: 34px;
+// }
 
-.sous-title {
-  font-size: 16px;
-  color: gray;
-  margin-left: 51px;
-  margin-top: 17px;
-}
+// .sous-title {
+//   font-size: 16px;
+//   color: gray;
+//   margin-left: 51px;
+//   margin-top: 17px;
+// }
 
-.form1 > p,
-.form2 > p {
-  position: absolute;
-  font-family: "Gilroy" sans-serif;
-  color: #696990;
-}
+// .form1 > p,
+// .form2 > p {
+//   position: absolute;
+//   font-family: "Gilroy" sans-serif;
+//   color: #696990;
+// }
 
-.custom-switch1 {
-  top: -14.3rem;
-}
+// .custom-switch1 {
+//   top: -14.3rem;
+// }
 
-.form2 > .custom-switch1 {
-  left: 2.6rem;
-  top: -14.3rem !important;
-}
+// .form2 > .custom-switch1 {
+//   left: 2.6rem;
+//   top: -14.3rem !important;
+// }
 
-.form1 > h4,
-.form2 > h4 {
-  left: -35px;
-  top: 18px;
-  position: absolute;
-  font-size: 23px;
-  font-weight: bold;
-  margin-left: 49px;
-  margin-top: 18px;
-  color: #2f2e4d;
-}
+// .form1 > h4,
+// .form2 > h4 {
+//   left: -35px;
+//   top: 18px;
+//   position: absolute;
+//   font-size: 23px;
+//   font-weight: bold;
+//   margin-left: 49px;
+//   margin-top: 18px;
+//   color: #2f2e4d;
+// }
 
-.descr-facture {
-  position: absolute;
-  top: 4.8rem;
-  left: 0.9rem;
-}
+// .descr-facture {
+//   position: absolute;
+//   top: 4.8rem;
+//   left: 0.9rem;
+// }
 
-#textarea-large {
-  position: absolute;
-  width: 296px;
-  height: 79px;
-  background: #f8f9fc;
-  border: 1px solid #aab5c6;
-  box-sizing: border-box;
-  border-radius: 4px;
-}
+// #textarea-large {
+//   position: absolute;
+//   width: 296px;
+//   height: 79px;
+//   background: #f8f9fc;
+//   border: 1px solid #aab5c6;
+//   box-sizing: border-box;
+//   border-radius: 4px;
+// }
 
-.textarea1 {
-  left: 15px;
-  top: -11.5rem;
-}
+// .textarea1 {
+//   left: 15px;
+//   top: -11.5rem;
+// }
 
-.descr-facture2 {
-  margin-left: 0rem;
-  top: 12rem;
-}
+// .descr-facture2 {
+//   margin-left: 0rem;
+//   top: 12rem;
+// }
 
-.textarea2 {
-  top: -9rem;
-}
+// .textarea2 {
+//   top: -9rem;
+// }
 
-.descr-facture3 {
-  top: 19.5rem;
-  left: 1rem;
-}
+// .descr-facture3 {
+//   top: 19.5rem;
+//   left: 1rem;
+// }
 
-.textarea3 {
-  top: -6.5rem;
-}
+// .textarea3 {
+//   top: -6.5rem;
+// }
 </style>

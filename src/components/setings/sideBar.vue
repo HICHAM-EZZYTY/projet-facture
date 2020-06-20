@@ -47,7 +47,34 @@
         </router-link>
       </li>
       <li class="sidebar-item">
+      <router-link :to="{ name: 'TypeArticles' }" class="sidebar-item--link">
           Thème des documents                
+        </router-link>
+      </li>
+      <li class="sidebar-item">
+      <router-link :to="{ name: 'TypeArticles' }" class="sidebar-item--link">
+          Coordonnées
+        </router-link>
+      </li>
+      <li class="sidebar-item">
+      <router-link :to="{ name: 'BackAccounts' }" class="sidebar-item--link">
+        Comptes Bancaires                
+        </router-link>
+      </li>
+      <li class="sidebar-item">
+      <router-link :to="{ name: 'User' }" class="sidebar-item--link">
+        Compte                
+        </router-link>
+      </li>
+      <li class="sidebar-item">
+      <router-link :to="{ name: 'DeleteAccount' }" class="sidebar-item--link">
+        Supprimer mon compte              
+        </router-link>
+      </li>
+      <li class="sidebar-item">
+      <router-link :to="{ name: 'Home' }" class="sidebar-item--link">
+      Aide            
+        </router-link>
       </li>
     </ul>
 </template>

@@ -1,18 +1,4 @@
 <template>
-   <!--
-      <b-navbar type="light" variant="light">
-      <img class="logo-fatoura" src="../../assets/Group 4.png" alt="logo" />
-      <h6 class="logo-title">Configurer votre application fatoura</h6>
-      <router-link to="/">
-        <b-button class="button-back">
-          <i class="fa fa-arrow-right arrow" style="color: #ffffff;">
-             icon 
-          </i>
-        </b-button>
-      </router-link>
-      <p class="text-back">Retour</p>
-    </b-navbar>
--->
       <div class="row mt-3">
         <div class="col-xl-12 col-md-12 col-sm-12 col-xs-12 navbar shadow">
               
@@ -70,14 +56,18 @@ export default {};
   & .back-btn{
     display: flex; 
     flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    height: 2em ; 
+    width: 2em;
     &:focus{
       outline: none;
     }
     &_arrow{
       background-color: #2262c6;
       border: none; 
-      height: 2em;
-      width: 2em;
+      // height: 2em;
+      // width: 2em;
       border-radius: 100% !important;
     }
     &:hover {

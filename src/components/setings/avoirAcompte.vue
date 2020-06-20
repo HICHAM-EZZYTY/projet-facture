@@ -1,7 +1,10 @@
 <template>
-  <div>
-    <h1 class="title-ref">Préférences Pour Les Avoirs D'acomptes :</h1>
-    <h5 class="sous-title">ici, vous pouvez modifier les préférences des avoirs d'acomptes</h5>
+  <div class="avoireAcompte-settings pb-sm-4 pb-xs-4">
+ 
+      <!-- 
+        this is a custom component . 
+      -->
+      <Title mainTitle="Avoirs D'acomptes :" subTitle="ici, vous pouvez modifier les préférences des avoirs d'acomptes" />
 
     <div class="row">
       <div class="form1 col-md-6">
@@ -53,8 +56,12 @@
 </template>
 
 <script>
+import Title from './Title.vue'; 
 export default {
   name : "avoirAcompte", 
+  components: {
+    Title,
+  }, 
   data: function () {
     return {
       
@@ -102,19 +109,24 @@ export default {
 };
 </script>
 
-<style scoped>
-.title-ref {
-  font-family: "Gilroy" sans-serif;
-  font-size: 27px;
-  font-weight: bold;
-  margin-left: 49px;
-  margin-top: 34px;
+<style lang="scss" scoped>
+.avoireAcompte-settings{
+  position: relative;
+  min-height: 100%;
+  width: 100%; 
 }
+// .title-ref {
+//   font-family: "Gilroy" sans-serif;
+//   font-size: 27px;
+//   font-weight: bold;
+//   margin-left: 49px;
+//   margin-top: 34px;
+// }
 
-.sous-title {
-  font-size: 16px;
-  color: gray;
-  margin-left: 51px;
-  margin-top: 17px;
-}
+// .sous-title {
+//   font-size: 16px;
+//   color: gray;
+//   margin-left: 51px;
+//   margin-top: 17px;
+// }
 </style>

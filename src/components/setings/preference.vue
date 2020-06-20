@@ -1,5 +1,5 @@
 <template>
-  <div class="general-preferences pt-3">
+  <div class="general-preferences">
   
     <!-- General Preferences Notification Message. -->
     <div v-show="isUpdated">
@@ -10,19 +10,17 @@
     <!-- End Of General Preferences Notification Message. -->
   
     <!-- General Preferences Header -->
-    <div class="row">
-      <div class="col-12 header">
-        <h1 class="pl-xl-4 pl-md-4 pl-sm-2 pl-xs-2 header-title">Préférences Générales :</h1>
-        <h5 class="pl-xl-4 pl-md-4 pl-sm-2 pl-xs-2 header-subtitle">Ici, Vous Pouvez Modifier Les Préférences Générales</h5>
-      </div>
-    </div>
+      <!-- 
+        this is a custom component . 
+      -->
+      <Title mainTitle="Préférences Générales :" subTitle="Ici, Vous Pouvez Modifier Les Préférences Générales" />
     <!-- End Of General Preferences Header -->
     
       <!-- General Preferences inputs -->
-    <div class="row forms p-xl-4 p-md-3 p-sm-2 p-xs-2">
+    <div class="row forms p-xl-4 p-md-3 p-sm-2">
       
       <!-- left Side of the General Preferences -->
-      <div class="forms-sides col-xl-6 col-md-12 col-sm-12 col-xs-12">
+      <div class="forms-sides col-xl-6 col-md-12 col-sm-12">
 
         <div class="forms-sides--group">
           <label class="forms-sides--group_label">Pays pour défault pour les clients</label>
@@ -42,7 +40,7 @@
         <div class="forms-sides--group" >
           <label class="forms-sides--group_label">Tva (%)</label>
           <input class="forms-sides--group_text" type="text" placeholder="20.0" v-model="tvaValue" />
-          <b-form-checkbox v-model="checked" class="forms-sides--group_checkbox" name="check-button" switch></b-form-checkbox>
+          <b-form-checkbox v-model="checked" class="forms-sides--group_checkbox-2" name="check-button" switch></b-form-checkbox>
         </div>
       
         <div class="forms-sides--group" >
@@ -54,7 +52,7 @@
       <!-- End of left Side of the General Preferences -->
       
       <!-- Right Side of the General Preferences -->
-      <div class="forms-sides col-xl-6 col-md-12 col-sm-12 col-xs-12">
+      <div class="forms-sides col-xl-6 col-md-12 col-sm-12">
         
         <div  class="forms-sides--group">
           <label class="forms-sides--group_label">Texte affiché si TVA n'est pas applicable</label>
@@ -166,6 +164,7 @@
 </style>
 
 <script>
+import Title from './Title.vue';
 export default {
   data() {
     return {
@@ -209,6 +208,9 @@ export default {
     
     };
   }, 
+  components:{
+    Title
+  },
   methods: {
     getSelectedValueSync(array, value){
       array.forEach( (a) => {

@@ -1,9 +1,10 @@
 <template>
-  <div>
-    <h1 class="title-ref">Préférences Pour Les Factures D'acomptes :</h1>
-    <h5 class="sous-title">ici, vous pouvez modifier les préférences de factures d’acomptes</h5>
+  <div class="pb-sm-4 pb-xs-4">
+   
+    <Title mainTitle="Factures D'acomptes :" subTitle="ici, vous pouvez modifier les préférences des factures d'acomptes" />
 
-    <div class="row">
+
+    <div class="row px-xl-4">
       <div class="form1 col-md-6">
         
         <p>Afficher mon nom dans les PDF</p>
@@ -141,58 +142,58 @@ export default {
 };
 </script>
 
-<style scoped >
-.title-ref {
-  font-family: "Gilroy" sans-serif;
-  font-size: 27px;
-  font-weight: bold;
-  margin-left: 49px;
-  margin-top: 34px;
-}
+<style lang="scss" scoped >
+// .title-ref {
+//   font-family: "Gilroy" sans-serif;
+//   font-size: 27px;
+//   font-weight: bold;
+//   margin-left: 49px;
+//   margin-top: 34px;
+// }
 
-.sous-title {
-  font-size: 16px;
-  color: gray;
-  margin-left: 51px;
-  margin-top: 17px;
-}
+// .sous-title {
+//   font-size: 16px;
+//   color: gray;
+//   margin-left: 51px;
+//   margin-top: 17px;
+// }
 
-.form1 > #text-show,
-.form2 > #text-show {
-  font-size: 21.5px !important;
-}
+// .form1 > #text-show,
+// .form2 > #text-show {
+//   font-size: 21.5px !important;
+// }
 
-.montant {
-  position: absolute;
-  width: 150px !important;
-  margin-top: -4.4px;
-  border-top: none;
-  border-bottom: 1px solid black;
-  border-right: none;
-  border-left: none;
-}
+// .montant {
+//   position: absolute;
+//   width: 150px !important;
+//   margin-top: -4.4px;
+//   border-top: none;
+//   border-bottom: 1px solid black;
+//   border-right: none;
+//   border-left: none;
+// }
 
-.montantRef {
-  position: absolute;
-  width: 200px !important;
-  /* margin-left: 0px; */
-  margin-top: -18px;
-}
+// .montantRef {
+//   position: absolute;
+//   width: 200px !important;
+//   /* margin-left: 0px; */
+//   margin-top: -18px;
+// }
 
-#montantid {
-  position: absolute;
-  width: 70px !important;
-  left: 11rem;
-  top: -3px;
-  border: none !important;
-  border-bottom: 1px solid black !important;
-  border-radius: 0px !important;
-  background-color: white !important;
-  border-bottom-left-radius: 0px !important;
-}
+// #montantid {
+//   position: absolute;
+//   width: 70px !important;
+//   left: 11rem;
+//   top: -3px;
+//   border: none !important;
+//   border-bottom: 1px solid black !important;
+//   border-radius: 0px !important;
+//   background-color: white !important;
+//   border-bottom-left-radius: 0px !important;
+// }
 
-.down-dev {
-  position: absolute;
-  left: 13.8rem;
-}
+// .down-dev {
+//   position: absolute;
+//   left: 13.8rem;
+// }
 </style>

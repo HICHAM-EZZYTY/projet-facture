@@ -1,20 +1,32 @@
 <template>
-  <div class="numerotation-settings mt-0">
+  <div class="numerotation-settings mt-0">   
+      <!-- 
+        this is a custom component . 
+      -->
+      <Title mainTitle="Numérotation :" subTitle="ici, vous pouvez modifier les préférences de numérotation" />
     
-    <div class="row ">
-      <div class="col-12 header mt-3">
-        <h1 class="pl-xl-4 pl-md-4 pl-sm-2 pl-xs-2 header-title">Numérotation :</h1>
-        <h5 class="pl-xl-4 pl-md-4 pl-sm-2 pl-xs-2 header-subtitle">ici, vous pouvez modifier les préférences de numérotation</h5>
-      </div>
-    </div>
-    
-    <div class="row forms p-xl-4 p-md-3 p-sm-2 p-xs-2">
+    <div class="row forms px-xl-4 px-md-3 px-sm-2 px-xs-2">
     
       <div class="forms-sides col-xl-6 col-md-12 col-sm-12 col-xs-12">
     
         <div  class="forms-sides--group">
           <label class="forms-sides--group_label">Format De La Numérotation</label>
           <input class="forms-sides--group_text" placeholder="<doc><aa><cmp>" v-model="codeFormat"/>
+          <div class="documentation">
+              <a href="#" class="documentation-title">Learn About Code Formas.</a>
+              <ul class="documentation-content">
+                <li>home</li>
+                <li>home</li>
+                <li>home</li>
+                <li>home</li>
+                <li>home</li>
+                <li>home</li>
+                <li>home</li>
+                <li>home</li>
+              </ul>
+          </div>
+         
+        
         </div>
     
         <div class="forms-sides--group">
@@ -67,8 +79,12 @@
 </template>
 
 <script >
+import Title from './Title.vue'; 
 export default {
-  name: "Numerotation",
+  name: "Numerotation", 
+  components: {
+        Title,
+  },
   data() {
     return {
       
@@ -184,11 +200,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.numerotation-settings{
-  position: relative;
-  width: 100%; 
-  min-height: 100%; 
-}
+
+  .documentation{
+    &-title{
+      font-size: 14px;
+      padding: 0% 2%;
+      color: #696990; 
+    }
+    &-content{
+      display:none;
+      height: 0%;
+    }
+  } 
+  .numerotation-settings{
+    position: relative;
+    width: 100%; 
+    min-height: 100%; 
+  }
 // .title-ref {
 //   font-family: "Gilroy" sans-serif;
 //   font-size: 27px;

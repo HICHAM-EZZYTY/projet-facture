@@ -1,7 +1,10 @@
 <template>
-  <div>
-    <h1 class="title-ref">Préférences Pour Les Avoirs :</h1>
-    <h5 class="sous-title">ici, vous pouvez modifier les préférences des avoirs</h5>
+  <div class="pb-sm-4 pb-xs-4">
+   
+    <!-- 
+        this is a custom component . 
+      -->
+      <Title mainTitle="Les Avoirs :" subTitle="ici, vous pouvez modifier les préférences des avoirs" />
 
     <div class="row">
       <div class="form1 col-md-6">
@@ -52,8 +55,12 @@
 </template>
 
 <script>
+import Title from './Title.vue'; 
 export default {
   name: "avoireRef", 
+  components:{
+    Title,
+  }, 
   data: function () {
     return {
       avoire: {
@@ -96,28 +103,28 @@ export default {
 }
 </script>
 
-<style scoped >
+<style lang="scss" scoped >
 
-.title-ref {
-  font-family: "Gilroy" sans-serif;
-  font-size: 27px;
-  font-weight: bold;
-  margin-left: 49px;
-  margin-top: 34px;
-}
+// .title-ref {
+//   font-family: "Gilroy" sans-serif;
+//   font-size: 27px;
+//   font-weight: bold;
+//   margin-left: 49px;
+//   margin-top: 34px;
+// }
 
-.sous-title {
-  font-size: 16px;
-  color: gray;
-  margin-left: 51px;
-  margin-top: 17px;
-}
+// .sous-title {
+//   font-size: 16px;
+//   color: gray;
+//   margin-left: 51px;
+//   margin-top: 17px;
+// }
 
-.textarea01 {
-  margin-top: 6rem;
-}
+// .textarea01 {
+//   margin-top: 6rem;
+// }
 
-.textarea02 {
-  margin-top: 13rem;
-}
+// .textarea02 {
+//   margin-top: 13rem;
+// }
 </style>

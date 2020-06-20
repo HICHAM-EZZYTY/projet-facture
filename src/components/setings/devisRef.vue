@@ -1,6 +1,6 @@
 <template>
   <div class="pb-sm-4 pb-xs-4">
-          <!-- 
+      <!-- 
         this is a custom component . 
       -->
       <Title mainTitle="Préférences Pour Les Devis:" subTitle="ici, vous pouvez modifier les préférences des Devis" />

@@ -57,7 +57,12 @@ export default {
       overflow-y: auto; 
       padding: 0;
       margin: 0;
-      @media screen and (max-width: 600px){
+      & > div {
+        position: relative;
+        width: 100%;
+        min-height: 100%;
+      }
+      @media screen and (max-width: 1200px){
         & > div{
           padding-bottom: 4em;
           & label{

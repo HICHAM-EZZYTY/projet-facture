@@ -4,42 +4,42 @@
     <Title mainTitle="Factures D'acomptes :" subTitle="ici, vous pouvez modifier les préférences des factures d'acomptes" />
 
 
-    <div class="row px-xl-4">
-      <div class="form1 col-md-6">
+    <div class="row forms px-xl-4 px-lg-4 px-md-4 px-sm-3">
+      <div class="forms-sides col-xl-6 col-lg-6 col-md-12 col-sm-12">
         
-        <p>Afficher mon nom dans les PDF</p>
-        <b-form-checkbox class="custom-switch1" v-model="factureAcompte.is_name_shown" name="check-button" switch></b-form-checkbox>
         <h4 id="text-show">Factures D'acompte Français :</h4>
         
-        <label class="descr-pay descr-facture">Texte D’introduction Par Défaut</label>
-        <b-row class="mt-2">
-          <b-col sm="10">
-            <b-form-textarea id="textarea-large" class="textarea1" size="lg" v-model="factureAcompte.Introduction"></b-form-textarea>
-          </b-col>
-        </b-row>
+         <div class="forms-sides--group">
+          <p class="forms-sides--group_label" >Afficher mon nom dans les PDF</p>
+          <b-form-checkbox class="forms-sides--group_checkbox-2" v-model="factureAcompte.is_name_shown" name="check-button" switch></b-form-checkbox>
+        </div>
         
-        <label class="descr-pay descr-facture2">Texte de conclusion par défaut</label>
-        <b-row class="mt-2">
-          <b-col sm="10">
-            <b-form-textarea id="textarea-large" class="textarea2" size="lg" v-model="factureAcompte.Conclution"></b-form-textarea>
-          </b-col>
-        </b-row>
-        
-        <label class="descr-pay descr-facture3">Pied de page par défaut</label>
-        <b-row class="mt-2">
-          <b-col sm="10">
-            <b-form-textarea id="textarea-large" class="textarea3" size="lg" v-model="factureAcompte.footer"></b-form-textarea>
-          </b-col>
-        </b-row> 
 
+      
+        
+        <div class="forms-sides--group">
+          <label class="forms-sides--group_label">Texte D’introduction Par Défaut</label>
+          <b-form-textarea rows="3" class="forms-sides--group_textarea" size="lg" v-model="factureAcompte.Introduction" ></b-form-textarea>
+        </div> 
+        
+        <div class="forms-sides--group">
+          <label class="forms-sides--group_label">Texte de conclusion Par Défaut</label>
+          <b-form-textarea rows="3" class="forms-sides--group_textarea" size="lg" v-model="factureAcompte.Conclution" ></b-form-textarea>
+        </div> 
+        
+        <div class="forms-sides--group">
+          <label class="forms-sides--group_label">Pied de page Par Défaut</label>
+          <b-form-textarea rows="3" class="forms-sides--group_textarea" size="lg" v-model="factureAcompte.footer" ></b-form-textarea>
+        </div> 
+        
       </div>
 
     
-       <div class="form2 col-md-6">
+       <div class="forms-sides col-xl-6 col-lg-6 col-md-12 col-sm-12">
        
         <input v-model="factureAcompte.amount" class="montant" placeholder="Montat par défaut" />
         <b-form-select class="montantRef" id="montantid" v-model="factureAcompte.amount_unit_id" :options="options"></b-form-select>
-        <i class="fa fa-angle-down down-dev"></i>
+        
  <!-- 
         <h4 id="text-show">Factures D'acompte Anglais :</h4>
         
@@ -68,7 +68,11 @@
 </template>
 
 <script>
+import Title from './Title.vue';
 export default {
+  components: {
+    Title,
+  },
   data() {
     return {
       options: [

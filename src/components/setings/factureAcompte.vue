@@ -4,7 +4,7 @@
     <Title mainTitle="Factures D'acomptes :" subTitle="ici, vous pouvez modifier les préférences des factures d'acomptes" />
 
 
-    <div class="row forms px-xl-4 px-lg-4 px-md-4 px-sm-3">
+    <div class="row forms px-xl-4 px-lg-4 px-md-4 px-sm-3 mt-3">
       <div class="forms-sides col-xl-6 col-lg-6 col-md-12 col-sm-12">
         
         <h4 id="text-show">Factures D'acompte Français :</h4>
@@ -37,9 +37,10 @@
     
        <div class="forms-sides col-xl-6 col-lg-6 col-md-12 col-sm-12">
        
-        <input v-model="factureAcompte.amount" class="montant" placeholder="Montat par défaut" />
-        <b-form-select class="montantRef" id="montantid" v-model="factureAcompte.amount_unit_id" :options="options"></b-form-select>
-        
+        <div class="forms-sides--group-2">
+          <input v-model="factureAcompte.amount" type="number" min="0" class="forms-sides--group-2_text-different" placeholder="Montat par défaut" />
+          <b-form-select class="forms-sides--group-2_select-different" id="montantid" v-model="factureAcompte.amount_unit_id" :options="options"></b-form-select>
+        </div>
  <!-- 
         <h4 id="text-show">Factures D'acompte Anglais :</h4>
         

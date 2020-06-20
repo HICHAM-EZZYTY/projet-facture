@@ -38,13 +38,42 @@
   }
 }
 
+ .forms-sides--group-2{
+      display:flex; 
+      flex-direction: row;   
+      color: #b3b8c3; 
+    &_text-different{
+        width: 60% !important;
+        padding: 0em 1em;
+        margin-right: 5%;
+        color: black !important ;
+    }
+    &_select-different{
+        width: 20% !important;
+    }
+
+    &_select-different, 
+    &_text-different{
+      border: none;
+      border-radius: 0px;
+      background-color: transparent ;
+      border-bottom: 1px solid #b3b8c3 ; 
+      color: #b3b8c3;
+      &:focus{
+        outline: none;
+      }
+      &::placeholder {
+        color: #b3b8c3; 
+      }
+    }
+    
+  }
 .forms{
   &-sides{
     color: #b3b8c3; 
     &--group{
       position: relative;
       width: 100%;
-
       &_text,
       &_select{
         height: 3em; 
@@ -69,11 +98,16 @@
       &_text{
         border: none;
         width: 100%;
-        
+        &-different{
+          width: 70% !important;
+        }
       }
       &_select{
         border: none;
         width: 100%;
+        &-different{
+          width: 30% !important;
+        }
       }
       &_checkbox{
         

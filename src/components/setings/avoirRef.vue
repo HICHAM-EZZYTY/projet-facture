@@ -6,7 +6,7 @@
       -->
       <Title mainTitle="Les Avoirs :" subTitle="ici, vous pouvez modifier les préférences des avoirs" />
 
-    <div class="row forms px-xl-4 px-lg-4 px-md-4 px-sm-3">
+    <div class="row forms px-xl-4 px-lg-4 px-md-4 px-sm-3 mt-3">
       <div class="forms-sides col-xl-6 col-lg-6 col-md-12 col-sm-12">
 
         <div class="forms-sides--group">

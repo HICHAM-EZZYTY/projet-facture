@@ -97,7 +97,7 @@ img {
   width: 14px;
 }
 .s-layout {
-  height: 490px;
+  height: 100%;
 }
 .s-layout__content {
   display: flex;
@@ -113,7 +113,7 @@ img {
   overflow: hidden;
   transition: all 0.3s ease-in;
   width: 14em;
-  height: 80.8vh;
+  height: 100%;
   background: #2262c6;
   color: rgb(255, 255, 255);
 }

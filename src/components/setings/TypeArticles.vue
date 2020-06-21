@@ -1,22 +1,29 @@
 <template>
     
     <div class="tableplus" :key="componentKey">
+     
+        
+        <!-- 
+            this is a custom component . 
+        -->
+      <Title mainTitle="Préférences Type Articles :" subTitle="Ici, Vous Pouvez Modifier Les Préférences des Type Articles" />
         <div v-if="isLoading">
             Loading ... 
         </div>
-        
-        <table border="1" v-else >
-            <thead>
-                <th>nom</th>
-                <th>name</th>
-                <th>name</th>
+        <table class="table" v-else>
+            <thead class="thead-dark">
+                <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Handle</th>
+                </tr>
             </thead>
             <tbody>
-                <tr v-for="(article, index) in articles" :key="index">
+            <tr v-for="(article, index) in articles" :key="index">
                     <td>{{ article.English }}</td>
                     <td>{{ article.French }}</td>
                     <td>
-                        <button v-show='article.isDelitable' @click="deleteArticle(article.id)">
+                        <button v-show='article.isDelitable' class="btn btn-danger" @click="deleteArticle(article.id)">
                             delete
                         </button> 
                     </td>
@@ -25,18 +32,22 @@
         </table>
 
         
-        
-        <router-link :to="{ name: 'NewTypeArticles' }" >
+        <router-link class="settings-btn btn btn-primary" :to="{ name: 'NewTypeArticles' }" >
             Add new Article.
         </router-link>
     </div>
 </template>
 
 <script>
+import Title from './Title.vue'; 
 export default {
     // when this gets linked to the API the is loading field should be initialied with a true value,
     // to indicat that the dat still loading from the server
     name: "TypeArticles",
+    components: {
+        Title,
+    }
+    ,
     data: function(){
         return {
             componentKey: 0,
@@ -84,22 +95,19 @@ export default {
     }
 }
 </script>
-<style scoped>
+<style lang="scss" scoped >
     .tableplus{
-        padding-right: 40px;
-        border: 4px;
         display: flex; 
         flex-direction: column; 
         align-items: center; 
+        min-height: 70vh;
     } 
     table{
-        width: 50%;
+        width: 80%;
+        margin-top: 2em;
         text-align: center;
     }
     button{
-        text-transform : uppercase; 
-        margin: 20px;
-        height: 40px; 
-        border-radius: 30px;  
+        border-radius: 3px;
     }
 </style>

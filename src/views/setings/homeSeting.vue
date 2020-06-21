@@ -16,7 +16,7 @@
             <sideBar/>
           </div>
 
-          <div class="col-xl-9 col-md-9 col-sm-12  mx-auto px-0 content-section_view">
+          <div class="col-xl-9 col-md-12 col-sm-12 content-section_view">
             <router-view/>
           </div>
         
@@ -76,10 +76,14 @@ export default {
         position: relative;
         width: 100%;
         min-height: 100%;
+        padding: 0px 3px;
       }
       @media screen and (max-width: 1200px){
         & > div{
+          padding: 0px 10px;
           padding-bottom: 4em;
+          border-radius: 10px;
+          width:100%;
           & label{
             font-size: 1em !important;
           }
@@ -94,12 +98,12 @@ export default {
     height:80vh;
     // border-right: 2px solid black ;
   }
-  @media only screen and (max-width: 1000px) {
+  @media only screen and (max-width: 1200px) {
     & .con{
       display: none; 
     }
   }
-  @media only screen and (min-width: 1000px) {
+  @media only screen and (min-width: 1200px) {
     & .collapse{
       display: none; 
     }

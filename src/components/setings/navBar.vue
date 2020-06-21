@@ -97,12 +97,14 @@ export default {};
       width: 10em;
     }
     & .back-btn {
+      height: 1em;
+      height: 1em;
       &_arrow{
-        font-size: 1em;
+        font-size: .7em;
       }
       &_text{
 
-        font-size: 1em;
+        font-size: .6em;
       }
     }
   }

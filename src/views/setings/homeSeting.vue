@@ -1,26 +1,28 @@
 <template>
-    <div class="container home-settings">
+    <div class="background">
+      <div class="container home-settings">
       
-      <navBar/>
-      
-      <div class="collapse" id="navbarToggleExternalContent">
-        <div class="bg-light p-4">
-          <sideBar/>
+        <navBar/>
+        
+        <div class="collapse" id="navbarToggleExternalContent">
+          <div class="bg-light p-4">
+            <sideBar/>
+          </div>
         </div>
-      </div>
-      
-      <div class="row mt-4 content-section">
-            
-        <div class="col-xl-3 col-md-3 col-sm-12 mx-0 px-0 con">
-          <sideBar/>
+        
+        <div class="row mt-4 content-section">
+              
+          <div class="col-xl-3 col-md-3 col-sm-12 mx-0 px-0 con">
+            <sideBar/>
+          </div>
+
+          <div class="col-xl-9 col-md-9 col-sm-12  mx-auto px-0 content-section_view">
+            <router-view/>
+          </div>
+        
         </div>
 
-        <div class="col-xl-9 col-md-9 col-sm-12  mx-auto px-0 content-section_view">
-          <router-view/>
-        </div>
-      
       </div>
-
     </div>
 </template>
 
@@ -46,18 +48,31 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+::-webkit-scrollbar {
+  // width: 6px;
+  display: none ;
+}
+.background{
+  background-color: #e7eaf5;
+  height: 100%;
+}
+
 .home-settings { 
+  padding: 0;
   & .content-section{
     box-shadow: 0px 4px 10px rgba(0,0,0,0.3) ;  
     border-radius: 10px ;
     height: 80vh;  
     &_view{
+      // background: white;
       height: 100%;
       overflow-x: hidden; 
       overflow-y: auto; 
       padding: 0;
       margin: 0;
       & > div {
+        background: white;
+        border-radius: 0px 10px 10px 0px; 
         position: relative;
         width: 100%;
         min-height: 100%;
@@ -73,6 +88,8 @@ export default {
     }
   }
   & .con{
+    background: #f7f8fb;
+    border-radius: 10px 0px 0px 10px; 
     overflow-y: scroll;
     height:80vh;
     // border-right: 2px solid black ;

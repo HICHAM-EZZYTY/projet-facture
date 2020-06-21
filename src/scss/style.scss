@@ -43,17 +43,23 @@
       flex-direction: row;   
       color: #b3b8c3; 
     &_text-different{
+      
+        background-color: #F8F9FC;
         width: 60% !important;
         padding: 0em 1em;
         margin-right: 5%;
         color: black !important ;
     }
     &_select-different{
+      
+        background-color: #F8F9FC;
         width: 20% !important;
     }
 
     &_select-different, 
     &_text-different{
+      
+        background-color: #F8F9FC;
       border: none;
       border-radius: 0px;
       background-color: transparent ;
@@ -96,14 +102,14 @@
       }
       
       &_text{
-        border: none;
+        border: 1px #edeef2 solid;
         width: 100%;
         &-different{
           width: 70% !important;
         }
       }
       &_select{
-        border: none;
+        border: 1px #edeef2 solid;
         width: 100%;
         &-different{
           width: 30% !important;
@@ -111,6 +117,7 @@
       }
       &_checkbox{
         
+        background-color: #F8F9FC;
         text-align:center;
         padding: 0px !important;
         &-2{
@@ -120,6 +127,9 @@
         }
       }
       &_textarea{
+        
+        border: 1px #edeef2 solid;
+        background-color: #F8F9FC;
         width: 100%;
         resize: none;
         font-size: 15px;

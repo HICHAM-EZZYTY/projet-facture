@@ -27,6 +27,8 @@ let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC
 Vue.prototype.$http = axios;
 Vue.prototype.$http.defaults.baseURL = "http://127.0.0.1:8000/api";
 Vue.prototype.$http.defaults.headers.common = { Authorization: `Bearer ${token}` };
+Vue.prototype.routeNames = [];
+
 
 // Install BootstrapVue
 Vue.use(BootstrapVue);

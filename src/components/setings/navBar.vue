@@ -44,7 +44,7 @@ export default {};
   display: flex; 
   align-items: center;
   padding: 20px 60px;  
-  border-radius: 20px;  
+  border-radius: 10px;  
   border: none; 
   // border: 2px solid black;
   &.shadow{

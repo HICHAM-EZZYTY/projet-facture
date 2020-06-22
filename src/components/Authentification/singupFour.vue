@@ -12,6 +12,34 @@
         <input type="text" v-model="applicant.expiration" required />
       </div>
     </form>
+
+    <div class="test">
+      <ul>
+        <li
+          v-on:click="isActive"
+          class="list-items active"
+          @click="selected = 1"
+          :class="{highlight:selected == 1}"
+        >
+          <a href="#">
+            14
+            <i v-show="isActive" class="fa fa-user como"></i>
+          </a>
+        </li>
+        <li @click="selected = 2" :class="{highlight:selected == 2}">
+          <a href="#">
+            2
+            <i class="fa fa-user como"></i>
+          </a>
+        </li>
+        <li @click="selected = 3" :class="{highlight:selected == 3}">
+          <a href="#">
+            3
+            <i class="fa fa-user como"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -19,6 +47,8 @@
 export default {
   data() {
     return {
+      selected: null,
+      isActive: true,
       applicants: [
         {
           previous: ""
@@ -39,7 +69,27 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
+.highlight {
+  background: yellow;
+}
+.test ul .list-items.active {
+  background-color: greenyellow;
+}
+
+.test ul li.active > .como {
+  visibility: visible;
+}
+.como {
+  visibility: hidden;
+}
+.test {
+  text-align: center;
+}
+
+.como {
+  margin-left: 1rem;
+}
 /*= Reset CSS 
 ============= */
 html,

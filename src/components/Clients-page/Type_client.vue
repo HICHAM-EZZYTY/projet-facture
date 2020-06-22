@@ -44,6 +44,7 @@
 <script>
 export default {
     name:"Type_client",
+     
 }
 </script>
 <style scoped>
@@ -229,7 +230,7 @@ input[type=radio] {
 
   .card-wrapper{
     position: relative;
-    left: 21em;
+    left: 18em;
 }
 #Next{
     position: absolute;
@@ -261,7 +262,7 @@ h4[data-v-059a18b6] {
     top: 5em;
 }
 }
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 1500px) {
 
 .grid-wrapper{
     position: relative;
@@ -270,11 +271,18 @@ h4[data-v-059a18b6] {
 }
 h4{
   position: relative;
-  left: 13%;
+  left: 17%;
 }
 samp{
   position: relative;
-  left: 42%;
+  left: 35%;
 }
 }
+@media only screen and (max-width: 980px) {
+  .card-wrapper{
+    position: relative;
+    left: 17em;
+}
+}
+
 </style>

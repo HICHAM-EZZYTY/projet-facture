@@ -37,19 +37,23 @@
         </div>
         <!-- //////// -->
 
-        <div>
-          <b-form-select v-model="selected" :options="options" class="mb-3">
-            <!-- This slot appears above the options from 'options' prop -->
-            <template v-slot:first>
-              <b-form-select-option :value="null" disabled>Ville</b-form-select-option>
-            </template>
-            <!-- These options will appear after the ones from 'options' prop -->
-            <b-form-select-option value="C">Khouribga</b-form-select-option>
+        <!-- <div>
+        <b-form-select v-model="selected" :options="options" class="mb-3">-->
+        <!-- This slot appears above the options from 'options' prop -->
+        <!-- <template v-slot:first>
+              <b-form-select-option :value="null" class="custom-selecte" disabled>Ville</b-form-select-option>
+        </template>-->
+        <!-- These options will appear after the ones from 'options' prop -->
+        <!-- <b-form-select-option value="C">Khouribga</b-form-select-option>
             <b-form-select-option value="D">Ben-guerrir</b-form-select-option>
           </b-form-select>
-        </div>
+        </div>-->
         <!-- //////// -->
 
+        <div class="col-3 signup_input">
+          <input type="text" placeholder="Ville" />
+          <span class="focus-border"></span>
+        </div>
         <div class="col-3 signup_input">
           <input type="text" placeholder="Numéro de téléphone" />
           <span class="focus-border"></span>
@@ -158,7 +162,6 @@ h2 {
   text-align: center;
   padding: 6px 0;
   font-size: 12px;
-  line-height: 1.428571429;
   border-radius: 15px;
   background-color: #ffffff;
 }
@@ -237,7 +240,6 @@ h2 {
 p {
   font-size: 14px;
   font-weight: 100;
-  line-height: 20px;
   letter-spacing: 0.5px;
   margin: 20px 0 30px;
 }
@@ -354,9 +356,9 @@ input[type="text"] {
   margin-top: 25px;
 }
 
-.custom-select {
+/* .custom-selecte {
   border-radius: 0px !important;
-}
+} */
 
 .postal-input {
   margin-top: -84px;

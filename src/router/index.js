@@ -4,42 +4,47 @@ import VueRouter from "vue-router";
 //home
 import HomePage from "../views/HomePage.vue";
 
-  // Devis 
-  import Devis from "../views/subLayouts/Devis.vue";
-    import CreateDevis from "./../components/Devis/createDevis.vue";
-    import listDevis from "./../components/Devis/listDevis.vue";
+// Devis 
+import Devis from "../views/subLayouts/Devis.vue";
+import CreateDevis from "./../components/Devis/createDevis.vue";
+import listDevis from "./../components/Devis/listDevis.vue";
 
-  //clients
-  import Clients from "../views/subLayouts/Clients.vue";
-    import addClient from "../components/client/addClient.vue";
-    import cards from "../components/Clients-page/cards.vue";
-    import Type_client from "../components/Clients-page/Type_client.vue";
+//clients
+import Clients from "../views/subLayouts/Clients.vue";
+import addClient from "../components/client/addClient.vue";
+import cards from "../components/Clients-page/cards.vue";
+import Type_client from "../components/Clients-page/Type_client.vue";
+import Information_Compte from "../components/Clients-page/Information_Compte.vue";
 
-  //Facture
-  import factureAcompte from "../components/setings/factureAcompte.vue";
+//Facture
+import factureAcompte from "../components/setings/factureAcompte.vue";
 
-  //Avoire
-  import avoirAcompte from "../components/setings/avoirAcompte.vue";
+//Avoire
+import avoirAcompte from "../components/setings/avoirAcompte.vue";
 
-  //settings
-  import homeSeting from "../views/setings/homeSeting.vue";
-    import preference from "../components/setings/preference.vue";
-    import TypeArticles from './../components/setings/TypeArticles.vue'
-    import devisRef from "../components/setings/devisRef.vue";
-    import factureRef from "../components/setings/factureRef.vue";
-    import avoirRef from "../components/setings/avoirRef.vue";
-    import numerotation from "../components/setings/numerotation.vue";
+//settings
+import homeSeting from "../views/setings/homeSeting.vue";
+import preference from "../components/setings/preference.vue";
+import TypeArticles from './../components/setings/TypeArticles.vue'
+import devisRef from "../components/setings/devisRef.vue";
+import factureRef from "../components/setings/factureRef.vue";
+import avoirRef from "../components/setings/avoirRef.vue";
+import numerotation from "../components/setings/numerotation.vue";
+import newArticle from '@/components/setings/newArticle.vue';
 
-  //register/login
-  import GateLayout from "../views/subLayouts/GateLayout.vue";
-    import Register from "../views/Authentification/Signup.vue";
-    import Login from "../views/Authentification/Login.vue";
+//register/login
+import GateLayout from "../views/subLayouts/GateLayout.vue";
+import Register from "../views/Authentification/Signup.vue";
+import Login from "../views/Authentification/Login.vue";
 
+import TheExportDevis from "../components/Devis/TheExportDevis.vue"
+import TheCalendarDevis from "../components/Devis/TheCalendarDevis.vue"
+import TheRefusDevis from "../components/Devis/TheRefusDevis.vue"
 
-  // testing for fixing sideBar
+// testing for fixing sideBar
 
-  // import Sidebar from "../components/Sidebar.vue";
-  // import Navbar from "../components/Navbar.vue";
+// import Sidebar from "../components/Sidebar.vue";
+// import Navbar from "../components/Navbar.vue";
 
 
 
@@ -64,12 +69,12 @@ const routes = [
     children: [
       {
         path: "devis",
-        name: "Devis",
+        // name: "Devis",
         component: Devis,
-         children: [
+        children: [
           {
             path: "",
-            name: "ListDevis",
+            name: "Devis",
             component: listDevis,
           },
           {
@@ -82,26 +87,32 @@ const routes = [
       },
       {
         path: "client",
-        name: "Client",
+        // name: "Client",
         component: Clients,
         children: [
           {
             path: "",
-            name: "Clients",
-            component: Type_client,
+            name: "Client",
+            component: cards,
           },
-          { 
-            path:"cards",
-            name:"cards",
-            camponent:cards,
+          {
+             path: "Type_client",
+             name:  "Type_client",
+             component: Type_client,
+          },
+          {
+            path: "Information_Compte",
+            name: "Information_Compte",
+            component: Information_Compte,
+            
           },
           {
             path: 'new',
             name: "NewClient",
             component: addClient
-          }, 
+          },
           {
-            path: ":id", 
+            path: ":id",
             name: "SingleClient",
           }
         ]
@@ -135,8 +146,6 @@ const routes = [
         path: 'Societe/new',
         name: "NewSociete"
       },
-
-      
     ]
   },
   
@@ -190,6 +199,11 @@ const routes = [
         component: TypeArticles,
       },
       {
+        path: "type-articles/new",
+        name: "NewTypeArticles",
+        component: newArticle,
+      },
+      {
         path: "bank-accounts",
         name: "BackAccounts",
       },
@@ -230,7 +244,21 @@ const routes = [
       }
     ]
   },
-
+  {
+    path: "/devis-calandar",
+    name: "devisCalandar",
+    component: TheExportDevis,
+  },
+  {
+    path: "/devis-refus",
+    name: "devisCalandar",
+    component: TheRefusDevis,
+  },
+  {
+    path: "/devis-export",
+    name: "devisExport",
+    component: TheCalendarDevis,
+  },
   {
     path: "*",
     name: "NotFound",

@@ -1,92 +1,93 @@
 <template>
     
-    <div class="tableplus" >
+    <div class="tableplus" :key="componentKey">
+     
+        
+        <!-- 
+            this is a custom component . 
+        -->
+      <Title mainTitle="Préférences Type Articles :" subTitle="Ici, Vous Pouvez Modifier Les Préférences des Type Articles" />
         <div v-if="isLoading">
             Loading ... 
         </div>
-        <table border="1" v-else >
-            <thead>
-                <th>nom</th>
-                <th>name</th>
+        <table class="table" v-else>
+            <thead class="thead-dark">
+                <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Handle</th>
+                </tr>
             </thead>
             <tbody>
-                <tr v-for="article in articles" :key="article.article_type_value_eng">
-                    <td>{{ article.article_type_value }}</td>
-                    <td>{{ article.article_type_value_eng }}</td>
+            <tr v-for="(article, index) in articles" :key="index">
+                    <td>{{ article.English }}</td>
+                    <td>{{ article.French }}</td>
+                    <td>
+                        <button v-show='article.isDelitable' class="btn btn-danger" @click="deleteArticle(article.id)">
+                            delete
+                        </button> 
+                    </td>
                 </tr>
             </tbody>
         </table>
+
         
-        <button>
+        <router-link class="settings-btn btn btn-primary" :to="{ name: 'NewTypeArticles' }" >
             Add new Article.
-        </button>
+        </router-link>
     </div>
 </template>
 
-<style scoped>
-    .tableplus{
-        padding-right: 40px;
-        border: 4px;
-        display: flex; 
-        flex-direction: column; 
-        align-items: center; 
-    } 
-    table{
-        width: 50%;
-        text-align: center;
-    }
-    button{
-        text-transform : uppercase; 
-        margin: 20px;
-        height: 40px; 
-        border-radius: 30px;  
-    }
-</style>
-
 <script>
+import Title from './Title.vue'; 
 export default {
     // when this gets linked to the API the is loading field should be initialied with a true value,
     // to indicat that the dat still loading from the server
     name: "TypeArticles",
+    components: {
+        Title,
+    }
+    ,
     data: function(){
         return {
-            isLoading: false,
-            articles: [
-                {
-                    article_type_value : "....", 
-                    article_type_value_eng : "...."  
-                },
-                {
-                    article_type_value : "....", 
-                    article_type_value_eng : "...."  
-                }, 
-                {
-                    article_type_value : "....", 
-                    article_type_value_eng : "...."  
-                },
-                {
-                    article_type_value : "....", 
-                    article_type_value_eng : "...."  
-                }
-            ]
+            componentKey: 0,
+            isLoading: true,
+            articles: []
         }
     }, 
     methods: {
         getArticles(){
-            let token = "....";
-            this.$http.defaults.headers.common = { Authorization: `Bearer ${token}` };
-            
             this.$http
                 .get("/type_articles")
                 .then((res) => {
-                        
-                        this.isLoading = false ; 
-                        this.articles = res.data;
+                        console.log(res.data)
+                    this.isLoading = false ; 
+                    res.data.forEach( (data) => {
+                        let d = {
+                            id: data.id,
+                            isDelitable : (data.user_id == null) ? false : true ,
+                            French: data.article_type_value, 
+                            English: data.article_type_value_eng, 
+                        }
+                    this.articles.push(d);
+                    });
                 })
                 .catch();
         },
-        addArticles(){
-            // ajouter un article . 
+        deleteArticle(id){
+            // ajouter un article.
+            this.$http
+                .delete(`/type_articles/${id}`)
+                .then( () => {
+                    this.componentKey += 1 ;
+                    
+                    console.log("deleted")
+                })
+                .catch(
+                    () => {
+                        console.log("grrr")
+                    }
+                );
         }
     }, 
     created(){
@@ -94,3 +95,19 @@ export default {
     }
 }
 </script>
+<style lang="scss" scoped >
+    .tableplus{
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        min-height: 70vh;
+    } 
+    table{
+        width: 80%;
+        margin-top: 2em;
+        text-align: center;
+    }
+    button{
+        border-radius: 3px;
+    }
+</style>

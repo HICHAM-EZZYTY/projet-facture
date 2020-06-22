@@ -24,6 +24,10 @@ export default {
 
 <style scoped>
 
+body{
+  margin: 0;
+}
+
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -40,8 +44,10 @@ export default {
 }
 
 .Content{
+  padding: 1em;
   margin-top: 30px; 
-  height: 88vh;
+  /* height: 88vh; */
+  height: 85vh;
   overflow-x: hidden; 
   overflow-y: auto; 
   text-align:justify; 

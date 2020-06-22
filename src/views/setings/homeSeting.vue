@@ -49,16 +49,19 @@ export default {
 
 <style lang="scss" scoped>
 ::-webkit-scrollbar {
-  // width: 6px;
   display: none ;
 }
 .background{
   background-color: #e7eaf5;
-  height: 100%;
+  min-height: 100%;
 }
+
 
 .home-settings { 
   padding: 0;
+  #navbarToggleExternalContent{
+    border-radius: 10px !important;
+  }
   & .content-section{
     box-shadow: 0px 4px 10px rgba(0,0,0,0.3) ;  
     border-radius: 10px ;

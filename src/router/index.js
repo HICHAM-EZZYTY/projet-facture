@@ -13,6 +13,7 @@ import HomePage from "../views/HomePage.vue";
   import Clients from "../views/subLayouts/Clients.vue";
     import addClient from "../components/client/addClient.vue";
     import cards from "../components/Clients-page/cards.vue";
+    import Type_client from "../components/Clients-page/Type_client.vue";
 
   //Facture
   import factureAcompte from "../components/setings/factureAcompte.vue";
@@ -87,7 +88,12 @@ const routes = [
           {
             path: "",
             name: "Clients",
-            component: cards,
+            component: Type_client,
+          },
+          { 
+            path:"cards",
+            name:"cards",
+            camponent:cards,
           },
           {
             path: 'new',

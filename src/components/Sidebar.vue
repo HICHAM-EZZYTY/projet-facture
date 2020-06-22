@@ -1,6 +1,6 @@
 <template>
-  <div class="s-layout__sidebar">
-    <nav class="s-sidebar__nav">
+  <div class="s-layout__sidebar ">
+    <nav class="s-sidebar__nav ">
       <ul>
         <li>
           <router-link class="s-sidebar__nav-link" to="/client">
@@ -97,7 +97,7 @@ img {
   width: 14px;
 }
 .s-layout {
-  height: 100%;
+  height: 80vh;
 }
 .s-layout__content {
   display: flex;
@@ -113,7 +113,7 @@ img {
   overflow: hidden;
   transition: all 0.3s ease-in;
   width: 14em;
-  height: 100%;
+  height: 84%;
   background: #2262c6;
   color: rgb(255, 255, 255);
 }

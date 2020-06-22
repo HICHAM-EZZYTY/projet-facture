@@ -19,10 +19,6 @@ export default {
 	}, 
 	methods:{
 		getClients: function () {
-			// get clients. 
-			let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTU5MjM0MzM0NSwiZXhwIjoxNTkyMzQ2OTQ1LCJuYmYiOjE1OTIzNDMzNDUsImp0aSI6IjV5VjIydUlFYmJyTk5YeUgiLCJzdWIiOjIyLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.BC4nurF0gDYauQzhsDbNAKFZPAYbyWQUIV3sPZebOmY";
-
-			this.$http.defaults.headers.common = { Authorization: `Bearer ${token}` }
 			
 			this.$http
 				.get("/clients")

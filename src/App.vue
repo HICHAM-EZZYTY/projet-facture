@@ -17,7 +17,6 @@
     display: none ;
   }
 </style>
-
 <script>
 export default {
   name: "main"

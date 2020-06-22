@@ -50,17 +50,10 @@
                 <h6 class="head-section--title" > Information Sur la Societe :</h6>
             </div>
             
-            <div class="col-lg-6 forms-sides">
-                <div class="forms-sides--group">  
-                    <div class="nn">
-                        <label class="forms-sides--group_label" >Adress :</label>
-                        <div>
-                            <i class="fa fa-plus"></i>
-                            <i class="fa fa-times"></i>
-                        </div>
-                    </div>
-                    <input class="forms-sides--group_text" type="text" placeholder="......" />
-                </div>
+            <div class="col-lg-6 forms-sides">    
+                
+                <S_Adresses @addedAdress="_addedAdress" />
+
                  <div class="forms-sides--group">
                     <label class="forms-sides--group_label" >Site internet :</label>
                     <input class="forms-sides--group_text" type="text" placeholder="......" />
@@ -76,16 +69,7 @@
                     <label class="forms-sides--group_label" >Pays :</label>
                     <b-form-select class="forms-sides--group_select" ></b-form-select>
                 </div>
-                 <div class="forms-sides--group">
-                    <div class="nn">
-                        <label class="forms-sides--group_label" >Numéro de téléphone :</label>
-                        <div>
-                            <i class="fa fa-plus"></i>
-                            <i class="fa fa-times"></i>
-                        </div>
-                    </div>
-                    <input type="text" class="forms-sides--group_select" />
-                </div>
+                <S_Phones @addedPhone="_addedPhone" />
                 <div class="forms-sides--group">
                     <label class="forms-sides--group_label" >Clients :</label>
                     <b-form-select class="forms-sides--group_select" ></b-form-select>
@@ -113,12 +97,31 @@
 
 
 <script>
+import S_Adresses from './S_Sub_Components/S_Adresses.vue';
+
+import S_Phones from './S_Sub_Components/S_Phones.vue';
 export default {
     name : "AddSociety",
     data: function(){
         return { 
-
+            adresses: [], 
+            phones: []
         };
+    }, 
+    components: {
+        S_Adresses,
+        S_Phones,
+    }, 
+    methods:{
+        _addedAdress: function(adressesArray){
+            this.adresses = adressesArray;
+            console.log(this.adresses);
+        }, 
+        _addedPhone: function(phonesArray){
+            this.phones = phonesArray;
+            
+            console.log(this.phones);
+        }
     }
 }
 </script>
@@ -127,29 +130,7 @@ export default {
         font-family: Gilroy-Medium, sans-serif ;
         text-transform: capitalize;
     }
-    .nn{
-        display: flex ; 
-        & div {
-            display: flex ; 
-            align-items: center ; 
-            color: black ;
-            & .fa{
-                margin: 0em .2em;
-                display: flex; 
-                background: #2262C6;
-                color: white; 
-                height: 1.5em ;
-                width: 1.5em ;
-                align-items: center;
-                justify-content: center;
-                border-radius: 50%; 
-                
-                &:hover{
-                    cursor: pointer;
-                }
-            }
-        }
-    }
+    
     .forms-buttons{
         display: flex; 
         margin-left: 3em;

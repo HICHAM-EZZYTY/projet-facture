@@ -13,7 +13,9 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap-vue/dist/bootstrap-vue.css";
 import "./scss/main.scss";
+// import "./assets/js/lodash.js";
 
+// var _ = require('lodash');
 
 Vue.use(VCalendar, {
   componentPrefix: 'vc',  // Use <vc-calendar /> instead of <v-calendar />
@@ -28,8 +30,8 @@ let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC
 Vue.prototype.$http = axios;
 Vue.prototype.$http.defaults.baseURL = "http://127.0.0.1:8000/api";
 Vue.prototype.$http.defaults.headers.common = { Authorization: `Bearer ${token}` };
-Vue.prototype.routeNames = [];
 
+ 
 
 // Install BootstrapVue
 Vue.use(BootstrapVue);

@@ -1,6 +1,6 @@
 <template>
-      <div class="row mt-3">
-        <div class="col-xl-12 col-md-12 col-sm-12 col-xs-12 navbar shadow">
+      <div class="row">
+        <div class="col-xl-12 col-md-12 col-sm-12 col-xs-12 mt-3 navbar shadow">
               
             <nav class="navbar navbar-light p-0 border-0 burger-menu">
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -83,7 +83,7 @@ export default {};
 .burger-menu{
   display: none;
 }
- @media only screen and (min-width: 360px) and (max-width: 1000px) {
+ @media only screen and (min-width: 360px) and (max-width: 1100px) {
     .burger-menu{
       display: inline;
       padding: 0px;

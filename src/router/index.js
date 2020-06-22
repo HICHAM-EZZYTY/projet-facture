@@ -20,6 +20,9 @@ import factureAcompte from "../components/setings/factureAcompte.vue";
 //Avoire
 import avoirAcompte from "../components/setings/avoirAcompte.vue";
 
+// Societe 
+import AddSociete from '../components/client/AddSociete.vue'
+
 //settings
 import homeSeting from "../views/setings/homeSeting.vue";
 import preference from "../components/setings/preference.vue";
@@ -131,11 +134,13 @@ const routes = [
       },
       {
         path: 'Societe/new',
-        name: "NewSociete"
+        name: "NewSociete",
+        component: AddSociete
+
       },
     ]
   },
-  
+
 
   // parameters 
   {

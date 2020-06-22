@@ -1,3 +1,38 @@
+.page-title{
+  margin-top: 1em;
+  display: flex; 
+  justify-content: space-between;
+  padding-bottom: 10px;
+  border-bottom : 1px solid #E9EAEB ;
+  &--text{
+    font-weight: bold; 
+    
+    &_title{
+      font-weight: bold; 
+      margin-right: 1em;
+    } 
+    &_count{
+      padding: 0.3em .5em;
+      background: #2262c6;
+      color: #FFFFFF;
+      border-radius: 0.2em;
+    }
+  }
+  &--icons{
+    & button{
+      border: none; 
+      border-radius: 5px;
+    }
+    & span{
+      font-size: 14px; 
+    }
+  }
+}
+.head-section{
+  &--title{
+    font-family: Gilroy-Medium, sans-serif;
+  }
+}
 .settings-btn{
   position: absolute;
   right: 0;
@@ -58,16 +93,17 @@
 
     &_select-different, 
     &_text-different{
-      
-        background-color: #F8F9FC;
+      background-color: #F8F9FC;
       border: none;
       border-radius: 0px;
       background-color: transparent ;
       border-bottom: 1px solid #b3b8c3 ; 
       color: #b3b8c3;
+
       &:focus{
         outline: none;
       }
+
       &::placeholder {
         color: #b3b8c3; 
       }

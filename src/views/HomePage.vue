@@ -4,7 +4,7 @@
     <sidebar />
     <!-- <Table /> -->
 
-    <div class="Content col-md-10 offset-md-2 p-0 my-0 .col-sm-8 offset-sm-2">
+    <div class="Content col-xl-10 col-lg-10 col-md-10 col-sm-10 offset-xl-2 offset-lg-2 offset-md-2 offset-sm-2 p-0 my-0 .col-sm-8 offset-sm-2">
         <router-view />
     </div>
   </div>
@@ -24,9 +24,6 @@ export default {
 
 <style scoped>
 
-body{
-  margin: 0;
-}
 
 ::-webkit-scrollbar {
   width: 6px;
@@ -46,8 +43,7 @@ body{
 .Content{
   padding: 1em;
   margin-top: 30px; 
-  /* height: 88vh; */
-  height: 85vh;
+  height: 88vh;
   overflow-x: hidden; 
   overflow-y: auto; 
   text-align:justify; 

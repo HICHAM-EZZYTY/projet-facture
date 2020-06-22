@@ -8,7 +8,8 @@
                     <i class="fa fa-times" @click="remove"></i>
                 </div>
             </div>
-            <S_Input v-for="i in counter" :placeholder="'Phone Number ' + i " :key="i" @onInput='addValue'/>
+            
+            <S_Input v-for="i in counter" :placeholder=" placeholder + ' ' + i " :key="i" @onInput='addValue'/>
         </div>
     </div>
 </template>
@@ -16,13 +17,14 @@
 
 import S_Input from './S_Input.vue'
 export default {
-    name: "phones", 
+    name: "Custom_Input", 
     data: function(){
         return {
             counter : 1, 
-            phones: []
+            values: []
         }
     }, 
+    props:["placeholder"],
     components: {
         S_Input
     }, 
@@ -34,13 +36,13 @@ export default {
             if(this.counter > 1 ) {
                 this.counter--;
             }
-            this.phones.pop();
+            this.values.pop();
         }, 
         addValue: function(arg) {
-            this.phones.push({
+            this.values.push({
                 value: arg
             })
-            this.$emit('addedPhone', this.phones);
+            this.$emit('addedInput', this.values);
         }
     }
 }

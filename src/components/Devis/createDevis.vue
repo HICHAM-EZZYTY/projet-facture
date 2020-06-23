@@ -111,8 +111,8 @@
 
               <div class="inp7">
 
-                  <input @keyup="quan(index)" id="in1" type="text" v-model="Article.quantité">
-                  <input  @keyup="ph(index)"  id="in2" type="text" v-model="Article.prixht">
+                  <input @blur="quan(index)" id="in1" type="text" v-model="Article.quantité">
+                  <input  @blur="ph(index)"  id="in2" type="text" v-model="Article.prixht">
                 <div class="tva">
                       <label id="in5">Tva</label>
                       <div class="on_off">
@@ -134,7 +134,7 @@
                 </div>
 
                 <div class="reduction">
-                      <input @keyup="reduction(index)" id="in6" type="text" v-model="Article.Reduction">
+                      <input @blur="reduction(index)" id="in6" type="text" v-model="Article.Reduction">
                 </div>
 
                 <div class="totalHt">
@@ -168,7 +168,7 @@
           <div class="tva">TVA :   <span>3000,30</span></div>
           <div class="ttl">Total :   <span>53000,30</span></div>
           <p>Reduction{{redic}}</p>
-          <p>Quantité{{Quantité}}</p>
+          <p>Quantité{{QuantitéTTL}}</p>
           <p>PrixHT{{Prixht}}</p>
           <p>PrixHTF{{prixhtf}}</p>
 
@@ -288,7 +288,8 @@ export default {
       height:Number,
       lineHeight:Number,
       redic:0,
-      Quantité:0,
+      Quantité:[],
+      QuantitéTTL:0,
       Prixht:0,
       prixhtf:0,
       total:0,
@@ -358,7 +359,19 @@ export default {
     },
     quan(value){
 
-      this.vq=this.Articles[value].quantité
+    this.vq=this.Articles[value].quantité
+    let ttl=0;
+    ttl=parseInt(this.vq);
+      if (ttl>=0){
+
+        console.log("hadi quantité 9abla",this.Quantité)
+        this.Quantité[value]=ttl;
+        console.log("hadi quantité ba3da",this.Quantité)
+    
+      }
+      else{
+        console.log('plz fill the input')
+      }
   
 
 
@@ -386,20 +399,24 @@ export default {
 
   },
     watch:{
-      vq:function(){
 
-      let ttl=0;
-      ttl=parseInt(this.vq);
-      if (ttl>=0){
 
-        console.log("hadi quantité 9abla",this.Quantité)
-        this.Quantité=this.Quantité+ttl;
-        console.log("hadi quantité ba3da",this.Quantité)
-    
+    Quantité:function(){
+
+
+    console.log("quantité rah khadama fi watch")
+     
+     let total=0;
+      
+      for(var i in this.Quantité) {
+         total += this.Quantité[i]; 
       }
-      else{
-        console.log('plz fill the input')
-      }
+
+      this.QuantitéTTL=total
+      console.log(this.QuantitéTTL)
+
+      
+      
         // let a=this.prixhtf
         // let vp=this.Quantité*this.Prixht;
         // this.prixhtf=vp+a

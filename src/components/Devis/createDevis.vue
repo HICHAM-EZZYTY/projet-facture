@@ -167,10 +167,10 @@
           <div class="rg">Total HT : <span>42059,12</span></div>
           <div class="tva">TVA :   <span>3000,30</span></div>
           <div class="ttl">Total :   <span>53000,30</span></div>
-          <!-- <p>Reduction{{redic}}</p>
+          <p>Reduction{{redic}}</p>
           <p>Quantité{{Quantité}}</p>
           <p>PrixHT{{Prixht}}</p>
-          <p>PrixHTF{{prixhtf}}</p> -->
+          <p>PrixHTF{{prixhtf}}</p>
 
 
         </div>
@@ -292,6 +292,7 @@ export default {
       Prixht:0,
       prixhtf:0,
       total:0,
+      vq:0,
       Articles: [{
         service: 'Service',
         quantité: null,
@@ -357,15 +358,8 @@ export default {
     },
     quan(value){
 
-      let v=this.Articles[value].quantité
-      let ttl=0;
-      ttl=parseInt(v);
-      if (ttl>=0){
-      this.Quantité=ttl;
-      }
-      else{
-        console.log('plz fill the input')
-      }
+      this.vq=this.Articles[value].quantité
+  
 
 
     },
@@ -392,15 +386,28 @@ export default {
 
   },
     watch:{
-      Quantité:function(){
-        let a=this.prixhtf
-        let vp=this.Quantité*this.Prixht;
-        this.prixhtf=vp+a
+      vq:function(){
+
+      let ttl=0;
+      ttl=parseInt(this.vq);
+      if (ttl>=0){
+
+        console.log("hadi quantité 9abla",this.Quantité)
+        this.Quantité=this.Quantité+ttl;
+        console.log("hadi quantité ba3da",this.Quantité)
+    
+      }
+      else{
+        console.log('plz fill the input')
+      }
+        // let a=this.prixhtf
+        // let vp=this.Quantité*this.Prixht;
+        // this.prixhtf=vp+a
       },
       Prixht:function(){
-        let a=this.prixhtf
-        let vp=this.Quantité*this.Prixht;
-        this.prixhtf=vp+a
+        // let a=this.prixhtf
+        // let vp=this.Quantité*this.Prixht;
+        // this.prixhtf=vp+a
       }
     
     },

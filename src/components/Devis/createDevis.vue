@@ -116,7 +116,7 @@
                 <div class="tva">
                       <label id="in5">Tva</label>
                       <div class="on_off">
-                          <input id="in3" type="text"  v-model="Article.tva">
+                          <input @blur="TVA(index)" id="in3" type="text"  v-model="Article.tva">
                           <input  id="in4" type="checkbox" class="toggle" checked>
                       </div>
                 </div>
@@ -139,11 +139,11 @@
 
                 <div class="totalHt">
                       <label   id="in7">Total HT</label>
-                      <input id="in8" type="text" v-model="Article.totalht">
+                      <input  @blur="TOTALHT(index)" id="in8" type="text" v-model="Article.totalht">
                 </div>
                 <div class="totalttc">
                       <label id="in9">Total TTC</label>
-                      <input id="in10" type="text" v-model="Article.totalttc">
+                      <input id="in10" @blur="TOTALTTC(index)"  type="text" v-model="Article.totalttc">
                 </div>
 
           </div>
@@ -170,7 +170,11 @@
           <p>Reduction{{redicTTL}}</p>
           <p>Quantité{{QuantitéTTL}}</p>
           <p>PrixHT{{PrixhtTTL}}</p>
-          <p>PrixHTF{{prixhtf}}</p>
+          <p>tvaTTL{{tvaTTL}}</p>
+          <p>totalhtTTL{{totalhtTTL}}</p>
+          <p>totalttcTTL{{totalttcTTL}}</p>
+
+
 
 
         </div>
@@ -287,13 +291,18 @@ export default {
       counter: 1,
       height:Number,
       lineHeight:Number,
+      totalttc:[],
+      totalttcTTL:0,
+      totalht:[],
+      totalhtTTL:0,
+      tva:[],
+      tvaTTL:0,
       redic:[],
       redicTTL:0,
       Quantité:[],
       QuantitéTTL:0,
       Prixht:[],
       PrixhtTTL:0,
-      prixhtf:0,
       total:0,
       vq:0,
       Articles: [{
@@ -344,6 +353,29 @@ export default {
           console.log("sorry cant delete this one")
         }
     },
+    TOTALTTC(value){
+
+    this.vq=this.Articles[value].totalttc
+    let ttl=0;
+    ttl=parseInt(this.vq);
+      if (ttl>=0){
+
+        console.log("hadi totalttc 9abla",this.totalttc)
+        this.totalttc[value]=ttl;
+        console.log("hadi totalttc ba3da",this.totalttc)
+          let ttq=0;
+      
+          for(var i in this.totalttc) {
+            ttq += this.totalttc[i]; 
+          }
+
+          this.totalttcTTL=ttq
+      }
+      else{
+        console.log('plz fill the input')
+      }
+
+    },
     reduction(value){
   
     this.vq=this.Articles[value].Reduction
@@ -365,9 +397,28 @@ export default {
       else{
         console.log('plz fill the input')
       }
-  
 
+    },
+    TOTALHT(value){
+    this.vq=this.Articles[value].totalht
+    let ttl=0;
+    ttl=parseInt(this.vq);
+      if (ttl>=0){
 
+        console.log("hadi totalht 9abla",this.totalht)
+        this.totalht[value]=ttl;
+        console.log("hadi totalht ba3da",this.totalht)
+          let ttq=0;
+      
+          for(var i in this.totalht) {
+            ttq += this.totalht[i]; 
+          }
+
+          this.totalhtTTL=ttq
+      }
+      else{
+        console.log('plz fill the input')
+      }
 
     },
     quan(value){
@@ -395,7 +446,32 @@ export default {
 
 
     },
-     ph(value){
+
+    TVA(value){
+
+    this.vq=this.Articles[value].tva
+    let ttl=0;
+    ttl=parseInt(this.vq);
+      if (ttl>=0){
+
+        console.log("hadi tva 9abla",this.tva)
+        this.tva[value]=ttl;
+        console.log("hadi tva ba3da",this.tva)
+          let ttq=0;
+      
+          for(var i in this.tva) {
+            ttq += this.tva[i]; 
+          }
+
+          this.tvaTTL=ttq
+      }
+      else{
+        console.log('plz fill the input')
+      }
+  
+    },
+
+    ph(value){
        
     this.vq=this.Articles[value].prixht
     let ttl=0;
@@ -428,29 +504,17 @@ export default {
     watch:{
 
 
-    Quantité:function(){
+    QuantitéTTL:function(){
+
+      this.totalhtTTL=this.QuantitéTTL*this.PrixhtTTL
 
 
 
+    },
+    PrixhtTTL:function(){
+      this.totalhtTTL=this.QuantitéTTL*this.PrixhtTTL
 
-    console.log("quantité rah khadama fi watch")
-     
-     let ttq=0;
-      
-      for(var i in this.Quantité) {
-         ttq += this.Quantité[i]; 
-      }
-
-      this.QuantitéTTL=ttq
-      console.log(this.QuantitéTTL)
-
-      },
-      Prixht:function(){
-        console.log("prixht watch is working")
-        // let a=this.prixhtf
-        // let vp=this.Quantité*this.Prixht;
-        // this.prixhtf=vp+a
-      }
+    }
     
     },
 

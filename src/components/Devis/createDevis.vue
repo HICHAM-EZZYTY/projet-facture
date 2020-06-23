@@ -164,7 +164,7 @@
         <button  @click="getdata()" type="text">Ajouter Une Ligne</button>
 
         <div class="wrapResult">
-          <div class="rg">Total HT : <span>42059,12</span></div>
+          <div class="rg">Total HT : <span>{{totalhtTTL}}</span></div>
           <div class="tva">TVA :   <span>3000,30</span></div>
           <div class="ttl">Total :   <span>53000,30</span></div>
           <p>Reduction{{redicTTL}}</p>
@@ -506,13 +506,19 @@ export default {
 
     QuantitéTTL:function(){
 
-      this.totalhtTTL=this.QuantitéTTL*this.PrixhtTTL
-
-
 
     },
     PrixhtTTL:function(){
-      this.totalhtTTL=this.QuantitéTTL*this.PrixhtTTL
+      let b=[];
+
+      for(var i in this.Quantité) {
+
+        b[i]=this.Quantité[i]*this.Prixht[i]
+     
+      }
+      console.log(b)
+      const reducer = (accumulator, currentValue) => accumulator + currentValue;
+      this.totalhtTTL=b.reduce(reducer);
 
     }
     

@@ -239,7 +239,7 @@ const routes = [
   {
     path: "/devis-calandar",
     name: "devisCalandar",
-    component: TheExportDevis,
+    component: TheCalendarDevis ,
   },
   {
     path: "/devis-refus",
@@ -249,7 +249,8 @@ const routes = [
   {
     path: "/devis-export",
     name: "devisExport",
-    component: TheCalendarDevis,
+    component: TheExportDevis ,
+    
   },
   {
     path: "*",

@@ -111,12 +111,12 @@
 
               <div class="inp7">
 
-                  <input @keyup="quan(index)" id="in1" type="text" v-model="Article.quantité">
-                  <input  @keyup="ph(index)"  id="in2" type="text" v-model="Article.prixht">
+                  <input @blur="quan(index)" id="in1" type="text" placeholder="quantité" v-model="Article.quantité">
+                  <input  @blur="ph(index)"  id="in2" type="text"  placeholder="prix ht" v-model="Article.prixht">
                 <div class="tva">
                       <label id="in5">Tva</label>
                       <div class="on_off">
-                          <input id="in3" type="text"  v-model="Article.tva">
+                          <input @blur="TVA(index)" id="in3"  placeholder="tva" type="text"  v-model="Article.tva">
                           <input  id="in4" type="checkbox" class="toggle" checked>
                       </div>
                 </div>
@@ -134,16 +134,16 @@
                 </div>
 
                 <div class="reduction">
-                      <input @keyup="reduction(index)" id="in6" type="text" v-model="Article.Reduction">
+                      <input @blur="reduction(index)" id="in6" type="text" v-model="Article.Reduction">
                 </div>
 
                 <div class="totalHt">
                       <label   id="in7">Total HT</label>
-                      <input id="in8" type="text" v-model="Article.totalht">
+                      <input  @blur="TOTALHT(index)" id="in8" type="text" v-model="Article.totalht">
                 </div>
                 <div class="totalttc">
                       <label id="in9">Total TTC</label>
-                      <input id="in10" type="text" v-model="Article.totalttc">
+                      <input id="in10" @blur="TOTALTTC(index)"  type="text" v-model="Article.totalttc">
                 </div>
 
           </div>
@@ -164,13 +164,12 @@
         <button  @click="getdata()" type="text">Ajouter Une Ligne</button>
 
         <div class="wrapResult">
-          <div class="rg">Total HT : <span>42059,12</span></div>
-          <div class="tva">TVA :   <span>3000,30</span></div>
-          <div class="ttl">Total :   <span>53000,30</span></div>
-          <!-- <p>Reduction{{redic}}</p>
-          <p>Quantité{{Quantité}}</p>
-          <p>PrixHT{{Prixht}}</p>
-          <p>PrixHTF{{prixhtf}}</p> -->
+          <div class="rg">Total HT : <span>{{totalhtTTL}}</span></div>
+          <div class="tva">TVA :   <span>{{tvaTTL}}</span></div>
+          <div class="ttl">Total :   <span>{{finalttl}}</span></div>
+    
+
+
 
 
         </div>
@@ -287,16 +286,26 @@ export default {
       counter: 1,
       height:Number,
       lineHeight:Number,
-      redic:0,
-      Quantité:0,
-      Prixht:0,
-      prixhtf:0,
+      finalttl:0,
+      totalttc:[],
+      totalttcTTL:0,
+      totalht:[],
+      totalhtTTL:0,
+      tva:[],
+      tvaTTL:0,
+      redic:[],
+      redicTTL:0,
+      Quantité:[],
+      QuantitéTTL:0,
+      Prixht:[],
+      PrixhtTTL:0,
       total:0,
+      vq:0,
       Articles: [{
         service: 'Service',
         quantité: null,
         prixht: null,
-        tva : 20,
+        tva : null,
         percent:'%',
         Reduction: 'Réduction',
         totalht:0,
@@ -312,7 +321,7 @@ export default {
       service: 'Service',
       quantité: 'Quantité',
       prixht: 'Prix HT',
-      tva : 20,
+      tva : 0,
       percent:'%',
       Reduction: 'Réduction',
       totalht:0,
@@ -340,50 +349,147 @@ export default {
           console.log("sorry cant delete this one")
         }
     },
-    reduction(value){
-  
+    TOTALTTC(value){
 
-      let v=this.Articles[value].Reduction
-      let ttl=0;
-      ttl=parseInt(v);
+    this.vq=this.Articles[value].totalttc
+    let ttl=0;
+    ttl=parseInt(this.vq);
       if (ttl>=0){
-      this.redic=ttl;
+
+        console.log("hadi totalttc 9abla",this.totalttc)
+        this.totalttc[value]=ttl;
+        console.log("hadi totalttc ba3da",this.totalttc)
+          let ttq=0;
+      
+          for(var i in this.totalttc) {
+            ttq += this.totalttc[i]; 
+          }
+
+          this.totalttcTTL=ttq
       }
       else{
         console.log('plz fill the input')
       }
 
+    },
+    reduction(value){
+  
+    this.vq=this.Articles[value].Reduction
+    let ttl=0;
+    ttl=parseInt(this.vq);
+      if (ttl>=0){
+
+        console.log("hadi reduction 9abla",this.redic)
+        this.redic[value]=ttl;
+        console.log("hadi redcution ba3da",this.redic)
+          let ttq=0;
+      
+          for(var i in this.redic) {
+            ttq += this.redic[i]; 
+          }
+
+          this.redicTTL=ttq
+      }
+      else{
+        console.log('plz fill the input')
+      }
+
+    },
+    TOTALHT(value){
+    this.vq=this.Articles[value].totalht
+    let ttl=0;
+    ttl=parseInt(this.vq);
+      if (ttl>=0){
+
+        console.log("hadi totalht 9abla",this.totalht)
+        this.totalht[value]=ttl;
+        console.log("hadi totalht ba3da",this.totalht)
+          let ttq=0;
+      
+          for(var i in this.totalht) {
+            ttq += this.totalht[i]; 
+          }
+
+          this.totalhtTTL=ttq
+      }
+      else{
+        console.log('plz fill the input')
+      }
 
     },
     quan(value){
 
-      let v=this.Articles[value].quantité
-      let ttl=0;
-      ttl=parseInt(v);
+    this.vq=this.Articles[value].quantité
+    let ttl=0;
+    ttl=parseInt(this.vq);
       if (ttl>=0){
-      this.Quantité=ttl;
+
+        console.log("hadi quantité 9abla",this.Quantité)
+        this.Quantité[value]=ttl;
+        console.log("hadi quantité ba3da",this.Quantité)
+          let ttq=0;
+      
+          for(var i in this.Quantité) {
+            ttq += this.Quantité[i]; 
+          }
+
+          this.QuantitéTTL=ttq
       }
       else{
         console.log('plz fill the input')
       }
+  
 
 
     },
-     ph(value){
 
-       
-      let v=this.Articles[value].prixht
-      let ttl=0;
-      ttl=parseInt(v);
+    TVA(value){
+
+    this.vq=this.Articles[value].tva
+    let ttl=0;
+    ttl=parseInt(this.vq);
       if (ttl>=0){
-      this.Prixht=ttl;
+
+        console.log("hadi tva 9abla",this.tva)
+        this.tva[value]=ttl;
+        console.log("hadi tva ba3da",this.tva)
+          let ttq=0;
+      
+          for(var i in this.tva) {
+            ttq += this.tva[i]; 
+          }
+
+          this.tvaTTL=ttq
       }
       else{
         console.log('plz fill the input')
       }
+  
+    },
 
+    ph(value){
+       
+    this.vq=this.Articles[value].prixht
+    let ttl=0;
+    ttl=parseInt(this.vq);
+      if (ttl>=0){
 
+        console.log("hadi prixht 9abla",this.Prixht)
+        this.Prixht[value]=ttl;
+        console.log("hadi prixht ba3da",this.Prixht)
+          let ttq=0;
+      
+          for(var i in this.Prixht) {
+            ttq += this.Prixht[i]; 
+          }
+
+          this.PrixhtTTL=ttq
+      }
+      else{
+        console.log('plz fill the input')
+      }
      }
+
 
   },
 
@@ -392,16 +498,53 @@ export default {
 
   },
     watch:{
-      Quantité:function(){
-        let a=this.prixhtf
-        let vp=this.Quantité*this.Prixht;
-        this.prixhtf=vp+a
-      },
-      Prixht:function(){
-        let a=this.prixhtf
-        let vp=this.Quantité*this.Prixht;
-        this.prixhtf=vp+a
+
+
+    QuantitéTTL:function(){
+
+
+    },
+    PrixhtTTL:function(){
+      let b=[];
+
+      for(var i in this.Quantité) {
+
+        b[i]=this.Quantité[i]*this.Prixht[i]
+     
       }
+      console.log(b)
+      this.totalht=b;
+      const reducer = (accumulator, currentValue) => accumulator + currentValue;
+      this.totalhtTTL=b.reduce(reducer);
+
+    },
+    tvaTTL:function(){
+
+      console.log("asi rah tva tbadlaat")
+
+
+      let s=[];
+
+
+       for(var i in this.totalht) {
+        let k=0;
+        k=(this.totalht[i]*this.tva[i])/100
+        s[i]=k
+     
+      }
+      console.log("tva table",s)
+
+      const reducer = (accumulator, currentValue) => accumulator + currentValue;
+      this.tvaTTL=s.reduce(reducer);
+      console.log(" tva total",this.tvaTTL)
+
+
+      this.finalttl=this.tvaTTL+this.totalhtTTL
+      console.log(this.finalttl)
+
+
+
+    }
     
     },
 

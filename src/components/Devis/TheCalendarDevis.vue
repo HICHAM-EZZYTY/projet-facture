@@ -439,6 +439,9 @@ export default {
         }
         }
     }          
+    #card{
+      height: 505px;
+    }
 }
 
 

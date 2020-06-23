@@ -167,9 +167,9 @@
           <div class="rg">Total HT : <span>42059,12</span></div>
           <div class="tva">TVA :   <span>3000,30</span></div>
           <div class="ttl">Total :   <span>53000,30</span></div>
-          <p>Reduction{{redic}}</p>
+          <p>Reduction{{redicTTL}}</p>
           <p>Quantité{{QuantitéTTL}}</p>
-          <p>PrixHT{{Prixht}}</p>
+          <p>PrixHT{{PrixhtTTL}}</p>
           <p>PrixHTF{{prixhtf}}</p>
 
 
@@ -287,10 +287,12 @@ export default {
       counter: 1,
       height:Number,
       lineHeight:Number,
-      redic:0,
+      redic:[],
+      redicTTL:0,
       Quantité:[],
       QuantitéTTL:0,
-      Prixht:0,
+      Prixht:[],
+      PrixhtTTL:0,
       prixhtf:0,
       total:0,
       vq:0,
@@ -344,16 +346,27 @@ export default {
     },
     reduction(value){
   
-
-      let v=this.Articles[value].Reduction
-      let ttl=0;
-      ttl=parseInt(v);
+    this.vq=this.Articles[value].Reduction
+    let ttl=0;
+    ttl=parseInt(this.vq);
       if (ttl>=0){
-      this.redic=ttl;
+
+        console.log("hadi reduction 9abla",this.redic)
+        this.redic[value]=ttl;
+        console.log("hadi redcution ba3da",this.redic)
+          let ttq=0;
+      
+          for(var i in this.redic) {
+            ttq += this.redic[i]; 
+          }
+
+          this.redicTTL=ttq
       }
       else{
         console.log('plz fill the input')
       }
+  
+
 
 
     },
@@ -367,7 +380,13 @@ export default {
         console.log("hadi quantité 9abla",this.Quantité)
         this.Quantité[value]=ttl;
         console.log("hadi quantité ba3da",this.Quantité)
-    
+          let ttq=0;
+      
+          for(var i in this.Quantité) {
+            ttq += this.Quantité[i]; 
+          }
+
+          this.QuantitéTTL=ttq
       }
       else{
         console.log('plz fill the input')
@@ -377,20 +396,28 @@ export default {
 
     },
      ph(value){
-
        
-      let v=this.Articles[value].prixht
-      let ttl=0;
-      ttl=parseInt(v);
+    this.vq=this.Articles[value].prixht
+    let ttl=0;
+    ttl=parseInt(this.vq);
       if (ttl>=0){
-      this.Prixht=ttl;
+
+        console.log("hadi prixht 9abla",this.Prixht)
+        this.Prixht[value]=ttl;
+        console.log("hadi prixht ba3da",this.Prixht)
+          let ttq=0;
+      
+          for(var i in this.Prixht) {
+            ttq += this.Prixht[i]; 
+          }
+
+          this.PrixhtTTL=ttq
       }
       else{
         console.log('plz fill the input')
       }
-
-
      }
+
 
   },
 
@@ -404,24 +431,22 @@ export default {
     Quantité:function(){
 
 
+
+
     console.log("quantité rah khadama fi watch")
      
-     let total=0;
+     let ttq=0;
       
       for(var i in this.Quantité) {
-         total += this.Quantité[i]; 
+         ttq += this.Quantité[i]; 
       }
 
-      this.QuantitéTTL=total
+      this.QuantitéTTL=ttq
       console.log(this.QuantitéTTL)
 
-      
-      
-        // let a=this.prixhtf
-        // let vp=this.Quantité*this.Prixht;
-        // this.prixhtf=vp+a
       },
       Prixht:function(){
+        console.log("prixht watch is working")
         // let a=this.prixhtf
         // let vp=this.Quantité*this.Prixht;
         // this.prixhtf=vp+a

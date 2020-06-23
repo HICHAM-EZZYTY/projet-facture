@@ -111,12 +111,12 @@
 
               <div class="inp7">
 
-                  <input @blur="quan(index)" id="in1" type="text" v-model="Article.quantité">
-                  <input  @blur="ph(index)"  id="in2" type="text" v-model="Article.prixht">
+                  <input @blur="quan(index)" id="in1" type="text" placeholder="quantité" v-model="Article.quantité">
+                  <input  @blur="ph(index)"  id="in2" type="text"  placeholder="prix ht" v-model="Article.prixht">
                 <div class="tva">
                       <label id="in5">Tva</label>
                       <div class="on_off">
-                          <input @blur="TVA(index)" id="in3" type="text"  v-model="Article.tva">
+                          <input @blur="TVA(index)" id="in3"  placeholder="tva" type="text"  v-model="Article.tva">
                           <input  id="in4" type="checkbox" class="toggle" checked>
                       </div>
                 </div>
@@ -165,14 +165,9 @@
 
         <div class="wrapResult">
           <div class="rg">Total HT : <span>{{totalhtTTL}}</span></div>
-          <div class="tva">TVA :   <span>3000,30</span></div>
-          <div class="ttl">Total :   <span>53000,30</span></div>
-          <p>Reduction{{redicTTL}}</p>
-          <p>Quantité{{QuantitéTTL}}</p>
-          <p>PrixHT{{PrixhtTTL}}</p>
-          <p>tvaTTL{{tvaTTL}}</p>
-          <p>totalhtTTL{{totalhtTTL}}</p>
-          <p>totalttcTTL{{totalttcTTL}}</p>
+          <div class="tva">TVA :   <span>{{tvaTTL}}</span></div>
+          <div class="ttl">Total :   <span>{{finalttl}}</span></div>
+    
 
 
 
@@ -291,6 +286,7 @@ export default {
       counter: 1,
       height:Number,
       lineHeight:Number,
+      finalttl:0,
       totalttc:[],
       totalttcTTL:0,
       totalht:[],
@@ -309,7 +305,7 @@ export default {
         service: 'Service',
         quantité: null,
         prixht: null,
-        tva : 20,
+        tva : null,
         percent:'%',
         Reduction: 'Réduction',
         totalht:0,
@@ -325,7 +321,7 @@ export default {
       service: 'Service',
       quantité: 'Quantité',
       prixht: 'Prix HT',
-      tva : 20,
+      tva : 0,
       percent:'%',
       Reduction: 'Réduction',
       totalht:0,
@@ -517,8 +513,36 @@ export default {
      
       }
       console.log(b)
+      this.totalht=b;
       const reducer = (accumulator, currentValue) => accumulator + currentValue;
       this.totalhtTTL=b.reduce(reducer);
+
+    },
+    tvaTTL:function(){
+
+      console.log("asi rah tva tbadlaat")
+
+
+      let s=[];
+
+
+       for(var i in this.totalht) {
+        let k=0;
+        k=(this.totalht[i]*this.tva[i])/100
+        s[i]=k
+     
+      }
+      console.log("tva table",s)
+
+      const reducer = (accumulator, currentValue) => accumulator + currentValue;
+      this.tvaTTL=s.reduce(reducer);
+      console.log(" tva total",this.tvaTTL)
+
+
+      this.finalttl=this.tvaTTL+this.totalhtTTL
+      console.log(this.finalttl)
+
+
 
     }
     

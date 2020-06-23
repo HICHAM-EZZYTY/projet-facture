@@ -1,60 +1,77 @@
 <template>
-  <div>
-    <h1 class="title-ref">Préférences Pour Les Avoirs D'acomptes :</h1>
-    <h5 class="sous-title">ici, vous pouvez modifier les préférences des avoirs d'acomptes</h5>
-
-    <div class="row">
-      <div class="form1 col-md-6">
-        <p>Afficher mon nom dans les PDF</p>
-        <b-form-checkbox class="custom-switch1" v-model="avoireAcompte.is_name_shown" name="check-button" switch></b-form-checkbox>
-        <h4 id="text-show">Avoirs D'acompte En Français</h4>
-        <label class="descr-pay descr-facture">Texte D’introduction Par Défaut</label>
-        <b-row class="mt-2">
-          <b-col sm="10">
-            <b-form-textarea id="textarea-large" class="textarea1" size="lg" v-model ="avoireAcompte.Introduction" ></b-form-textarea>
-          </b-col>
-        </b-row>
-        <label class="descr-pay descr-facture2">Texte de conclusion par défaut</label>
-        <b-row class="mt-2">
-          <b-col sm="10">
-            <b-form-textarea id="textarea-large" class="textarea2" size="lg" v-model ="avoireAcompte.Conclution" ></b-form-textarea>
-          </b-col>
-        </b-row>
-        <label class="descr-pay descr-facture3">Pied de page par défaut</label>
-        <b-row class="mt-2">
-          <b-col sm="10">
-            <b-form-textarea id="textarea-large" class="textarea3" size="lg" v-model ="avoireAcompte.footer" ></b-form-textarea>
-          </b-col>
-        </b-row>
-      </div>
-      <!--
-        <div class="form2 col-md-6">
-        <h4 id="text-show">Avoirs D'acompte En Anglais :</h4>
-        <label class="descr-pay descr-facture">Default introductory text</label>
-        <b-row class="mt-2">
-          <b-col sm="10">
-            <b-form-textarea id="textarea-large" class="textarea01" size="lg"></b-form-textarea>
-          </b-col>
-        </b-row>
-        <label class="descr-pay descr-facture2">Default closing text</label>
-        <b-row class="mt-2">
-          <b-col sm="10">
-            <b-form-textarea id="textarea-large" class="textarea02" size="lg"></b-form-textarea>
-          </b-col>
-        </b-row>
-      </div>
+  <div class="avoireAcompte-settings pb-sm-4 pb-xs-4">
+ 
+      <!-- 
+        this is a custom component . 
       -->
+      <Title mainTitle="Avoirs D'acomptes :" subTitle="ici, vous pouvez modifier les préférences des avoirs d'acomptes" />
 
-      <b-button class="load" @click="update">
-      <p class="mise">Mettre à jour votre compte</p>
-    </b-button>
+    <div class="row forms px-xl-4 px-lg-4 px-md-4 px-sm-3 mt-3">
+      <div class="forms-sides col-xl-6 col-lg-6 col-md-12 col-sm-12">
+        
+        <div class="forms-sides--group">
+          <p class="forms-sides--group_label" >Afficher mon nom dans les PDF</p>
+          <b-form-checkbox class="forms-sides--group_checkbox-2" v-model="avoireAcompte.is_name_shown" name="check-button" switch></b-form-checkbox>
+        </div>
+        
+        <div class="forms-sides--group">
+          <label class="forms-sides--group_label">Texte D’introduction Par Défaut</label>
+          <b-form-textarea rows="3" class="forms-sides--group_textarea" size="lg" v-model="avoireAcompte.Introduction" ></b-form-textarea>
+        </div> 
+
+        <div class="forms-sides--group">
+          <label class="forms-sides--group_label">Texte de conclusion Par Défaut</label>
+          <b-form-textarea rows="3" class="forms-sides--group_textarea" size="lg" v-model="avoireAcompte.Conclution" ></b-form-textarea>
+        </div> 
+        
+        <div class="forms-sides--group">
+          <label class="forms-sides--group_label">Pied de page Par Défaut</label>
+          <b-form-textarea rows="3" class="forms-sides--group_textarea" size="lg" v-model="avoireAcompte.footer" ></b-form-textarea>
+        </div> 
+        
+      </div>
+
+      <div class="forms-sides col-xl-6 col-lg-6 col-md-12 col-sm-12">
+        
+        <div class="forms-sides--group">
+          <p class="forms-sides--group_label" >Afficher mon nom dans les PDF</p>
+          <b-form-checkbox class="forms-sides--group_checkbox-2" v-model="avoireAcompte.is_name_shown" name="check-button" switch></b-form-checkbox>
+        </div>
+        
+        <div class="forms-sides--group">
+          <label class="forms-sides--group_label">Texte D’introduction Par Défaut</label>
+          <b-form-textarea rows="3" class="forms-sides--group_textarea" size="lg" v-model="avoireAcompte.Introduction" ></b-form-textarea>
+        </div> 
+
+        <div class="forms-sides--group">
+          <label class="forms-sides--group_label">Texte de conclusion Par Défaut</label>
+          <b-form-textarea rows="3" class="forms-sides--group_textarea" size="lg" v-model="avoireAcompte.Conclution" ></b-form-textarea>
+        </div> 
+        
+        <div class="forms-sides--group">
+          <label class="forms-sides--group_label">Pied de page Par Défaut</label>
+          <b-form-textarea rows="3" class="forms-sides--group_textarea" size="lg" v-model="avoireAcompte.footer" ></b-form-textarea>
+        </div> 
+        
+      </div>
+      
+      
+      
     </div>
+
+    <b-button class="settings-btn btn-primary" @click="update">
+      Mettre à jour votre compte
+    </b-button>
   </div>
 </template>
 
 <script>
+import Title from './Title.vue'; 
 export default {
   name : "avoirAcompte", 
+  components: {
+    Title,
+  }, 
   data: function () {
     return {
       
@@ -102,19 +119,24 @@ export default {
 };
 </script>
 
-<style scoped>
-.title-ref {
-  font-family: "Gilroy" sans-serif;
-  font-size: 27px;
-  font-weight: bold;
-  margin-left: 49px;
-  margin-top: 34px;
+<style lang="scss" scoped>
+.avoireAcompte-settings{
+  position: relative;
+  min-height: 100%;
+  width: 100%; 
 }
+// .title-ref {
+//   font-family: "Gilroy" sans-serif;
+//   font-size: 27px;
+//   font-weight: bold;
+//   margin-left: 49px;
+//   margin-top: 34px;
+// }
 
-.sous-title {
-  font-size: 16px;
-  color: gray;
-  margin-left: 51px;
-  margin-top: 17px;
-}
+// .sous-title {
+//   font-size: 16px;
+//   color: gray;
+//   margin-left: 51px;
+//   margin-top: 17px;
+// }
 </style>

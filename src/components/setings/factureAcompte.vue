@@ -1,44 +1,46 @@
 <template>
-  <div>
-    <h1 class="title-ref">Préférences Pour Les Factures D'acomptes :</h1>
-    <h5 class="sous-title">ici, vous pouvez modifier les préférences de factures d’acomptes</h5>
+  <div class="pb-sm-4 pb-xs-4">
+   
+    <Title mainTitle="Factures D'acomptes :" subTitle="ici, vous pouvez modifier les préférences des factures d'acomptes" />
 
-    <div class="row">
-      <div class="form1 col-md-6">
+
+    <div class="row forms px-xl-4 px-lg-4 px-md-4 px-sm-3 mt-3">
+      <div class="forms-sides col-xl-6 col-lg-6 col-md-12 col-sm-12">
         
-        <p>Afficher mon nom dans les PDF</p>
-        <b-form-checkbox class="custom-switch1" v-model="factureAcompte.is_name_shown" name="check-button" switch></b-form-checkbox>
         <h4 id="text-show">Factures D'acompte Français :</h4>
         
-        <label class="descr-pay descr-facture">Texte D’introduction Par Défaut</label>
-        <b-row class="mt-2">
-          <b-col sm="10">
-            <b-form-textarea id="textarea-large" class="textarea1" size="lg" v-model="factureAcompte.Introduction"></b-form-textarea>
-          </b-col>
-        </b-row>
+         <div class="forms-sides--group">
+          <p class="forms-sides--group_label" >Afficher mon nom dans les PDF</p>
+          <b-form-checkbox class="forms-sides--group_checkbox-2" v-model="factureAcompte.is_name_shown" name="check-button" switch></b-form-checkbox>
+        </div>
         
-        <label class="descr-pay descr-facture2">Texte de conclusion par défaut</label>
-        <b-row class="mt-2">
-          <b-col sm="10">
-            <b-form-textarea id="textarea-large" class="textarea2" size="lg" v-model="factureAcompte.Conclution"></b-form-textarea>
-          </b-col>
-        </b-row>
-        
-        <label class="descr-pay descr-facture3">Pied de page par défaut</label>
-        <b-row class="mt-2">
-          <b-col sm="10">
-            <b-form-textarea id="textarea-large" class="textarea3" size="lg" v-model="factureAcompte.footer"></b-form-textarea>
-          </b-col>
-        </b-row> 
 
+      
+        
+        <div class="forms-sides--group">
+          <label class="forms-sides--group_label">Texte D’introduction Par Défaut</label>
+          <b-form-textarea rows="3" class="forms-sides--group_textarea" size="lg" v-model="factureAcompte.Introduction" ></b-form-textarea>
+        </div> 
+        
+        <div class="forms-sides--group">
+          <label class="forms-sides--group_label">Texte de conclusion Par Défaut</label>
+          <b-form-textarea rows="3" class="forms-sides--group_textarea" size="lg" v-model="factureAcompte.Conclution" ></b-form-textarea>
+        </div> 
+        
+        <div class="forms-sides--group">
+          <label class="forms-sides--group_label">Pied de page Par Défaut</label>
+          <b-form-textarea rows="3" class="forms-sides--group_textarea" size="lg" v-model="factureAcompte.footer" ></b-form-textarea>
+        </div> 
+        
       </div>
 
     
-       <div class="form2 col-md-6">
+       <div class="forms-sides col-xl-6 col-lg-6 col-md-12 col-sm-12">
        
-        <input v-model="factureAcompte.amount" class="montant" placeholder="Montat par défaut" />
-        <b-form-select class="montantRef" id="montantid" v-model="factureAcompte.amount_unit_id" :options="options"></b-form-select>
-        <i class="fa fa-angle-down down-dev"></i>
+        <div class="forms-sides--group-2">
+          <input v-model="factureAcompte.amount" type="number" min="0" class="forms-sides--group-2_text-different" placeholder="Montat par défaut" />
+          <b-form-select class="forms-sides--group-2_select-different" id="montantid" v-model="factureAcompte.amount_unit_id" :options="options"></b-form-select>
+        </div>
  <!-- 
         <h4 id="text-show">Factures D'acompte Anglais :</h4>
         
@@ -60,14 +62,18 @@
   
 
     </div>
-    <b-button class="load" @click="update">
-        <p class="mise">Mettre à jour votre compte</p>
+    <b-button class="settings-btn btn btn-primary" @click="update">
+        Mettre à jour votre compte
       </b-button>
   </div>
 </template>
 
 <script>
+import Title from './Title.vue';
 export default {
+  components: {
+    Title,
+  },
   data() {
     return {
       options: [
@@ -141,58 +147,58 @@ export default {
 };
 </script>
 
-<style scoped>
-.title-ref {
-  font-family: "Gilroy" sans-serif;
-  font-size: 27px;
-  font-weight: bold;
-  margin-left: 49px;
-  margin-top: 34px;
-}
+<style lang="scss" scoped >
+// .title-ref {
+//   font-family: "Gilroy" sans-serif;
+//   font-size: 27px;
+//   font-weight: bold;
+//   margin-left: 49px;
+//   margin-top: 34px;
+// }
 
-.sous-title {
-  font-size: 16px;
-  color: gray;
-  margin-left: 51px;
-  margin-top: 17px;
-}
+// .sous-title {
+//   font-size: 16px;
+//   color: gray;
+//   margin-left: 51px;
+//   margin-top: 17px;
+// }
 
-.form1 > #text-show,
-.form2 > #text-show {
-  font-size: 21.5px !important;
-}
+// .form1 > #text-show,
+// .form2 > #text-show {
+//   font-size: 21.5px !important;
+// }
 
-.montant {
-  position: absolute;
-  width: 150px !important;
-  margin-top: -4.4px;
-  border-top: none;
-  border-bottom: 1px solid black;
-  border-right: none;
-  border-left: none;
-}
+// .montant {
+//   position: absolute;
+//   width: 150px !important;
+//   margin-top: -4.4px;
+//   border-top: none;
+//   border-bottom: 1px solid black;
+//   border-right: none;
+//   border-left: none;
+// }
 
-.montantRef {
-  position: absolute;
-  width: 200px !important;
-  /* margin-left: 0px; */
-  margin-top: -18px;
-}
+// .montantRef {
+//   position: absolute;
+//   width: 200px !important;
+//   /* margin-left: 0px; */
+//   margin-top: -18px;
+// }
 
-#montantid {
-  position: absolute;
-  width: 70px !important;
-  left: 11rem;
-  top: -3px;
-  border: none !important;
-  border-bottom: 1px solid black !important;
-  border-radius: 0px !important;
-  background-color: white !important;
-  border-bottom-left-radius: 0px !important;
-}
+// #montantid {
+//   position: absolute;
+//   width: 70px !important;
+//   left: 11rem;
+//   top: -3px;
+//   border: none !important;
+//   border-bottom: 1px solid black !important;
+//   border-radius: 0px !important;
+//   background-color: white !important;
+//   border-bottom-left-radius: 0px !important;
+// }
 
-.down-dev {
-  position: absolute;
-  left: 13.8rem;
-}
+// .down-dev {
+//   position: absolute;
+//   left: 13.8rem;
+// }
 </style>

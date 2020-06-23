@@ -1,5 +1,5 @@
 @import '~vue-single-date-picker/dist/vue-single-date-picker.css';
-
+@import "style.scss";
 
 @font-face {
   font-family: 'Gilroy-Black';
@@ -90,11 +90,9 @@
     font-family: 'Gilroy-UltraLight';
     src: url('~@/assets/fonts/Gilroy-UltraLight.ttf') format('truetype');
   } 
-
-
   
-  // -----Font-Name-----
 
+  // -----Font-Name-----
   $gb:"Gilroy-Black";
   $bi:"Gilroy-Black";
   $bd:"Gilroy-Bold";

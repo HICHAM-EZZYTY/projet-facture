@@ -1,33 +1,41 @@
 <template>
-  <div :style="myStyle">
-    <div class="Container">
-      <div class="col-6">
-        <navBar />
-        <sideBar />
-      </div>
-      <div class="contents">
-        <router-view></router-view>
+    <div class="background">
+      <div class="container home-settings">
+      
+        <navBar/>
         
+        <div class="collapse" id="navbarToggleExternalContent">
+          <div class="bg-light p-4">
+            <sideBar/>
+          </div>
+        </div>
+        
+        <div class="row mt-4 content-section">
+              
+          <div class="col-xl-3 col-md-3 col-sm-12 mx-0 px-0 con">
+            <sideBar/>
+          </div>
+
+          <div class="col-xl-9 col-md-12 col-sm-12 content-section_view">
+            <router-view/>
+          </div>
+        
+        </div>
+
       </div>
     </div>
-  </div>
 </template>
 
 <script>
-// @ is an alias to /src
+
 import navBar from "@/components/setings/navBar.vue";
 import sideBar from "@/components/setings/sideBar.vue";
-// import preference from "@/components/setings/preference.vue";
-// import CreateDevis from "@/components/Devis/CreateDevis.vue";
-
-// import Table from "@/components/data-table/Table.vue";
 
 export default {
   name: "homeSeting",
   components: {
     navBar,
     sideBar
-    // preference
   },
   data() {
     return {
@@ -38,43 +46,71 @@ export default {
   }
 };
 </script>
-<style>
-.Container {
-  display: flex;
-  flex-direction: row;
-  height: 48rem;
-  overflow: hidden;
+
+<style lang="scss" scoped>
+::-webkit-scrollbar {
+  display: none ;
+}
+.background{
+  background-color: #e7eaf5;
+  min-height: 100%;
 }
 
-.contents {
-  border: 2px solid white;
-  width: 53rem;
-  margin-left: -17.5rem;
-  margin-top: 8.4rem;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  background-color: white;
-  height: 35.5rem;
-  overflow: hidden;
+
+.home-settings { 
+  padding: 0;
+  #navbarToggleExternalContent{
+    border-radius: 10px !important;
+  }
+  & .content-section{
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3) ;  
+    border-radius: 10px ;
+    height: 80vh;  
+    &_view{
+      // background: white;
+      height: 100%;
+      overflow-x: hidden; 
+      overflow-y: auto; 
+      padding: 0;
+      margin: 0;
+      & > div {
+        background: white;
+        border-radius: 0px 10px 10px 0px; 
+        position: relative;
+        width: 100%;
+        min-height: 100%;
+        padding: 0px 3px;
+      }
+      @media screen and (max-width: 1200px){
+        & > div{
+          padding: 0px 10px;
+          padding-bottom: 4em;
+          border-radius: 10px;
+          width:100%;
+          & label{
+            font-size: 1em !important;
+          }
+        }
+      }
+    }
+  }
+  & .con{
+    background: #f7f8fb;
+    border-radius: 10px 0px 0px 10px; 
+    overflow-y: scroll;
+    height:80vh;
+    // border-right: 2px solid black ;
+  }
+  @media only screen and (max-width: 1200px) {
+    & .con{
+      display: none; 
+    }
+  }
+  @media only screen and (min-width: 1200px) {
+    & .collapse{
+      display: none; 
+    }
+  }
 }
 
-.load {
-  position: absolute;
-  width: 354px;
-  height: 64px;
-  left: 991px;
-  top: 639px;
-  background: #2262c6 !important;
-  border-top-left-radius: 25px !important;
-  border-bottom-left-radius: 0px !important;
-  border-top-right-radius: 0px !important;
-  border-bottom-right-radius: 20px !important;
-}
-
-.mise {
-  font-size: 15px;
-  padding: 14px;
-  font-style: normal;
-  font-weight: bold;
-}
 </style>

@@ -99,7 +99,7 @@ const routes = [
             component: cards,
           },
           {
-             path: "Type_client",
+               path: "Type_client",
              name:  "Type_client",
              component: Type_client,
           },

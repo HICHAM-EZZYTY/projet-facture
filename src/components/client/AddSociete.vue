@@ -4,14 +4,13 @@
         <div class="row mb-3 mt-3">
             <div class="col-12 page-title">
                 <div class="page-title--text">
-                    <span class="page-title--text_title" >Society</span>
-                    <span class="page-title--text_count">12</span>
+                    <span class="page-title--text_title" >Création d'une société pour le client :</span>
                 </div>
                 <div class="page-title--icons">
                     <!--icons -->
                     <span class="mr-2"> Annulé la creation </span>
                     <button>
-                        <i class="fa fa-times"></i>
+                        <img src="../../assets/img/closedocument 1.svg" alt="closedocument">
                     </button>
                 </div>
             </div>
@@ -58,10 +57,7 @@
                     <label class="forms-sides--group_label" >Site internet :</label>
                     <input class="forms-sides--group_text" type="text" placeholder="......" />
                 </div>
-                 <div class="forms-sides--group">
-                    <label class="forms-sides--group_label" >Notes :</label>
-                     <b-form-textarea rows="3" class="forms-sides--group_textarea" size="lg"  ></b-form-textarea>
-                </div>
+                
             </div>
             
             <div class="col-lg-6 forms-sides">
@@ -69,7 +65,6 @@
                     <label class="forms-sides--group_label" >Pays :</label>
                     <b-form-select class="forms-sides--group_select" ></b-form-select>
                 </div>
-                <S_Phones @addedPhone="_addedPhone" />
                 <div class="forms-sides--group">
                     <label class="forms-sides--group_label" >Clients :</label>
                     <b-form-select class="forms-sides--group_select" ></b-form-select>
@@ -80,14 +75,18 @@
         <div class="row mt-3 forms-buttons">
             <!-- buttons -->
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 forms-buttons">
-                <button> 
-                    <i class="fa fa-arrow-left mr-1"></i>
-                    <span>prev</span> 
-                </button>
-                <button> 
-                    <span> next </span>
-                    <i class="fa fa-arrow-right ml-1"></i> 
-                </button>
+                <!-- <router-link to="/client/Information_Compte"> -->
+                    <button> 
+                        <i class="fa fa-arrow-left mr-1"></i>
+                        <span>Previous</span>     
+                    </button>
+                <!-- </router-link>  -->
+                <!-- <router-link to="/societe/new">  -->
+                    <button> 
+                            <span> NEXT </span>
+                            <i class="fa fa-arrow-right ml-1"></i> 
+                    </button>
+                <!-- </router-link>  -->
             </div>
         </div>
 
@@ -99,29 +98,21 @@
 <script>
 import S_Adresses from './S_Sub_Components/S_Adresses.vue';
 
-import S_Phones from './S_Sub_Components/S_Phones.vue';
 export default {
     name : "AddSociety",
     data: function(){
         return { 
             adresses: [], 
-            phones: []
         };
     }, 
     components: {
         S_Adresses,
-        S_Phones,
     }, 
     methods:{
         _addedAdress: function(adressesArray){
             this.adresses = adressesArray;
             console.log(this.adresses);
         }, 
-        _addedPhone: function(phonesArray){
-            this.phones = phonesArray;
-            
-            console.log(this.phones);
-        }
     }
 }
 </script>
@@ -133,7 +124,7 @@ export default {
     
     .forms-buttons{
         display: flex; 
-        margin-left: 3em;
+        margin-left: 2%;
         & button{
             display: flex; 
             justify-content: space-around;
@@ -159,7 +150,21 @@ export default {
     .society-page{
         // background: red;
         height: 100%;
+        margin-top: 4em;
     }
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 41px;
+    margin-left: -15px;
+}
+.page-title--text_title {
+    color: #2262c6;
+    font-weight: bold;
+    font-family: Gilroy-Bold;
+    margin-right: 1em;
+    font-size: 25px;
+}
 
     input, textarea, select{
         background-color: transparent !important; 
@@ -167,4 +172,11 @@ export default {
            border: 1px solid #2262c6;
         }
     }
+    @media only screen and (max-width: 574px) {
+        .society-page{
+            position: relative;
+            left: 10%;
+        }
+
+}
 </style>

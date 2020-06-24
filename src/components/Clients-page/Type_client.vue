@@ -1,5 +1,6 @@
 <template>
     <div>
+      
       <samp>Question 1 :</samp>
       <h4>Veuillez choisir le type de votre client ?</h4>
            <!-- Professionnel-->
@@ -16,7 +17,9 @@
             </label>
           </div>    
         <div class="page-item">
-                  <a class="page-link" id="Next" href="#"><img class="Next" src="../../assets/img/next white 1.svg" alt="Next">Next</a>
+                  <router-link to="/client/Information_Compte">
+              <a class="page-link" id="Next"><img class="Next" src="../../assets/img/next white 1.svg" alt="Next">Next</a>
+              </router-link>
         </div>
         </div>
       </div>
@@ -35,7 +38,9 @@
                 </label>
             </div>
                   <div class="page-item ">
-                        <a class="page-link" id="Previous" href="#"><img class="previous" src="../../assets/img/previous 1.svg" alt="previous">Previous</a>
+                      <router-link to="/client">
+                         <a class="page-link" id="Previous"><img class="previous" src="../../assets/img/previous 1.svg" alt="previous">Previous</a>
+                      </router-link>
                   </div>
             </div>
         </div> 

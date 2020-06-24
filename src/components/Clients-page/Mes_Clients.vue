@@ -6,6 +6,20 @@
                 <img src="../../assets/img/eye.svg" alt="eyes icon">
                 <img  id="leftIcon" src="../../assets/img/print.svg" alt="print icon">
             </div>
+                 <div class="row mb-3 mt-3">
+            <div class="col-12 page-title">
+                <div class="page-title--text">
+                    <span class="page-title--text_title" >Society</span>
+                    <span class="page-title--text_count">12</span>
+                </div>
+                <div class="page-title--icons">
+                    <span class="mr-2"> Annulé la creation </span>
+                    <button>
+                        <i class="fa fa-times"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
       </div>
 </template>
 

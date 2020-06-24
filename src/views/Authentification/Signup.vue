@@ -9,7 +9,7 @@
     <input type="email" placeholder="EXEMPLE@EMAIL.Com" v-model="user.email" />
     <input type="password" placeholder="mot de pass" v-model="user.password" />
     <a class="mot" href="#">Mot de passe oublié ?</a>
-    <button @click.prevent="signup">s'inscrire</button>
+    <button @click.prevent="register">s'inscrire</button>
   </form>
 </template>
 <script>
@@ -28,10 +28,9 @@ export default {
 
     register: function () {
         let data = {
-          name: this.name,
-          email: this.email,
-          password: this.password,
-          is_admin: this.is_admin
+          name: this.user.name,
+          email: this.user.email,
+          password: this.user.password,
         }
         console.log("data",data)
         this.$store.dispatch('register', data)

@@ -36,7 +36,7 @@ export default {
         let password = this.user.password
         console.log("email & password",email,password)
         this.$store.dispatch('login', { email, password })
-       .then(() => this.$router.push('/'))
+       .then(() => this.$router.push('/Devis/new'))
        .catch(err => console.log(err))
       }
 

@@ -27,7 +27,6 @@
           <b-avatar
             variant="primary"
             class="avatar"
-            :text="initials"
             size="2.7rem"
             id="tt"
           ></b-avatar>

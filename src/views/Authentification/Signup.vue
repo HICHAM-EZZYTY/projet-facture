@@ -25,11 +25,20 @@ export default {
     };
   },
   methods: {
-    signup() {
-      console.log(this.user.email);
-      console.log(this.user.name);
-      console.log(this.user.password);
-    }
+
+    register: function () {
+        let data = {
+          name: this.name,
+          email: this.email,
+          password: this.password,
+          is_admin: this.is_admin
+        }
+        console.log("data",data)
+        this.$store.dispatch('register', data)
+       .then(() => this.$router.push('/'))
+       .catch(err => console.log(err))
+      }
+ 
   }
 };
 </script>

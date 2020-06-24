@@ -1,5 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import store from '../store'
+
 
 //home
 import HomePage from "../views/HomePage.vue";
@@ -72,6 +74,9 @@ const routes = [
         path: "devis",
         // name: "Devis",
         component: Devis,
+        meta: { 
+          requiresAuth: true
+        },
         children: [
           {
             path: "",
@@ -264,5 +269,18 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 });
+
+
+router.beforeEach((to, from, next) => {
+  if(to.matched.some(record => record.meta.requiresAuth)) {
+    if (store.getters.isLoggedIn) {
+      next()
+      return
+    }
+    next('/gate/login') 
+  } else {
+    next() 
+  }
+})
 
 export default router;

@@ -23,11 +23,10 @@
 
         </form>
         <div id="navbar" class="navbar-collapse collapse">
-           <p class="bienvenue"><span>Bienvenue,</span> {{this.$store.getters.user.name}}</p>
+           <p class="bienvenue"><span>Bienvenue,</span> Hello Anas,Chamkhi</p>
           <b-avatar
             variant="primary"
             class="avatar"
-            :text="initials"
             size="2.7rem"
             id="tt"
           ></b-avatar>
@@ -40,10 +39,10 @@
 export default {
   name: "Navbar",
   computed: {
-    initials: function () {
-      let words = this.$store.getters.user.name.split(' ');
-      return `${words[0][0]}${words[1][0]}`
-    }
+    // initials: function () {
+    //   let words = this.$store.getters.user.name.split(' ');
+    //   return `${words[0][0]}${words[1][0]}`
+    // }
   }
 };
 </script>

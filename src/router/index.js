@@ -1,5 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import store from '../store'
+
 
 //home
 import HomePage from "../views/HomePage.vue";
@@ -74,6 +76,9 @@ const routes = [
         path: "devis",
         // name: "Devis",
         component: Devis,
+        meta: { 
+          requiresAuth: true
+        },
         children: [
           {
             path: "",
@@ -99,7 +104,7 @@ const routes = [
             component: cards,
           },
           {
-               path: "Type_client",
+             path: "Type_client",
              name:  "Type_client",
              component: Type_client,
           },
@@ -252,7 +257,7 @@ const routes = [
   {
     path: "/devis-calandar",
     name: "devisCalandar",
-    component: TheExportDevis,
+    component: TheCalendarDevis ,
   },
   {
     path: "/devis-refus",
@@ -262,7 +267,8 @@ const routes = [
   {
     path: "/devis-export",
     name: "devisExport",
-    component: TheCalendarDevis,
+    component: TheExportDevis ,
+    
   },
   {
     path: "*",
@@ -276,5 +282,18 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 });
+
+
+router.beforeEach((to, from, next) => {
+  if(to.matched.some(record => record.meta.requiresAuth)) {
+    if (store.getters.isLoggedIn) {
+      next()
+      return
+    }
+    next('/gate/login') 
+  } else {
+    next() 
+  }
+})
 
 export default router;

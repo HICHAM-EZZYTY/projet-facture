@@ -30,20 +30,30 @@ export default {
       }
     };
   },
-  methods: {
-    login() {
-      //this.$router.push("/")
-      this.$http
-        .post("/login", this.user)
-        .then(res => {
-          console.log(res);
-        })
-        .catch(e => {
-          console.error(e);
-        });
+    methods: {
+      login: function () {
+        let email = this.user.email 
+        let password = this.user.password
+        console.log("email & password",email,password)
+        this.$store.dispatch('login', { email, password })
+       .then(() => this.$router.push('/Devis/new'))
+       .catch(err => console.log(err))
+      }
+
     }
-  }
-};
+ 
+    // login() {
+    //   this.$http
+    //     .post("/login", this.user)
+    //     .then(res => {
+    //       console.log(res);
+    //     })
+    //     .catch(e => {
+    //       console.error(e);
+    //     });
+    // }
+  };
+
 </script>
 
 <style scoped>

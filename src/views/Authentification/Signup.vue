@@ -9,7 +9,7 @@
     <input type="email" placeholder="EXEMPLE@EMAIL.Com" v-model="user.email" />
     <input type="password" placeholder="mot de pass" v-model="user.password" />
     <a class="mot" href="#">Mot de passe oublié ?</a>
-    <button @click.prevent="signup">s'inscrire</button>
+    <button @click.prevent="register">s'inscrire</button>
   </form>
 </template>
 <script>
@@ -25,11 +25,19 @@ export default {
     };
   },
   methods: {
-    signup() {
-      console.log(this.user.email);
-      console.log(this.user.name);
-      console.log(this.user.password);
-    }
+
+    register: function () {
+        let data = {
+          name: this.user.name,
+          email: this.user.email,
+          password: this.user.password,
+        }
+        console.log("data",data)
+        this.$store.dispatch('register', data)
+       .then(() => this.$router.push('/'))
+       .catch(err => console.log(err))
+      }
+ 
   }
 };
 </script>

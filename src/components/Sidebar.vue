@@ -44,10 +44,10 @@
             <em>Feedback</em>
           </router-link>
         </li>
-        <li class="sidenav--list__item sign-out">
-          <router-link class="s-sidebar__nav-link" to="/logout">
-            <img class="sidenav-button__icon" src="../assets/img/menu8.svg" alt />
-            <em>Déconnexion</em>
+        <li @click="logout" class="sidenav--list__item sign-out">
+          <router-link class="s-sidebar__nav-link" to="/logout" @click="logout">
+            <img @click="logout" class="sidenav-button__icon" src="../assets/img/menu8.svg" alt />
+            <em @click="logout" >Déconnexion</em>
           </router-link>
         </li>
       </ul>
@@ -57,7 +57,18 @@
 
 <script>
 export default {
-  name: "Sidebar"
+  name: "Sidebar",
+  computed : {
+      isLoggedIn : function(){ return this.$store.getters.isLoggedIn}
+    },
+    methods: {
+      logout: function () {
+        this.$store.dispatch('logout')
+        .then(() => {
+          this.$router.push('/gate/login')
+        })
+      }
+    },
 };
 </script>
 

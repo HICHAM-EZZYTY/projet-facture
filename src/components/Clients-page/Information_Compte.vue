@@ -53,7 +53,7 @@
             
             <div class="col-lg-6 forms-sides">    
                 
-                <S_Phones @addedPhone="_addedPhone" />
+                <Custom_Input @addedInput="_addedAdress" placeholder="Phone" />
 
                  <div class="forms-sides--group">
                     <label class="forms-sides--group_label" >Mots clés</label>
@@ -100,7 +100,8 @@
 
 <script>
 
-import S_Phones from '../client/S_Sub_Components/S_Phones.vue';
+import Custom_Input from './../Sub_Components/Custom_Input.vue';
+
 export default {
     name : "Information_Compte",
     data: function(){
@@ -109,7 +110,7 @@ export default {
         };
     }, 
     components: {
-        S_Phones,
+        Custom_Input,
     }, 
     methods:{
         _addedPhone: function(phonesArray){

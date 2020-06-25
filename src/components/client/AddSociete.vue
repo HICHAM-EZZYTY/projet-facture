@@ -51,7 +51,7 @@
             
             <div class="col-lg-6 forms-sides">    
                 
-                <S_Adresses @addedAdress="_addedAdress" />
+                <Custom_Input @addedInput="_addedAdress" placeholder="Adress" />
 
                  <div class="forms-sides--group">
                     <label class="forms-sides--group_label" >Site internet :</label>
@@ -65,6 +65,7 @@
                     <label class="forms-sides--group_label" >Pays :</label>
                     <b-form-select class="forms-sides--group_select" ></b-form-select>
                 </div>
+                <!-- <Custom_Input @addedInput="_addedPhone" placeholder="Phone Number"/> -->
                 <div class="forms-sides--group">
                     <label class="forms-sides--group_label" >Clients :</label>
                     <b-form-select class="forms-sides--group_select" ></b-form-select>
@@ -96,7 +97,7 @@
 
 
 <script>
-import S_Adresses from './S_Sub_Components/S_Adresses.vue';
+import Custom_Input from '../Sub_Components/Custom_Input.vue';
 
 export default {
     name : "AddSociety",
@@ -106,7 +107,7 @@ export default {
         };
     }, 
     components: {
-        S_Adresses,
+        Custom_Input,
     }, 
     methods:{
         _addedAdress: function(adressesArray){

@@ -15,6 +15,8 @@ import listDevis from "./../components/Devis/listDevis.vue";
 import Clients from "../views/subLayouts/Clients.vue";
 import addClient from "../components/client/addClient.vue";
 import cards from "../components/Clients-page/cards.vue";
+import Type_client from "../components/Clients-page/Type_client.vue";
+import Information_Compte from "../components/Clients-page/Information_Compte.vue";
 
 //Facture
 import factureAcompte from "../components/setings/factureAcompte.vue";
@@ -100,6 +102,17 @@ const routes = [
             path: "",
             name: "Client",
             component: cards,
+          },
+          {
+             path: "Type_client",
+             name:  "Type_client",
+             component: Type_client,
+          },
+          {
+            path: "Information_Compte",
+            name: "Information_Compte",
+            component: Information_Compte,
+            
           },
           {
             path: 'new',

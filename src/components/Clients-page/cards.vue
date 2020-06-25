@@ -24,7 +24,7 @@ export default {
 				.get("/clients")
 				.then((result) => {
 					this.clients = result.data.data;
-					console.log(this.clients[0]);
+					// console.log(this.clients[0]);
 
 				})
 				.catch((error) => {

@@ -33,10 +33,12 @@ Vue.prototype.$http.defaults.baseURL = "http://127.0.0.1:8000/api";
 // Vue.prototype.$http.defaults.headers.common = { Authorization: `Bearer ${token}` };
 const token = localStorage.getItem('token')
 if (token) {
-  Vue.prototype.$http.defaults.headers.common['Authorization'] = token
+  // Vue.prototype.$http.defaults.headers.common['Authorization'] = token
+
+  Vue.prototype.$http.defaults.headers.common = { Authorization: `Bearer ${token}` };
 }
 
- 
+
 
 // Install BootstrapVue
 Vue.use(BootstrapVue);

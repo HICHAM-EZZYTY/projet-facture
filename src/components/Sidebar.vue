@@ -64,9 +64,9 @@ export default {
     methods: {
       logout: function () {
         this.$store.dispatch('logout')
-        .then(() => {
-          this.$router.push('/gate/login')
-        })
+          .then(() => {
+            this.$router.push('/gate/login')
+          })
       }
     },
 };

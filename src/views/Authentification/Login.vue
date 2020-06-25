@@ -5,6 +5,11 @@
     <router-link class="inscription" to="signup">
       <span>inscription</span>
     </router-link>
+    
+    <div v-show="!response.success">
+      {{response.message}}
+    </div>
+    
     <input type="email" placeholder="EXEMPLE@EMAIL.Com" v-model="user.email" />
     <input type="password" placeholder="mot de pass" v-model="user.password" />
     <a class="mot" href="#">Mot de passe oublié ?</a>
@@ -27,6 +32,10 @@ export default {
       user: {
         email: "",
         password: ""
+      }, 
+      response:{
+        success : true,
+        message : ""
       }
     };
   },
@@ -35,23 +44,15 @@ export default {
         let email = this.user.email 
         let password = this.user.password
         console.log("email & password",email,password)
-        this.$store.dispatch('login', { email, password })
-       .then(() => this.$router.push('/Devis/new'))
-       .catch(err => console.log(err))
+        this.$store.dispatch('login', this.user)
+          .then(() => this.$router.push('/Devis/new'))
+          .catch(() => {
+            this.response.success = false;
+            this.response.message = "Email or Password is wrong" ;
+          })
       }
 
     }
- 
-    // login() {
-    //   this.$http
-    //     .post("/login", this.user)
-    //     .then(res => {
-    //       console.log(res);
-    //     })
-    //     .catch(e => {
-    //       console.error(e);
-    //     });
-    // }
   };
 
 </script>

@@ -26,22 +26,22 @@
             <div class="col-lg-6 forms-sides">
                 <div class="forms-sides--group">
                     <label class="forms-sides--group_label" >Prénom</label>
-                    <input class="forms-sides--group_text" type="text" placeholder="Prénom" />
+                    <input class="forms-sides--group_text" type="text" placeholder="Prénom" v-model="user.Client_Prenom"/>
                 </div>
                  <div class="forms-sides--group">
                     <label class="forms-sides--group_label" >Adresse email</label>
-                    <input class="forms-sides--group_text" type="text" placeholder="hicham@gmail.com" />
+                    <input class="forms-sides--group_text" type="text" placeholder="hicham@gmail.com" v-model="user.Client_email"/>
                 </div>
             </div>
             
             <div class="col-lg-6 forms-sides">
                 <div class="forms-sides--group">
                     <label class="forms-sides--group_label" >Nom</label>
-                    <input class="forms-sides--group_text" type="text" placeholder="Nom" />
+                    <input class="forms-sides--group_text" type="text" placeholder="Nom" v-model="user.Client_Nom"/>
                 </div>
                  <div class="forms-sides--group">
                     <label class="forms-sides--group_label" >Fonction</label>
-                    <input class="forms-sides--group_text" type="text" placeholder="Directeur technique" />
+                    <input class="forms-sides--group_text" type="text" placeholder="Directeur technique" v-model="user.Client_Fonction" />
                 </div>
             </div>
         </div>
@@ -53,23 +53,24 @@
             
             <div class="col-lg-6 forms-sides">    
                 
-                <Custom_Input @addedInput="_addedAdress" placeholder="Phone" />
+                <Custom_Input @addedInput="_addedPhone" placeholder="Phone" />
 
                  <div class="forms-sides--group">
                     <label class="forms-sides--group_label" >Mots clés</label>
-                    <input class="forms-sides--group_text" type="text" placeholder="climatiseurs" />
+                    <input class="forms-sides--group_text" type="text" placeholder="climatiseurs" v-model="keys" />
                 </div>
             
             </div>
             
             <div class="col-lg-6 forms-sides">
-                <div class="forms-sides--group">
+                <div class="forms-sides--group" v-show="typeClient">
                     <label class="forms-sides--group_label" > Société</label>
-                    <b-form-select class="forms-sides--group_select" ></b-form-select>
+                    <b-form-select class="forms-sides--group_select" :options="companies" v-model="user.societe_id"></b-form-select>
                 </div>
                 <div class="forms-sides--group">
                     <label class="forms-sides--group_label" >Notes</label>
-                     <b-form-textarea rows="3" class="forms-sides--group_textarea" size="lg" placeholder="Ajouter vos remarques ici"></b-form-textarea>
+                     <b-form-textarea rows="3" class="forms-sides--group_textarea" size="lg" placeholder="Ajouter vos remarques ici" v-model="user.Client_Note">
+                     </b-form-textarea>
                 </div>
                 
             </div>
@@ -79,13 +80,13 @@
             <!-- buttons -->
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 forms-buttons">
               <!-- <router-link to="/client/type_client"> -->
-                <button>                  
+                <button @click="previous" >                  
                     <i class="fa fa-arrow-left mr-1"></i>
                     <span>Previous</span>                 
                 </button>
               <!-- </router-link> -->
                 <!-- <router-link to="/societe/new"> -->
-                  <button>            
+                  <button @click="comfirm">            
                       <span> NEXT </span>
                       <i class="fa fa-arrow-right ml-1"></i> 
                   </button>
@@ -106,18 +107,74 @@ export default {
     name : "Information_Compte",
     data: function(){
         return { 
-            phones: []
-        };
+            user: {
+                societe_id : null,
+                Client_Nom : "",
+                Client_Prenom : "",
+                Client_email : "",
+                Client_Ville : "SAfi",
+                Client_Code_Postal : 90909 ,
+                Client_Pays : "Maroc",
+                Client_Fonction : "",
+                Client_SiteInternet : "WWWWWWWWWWWWWWWWW",
+                Client_Note : "",    
+                phones: [],
+                adresses: [], 
+                motCles: []
+            },
+            keys: "",
+            companies: [],
+        }
     }, 
+    props:["typeClient"],
     components: {
         Custom_Input,
     }, 
     methods:{
         _addedPhone: function(phonesArray){
-            this.phones = phonesArray;
-            
-            console.log(this.phones);
+            this.user.phones = phonesArray;
+        }, 
+
+        getCompanies: function() {
+            this.companies.push ({
+                text: "select a Company", 
+                value: null
+            })
+            this.$http 
+                .get("/societes")
+                .then( (res) => {
+                    let CompaniesArray = res.data.data;  
+                    CompaniesArray.forEach( (c) => {
+                        this.companies.push({
+                            text: c.Societe_Nom, 
+                            value: c.id
+                        });
+                    });
+                })
+                .catch( (e) => console.error(e) )
+        }, 
+
+        comfirm: function() {
+            this.makeKeywords();
+            this.$emit("comfirm", this.user );
+        },
+
+        makeKeywords: function (){
+            this.user.motCles = [];
+            this.keys.split(' ').forEach( (k) => {
+                this.user.motCles.push({
+                    value: k    
+                }) 
+            } );
+        },
+
+        previous: function() {
+            this.$emit("typePageClicked");
         }
+    },   
+    created(){
+        this.getCompanies();
+        // console.log(typeClient);
     }
 }
 </script>

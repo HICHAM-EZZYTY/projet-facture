@@ -7,7 +7,7 @@
 
       <div class="grid-wrapper">
         <div class="card-wrapper">
-        <input type="radio" id="rdo1" name="radio" checked>
+        <input type="radio" id="rdo1" name="radio" value="1" v-model="picked">
           <div class="card-content">
             <div class="card-state-icon"></div>
             <label for="rdo1">
@@ -17,9 +17,10 @@
             </label>
           </div>    
         <div class="page-item">
-                  <router-link to="/client/Information_Compte">
-              <a class="page-link" id="Next"><img class="Next" src="../../assets/img/next white 1.svg" alt="Next">Next</a>
-              </router-link>
+              <button @click="next" class="page-link" id="Next">
+                <img class="Next" src="../../assets/img/next white 1.svg" alt="Next">
+                Next
+              </button>
         </div>
         </div>
       </div>
@@ -27,7 +28,7 @@
 
         <div class="grid-wrapper">
             <div class="card-wrapper">
-            <input type="radio" id="rdo2" name="radio" checked>
+            <input type="radio" id="rdo2" name="radio" value="0" v-model="picked">
             <div class="card-content">
                 <div class="card-state-icon"></div>
                 <label for="rdo2">
@@ -49,10 +50,25 @@
 <script>
 export default {
     name:"Type_client",
-     
+    data: function() {
+      return {
+        picked: null
+      }
+    }, 
+    watch: {
+      picked: function () {
+        console.log( this.picked == 0 )
+        this.$emit('typeChange', this.picked);
+      }
+    }, 
+    methods: {
+      next: function() {
+        this.$emit('nextClicked');
+      } 
+    }
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
     
 samp{
     position: relative;
@@ -67,6 +83,7 @@ samp{
     line-height: 28px;
     text-transform: capitalize;
     color: #AAB5C6;
+    font-family: Gilroy-Medium;
 }
 h4{
     position: relative;
@@ -81,12 +98,14 @@ h4{
     line-height: 41px;
     text-transform: lowercase;
     color: #404041;
+    font-family: Gilroy-Medium;
 }
 
 /* card checkbox */
 *,
 *:before,
 *:after {
+  font-family: Gilroy-Medium;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;

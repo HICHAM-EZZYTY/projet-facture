@@ -54,6 +54,8 @@ export default {
 .background{
   background-color: #e7eaf5;
   min-height: 100%;
+  width: 100%; 
+  height: 100%;
 }
 
 

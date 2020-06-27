@@ -80,13 +80,127 @@ export default {
 ////////// SMALLL MOBILE DEVICES ///////////////
 
 
-  @media (min-width: 320px) {
+  @media (min-width: 420px) {
 
-    .header{
-      background-color: red;
+    .contain{
+    margin-left: 14%;
+    }
+    #icn1{
+    justify-self: end;
+    margin-right: 9%;
     }
 
   }
+
+  
+  @media (min-width: 458px) {
+
+    .header{
+      grid-template-columns: 1fr 2fr;
+      .rightHeader{
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        margin-top: 20px;
+        h4{
+        justify-self: end;
+        margin-top: 4px;
+        }
+      }
+    }
+
+  }
+
+   
+  @media (min-width: 560px) {
+
+  .contain{
+    margin-left: 10%;
+  }
+  .header{
+    .rightHeader{
+    display: grid;
+    grid-template-columns: 4fr 0.5fr 1fr;
+    margin-left: 82px;
+      h4{
+        margin-right: 12px;
+      }
+    }
+  }
+  
+  }
+     @media (min-width: 576px) {
+     .contain{
+       margin: 0px;
+     }
+     .header{
+      margin-right: 0px;
+      margin-left: 0px;
+     }
+   }
+   @media (min-width: 821px) {
+   .leftHeader{
+     h1{
+      margin-left: 14%;
+     }
+   } 
+
+     @media (min-width: 1021px) {
+
+ 
+       .header{
+         margin-left: 37px;
+
+         .rightHeader{
+           h4{
+             margin-right: 0px;
+           }
+           #icn1{
+            justify-self: center;
+            margin-right: 9%;
+           }
+          #icn2{
+            justify-self: flex-start;
+           }
+         }
+       }
+     }
+
+   }
+
+    @media (min-width: 1134px) {
+
+      .leftHeader{
+        h1{
+          margin-left: 10%;
+        }
+      }
+
+    }
+
+      @media (min-width: 1269px) {
+
+      .leftHeader{
+        h1{
+        margin-left: 5%;
+        }
+      }
+
+    }
+
+     @media (min-width: 1451px) {
+
+      .leftHeader{
+        h1{
+        margin-left: 0%;
+        }
+      }
+
+    }
+
+
+
+   
+
 
 
 </style>

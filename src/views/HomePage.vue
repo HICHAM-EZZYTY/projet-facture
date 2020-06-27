@@ -49,4 +49,7 @@ export default {
   text-align:justify; 
 }
 
+
+ 
+
 </style>

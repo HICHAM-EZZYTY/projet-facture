@@ -26,9 +26,13 @@ export default {
 <style scoped lang="scss">
 @import "../../scss/main.scss" ;   
 
+.contain{
+      margin-left: 20%;
+}
+
 .header{
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
   margin-top: 43px;
   margin-left: 5%;
 }
@@ -39,12 +43,14 @@ export default {
   line-height: 34px;
   text-transform: capitalize;
   color: $blue;
+  margin-top: 20px;
+  margin-bottom: 0px;
   }
 }
 .rightHeader{
+
   display: grid;
-  grid-template-columns: 5fr 1fr 1fr;
-  margin-right: 22%;
+  grid-template-columns: 2fr 1fr 1fr;
   h4{
   font-family: "Gilroy-Regular";
   font-size: 13.5px;
@@ -52,8 +58,8 @@ export default {
   text-transform: capitalize;
   color: #AAB5C6;
   margin-top: 3px;
-  justify-self: end;
-  margin-right: 5%;
+  justify-self: start;
+  margin-right: 0%;
 
   }
   img{
@@ -62,13 +68,25 @@ export default {
   }
 }
  #icn1{
-    justify-self: end;
-    margin-right: 7px;
     
+    justify-self: center;
+    margin-left: 5%; 
  }
  #icn2{
   justify-self: flex-start;
  }
+
+
+////////// SMALLL MOBILE DEVICES ///////////////
+
+
+  @media (min-width: 320px) {
+
+    .header{
+      background-color: red;
+    }
+
+  }
 
 
 </style>

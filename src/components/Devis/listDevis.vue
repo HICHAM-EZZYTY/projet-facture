@@ -1,18 +1,20 @@
 <template>
   <div class="contain">
 
-    <div class="header">
-      <div class="leftHeader">
-        <h1>Mes Devis</h1>
-      </div>
+        <div class="header">
+            <div class="leftHeader">
+              <h1>Mes Devis</h1>
+            </div>
 
-      <div class="rightHeader">
-        <h4>Exporter mes Devis</h4>
-        <img  id="icn1" src="../../assets/img/Group75.svg" alt="exporterIcon">
-        <img id="icn2" src="../../assets/img/Group76.svg" alt="infoIcon">
-      </div>
+            <div class="rightHeader">
+              <h4>Exporter mes Devis</h4>
+              <img  id="icn1" src="../../assets/img/Group75.svg" alt="exporterIcon">
+              <img id="icn2" src="../../assets/img/Group76.svg" alt="infoIcon">
+            </div>
+        </div>
 
-    </div>
+              <div class="divider"></div>
+
     
   </div>
 </template>
@@ -75,7 +77,15 @@ export default {
  #icn2{
   justify-self: flex-start;
  }
-
+  
+  .divider{
+    height: 1px;
+    background-color: #E9EAEB;
+    position: relative;
+    bottom: 7px;
+    margin-left: 5%;
+    width: 88%;
+  }
 
 ////////// SMALLL MOBILE DEVICES ///////////////
 
@@ -106,6 +116,9 @@ export default {
         margin-top: 4px;
         }
       }
+    }
+    .divider{
+      bottom: 42px;
     }
 
   }

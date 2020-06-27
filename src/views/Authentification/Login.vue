@@ -5,7 +5,7 @@
     <router-link class="inscription" to="signup">
       <span>inscription</span>
     </router-link>
-    <input type="email" placeholder="EXEMPLE@EMAIL.Com" v-model="user.email" />
+    <input type="email" placeholder="exemple@email.com" v-model="user.email" />
     <input type="password" placeholder="mot de pass" v-model="user.password" />
     <a class="mot" href="#">Mot de passe oublié ?</a>
     <button @click.prevent="login">S'identifier</button>

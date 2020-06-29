@@ -383,16 +383,20 @@ export default {
         grid-template-rows: none;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         margin-left: 8%;
+        h3{
+          justify-self: end;
+        }
       }
 
       #active{
       &::after{
       content: "";
-      display: none;
-      margin-left: 13%;
-      width: 473%;
-      padding-top: 12px;
-      border-bottom: 2px solid #2262C6;
+      position: relative;
+      top:16px;
+      display: block;
+      margin-left: 0%;
+      width: 141%;
+      border-bottom: 3px solid #2262C6;
       border-radius: 8px;
       margin-bottom: 15px;
     }
@@ -416,10 +420,11 @@ export default {
     content: "";
     display: block;
     margin-left: 13%;
-    width: 100%;
+    width: 473%;
     border-bottom: 1px solid #E9EAEB;
     border-width: thin;
     margin-bottom: 15px;
+    
     }
 
     }
@@ -427,8 +432,26 @@ export default {
     }
 
 
+    
+    @media (min-width: 1135px) {
 
-      @media (min-width: 1269px) {
+      .devisHeader{
+        margin-left: 7%;
+      }
+
+    }
+
+     
+    @media (min-width: 1200px) {
+
+      .devisHeader{
+        margin-left: 6%;
+      }
+
+    }
+
+
+    @media (min-width: 1269px) {
 
       .leftHeader{
         h1{
@@ -438,11 +461,47 @@ export default {
 
     }
 
+  
+      @media (min-width: 1300px) {
+
+      .devisHeader{
+        margin-left: 3%;
+      }
+      #active{
+      &::after{
+      margin-left: 14%;
+    }
+    }
+    }
+
+    @media (min-width: 1350px) {
+        .devisHeader{
+        margin-left: 2%;
+      }
+      #active{
+        &::after{
+        margin-left: 24%;
+        }
+      }
+
+    }
+
+
      @media (min-width: 1451px) {
 
       .leftHeader{
         h1{
         margin-left: 0%;
+        }
+      }
+
+      .devisHeader{
+      margin-left: 1%; 
+      }
+
+      #active{
+        &::after{
+          margin-left:28%;
         }
       }
 

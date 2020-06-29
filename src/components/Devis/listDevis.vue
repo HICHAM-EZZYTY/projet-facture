@@ -197,8 +197,6 @@ export default {
     margin-right: 9%;
     }
   
-
-
   }
 
   
@@ -218,6 +216,11 @@ export default {
     }
     .divider{
       bottom: 42px;
+    }
+
+    .devisHeader{
+      top:0px;
+      bottom: 10px;
     }
 
   }
@@ -249,11 +252,76 @@ export default {
       margin-left: 0px;
      }
    }
+
+     @media (min-width: 579px) {
+    .devisHeader{
+    display: grid;
+    grid-template-rows: none;
+    grid-template-columns: 1fr 1fr;
+    }
+   }
+
+    @media (min-width: 805px) {
+    
+    .devisHeader{
+    display: grid;
+    grid-template-rows: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .tDevis,.Prov,.Final,.refus,.signé{
+
+      .rec{
+
+        margin-left: 10px;
+      }
+
+    &::after{
+  
+    width: 120%;
+
+    }
+
+    }
+
+    #active{
+      &::after{
+    width: 120%;
+
+    }
+
+}
+    
+} 
+
+
+    @media (min-width: 821px) {
+
+      
+     .devisHeader{
+    display: grid;
+    grid-template-rows: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-left: 5%;
+    }
+     .tDevis{
+       h3{
+         margin: 0px;
+         justify-self: end;
+       }
+     }
+
+    }
+
+
+
+
    @media (min-width: 821px) {
    .leftHeader{
      h1{
       margin-left: 14%;
      }
+
    } 
 
      @media (min-width: 1021px) {

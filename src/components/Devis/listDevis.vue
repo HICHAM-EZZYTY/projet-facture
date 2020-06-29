@@ -23,7 +23,7 @@
                       <h3>Provisoires</h3>
                       <div class="rec">1</div>
                   </div>
-                  <div class="Prov">
+                  <div class="Final">
                       <h3>Finalisés</h3>
                       <div class="rec">2</div>
                   </div>
@@ -52,7 +52,18 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "../../scss/main.scss" ;   
+@import "../../scss/main.scss" ;  
+
+.tDevis,.Prov,.Final,.refus,.signé{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.tDevis{
+  .rec{
+    margin-left: 12%;
+  }
+}
 
 .devisHeader{
 
@@ -68,6 +79,7 @@ export default {
     line-height: 26px;
     text-transform: capitalize;
     color: #AAB5C6;
+    text-align: center;
   }
 
 }

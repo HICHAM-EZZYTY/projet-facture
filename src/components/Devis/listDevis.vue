@@ -15,9 +15,9 @@
 
               <div class="divider"></div>
               <div class="devisHeader">
-                  <div class="tDevis">
-                      <h3>Tous Les Devis</h3>
-                      <div class="rec">7</div>
+                  <div id="active" class="tDevis">
+                      <h3 id="activeTitre">Tous Les Devis</h3>
+                      <div id="activerectangle" class="rec">7</div>
                   </div>
                   <div class="Prov">
                       <h3>Provisoires</h3>
@@ -57,21 +57,60 @@ export default {
 .tDevis,.Prov,.Final,.refus,.signé{
     display: grid;
     grid-template-columns: 1fr 1fr;
+
+    .rec{
+    background: #ECF1F8;
+    border-radius: 10px;
+    height: 28px;
+    width: 28px;
+    text-align: center;
+    color:$blue;
+    }
+    &::after{
+    content: "";
+    display: block;
+    margin-left: 13%;
+    width: 106%;
+    border-bottom: 1px solid #E9EAEB;
+    border-width: thin;
+    margin-bottom: 15px;
+    }
 }
 
-.tDevis{
-  .rec{
-    margin-left: 12%;
-  }
+#activeTitre{
+  color: $blue;
+  font-family:  $sb;
+}
+#activerectangle{
+  background-color: $blue;
+  color: white;
+}
+
+#active{
+      &::after{
+    content: "";
+    display: block;
+    margin-left: 13%;
+    width: 106%;
+    border-bottom: 2px solid #2262C6;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    }
+
 }
 
 .devisHeader{
 
+  // display: grid;
+  // grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  // margin-left: 5%;
+  // position: relative;
+  // bottom: 32px;
+
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  margin-left: 5%;
+  grid-template-rows: 1fr ;
   position: relative;
-  bottom: 32px;
+  top: 5px;
 
   h3{
     font-family:  $gm;
@@ -79,7 +118,8 @@ export default {
     line-height: 26px;
     text-transform: capitalize;
     color: #AAB5C6;
-    text-align: center;
+    float: right;
+    margin-left: 12%;
   }
 
 }
@@ -156,6 +196,8 @@ export default {
     justify-self: end;
     margin-right: 9%;
     }
+  
+
 
   }
 

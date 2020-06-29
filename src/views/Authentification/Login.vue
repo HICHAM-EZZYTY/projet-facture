@@ -5,12 +5,16 @@
     <router-link class="inscription" to="signup">
       <span>inscription</span>
     </router-link>
+<<<<<<< HEAD
     
     <div v-show="!response.success">
       {{response.message}}
     </div>
     
     <input type="email" placeholder="EXEMPLE@EMAIL.Com" v-model="user.email" />
+=======
+    <input type="email" placeholder="exemple@email.com" v-model="user.email" />
+>>>>>>> 9746516b21968e8bea27f44bd08cb6dccdf4dcb2
     <input type="password" placeholder="mot de pass" v-model="user.password" />
     <a class="mot" href="#">Mot de passe oublié ?</a>
     <button @click.prevent="login">S'identifier</button>

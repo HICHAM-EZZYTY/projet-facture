@@ -47,6 +47,10 @@ export default {
   overflow-x: hidden; 
   overflow-y: auto; 
   text-align:justify; 
+  z-index: -1;
 }
+
+
+ 
 
 </style>

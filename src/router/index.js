@@ -76,9 +76,15 @@ const routes = [
         path: "devis",
         // name: "Devis",
         component: Devis,
+<<<<<<< HEAD
         meta: {
           requiresAuth: true
         },
+=======
+        // meta: { 
+        //   requiresAuth: true
+        // },
+>>>>>>> 9746516b21968e8bea27f44bd08cb6dccdf4dcb2
         children: [
           {
             path: "",

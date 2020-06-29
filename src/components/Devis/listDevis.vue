@@ -1,451 +1,556 @@
 <template>
-  <div class="container">
-    <div class="Title-items bv-example-row">
-      <h2 class="Title">Mes Devis</h2>
-      <div class="text-center">
-        <p variant="primary" class="desc">
-          Exporter mes Devis
-          <span class="badge badge-one">
-            <a href="#">Info</a>
-          </span>
-          <span class="badge badge-two">
-            <a href="#">/</a>
-          </span>
-        </p>
-      </div>
-    </div>
-    <hr />
-    <div class="projects">
-    
-      <b-tabs class="forms" content-class="mt-3" fill>
+  <div class="contain">
 
-        <!-- <b-tab active>
-          <template v-slot:title>
-            <p class="Usera">title</p>
-            <i class="fa fa-user usero"></i>
-          </template>
-          <p class="p-3">Tab contents 1</p>
-        </b-tab>-->
+        <div class="header">
+            <div class="leftHeader">
+              <h1>Mes Devis</h1>
+            </div>
 
-        <b-tab active>
-          <template v-slot:title :title-link-class="'tab-title-class'">
-            <p class="Fact">Tous Les Devis</p>
-            <span class="badge badge-inf badge-facture">
-              <p class="facture">7</p>
-            </span>
-          </template>
-          <b-table small :fields="fields" :items="items" responsive="sm">
-            <!-- A virtual column -->
+            <div class="rightHeader">
+              <h4>Exporter mes Devis</h4>
+              <img  id="icn1" src="../../assets/img/Group75.svg" alt="exporterIcon">
+              <img id="icn2" src="../../assets/img/Group76.svg" alt="infoIcon">
+            </div>
+        </div>
 
-            <template v-slot:cell(N_de_devis)="data">
-              <p class="column_1">{{ data.index + 1 }}</p>
-            </template>
+              <div class="divider"></div>
+              <div class="devisHeader">
+                  <div id="active" class="tDevis">
+                      <h3 id="activeTitre">Tous Les Devis</h3>
+                      <div id="activerectangle" class="rec">7</div>
+                  </div>
 
-            <template v-slot:cell(Actions)>
-              <!-- Drop Down Menu Parametres -->
+                  <div class="Prov">
 
-              <div class="dropdown my-class">
-                <a
-                  type="text"
-                  id="dropdownMenuButton"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <i class="fa fa-ellipsis-v"></i>
-                </a>
-                <div class="dropdown-menu dropdown-left" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item active" href="#">Marquer comme signé</a>
-                  <a class="dropdown-item" href="#">Marquer comme refusé</a>
-                  <a class="dropdown-item" href="#">Modifier les mots-clés</a>
-                  <a class="dropdown-item" href="#">Créer une opportunité</a>
-                  <a class="dropdown-item" href="#">Dupliquer une oppurtunité</a>
-                  <a class="dropdown-item" href="#">Dupliquer en facture</a>
-                  <a class="dropdown-item" href="#">Dupliquer le devis</a>
-                  <a class="dropdown-item" href="#">Envoyer par email</a>
-                  <a class="dropdown-item" href="#">Télécharger</a>
-                  <a class="dropdown-item" href="#">Copier l'url</a>
-                </div>
+                      <h3>Provisoires</h3>
+                      <div class="rec">1</div>
+                  </div>
+                  <div class="Final">
+                      <h3>Finalisés</h3>
+                      <div class="rec">2</div>
+                  </div>
+                  <div class="refus">
+                      <h3>Refusés</h3>
+                      <div class="rec">2</div>
+                  </div>
+                  <div class="signé">
+                      <h3>Signés</h3>
+                      <div class="rec">2</div>
+                  </div>
+
+
+
               </div>
 
 
-              <!-- You can also use the font-awesome-icon component here -->
-            </template>
-
-            <!-- A custom formatted column -->
-            <template v-slot:cell(name)="data">
-              <p>
-                {{ data.value.first + " " }}
-                {{ data.value.last }}
-              </p>
-            </template>
-          </b-table>
-        </b-tab>
-
-        <b-tab>
-          <template v-slot:title :title-link-class="'tab-title-class'">
-            <p class="Fact">Provisoires</p>
-            <span class="badge badge-inf badge-provi">
-              <p class="facture">1</p>
-            </span>
-          </template>
-        </b-tab>
-
-        <b-tab>
-          <template v-slot:title :title-link-class="'tab-title-class'">
-            <p class="Fact">Finalisées</p>
-            <span class="badge badge-inf badge-payes" :title-link-class="'tab-title-class'">
-              <p class="facture">2</p>
-            </span>
-          </template>
-        </b-tab>
-        <b-tab>
-          <template v-slot:title :title-link-class="'tab-title-class'">
-            <p class="Fact">Refusés</p>
-            <span class="badge badge-inf badge-apaye">
-              <p class="facture">2</p>
-            </span>
-          </template>
-        </b-tab>
-
-        <b-tab>
-          <template v-slot:title :title-link-class="'tab-title-class'">
-            <p class="Fact">Signés</p>
-            <span class="badge badge-inf badge-signe" active>
-              <p class="facture">7</p>
-            </span>
-          </template>
-        </b-tab>
-        
-      </b-tabs>
-    </div>
+    
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      fields: [
-        // A virtual column that doesn't exist in items
-        "N_de_devis",
-        // A column that needs custom formatting
-        { key: "name", label: "Nom de client" },
-        // A regular column
-        "Nom_de_société",
-        // A regular column
-        "Montant_totale",
-        "Status",
-        "Créer_le",
-        "Signé_le",
-        "Actions"
 
-        // A virtual column made up from two fields
-        // { key: "nameage", label: "First name and age" }
-      ],
-      items: [
-        {
-          name: { first: "Chaimaa", last: "Ess-bbah" },
-          Montant_totale: "46,56 Dh",
-          Nom_de_société: "Youcode",
-          Status: "Signés",
-          Créer_le: "12/02/20",
-          Signé_le: "15/02/20",
-          icon: "fa-user-secret"
-        },
-        {
-          name: { first: "Fouzia", last: "Balibla" },
-          Montant_totale: "230,36 Dh",
-          Nom_de_société: "Youcode",
-          Status: "Signés",
-          Créer_le: "14/02/20",
-          Signé_le: "16/02/20",
-          isMember: "fa-user-secret"
-        },
-        {
-          name: { first: "Hicham", last: "Ezzyti" },
-          Montant_totale: "230,36 Dh",
-          Nom_de_société: "Youcode",
-          Status: "Finalisé",
-          Créer_le: "14/02/20",
-          Signé_le: "______"
-        },
-        {
-          name: { first: "Chiamaa", last: "Ess-bbah" },
-          Montant_totale: "46,56 Dh",
-          Nom_de_société: "Youcode",
-          Status: "Finalisé",
-          Créer_le: "12/02/20",
-          Signé_le: "______"
-        },
-        {
-          name: { first: "Chaimaa", last: "Ess-bbah" },
-          Montant_totale: "46,56 Dh",
-          Nom_de_société: "Youcode",
-          Status: "Signés",
-          Créer_le: "12/02/20",
-          Signé_le: "15/02/20",
-          icon: "fa-user-secret"
-        },
-        {
-          name: { first: "Fouzia", last: "Balibla" },
-          Montant_totale: "230,36 Dh",
-          Nom_de_société: "Youcode",
-          Status: "Signés",
-          Créer_le: "14/02/20",
-          Signé_le: "16/02/20",
-          isMember: "fa-user-secret"
-        },
-        {
-          name: { first: "Hicham", last: "Ezzyti" },
-          Montant_totale: "230,36 Dh",
-          Nom_de_société: "Youcode",
-          Status: "Finalisé",
-          Créer_le: "14/02/20",
-          Signé_le: "______"
-        },
-        {
-          name: { first: "Chiamaa", last: "Ess-bbah" },
-          Montant_totale: "46,56 Dh",
-          Nom_de_société: "Youcode",
-          Status: "Finalisé",
-          Créer_le: "12/02/20",
-          Signé_le: "______"
+    data() {
+      return {
+        data: {
         }
-      ]
-    };
-  }
-};
+      }
+
+    },
+    methods: {
+
+    }
+
+
+    
+
+  
+
+}
 </script>
 
-<script>
-export default {
-  name: "ListDevis"
-};
-</script>
-<style scoped>
-/* TITLE HEAD */
-.Title {
-  text-transform: capitalize;
-  color: #2262c6;
-  /* margin-bottom: 32rem; */
-  position: absolute;
-  font-family: Gelroy;
-  font-size: 28px;
-  font-weight: bold;
+<style scoped lang="scss">
+@import "../../scss/main.scss" ;  
+
+.tDevis,.Prov,.Final,.refus,.signé{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    cursor: pointer;
+
+    .rec{
+    background: #ECF1F8;
+    border-radius: 10px;
+    height: 28px;
+    width: 28px;
+    text-align: center;
+    color:$blue;
+    cursor: pointer;
+    }
+    &::after{
+    content: "";
+    display: block;
+    margin-left: 13%;
+    width: 106%;
+    border-bottom: 1px solid #E9EAEB;
+    border-width: thin;
+    margin-bottom: 15px;
+    pointer-events: none
+    }
 }
 
-.desc {
-  margin-left: 43rem;
-  color: grey;
+#activeTitre{
+  color: $blue;
+  font-family:  $sb;
+}
+#activerectangle{
+  background-color: $blue;
+  color: white;
 }
 
-.badge {
-  color: #fff;
-  position: absolute;
-  width: 50px;
-  height: 34px;
-  background: #ecf1f8;
-  border-radius: 10px !important;
+#active{
+      &::after{
+    content: "";
+    display: block;
+    margin-left: 13%;
+    width: 106%;
+    border-bottom: 2px solid #2262C6;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    pointer-events: none
+    }
+
 }
 
-hr {
-  margin-top: 2.5rem !important;
-}
+.devisHeader{
 
-.badge-one {
-  margin-left: 57px;
-  margin-top: -2px;
-}
 
-b-tabs > title {
-  margin-left: 20px;
-}
-
-.badge-two {
-  margin-left: 7px;
-  margin-top: -2px;
-}
-
-p > .badge {
-  color: black;
-}
-
-/* FIN TITLE HEAD */
-
-/* HEADER TABS */
-b-tabs {
-  border-style: none;
-}
-
-.badge-inf {
-  background: #ecf1f8;
-  /* margin-left: 31rem;
-  margin-top: -6rem; */
-}
-
-.badge-inf > p {
-  color: #2262c6;
-  font-family: Gilroy;
-  font-style: normal;
-  font-size: 18px;
-}
-
-.facture {
-  margin-top: 5px;
-  margin-bottom: 1rem;
-}
-
-.badge-facture {
-  margin-left: 0.5rem;
-  top: 5rem;
-}
-
-.badge-provi {
-  top: 5rem;
-  margin-left: -1rem;
-}
-
-.badge-final {
-  top: 5.3rem;
-  margin-left: 5.8rem;
-}
-
-.badge-payes {
-  margin-left: -1.9rem;
-  top: 5rem;
-}
-
-.badge-apaye {
-  top: 5rem;
-  margin-left: -2.8rem;
-}
-
-.badge-signe {
-  margin-left: -3rem;
-  top: 5rem;
-}
-
-.Fact {
-  margin-left: -17px;
-  margin-top: -33px;
-  position: absolute;
-}
-
-.Apaye {
-  margin-left: -166px;
-  margin-top: -33px;
+  display: grid;
+  grid-template-rows: 1fr ;
   position: relative;
+  top: 5px;
+
+  h3{
+    font-family:  $gm;
+    font-size: 15px;
+    line-height: 26px;
+    text-transform: capitalize;
+    color: #AAB5C6;
+    float: right;
+    margin-left: 12%;
+    cursor: pointer;
+  }
+
 }
 
-.project-tab {
-  border: none;
-  /* padding: 10%;
-  margin-top: -8%; */
-}
-/* .project-tab #tabs {
-  background: #007b5e;
-  color: #eee;
-} */
-.dropdown-item.active,
-.dropdown-item:active {
-  color: black !important;
-  text-decoration: none;
-  background-color: #fff !important;
+.contain{
+      margin-left: 20%;
 }
 
-.dropdown-item {
-  color: #616467 !important;
+.header{
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  margin-top: 43px;
+  margin-left: 5%;
 }
+.leftHeader{
+  h1{
+  font-family: $bd;
+  font-size: 19px;
+  line-height: 34px;
+  text-transform: capitalize;
+  color: $blue;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  }
+}
+.rightHeader{
 
-.project-tab #tabs h6.section-title {
-  color: #eee;
-}
-.project-tab #tabs .nav-tabs .nav-item.show .nav-link,
-.nav-tabs .nav-link.active {
-  color: #0062cc;
-  background-color: transparent;
-  /* border-color: transparent transparent #f3f3f3; */
-  border-bottom: 3px solid !important;
-  border-top: none !important;
-  border-right: none !important;
-  border-left: none !important;
-  font-size: 16px;
-}
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  h4{
+  font-family: "Gilroy-Regular";
+  font-size: 13.5px;
+  line-height: 23px;
+  text-transform: capitalize;
+  color: #AAB5C6;
+  margin-top: 3px;
+  justify-self: start;
+  margin-right: 0%;
 
-.nav-fill .nav-item > a {
-  font-weight: bold;
-  font-style: normal;
-  font-size: 16px;
-  color: #aab5c6 !important;
-  margin-top: 30px;
+  }
+  img{
+    height:30px;
+    width:30px
+  }
 }
-
-.nav-tabs .nav-link.active,
-.nav-tabs .nav-item.show .nav-link {
-  color: #0062cc !important;
-  font-size: 16px;
-  margin-top: 30px;
-}
-
-.project-tab thead {
-  background: #f3f3f3;
-  color: #333;
-}
-.project-tab a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 600;
-}
-/* FIN HEADER TABS */
-
-/* Table Information */
-.table {
-  width: 100%;
-  /* color: #212529; */
-  margin-top: 2rem;
-  background-color: #ecf1f8;
-  border-collapse: collapse;
-  border-radius: 8px;
-  overflow: hidden;
-}
-.table-sm th,
-.table-sm td {
-  padding: 0.3rem;
-  height: 3.5rem;
-}
-
-.table-sm td > p {
-  margin-left: 1rem !important;
-  /* text-align: -webkit-left; */
-}
-
-.table-sm td > .column_1 {
-  margin-left: -4.4rem !important;
-}
-
-.table thead th {
-  font-size: 14px;
-  line-height: 26px;
-  color: #616467;
-}
-
-.fa-ellipsis-v:before {
-  content: "\f142";
-  color: #616467;
-  position: absolute;
-}
-
-.my-class .dropdown-menu {
-  /* max-height: 100px; */
-  overflow-y: auto;
-  height: 14rem;
-}
-/* FIN Table Information */
+ #icn1{
+    
+    justify-self: center;
+    margin-left: 5%; 
+ }
+ #icn2{
+  justify-self: flex-start;
+ }
+  
+  .divider{
+    height: 1px;
+    background-color: #E9EAEB;
+    position: relative;
+    bottom: 7px;
+    margin-left: 5%;
+    width: 88%;
+  }
 
 
-/* Responsive page */
+////////// MediaQuery ///////////////
 
-/* Fin Responsive Page */
+
+  @media (min-width: 420px) {
+
+    .contain{
+    margin-left: 14%;
+    }
+    #icn1{
+    justify-self: end;
+    margin-right: 9%;
+    }
+  
+  }
+
+  
+  @media (min-width: 458px) {
+
+    .header{
+      grid-template-columns: 1fr 2fr;
+      .rightHeader{
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        margin-top: 20px;
+        h4{
+        justify-self: end;
+        margin-top: 4px;
+        }
+      }
+    }
+    .divider{
+      bottom: 42px;
+    }
+
+    .devisHeader{
+      top:0px;
+      bottom: 10px;
+    }
+
+  }
+
+   
+  @media (min-width: 560px) {
+
+  .contain{
+    margin-left: 10%;
+  }
+  .header{
+    .rightHeader{
+    display: grid;
+    grid-template-columns: 4fr 0.5fr 1fr;
+    margin-left: 82px;
+      h4{
+        margin-right: 12px;
+      }
+    }
+  }
+  
+  }
+     @media (min-width: 576px) {
+     .contain{
+       margin: 0px;
+     }
+     .header{
+      margin-right: 0px;
+      margin-left: 0px;
+     }
+   }
+
+     @media (min-width: 579px) {
+    .devisHeader{
+    display: grid;
+    grid-template-rows: none;
+    grid-template-columns: 1fr 1fr;
+    }
+   }
+
+    @media (min-width: 805px) {
+    
+    .devisHeader{
+    display: grid;
+    grid-template-rows: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .tDevis,.Prov,.Final,.refus,.signé{
+
+      .rec{
+
+        margin-left: 10px;
+      }
+
+    &::after{
+  
+    width: 120%;
+    pointer-events: none
+
+    }
+
+    }
+
+    #active{
+      &::after{
+    width: 120%;
+    pointer-events: none
+    }
+
+}
+    
+} 
+
+
+    @media (min-width: 821px) {
+
+      
+    .devisHeader{
+    display: grid;
+    grid-template-rows: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-left: 5%;
+    }
+     .tDevis{
+       h3{
+         margin: 0px;
+         justify-self: end;
+       }
+     }
+
+    }
+
+
+
+
+   @media (min-width: 821px) {
+   .leftHeader{
+     h1{
+      margin-left: 14%;
+     }
+   } 
+
+
+    @media (min-width: 940px) {
+
+
+    .devisHeader{
+    display: grid;
+    grid-template-rows: none;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-left: 5%;
+    }
+
+    .tDevis{
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    }
+
+    }
+
+
+
+     @media (min-width: 1021px) {
+
+ 
+       .header{
+         margin-left: 37px;
+
+         .rightHeader{
+           h4{
+             margin-right: 0px;
+           }
+           #icn1{
+            justify-self: center;
+            margin-right: 9%;
+           }
+          #icn2{
+            justify-self: flex-start;
+           }
+         }
+       }
+     }
+
+   }
+
+    @media (min-width: 1134px) {
+
+      .leftHeader{
+        h1{
+          margin-left: 10%;
+        }
+      }
+
+    }
+
+    @media (min-width: 1104px) {
+
+      .devisHeader{
+        display: grid;
+        grid-template-rows: none;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        margin-left: 8%;
+        h3{
+          justify-self: end;
+        }
+      }
+
+      #active{
+      &::after{
+      content: "";
+      position: relative;
+      top:16px;
+      display: block;
+      margin-left: 0%;
+      width: 141%;
+      border-bottom: 3px solid #2262C6;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      pointer-events: none
+    }
+    }
+
+    .tDevis,.Prov,.Final,.refus,.signé{
+
+    &::after{
+    content: "";
+    display: none;
+    margin-left: 13%;
+    width: 106%;
+    border-bottom: 1px solid #E9EAEB;
+    border-width: thin;
+    margin-bottom: 15px;
+    pointer-events: none
+    }
+    }
+
+    .devisHeader{
+    &::after{
+    content: "";
+    display: block;
+    margin-left: 13%;
+    width: 456%;
+    border-bottom: 1px solid #E9EAEB;
+    border-width: thin;
+    margin-bottom: 15px;
+    pointer-events: none
+    
+    }
+
+    }
+
+    }
+
+
+    
+    @media (min-width: 1135px) {
+
+      .devisHeader{
+        margin-left: 7%;
+      }
+
+    }
+
+     
+    @media (min-width: 1200px) {
+
+      .devisHeader{
+        margin-left: 6%;
+      }
+
+    }
+
+
+    @media (min-width: 1269px) {
+
+      .leftHeader{
+        h1{
+        margin-left: 5%;
+        }
+      }
+      #activeTitre{
+        justify-self: start;
+      }
+
+    }
+
+  
+      @media (min-width: 1300px) {
+
+      .devisHeader{
+        margin-left: 3%;
+      }
+      #active{
+      &::after{
+      margin-left: 14%;
+      pointer-events: none
+      }
+      }
+      #activeTitre{
+        justify-self: start;
+      }
+    }
+
+    @media (min-width: 1350px) {
+        .devisHeader{
+        margin-left: 2%;
+      }
+      #active{
+        &::after{
+        margin-left: 24%;
+        pointer-events: none
+        }
+      }
+      
+      #activeTitre{
+        justify-self: start;
+      }
+
+    }
+
+
+     @media (min-width: 1451px) {
+
+      .leftHeader{
+        h1{
+        margin-left: 0%;
+        }
+      }
+
+      .devisHeader{
+      margin-left: 1%; 
+      }
+
+      #active{
+
+        &::after{
+          margin-left:28%;
+          pointer-events: none
+        }
+      }
+
+      #activeTitre{
+        justify-self: start;
+      }
+
+    }
+
+
+
+   
+
+
+
 </style>
-

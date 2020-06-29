@@ -14,6 +14,32 @@
         </div>
 
               <div class="divider"></div>
+              <div class="devisHeader">
+                  <div class="tDevis">
+                      <h3>Tous Les Devis</h3>
+                      <div class="rec">7</div>
+                  </div>
+                  <div class="Prov">
+                      <h3>Provisoires</h3>
+                      <div class="rec">1</div>
+                  </div>
+                  <div class="Prov">
+                      <h3>Finalisés</h3>
+                      <div class="rec">2</div>
+                  </div>
+                  <div class="refus">
+                      <h3>Refusés</h3>
+                      <div class="rec">2</div>
+                  </div>
+                  <div class="signé">
+                      <h3>Signés</h3>
+                      <div class="rec">2</div>
+                  </div>
+
+
+
+              </div>
+
 
     
   </div>
@@ -27,6 +53,24 @@ export default {
 
 <style scoped lang="scss">
 @import "../../scss/main.scss" ;   
+
+.devisHeader{
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  margin-left: 5%;
+  position: relative;
+  bottom: 32px;
+
+  h3{
+    font-family:  $gm;
+    font-size: 15px;
+    line-height: 26px;
+    text-transform: capitalize;
+    color: #AAB5C6;
+  }
+
+}
 
 .contain{
       margin-left: 20%;
@@ -87,7 +131,8 @@ export default {
     width: 88%;
   }
 
-////////// SMALLL MOBILE DEVICES ///////////////
+
+////////// MediaQuery ///////////////
 
 
   @media (min-width: 420px) {

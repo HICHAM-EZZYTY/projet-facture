@@ -15,27 +15,24 @@
 
               <div class="divider"></div>
               <div ref="devisHeader" class="devisHeader">
-                  <div id="active" class="tDevis">
+                  <div id="active" class="tDevis" @click="makeFirst(0)">
                       <h3 id="activeTitre">Tous Les Devis</h3>
                       <div id="activerectangle" class="rec">7</div>
                   </div>
 
-                  <div class="Prov"
-                  v-on:click="makeFrst(1)"                  
-                  >
-
+                  <div class="Prov" @click="makeSecond(1)">
                       <h3>Provisoires</h3>
                       <div class="rec">1</div>
                   </div>
-                  <div class="Final">
+                  <div class="Final" @click="makeThird(2)">
                       <h3>Finalisés</h3>
                       <div class="rec">2</div>
                   </div>
-                  <div class="refus">
+                  <div class="refus" @click="makeFourth(3)">
                       <h3>Refusés</h3>
                       <div class="rec">2</div>
                   </div>
-                  <div class="signé">
+                  <div class="signé" @click="makeFifth(4)">
                       <h3>Signés</h3>
                       <div class="rec">2</div>
                   </div>
@@ -60,7 +57,7 @@ export default {
 
     },
     methods: {
-        makeFrst: function(n) {
+        makeSecond: function(n) {
         let para;
         para=this.$refs.devisHeader;
         let nOfNodes=para.childNodes.length-1;
@@ -76,11 +73,75 @@ export default {
         para.childNodes[n].childNodes[0].setAttribute("id", "activeTitre")
         para.childNodes[n].childNodes[1].setAttribute("id", "activerectangle")
 
+        },
+        makeFirst: function(n) {
+        let para;
+        para=this.$refs.devisHeader;
+        let nOfNodes=para.childNodes.length-1;
+        let i;
+        
+        for(i=0;i<nOfNodes;i++){
+          para.childNodes[i].removeAttribute("id")
+          para.childNodes[i].childNodes[0].removeAttribute("id")
+          para.childNodes[i].childNodes[1].removeAttribute("id")
 
+        }
+        para.childNodes[n].setAttribute("id", "active")
+        para.childNodes[n].childNodes[0].setAttribute("id", "activeTitre")
+        para.childNodes[n].childNodes[1].setAttribute("id", "activerectangle")
 
-        console.log(para.childNodes[1].childNodes[0])
+        },
+        makeThird: function(n) {
+        let para;
+        para=this.$refs.devisHeader;
+        let nOfNodes=para.childNodes.length-1;
+        let i;
+        
+        for(i=0;i<nOfNodes;i++){
+          para.childNodes[i].removeAttribute("id")
+          para.childNodes[i].childNodes[0].removeAttribute("id")
+          para.childNodes[i].childNodes[1].removeAttribute("id")
 
-}
+        }
+        para.childNodes[n].setAttribute("id", "active")
+        para.childNodes[n].childNodes[0].setAttribute("id", "activeTitre")
+        para.childNodes[n].childNodes[1].setAttribute("id", "activerectangle")
+
+        },
+        makeFourth: function(n) {
+        let para;
+        para=this.$refs.devisHeader;
+        let nOfNodes=para.childNodes.length-1;
+        let i;
+        
+        for(i=0;i<nOfNodes;i++){
+          para.childNodes[i].removeAttribute("id")
+          para.childNodes[i].childNodes[0].removeAttribute("id")
+          para.childNodes[i].childNodes[1].removeAttribute("id")
+
+        }
+        para.childNodes[n].setAttribute("id", "active")
+        para.childNodes[n].childNodes[0].setAttribute("id", "activeTitre")
+        para.childNodes[n].childNodes[1].setAttribute("id", "activerectangle")
+
+        },
+        makeFifth: function(n) {
+        let para;
+        para=this.$refs.devisHeader;
+        let nOfNodes=para.childNodes.length-1;
+        let i;
+        
+        for(i=0;i<nOfNodes;i++){
+          para.childNodes[i].removeAttribute("id")
+          para.childNodes[i].childNodes[0].removeAttribute("id")
+          para.childNodes[i].childNodes[1].removeAttribute("id")
+
+        }
+        para.childNodes[n].setAttribute("id", "active")
+        para.childNodes[n].childNodes[0].setAttribute("id", "activeTitre")
+        para.childNodes[n].childNodes[1].setAttribute("id", "activerectangle")
+
+        }
 
 
     }

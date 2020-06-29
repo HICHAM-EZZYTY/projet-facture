@@ -9,6 +9,12 @@
           </router-link>
         </li>
         <li>
+          <router-link  class="s-sidebar__nav-link" to="/client/new">
+            <img src="../assets/img/menu1.svg" alt />
+            <em>New client</em>
+          </router-link>
+        </li>
+        <li>
           <router-link class="s-sidebar__nav-link" to="/client">
             <img src="../assets/img/menu2.svg" alt />
             <em>Sociétés</em>
@@ -147,10 +153,11 @@ a:hover {
   padding: 0;
   width: 15em;
 }
-.s-sidebar__nav ul li {
+li {
   width: 100%;
-  height: 32px;
+  height: 2.5em;
 }
+
 .s-sidebar__nav-link {
   position: relative;
   display: inline-block;

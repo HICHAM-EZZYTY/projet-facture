@@ -3,6 +3,10 @@
       <!-- 
         this is a custom component . 
       -->
+      <div v-show="isDone" style="color: green;">
+        Updated
+      </div>
+
       <Title mainTitle="Préférences Pour Les Devis:" subTitle="ici, vous pouvez modifier les préférences des Devis" />
     
     <div class="row forms px-xl-4 px-lg-4 px-md-4 px-sm-3 mt-3">
@@ -67,7 +71,7 @@ export default {
     //  type_text_document_parameter_id id the Id of the document type and there are 5 : Facture , Avoire , Devis , Facture-Acompte, Avoire-Acompte
     return {
       hideSignature: false, 
-
+      isDone: false,
       document : {
         type_text_document_parameter_id: 5,
         is_name_shown : false,
@@ -102,6 +106,7 @@ export default {
           .post(`/settings/text`, this.document)
           .then((res) => {
             console.log(res);
+            this.isDone = true;
           })
           .catch(
             (e) => console.error(e)

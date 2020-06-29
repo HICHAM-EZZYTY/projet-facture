@@ -60,7 +60,7 @@ export default {
         makeSecond: function(n) {
         let para;
         para=this.$refs.devisHeader;
-        let nOfNodes=para.childNodes.length-1;
+        let nOfNodes=para.childNodes.length;
         let i;
         
         for(i=0;i<nOfNodes;i++){
@@ -77,7 +77,7 @@ export default {
         makeFirst: function(n) {
         let para;
         para=this.$refs.devisHeader;
-        let nOfNodes=para.childNodes.length-1;
+        let nOfNodes=para.childNodes.length;
         let i;
         
         for(i=0;i<nOfNodes;i++){
@@ -94,7 +94,7 @@ export default {
         makeThird: function(n) {
         let para;
         para=this.$refs.devisHeader;
-        let nOfNodes=para.childNodes.length-1;
+        let nOfNodes=para.childNodes.length;
         let i;
         
         for(i=0;i<nOfNodes;i++){
@@ -111,7 +111,7 @@ export default {
         makeFourth: function(n) {
         let para;
         para=this.$refs.devisHeader;
-        let nOfNodes=para.childNodes.length-1;
+        let nOfNodes=para.childNodes.length;
         let i;
         
         for(i=0;i<nOfNodes;i++){
@@ -128,7 +128,7 @@ export default {
         makeFifth: function(n) {
         let para;
         para=this.$refs.devisHeader;
-        let nOfNodes=para.childNodes.length-1;
+        let nOfNodes=para.childNodes.length;
         let i;
         
         for(i=0;i<nOfNodes;i++){

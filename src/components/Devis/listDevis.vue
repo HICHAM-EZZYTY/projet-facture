@@ -19,7 +19,9 @@
                       <h3 id="activeTitre">Tous Les Devis</h3>
                       <div id="activerectangle" class="rec">7</div>
                   </div>
+
                   <div class="Prov">
+
                       <h3>Provisoires</h3>
                       <div class="rec">1</div>
                   </div>
@@ -48,6 +50,22 @@
 <script>
 export default {
 
+    data() {
+      return {
+        data: {
+        }
+      }
+
+    },
+    methods: {
+
+    }
+
+
+    
+
+  
+
 }
 </script>
 
@@ -57,6 +75,7 @@ export default {
 .tDevis,.Prov,.Final,.refus,.signé{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    cursor: pointer;
 
     .rec{
     background: #ECF1F8;
@@ -65,6 +84,7 @@ export default {
     width: 28px;
     text-align: center;
     color:$blue;
+    cursor: pointer;
     }
     &::after{
     content: "";
@@ -74,6 +94,7 @@ export default {
     border-bottom: 1px solid #E9EAEB;
     border-width: thin;
     margin-bottom: 15px;
+    pointer-events: none
     }
 }
 
@@ -95,17 +116,13 @@ export default {
     border-bottom: 2px solid #2262C6;
     border-radius: 8px;
     margin-bottom: 15px;
+    pointer-events: none
     }
 
 }
 
 .devisHeader{
 
-  // display: grid;
-  // grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  // margin-left: 5%;
-  // position: relative;
-  // bottom: 32px;
 
   display: grid;
   grid-template-rows: 1fr ;
@@ -120,6 +137,7 @@ export default {
     color: #AAB5C6;
     float: right;
     margin-left: 12%;
+    cursor: pointer;
   }
 
 }
@@ -279,6 +297,7 @@ export default {
     &::after{
   
     width: 120%;
+    pointer-events: none
 
     }
 
@@ -287,7 +306,7 @@ export default {
     #active{
       &::after{
     width: 120%;
-
+    pointer-events: none
     }
 
 }
@@ -399,6 +418,7 @@ export default {
       border-bottom: 3px solid #2262C6;
       border-radius: 8px;
       margin-bottom: 15px;
+      pointer-events: none
     }
     }
 
@@ -412,6 +432,7 @@ export default {
     border-bottom: 1px solid #E9EAEB;
     border-width: thin;
     margin-bottom: 15px;
+    pointer-events: none
     }
     }
 
@@ -420,10 +441,11 @@ export default {
     content: "";
     display: block;
     margin-left: 13%;
-    width: 473%;
+    width: 456%;
     border-bottom: 1px solid #E9EAEB;
     border-width: thin;
     margin-bottom: 15px;
+    pointer-events: none
     
     }
 
@@ -458,6 +480,9 @@ export default {
         margin-left: 5%;
         }
       }
+      #activeTitre{
+        justify-self: start;
+      }
 
     }
 
@@ -470,8 +495,12 @@ export default {
       #active{
       &::after{
       margin-left: 14%;
-    }
-    }
+      pointer-events: none
+      }
+      }
+      #activeTitre{
+        justify-self: start;
+      }
     }
 
     @media (min-width: 1350px) {
@@ -481,7 +510,12 @@ export default {
       #active{
         &::after{
         margin-left: 24%;
+        pointer-events: none
         }
+      }
+      
+      #activeTitre{
+        justify-self: start;
       }
 
     }
@@ -500,9 +534,15 @@ export default {
       }
 
       #active{
+
         &::after{
           margin-left:28%;
+          pointer-events: none
         }
+      }
+
+      #activeTitre{
+        justify-self: start;
       }
 
     }

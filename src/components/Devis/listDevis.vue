@@ -14,13 +14,15 @@
         </div>
 
               <div class="divider"></div>
-              <div class="devisHeader">
+              <div ref="devisHeader" class="devisHeader">
                   <div id="active" class="tDevis">
                       <h3 id="activeTitre">Tous Les Devis</h3>
                       <div id="activerectangle" class="rec">7</div>
                   </div>
 
-                  <div class="Prov">
+                  <div class="Prov"
+                  v-on:click="makeFrst(1)"                  
+                  >
 
                       <h3>Provisoires</h3>
                       <div class="rec">1</div>
@@ -58,6 +60,28 @@ export default {
 
     },
     methods: {
+        makeFrst: function(n) {
+        let para;
+        para=this.$refs.devisHeader;
+        let nOfNodes=para.childNodes.length-1;
+        let i;
+        
+        for(i=0;i<nOfNodes;i++){
+          para.childNodes[i].removeAttribute("id")
+          para.childNodes[i].childNodes[0].removeAttribute("id")
+          para.childNodes[i].childNodes[1].removeAttribute("id")
+
+        }
+        para.childNodes[n].setAttribute("id", "active")
+        para.childNodes[n].childNodes[0].setAttribute("id", "activeTitre")
+        para.childNodes[n].childNodes[1].setAttribute("id", "activerectangle")
+
+
+
+        console.log(para.childNodes[1].childNodes[0])
+
+}
+
 
     }
 

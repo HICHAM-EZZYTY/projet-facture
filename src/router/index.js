@@ -12,10 +12,10 @@ import CreateDevis from "./../components/Devis/createDevis.vue";
 import listDevis from "./../components/Devis/listDevis.vue";
 
 //clients
-import Clients from "../views/subLayouts/Clients.vue";
-import addClient from "../components/client/addClient.vue";
+import Clients from "@/views/subLayouts/Clients.vue";
+import addClient from "../views/ClientContainer.vue";
 import cards from "../components/Clients-page/cards.vue";
-import Type_client from "../components/Clients-page/Type_client.vue";
+import Type_client from "@/components/Clients-page/Type_client.vue";
 import Information_Compte from "../components/Clients-page/Information_Compte.vue";
 
 //Facture
@@ -76,9 +76,9 @@ const routes = [
         path: "devis",
         // name: "Devis",
         component: Devis,
-        // meta: { 
-        //   requiresAuth: true
-        // },
+        meta: {
+          requiresAuth: true
+        },
         children: [
           {
             path: "",
@@ -104,15 +104,15 @@ const routes = [
             component: cards,
           },
           {
-             path: "Type_client",
-             name:  "Type_client",
-             component: Type_client,
+            path: "Type_client",
+            name: "Type_client",
+            component: Type_client,
           },
           {
             path: "Information_Compte",
             name: "Information_Compte",
             component: Information_Compte,
-            
+
           },
           {
             path: 'new',
@@ -257,7 +257,7 @@ const routes = [
   {
     path: "/devis-calandar",
     name: "devisCalandar",
-    component: TheCalendarDevis ,
+    component: TheCalendarDevis,
   },
   {
     path: "/devis-refus",
@@ -267,8 +267,8 @@ const routes = [
   {
     path: "/devis-export",
     name: "devisExport",
-    component: TheExportDevis ,
-    
+    component: TheExportDevis,
+
   },
   {
     path: "*",
@@ -285,14 +285,14 @@ const router = new VueRouter({
 
 
 router.beforeEach((to, from, next) => {
-  if(to.matched.some(record => record.meta.requiresAuth)) {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
     if (store.getters.isLoggedIn) {
       next()
       return
     }
-    next('/gate/login') 
+    next('/gate/login')
   } else {
-    next() 
+    next()
   }
 })
 

@@ -362,17 +362,17 @@ export default {
         condition_reglement_id : this.selectedCondition,
         interet_retard_id : this.selectedInterest
       }; 
-    this.$http
-        .post('/settings/general', g)
-        .then( (res) => {
-          // res.data.forEach( (data) => {
-           console.log(res.data);
-           this.isUpdated = true; 
-          // });
-        })
-        .catch((e) => {
-          console.error(e)
-        });
+      this.$http
+          .post('/settings/general', g)
+          .then( (res) => {
+            // res.data.forEach( (data) => {
+            console.log(res.data);
+            this.isUpdated = true; 
+            // });
+          })
+          .catch((e) => {
+            console.error(e)
+          });
 
     }
   }, 

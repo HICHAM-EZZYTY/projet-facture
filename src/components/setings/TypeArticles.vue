@@ -56,7 +56,7 @@ export default {
         }
     }, 
     methods: {
-        getArticles(){
+        getArticles: function(){
             this.$http
                 .get("/type_articles")
                 .then((res) => {
@@ -74,21 +74,21 @@ export default {
                 })
                 .catch();
         },
-        deleteArticle(id){
+        deleteArticle: function(id){
             // ajouter un article.
             this.$http
                 .delete(`/type_articles/${id}`)
                 .then( () => {
                     this.componentKey += 1 ;
-                    
-                    console.log("deleted")
+                    this.articles.splice(id, 1);  
+                    console.log("deleted");
                 })
                 .catch(
                     () => {
                         console.log("grrr")
                     }
                 );
-        }
+        }, 
     }, 
     created(){
         this.getArticles();

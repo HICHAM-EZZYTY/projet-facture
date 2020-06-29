@@ -153,8 +153,12 @@ export default {
                 }
             }
       });
-      this.formatPreview = convertedformat;
-      // console.log(convertedformat)
+      
+      if(!convertedformat.includes("<"))
+        this.formatPreview = convertedformat;
+      else
+        this.formatPreview = "wrong format";
+
     },
     getNum(){
       this.$http

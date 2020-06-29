@@ -78,7 +78,8 @@
         </router-link>
       </li>
 
-      <li class="sidebar-item">
+      <!-- 
+        <li class="sidebar-item">
         <router-link 
         :style=" activeRoute('TypeArtidcles1') == true ?  'color:#1757b7;' : '' "
         :to="{ name: 'TypeArticles' }" class="sidebar-item--link">
@@ -87,11 +88,12 @@
         </router-link>
       
       </li>
+      -->
       <li class="sidebar-item">
         <router-link 
-          :style=" activeRoute('TypeArticles2') == true ?  'color:#1757b7;' : '' "
-          :to="{ name: 'TypeArticles' }" class="sidebar-item--link">
-          <i v-show="activeRoute('TypeArtidcles')" class="fa fa-caret-right"></i>
+          :style=" activeRoute('UserContact') == true ?  'color:#1757b7;' : '' "
+          :to="{ name: 'UserContact' }" class="sidebar-item--link">
+          <i v-show="activeRoute('UserContact')" class="fa fa-caret-right"></i>
           Coordonnées
         </router-link>
       </li>

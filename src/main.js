@@ -29,14 +29,16 @@ const axios = require("axios").default;
 // let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTU5Mjg0NDc3MywiZXhwIjoxNTkyODQ4MzczLCJuYmYiOjE1OTI4NDQ3NzMsImp0aSI6IjZZT0Z6UDJOVVBtaU55WEkiLCJzdWIiOjIyLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.rfjzwrtY1xb3k8hL-gVUbMFUy8JZ0TM4r-9skutjth0";
 
 Vue.prototype.$http = axios;
-Vue.prototype.$http.defaults.baseURL = "http://127.0.0.1:8000/api";
+Vue.prototype.$http.defaults.baseURL = "http://localhost:8000/api";
 // Vue.prototype.$http.defaults.headers.common = { Authorization: `Bearer ${token}` };
 const token = localStorage.getItem('token')
 if (token) {
-  Vue.prototype.$http.defaults.headers.common['Authorization'] = token
+  // Vue.prototype.$http.defaults.headers.common['Authorization'] = token
+
+  Vue.prototype.$http.defaults.headers.common = { Authorization: `Bearer ${token}` };
 }
 
- 
+
 
 // Install BootstrapVue
 Vue.use(BootstrapVue);

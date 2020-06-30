@@ -54,6 +54,7 @@
                 </tr>
               </thead>
               <tbody role="rowgroup">
+          
                 <tr role="row">
                   <td role="cell">D2000003</td>
                   <td role="cell">Hicham Ezzyti</td>
@@ -62,43 +63,24 @@
                   <td role="cell">
                     <div  v-bind:class="{
 
-                      'finalisé':(data.value === 'Finalisé'),
-                      'Signés':(data.value === 'Signés'),
-                      'Provisoires':(data.value === 'Provisoires'),
-                      'Refusés':(data.value === 'Refusés'),
-
-                    }" class="recValue"><p>FN</p></div>{{data.value}}
-                  </td>
-                  <td role="cell">12/02/20</td>
-                  <td role="cell">16/02/20</td>
-                  <td role="cell">...</td>
-                </tr>
-                <tr role="row">
-                  <td role="cell">D2000003</td>
-                  <td role="cell">Hicham Ezzyti</td>
-                  <td role="cell">Moulimeq</td>
-                  <td role="cell">46,56 Dh</td>
-                  <td role="cell">
-                    <div  v-bind:class="{
-
-                      'finalisé':(data.value === 'Finalisé'),
-                      'Signés':(data.value === 'Signés'),
-                      'Provisoires':(data.value === 'Provisoires'),
-                      'Refusés':(data.value === 'Refusés'),
+                      'finalisé':(value === 'Finalisé'),
+                      'Signés':(value === 'Signés'),
+                      'Provisoires':(value === 'Provisoires'),
+                      'Refusés':(value === 'Refusés'),
 
                     }" class="recValue">
                     <p
                      v-bind:class="{
-                      'pFinalisé':(data.value === 'Finalisé'),
-                      'pSignés':(data.value === 'Signés'),
-                      'pProvisoires':(data.value === 'Provisoires'),
-                      'pRefusés':(data.value === 'Refusés'),
+                      'pFinalisé':(value === 'Finalisé'),
+                      'pSignés':(value === 'Signés'),
+                      'pProvisoires':(value === 'Provisoires'),
+                      'pRefusés':(value === 'Refusés'),
                        
                      }"
                     >  
                       {{getstatus}}
                       
-                      </p></div>{{data.value}}
+                      </p></div>{{value}}
                   </td>
                   <td role="cell">12/02/20</td>
                   <td role="cell">16/02/20</td>
@@ -124,10 +106,7 @@ export default {
 
     data() {
       return {
-        data: {
           value:"Provisoires",
-          rs:"XN",
-        }
       }
 
     },
@@ -216,19 +195,23 @@ export default {
         para.childNodes[n].childNodes[0].setAttribute("id", "activeTitre")
         para.childNodes[n].childNodes[1].setAttribute("id", "activerectangle")
 
-        }
+        },
+
+   
 
 
     },
     computed:{
-      getstatus : function(){
+
+      getstatus :{
      
-          if(this.data.value === 'Provisoires'){
-          this.data.rs="PR"
-          }
-          console.log(this.data.rs,this.data.value)
-          return this.data.rs
-          // return  this.data.rs
+      get: function () {
+
+        console.log(this.value.substring(0, 2))
+        return this.value.substring(0, 2);
+      },
+   
+
 
       }
 
@@ -261,15 +244,22 @@ export default {
 }
 .pFinalisé{
 color:#4BA6DF;
+text-transform: uppercase;
 }
 .pSignés{
 color:#39CCB0;
+text-transform: uppercase;
+
 }
 .pProvisoires{
 color:#CE4F62;
+text-transform: uppercase;
+
 }
 .pRefusés{
 color:#B866C8;
+text-transform: uppercase;
+
 }
 table {
     display: table;

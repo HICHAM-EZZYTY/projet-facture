@@ -59,11 +59,22 @@
                   <td role="cell">Hicham Ezzyti</td>
                   <td role="cell">Moulimeq</td>
                   <td role="cell">46,56 Dh</td>
-                  <td role="cell">Finalisé</td>
+                  <td role="cell"><div  class="recValue"><p>FN</p></div>Finalisé</td>
                   <td role="cell">12/02/20</td>
-                  <td role="cell">_______</td>
+                  <td role="cell">16/02/20</td>
                   <td role="cell">...</td>
                 </tr>
+                <tr role="row">
+                  <td role="cell">D2000003</td>
+                  <td role="cell">Hicham Ezzyti</td>
+                  <td role="cell">Moulimeq</td>
+                  <td role="cell">46,56 Dh</td>
+                  <td role="cell"><div  class="recValue"><p>FN</p></div>Finalisé</td>
+                  <td role="cell">12/02/20</td>
+                  <td role="cell">16/02/20</td>
+                  <td role="cell">...</td>
+                </tr>
+     
      
          
            
@@ -198,11 +209,13 @@ table {
     width: 90%;
     margin-left: 6%;
     background-color: #ECF1F8;
-    border-radius: 2px;
     border: 0.5px solid #D4D4D4;
+    
+}
+tbody{
+  text-align: center;
 }
 tr{
-    height: 56px;
     border-bottom: 1px solid #D4D4D4;
 }
 th{
@@ -210,11 +223,26 @@ th{
   padding-top: 12px;
   font-family: $sb;
   color:#616467;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 th:nth-child(8){
   padding-right: 12px;
+}
+td{
+  font-family: $r;
+  color:#616467;
+  font-size:14px;
+}
+.recValue{
+    height: 20px;
+    width: 20px;
+    border-radius: 20%;
+    background-color: #CDE7F6;
+    display: inline-block;
+    margin-right: 2px;
+    font-size: 12px;
+    color:#4BA6DF
 }
 .tDevis,.Prov,.Final,.refus,.signé{
     display: grid;
@@ -613,6 +641,11 @@ th:nth-child(8){
         margin-left: 6%;
       }
 
+      tr{
+            height: 56px;
+
+      }
+
     }
 
 
@@ -744,17 +777,17 @@ th:nth-child(8){
 		Label the data
     You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
 		*/
-		td:nth-of-type(1):before { content: "First Name"; }
-		td:nth-of-type(2):before { content: "Last Name"; }
-		td:nth-of-type(3):before { content: "Job Title"; }
-		td:nth-of-type(4):before { content: "Favorite Color"; }
-		td:nth-of-type(5):before { content: "Wars of Trek?"; }
-		td:nth-of-type(6):before { content: "Secret Alias"; }
-		td:nth-of-type(7):before { content: "Date of Birth"; }
-		td:nth-of-type(8):before { content: "Dream Vacation City"; }
+		td:nth-of-type(1):before { content: "N° de devis"; }
+		td:nth-of-type(2):before { content: "Nom de client"; }
+		td:nth-of-type(3):before { content: "Nom de société"; }
+		td:nth-of-type(4):before { content: "Montant Totale"; }
+		td:nth-of-type(5):before { content: "Status"; }
+		td:nth-of-type(6):before { content: "Créer le"; }
+		td:nth-of-type(7):before { content: "Signé le"; }
+		td:nth-of-type(8):before { content: "Actions"; }
 	}
    
 
-
+  
 
 </style>

@@ -60,7 +60,7 @@
                   <td role="cell">Hicham Ezzyti</td>
                   <td role="cell">Moulimeq</td>
                   <td role="cell">46,56 Dh</td>
-                  <td role="cell">
+                  <td class="specialStatus" role="cell">
                     <div  v-bind:class="{
 
                       'finalisé':(value[0] === 'Finalisé'),
@@ -92,7 +92,7 @@
                   <td role="cell">Hicham Ezzyti</td>
                   <td role="cell">Moulimeq</td>
                   <td role="cell">46,56 Dh</td>
-                  <td role="cell">
+                  <td class="specialStatus" role="cell">
                     <div  v-bind:class="{
 
                       'finalisé':(value[1] === 'Finalisé'),
@@ -126,7 +126,7 @@
                   <td role="cell">Hicham Ezzyti</td>
                   <td role="cell">Moulimeq</td>
                   <td role="cell">46,56 Dh</td>
-                  <td role="cell">
+                  <td class="specialStatus" role="cell">
                     <div  v-bind:class="{
 
                       'finalisé':(value[2] === 'Finalisé'),
@@ -159,7 +159,7 @@
                   <td role="cell">Hicham Ezzyti</td>
                   <td role="cell">Moulimeq</td>
                   <td role="cell">46,56 Dh</td>
-                  <td role="cell">
+                  <td class="specialStatus" role="cell">
                     <div  v-bind:class="{
 
                       'finalisé':(value[3] === 'Finalisé'),
@@ -192,7 +192,7 @@
                   <td role="cell">Hicham Ezzyti</td>
                   <td role="cell">Moulimeq</td>
                   <td role="cell">46,56 Dh</td>
-                  <td role="cell">
+                  <td  class="specialStatus" role="cell">
                     <div  v-bind:class="{
 
                       'finalisé':(value[0] === 'Finalisé'),
@@ -225,7 +225,7 @@
                   <td role="cell">Hicham Ezzyti</td>
                   <td role="cell">Moulimeq</td>
                   <td role="cell">46,56 Dh</td>
-                  <td role="cell">
+                  <td class="specialStatus" role="cell">
                     <div  v-bind:class="{
 
                       'finalisé':(value[0] === 'Finalisé'),
@@ -391,6 +391,14 @@ export default {
 
 <style scoped lang="scss">
 @import "../../scss/main.scss" ;  
+
+.specialStatus{
+    float: left;
+    position: relative;
+    top: 15px;
+    margin-left: 22px;
+    padding-left: 44px;
+} 
 
 .finalisé{
   background-color: #CDE7F6;
@@ -734,6 +742,15 @@ td{
      }
    } 
 
+       @media (min-width: 1020px) {
+         
+      tr{
+      height: 56px;
+
+      }
+
+       }
+
 
     @media (min-width: 940px) {
 
@@ -749,6 +766,8 @@ td{
     display: grid;
     grid-template-columns: 1.4fr 1fr;
     }
+
+
 
     }
 
@@ -862,10 +881,6 @@ td{
         margin-left: 6%;
       }
 
-      tr{
-            height: 56px;
-
-      }
 
     }
 

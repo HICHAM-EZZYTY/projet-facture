@@ -63,29 +63,196 @@
                   <td role="cell">
                     <div  v-bind:class="{
 
-                      'finalisé':(value === 'Finalisé'),
-                      'Signés':(value === 'Signés'),
-                      'Provisoires':(value === 'Provisoires'),
-                      'Refusés':(value === 'Refusés'),
+                      'finalisé':(value[0] === 'Finalisé'),
+                      'Signés':(value[0] === 'Signés'),
+                      'Provisoires':(value[0] === 'Provisoires'),
+                      'Refusés':(value[0] === 'Refusés'),
 
                     }" class="recValue">
                     <p
                      v-bind:class="{
-                      'pFinalisé':(value === 'Finalisé'),
-                      'pSignés':(value === 'Signés'),
-                      'pProvisoires':(value === 'Provisoires'),
-                      'pRefusés':(value === 'Refusés'),
+                      'pFinalisé':(value[0] === 'Finalisé'),
+                      'pSignés':(value[0] === 'Signés'),
+                      'pProvisoires':(value[0] === 'Provisoires'),
+                      'pRefusés':(value[0] === 'Refusés'),
                        
                      }"
                     >  
-                      {{getstatus}}
+                      {{getstatus(0)}}
                       
-                      </p></div>{{value}}
+                      </p></div>{{value[0]}}
                   </td>
                   <td role="cell">12/02/20</td>
                   <td role="cell">16/02/20</td>
                   <td role="cell">...</td>
                 </tr>
+
+                <tr role="row">
+                  <td role="cell">D2000003</td>
+                  <td role="cell">Hicham Ezzyti</td>
+                  <td role="cell">Moulimeq</td>
+                  <td role="cell">46,56 Dh</td>
+                  <td role="cell">
+                    <div  v-bind:class="{
+
+                      'finalisé':(value[1] === 'Finalisé'),
+                      'Signés':(value[1] === 'Signés'),
+                      'Provisoires':(value[1] === 'Provisoires'),
+                      'Refusés':(value[1] === 'Refusés'),
+
+                    }" class="recValue">
+                    <p
+                     v-bind:class="{
+                      'pFinalisé':(value[1] === 'Finalisé'),
+                      'pSignés':(value[1] === 'Signés'),
+                      'pProvisoires':(value[1] === 'Provisoires'),
+                      'pRefusés':(value[1] === 'Refusés'),
+                       
+                     }"
+                    >  
+                      {{getstatus(1)}}
+                      
+                      </p></div>{{value[1]}}
+                  </td>
+                  <td role="cell">12/02/20</td>
+                  <td role="cell">16/02/20</td>
+                  <td role="cell">...</td>
+                </tr>
+
+
+
+                <tr role="row">
+                  <td role="cell">D2000003</td>
+                  <td role="cell">Hicham Ezzyti</td>
+                  <td role="cell">Moulimeq</td>
+                  <td role="cell">46,56 Dh</td>
+                  <td role="cell">
+                    <div  v-bind:class="{
+
+                      'finalisé':(value[2] === 'Finalisé'),
+                      'Signés':(value[2] === 'Signés'),
+                      'Provisoires':(value[2] === 'Provisoires'),
+                      'Refusés':(value[2] === 'Refusés'),
+
+                    }" class="recValue">
+                    <p
+                     v-bind:class="{
+                      'pFinalisé':(value[2] === 'Finalisé'),
+                      'pSignés':(value[2] === 'Signés'),
+                      'pProvisoires':(value[2] === 'Provisoires'),
+                      'pRefusés':(value[2] === 'Refusés'),
+                       
+                     }"
+                    >  
+                      {{getstatus(2)}}
+                      
+                      </p></div>{{value[2]}}
+                  </td>
+                  <td role="cell">12/02/20</td>
+                  <td role="cell">16/02/20</td>
+                  <td role="cell">...</td>
+                </tr>
+     
+
+                <tr role="row">
+                  <td role="cell">D2000003</td>
+                  <td role="cell">Hicham Ezzyti</td>
+                  <td role="cell">Moulimeq</td>
+                  <td role="cell">46,56 Dh</td>
+                  <td role="cell">
+                    <div  v-bind:class="{
+
+                      'finalisé':(value[3] === 'Finalisé'),
+                      'Signés':(value[3] === 'Signés'),
+                      'Provisoires':(value[3] === 'Provisoires'),
+                      'Refusés':(value[3] === 'Refusés'),
+
+                    }" class="recValue">
+                    <p
+                     v-bind:class="{
+                      'pFinalisé':(value[3] === 'Finalisé'),
+                      'pSignés':(value[3] === 'Signés'),
+                      'pProvisoires':(value[3] === 'Provisoires'),
+                      'pRefusés':(value[3] === 'Refusés'),
+                       
+                     }"
+                    >  
+                      {{getstatus(3)}}
+                      
+                      </p></div>{{value[3]}}
+                  </td>
+                  <td role="cell">12/02/20</td>
+                  <td role="cell">16/02/20</td>
+                  <td role="cell">...</td>
+                </tr>
+
+
+                <tr role="row">
+                  <td role="cell">D2000003</td>
+                  <td role="cell">Hicham Ezzyti</td>
+                  <td role="cell">Moulimeq</td>
+                  <td role="cell">46,56 Dh</td>
+                  <td role="cell">
+                    <div  v-bind:class="{
+
+                      'finalisé':(value[0] === 'Finalisé'),
+                      'Signés':(value[0] === 'Signés'),
+                      'Provisoires':(value[0] === 'Provisoires'),
+                      'Refusés':(value[0] === 'Refusés'),
+
+                    }" class="recValue">
+                    <p
+                     v-bind:class="{
+                      'pFinalisé':(value[0] === 'Finalisé'),
+                      'pSignés':(value[0] === 'Signés'),
+                      'pProvisoires':(value[0] === 'Provisoires'),
+                      'pRefusés':(value[0] === 'Refusés'),
+                       
+                     }"
+                    >  
+                      {{getstatus(0)}}
+                      
+                      </p></div>{{value[0]}}
+                  </td>
+                  <td role="cell">12/02/20</td>
+                  <td role="cell">16/02/20</td>
+                  <td role="cell">...</td>
+                </tr>
+
+
+                <tr role="row">
+                  <td role="cell">D2000003</td>
+                  <td role="cell">Hicham Ezzyti</td>
+                  <td role="cell">Moulimeq</td>
+                  <td role="cell">46,56 Dh</td>
+                  <td role="cell">
+                    <div  v-bind:class="{
+
+                      'finalisé':(value[0] === 'Finalisé'),
+                      'Signés':(value[0] === 'Signés'),
+                      'Provisoires':(value[0] === 'Provisoires'),
+                      'Refusés':(value[0] === 'Refusés'),
+
+                    }" class="recValue">
+                    <p
+                     v-bind:class="{
+                      'pFinalisé':(value[0] === 'Finalisé'),
+                      'pSignés':(value[0] === 'Signés'),
+                      'pProvisoires':(value[0] === 'Provisoires'),
+                      'pRefusés':(value[0] === 'Refusés'),
+                       
+                     }"
+                    >  
+                      {{getstatus(0)}}
+                      
+                      </p></div>{{value[0]}}
+                  </td>
+                  <td role="cell">12/02/20</td>
+                  <td role="cell">16/02/20</td>
+                  <td role="cell">...</td>
+                </tr>
+
+
      
      
          
@@ -106,7 +273,12 @@ export default {
 
     data() {
       return {
-          value:"Provisoires",
+          value:[
+            "Provisoires",
+            "Finalisé",
+            "Signés",
+            "Refusés"            
+          ],
       }
 
     },
@@ -196,30 +368,20 @@ export default {
         para.childNodes[n].childNodes[1].setAttribute("id", "activerectangle")
 
         },
+        getstatus:function(indx){
+          return this.value[indx].substring(0, 2);
+
+        }
 
    
 
 
     },
+
+
     computed:{
 
-      getstatus :{
-     
-      get: function () {
-
-        console.log(this.value.substring(0, 2))
-        return this.value.substring(0, 2);
-      },
    
-
-
-      }
-
-// finalisé
-// Signés
-// Provisoires
-// Refusés
-
     
 
     }
@@ -300,7 +462,7 @@ td{
     border-radius: 20%;
     // background-color: #CDE7F6;
     display: inline-block;
-    margin-right: 2px;
+    margin-right: 6px;
     font-size: 12px;
 }
 .tDevis,.Prov,.Final,.refus,.signé{

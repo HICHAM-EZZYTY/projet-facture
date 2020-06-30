@@ -78,7 +78,28 @@
                   <td role="cell">Hicham Ezzyti</td>
                   <td role="cell">Moulimeq</td>
                   <td role="cell">46,56 Dh</td>
-                  <td role="cell"><div  class="recValue"><p>FN</p></div>Finalisé</td>
+                  <td role="cell">
+                    <div  v-bind:class="{
+
+                      'finalisé':(data.value === 'Finalisé'),
+                      'Signés':(data.value === 'Signés'),
+                      'Provisoires':(data.value === 'Provisoires'),
+                      'Refusés':(data.value === 'Refusés'),
+
+                    }" class="recValue">
+                    <p
+                     v-bind:class="{
+                      'pFinalisé':(data.value === 'Finalisé'),
+                      'pSignés':(data.value === 'Signés'),
+                      'pProvisoires':(data.value === 'Provisoires'),
+                      'pRefusés':(data.value === 'Refusés'),
+                       
+                     }"
+                    >  
+                      {{getstatus}}
+                      
+                      </p></div>{{data.value}}
+                  </td>
                   <td role="cell">12/02/20</td>
                   <td role="cell">16/02/20</td>
                   <td role="cell">...</td>
@@ -104,7 +125,8 @@ export default {
     data() {
       return {
         data: {
-          value:"Refusés",
+          value:"Provisoires",
+          rs:"XN",
         }
       }
 
@@ -197,12 +219,27 @@ export default {
         }
 
 
-    }
+    },
+    computed:{
+      getstatus : function(){
+     
+          if(this.data.value === 'Provisoires'){
+          this.data.rs="PR"
+          }
+          console.log(this.data.rs,this.data.value)
+          return this.data.rs
+          // return  this.data.rs
 
+      }
+
+// finalisé
+// Signés
+// Provisoires
+// Refusés
 
     
 
-  
+    }
 
 }
 </script>
@@ -221,6 +258,18 @@ export default {
 }
 .Refusés{
   background-color: #F2C8FA;
+}
+.pFinalisé{
+color:#4BA6DF;
+}
+.pSignés{
+color:#39CCB0;
+}
+.pProvisoires{
+color:#CE4F62;
+}
+.pRefusés{
+color:#B866C8;
 }
 table {
     display: table;
@@ -263,7 +312,6 @@ td{
     display: inline-block;
     margin-right: 2px;
     font-size: 12px;
-    color:#4BA6DF
 }
 .tDevis,.Prov,.Final,.refus,.signé{
     display: grid;

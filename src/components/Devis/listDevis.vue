@@ -512,7 +512,7 @@ td{
       &::after{
     content: "";
     display: block;
-    margin-left: 13%;
+    margin-left: 0%;
     width: 106%;
     border-bottom: 2px solid #2262C6;
     border-radius: 8px;
@@ -537,7 +537,6 @@ td{
     text-transform: capitalize;
     color: #AAB5C6;
     float: right;
-    margin-left: 12%;
     cursor: pointer;
   }
 
@@ -679,12 +678,21 @@ td{
     }
    }
 
+
+        @media (max-width: 576px) {
+            .devisHeader{
+            margin-left: 8%;
+            }
+        } 
+
+
     @media (min-width: 805px) {
     
     .devisHeader{
     display: grid;
     grid-template-rows: none;
     grid-template-columns: 1fr 1fr 1fr;
+    margin-left: 8%;
     }
 
     .tDevis,.Prov,.Final,.refus,.signé{
@@ -726,11 +734,16 @@ td{
      .tDevis{
        h3{
          margin: 0px;
-         justify-self: end;
+         justify-self: start;
        }
      }
 
+
+
     }
+
+
+
 
 
 
@@ -811,7 +824,7 @@ td{
       .devisHeader{
         display: grid;
         grid-template-rows: none;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1.3fr 1fr 1fr 1fr 1fr;
         margin-left: 8%;
         h3{
           justify-self: end;
@@ -838,7 +851,7 @@ td{
     &::after{
     content: "";
     display: none;
-    margin-left: 13%;
+    margin-left: 0%;
     width: 106%;
     border-bottom: 1px solid #E9EAEB;
     border-width: thin;
@@ -851,7 +864,7 @@ td{
     &::after{
     content: "";
     display: block;
-    margin-left: 13%;
+    margin-left: 0%;
     width: 456%;
     border-bottom: 1px solid #E9EAEB;
     border-width: thin;

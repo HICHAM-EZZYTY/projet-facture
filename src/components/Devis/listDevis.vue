@@ -59,7 +59,16 @@
                   <td role="cell">Hicham Ezzyti</td>
                   <td role="cell">Moulimeq</td>
                   <td role="cell">46,56 Dh</td>
-                  <td role="cell"><div  class="recValue"><p>FN</p></div>Finalisé</td>
+                  <td role="cell">
+                    <div  v-bind:class="{
+
+                      'finalisé':(data.value === 'Finalisé'),
+                      'Signés':(data.value === 'Signés'),
+                      'Provisoires':(data.value === 'Provisoires'),
+                      'Refusés':(data.value === 'Refusés'),
+
+                    }" class="recValue"><p>FN</p></div>{{data.value}}
+                  </td>
                   <td role="cell">12/02/20</td>
                   <td role="cell">16/02/20</td>
                   <td role="cell">...</td>
@@ -95,6 +104,7 @@ export default {
     data() {
       return {
         data: {
+          value:"Refusés",
         }
       }
 
@@ -200,7 +210,18 @@ export default {
 <style scoped lang="scss">
 @import "../../scss/main.scss" ;  
 
-
+.finalisé{
+  background-color: #CDE7F6;
+}
+.Signés{
+  background-color: #C8F1E9;
+}
+.Provisoires{
+  background-color: #F4C3C9;
+}
+.Refusés{
+  background-color: #F2C8FA;
+}
 table {
     display: table;
     margin: 0 auto;
@@ -238,7 +259,7 @@ td{
     height: 20px;
     width: 20px;
     border-radius: 20%;
-    background-color: #CDE7F6;
+    // background-color: #CDE7F6;
     display: inline-block;
     margin-right: 2px;
     font-size: 12px;

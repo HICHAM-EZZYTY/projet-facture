@@ -599,6 +599,7 @@ td{
     bottom: 7px;
     margin-left: 5%;
     width: 88%;
+    z-index: -1;
   }
 
 
@@ -675,6 +676,7 @@ td{
     display: grid;
     grid-template-rows: none;
     grid-template-columns: 1fr 1fr;
+    margin-left: 9%;
     }
    }
 
@@ -729,7 +731,7 @@ td{
     display: grid;
     grid-template-rows: none;
     grid-template-columns: 1fr 1fr 1fr;
-    margin-left: 5%;
+    margin-left: 9%;
     }
      .tDevis{
        h3{
@@ -772,7 +774,7 @@ td{
     display: grid;
     grid-template-rows: none;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    margin-left: 5%;
+    margin-left: 9%;
     }
 
     .tDevis{

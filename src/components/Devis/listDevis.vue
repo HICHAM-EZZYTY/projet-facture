@@ -43,67 +43,30 @@
               <table role="table">
               <thead role="rowgroup">
                 <tr role="row">
-                  <th role="columnheader">First Name</th>
-                  <th role="columnheader">Last Name</th>
-                  <th role="columnheader">Job Title</th>
-                  <th role="columnheader">Favorite Color</th>
-                  <th role="columnheader">Wars or Trek?</th>
-                  <th role="columnheader">Secret Alias</th>
-                  <th role="columnheader">Date of Birth</th>
-                  <th role="columnheader">GPA</th>
+                  <th role="columnheader">N° de devis</th>
+                  <th role="columnheader">Nom de client</th>
+                  <th role="columnheader">Nom de société </th>
+                  <th role="columnheader">Montant Totale</th>
+                  <th role="columnheader">Status</th>
+                  <th role="columnheader">Créer le</th>
+                  <th role="columnheader">Signé le</th>
+                  <th role="columnheader">Actions</th>
                 </tr>
               </thead>
               <tbody role="rowgroup">
                 <tr role="row">
-                  <td role="cell">James</td>
-                  <td role="cell">Matman</td>
-                  <td role="cell">Chief Sandwich Eater</td>
-                  <td role="cell">Lettuce Green</td>
-                  <td role="cell">Trek</td>
-                  <td role="cell">Digby Green</td>
-                  <td role="cell">January 13, 1979</td>
-                  <td role="cell">Gotham City</td>
+                  <td role="cell">D2000003</td>
+                  <td role="cell">Hicham Ezzyti</td>
+                  <td role="cell">Moulimeq</td>
+                  <td role="cell">46,56 Dh</td>
+                  <td role="cell">Finalisé</td>
+                  <td role="cell">12/02/20</td>
+                  <td role="cell">_______</td>
+                  <td role="cell">...</td>
                 </tr>
-                <tr role="row">
-                  <td role="cell">The</td>
-                  <td role="cell">Tick</td>
-                  <td role="cell">Crimefighter Sorta</td>
-                  <td role="cell">Blue</td>
-                  <td role="cell">Wars</td>
-                  <td role="cell">John Smith</td>
-                  <td role="cell">July 19, 1968</td>
-                  <td role="cell">Athens</td>
-                </tr>
-                <tr role="row">
-                  <td role="cell">Jokey</td>
-                  <td role="cell">Smurf</td>
-                  <td role="cell">Giving Exploding Presents</td>
-                  <td role="cell">Smurflow</td>
-                  <td role="cell">Smurf</td>
-                  <td role="cell">Smurflane Smurfmutt</td>
-                  <td role="cell">Smurfuary Smurfteenth, 1945</td>
-                  <td role="cell">New Smurf City</td>
-                </tr>
-                <tr role="row">
-                  <td role="cell">Cindy</td>
-                  <td role="cell">Beyler</td>
-                  <td role="cell">Sales Representative</td>
-                  <td role="cell">Red</td>
-                  <td role="cell">Wars</td>
-                  <td role="cell">Lori Quivey</td>
-                  <td role="cell">July 5, 1956</td>
-                  <td role="cell">Paris</td>
-                </tr>
-                <tr role="row">
-                  <td role="cell">Captain</td>
-                  <td role="cell">Cool</td>
-                  <td role="cell">Tree Crusher</td>
-                  <td role="cell">Blue</td>
-                  <td role="cell">Wars</td>
-                  <td role="cell">Steve 42nd</td>
-                  <td role="cell">December 13, 1982</td>
-                  <td role="cell">Las Vegas</td>
-                </tr>
+     
+         
+           
               </tbody>
             </table>
 
@@ -226,6 +189,33 @@ export default {
 <style scoped lang="scss">
 @import "../../scss/main.scss" ;  
 
+
+table {
+    display: table;
+    margin: 0 auto;
+    float: none;
+    position: absolute;
+    width: 90%;
+    margin-left: 6%;
+    background-color: #ECF1F8;
+    border-radius: 2px;
+    border: 0.5px solid #D4D4D4;
+}
+tr{
+    height: 56px;
+    border-bottom: 1px solid #D4D4D4;
+}
+th{
+  text-align: center;
+  padding-top: 12px;
+  font-family: $sb;
+  color:#616467;
+  font-size: 15px;
+}
+
+th:nth-child(8){
+  padding-right: 12px;
+}
 .tDevis,.Prov,.Final,.refus,.signé{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -762,8 +752,6 @@ export default {
 		td:nth-of-type(6):before { content: "Secret Alias"; }
 		td:nth-of-type(7):before { content: "Date of Birth"; }
 		td:nth-of-type(8):before { content: "Dream Vacation City"; }
-		td:nth-of-type(9):before { content: "GPA"; }
-		td:nth-of-type(10):before { content: "Arbitrary Data"; }
 	}
    
 

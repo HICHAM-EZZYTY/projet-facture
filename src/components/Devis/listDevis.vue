@@ -392,13 +392,7 @@ export default {
 <style scoped lang="scss">
 @import "../../scss/main.scss" ;  
 
-.specialStatus{
-    float: left;
-    position: relative;
-    top: 15px;
-    margin-left: 22px;
-    padding-left: 44px;
-} 
+
 
 .finalisé{
   background-color: #CDE7F6;
@@ -468,11 +462,12 @@ td{
     height: 20px;
     width: 20px;
     border-radius: 20%;
-    // background-color: #CDE7F6;
     display: inline-block;
     margin-right: 6px;
     font-size: 12px;
 }
+
+
 .tDevis,.Prov,.Final,.refus,.signé{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -757,14 +752,49 @@ td{
      }
    } 
 
-       @media (min-width: 1020px) {
+       @media (min-width: 700px) {
          
-      tr{
-      height: 56px;
+        tr{
+        height: 56px;
 
-      }
+        }
 
        }
+
+         @media (max-width: 870px) {
+         
+          .recValue{
+            display: block;
+          }
+          th{
+          padding-left: 3px;
+          padding-right: 1px;
+          }
+
+       }
+
+
+
+   @media (max-width: 820px) {
+         
+         .specialStatus{
+          float: left;
+          position: relative;
+          top: 15px;
+          margin-left: 22px;
+          padding-left: 44px;
+        } 
+
+       }
+       
+       @media (min-width: 1025px) {
+         
+         table{
+               margin-left: 8%;
+         }
+
+       }
+
 
 
     @media (min-width: 940px) {
@@ -783,9 +813,24 @@ td{
     }
 
 
-
     }
 
+
+
+    @media (max-width: 984px) {
+
+      .specialStatus{
+        margin-left: 0px;
+      }
+    }
+
+
+    @media (max-width: 935px) {
+      .specialStatus{
+      padding-left: 0px;
+      }
+
+    }
 
 
      @media (min-width: 1021px) {
@@ -889,6 +934,23 @@ td{
 
     }
 
+
+    @media (min-width: 1021px) {
+
+      table{
+        margin-left: 9%;
+      }
+
+    }
+
+    
+    @media (max-width: 1024px) {
+
+      .table{
+        margin-left: 8%;
+      }
+
+    }
      
     @media (min-width: 1200px) {
 
@@ -983,7 +1045,7 @@ td{
 	@media
 	  only screen 
     and (max-width: 760px), (min-device-width: 768px) 
-    and (max-device-width: 1024px)  {
+    and (max-device-width: 820px)  {
 
 		/* Force table to not be like tables anymore */
 		table, thead, tbody, th, td, tr {

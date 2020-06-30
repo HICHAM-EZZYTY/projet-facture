@@ -1060,19 +1060,20 @@ td{
 		}
 
     tr {
-      margin: 0 0 1rem 0;
+     border-bottom:none;
     }
       
     tr:nth-child(odd) {
-      background: #ccc;
+      background:#f5f5f7;
     }
     
 		td {
 			/* Behave  like a "row" */
 			border: none;
-			border-bottom: 1px solid #eee;
 			position: relative;
-			padding-left: 50%;
+      padding-left: 50%;
+      border-bottom: 1px solid rgba(212,212,212,0.3);
+
 		}
 
 		td:before {
@@ -1083,7 +1084,10 @@ td{
 			left: 6px;
 			width: 45%;
 			padding-right: 10px;
-			white-space: nowrap;
+      white-space: nowrap;
+      font-family: $sb;
+      color:#616467;
+      font-size: 14px;
 		}
 
 		/*

@@ -36,10 +36,79 @@
                       <h3>Signés</h3>
                       <div class="rec">2</div>
                   </div>
-
-
-
               </div>
+
+              <!-- Starting Of The Table  -->
+
+              <table role="table">
+              <thead role="rowgroup">
+                <tr role="row">
+                  <th role="columnheader">First Name</th>
+                  <th role="columnheader">Last Name</th>
+                  <th role="columnheader">Job Title</th>
+                  <th role="columnheader">Favorite Color</th>
+                  <th role="columnheader">Wars or Trek?</th>
+                  <th role="columnheader">Secret Alias</th>
+                  <th role="columnheader">Date of Birth</th>
+                  <th role="columnheader">GPA</th>
+                </tr>
+              </thead>
+              <tbody role="rowgroup">
+                <tr role="row">
+                  <td role="cell">James</td>
+                  <td role="cell">Matman</td>
+                  <td role="cell">Chief Sandwich Eater</td>
+                  <td role="cell">Lettuce Green</td>
+                  <td role="cell">Trek</td>
+                  <td role="cell">Digby Green</td>
+                  <td role="cell">January 13, 1979</td>
+                  <td role="cell">Gotham City</td>
+                </tr>
+                <tr role="row">
+                  <td role="cell">The</td>
+                  <td role="cell">Tick</td>
+                  <td role="cell">Crimefighter Sorta</td>
+                  <td role="cell">Blue</td>
+                  <td role="cell">Wars</td>
+                  <td role="cell">John Smith</td>
+                  <td role="cell">July 19, 1968</td>
+                  <td role="cell">Athens</td>
+                </tr>
+                <tr role="row">
+                  <td role="cell">Jokey</td>
+                  <td role="cell">Smurf</td>
+                  <td role="cell">Giving Exploding Presents</td>
+                  <td role="cell">Smurflow</td>
+                  <td role="cell">Smurf</td>
+                  <td role="cell">Smurflane Smurfmutt</td>
+                  <td role="cell">Smurfuary Smurfteenth, 1945</td>
+                  <td role="cell">New Smurf City</td>
+                </tr>
+                <tr role="row">
+                  <td role="cell">Cindy</td>
+                  <td role="cell">Beyler</td>
+                  <td role="cell">Sales Representative</td>
+                  <td role="cell">Red</td>
+                  <td role="cell">Wars</td>
+                  <td role="cell">Lori Quivey</td>
+                  <td role="cell">July 5, 1956</td>
+                  <td role="cell">Paris</td>
+                </tr>
+                <tr role="row">
+                  <td role="cell">Captain</td>
+                  <td role="cell">Cool</td>
+                  <td role="cell">Tree Crusher</td>
+                  <td role="cell">Blue</td>
+                  <td role="cell">Wars</td>
+                  <td role="cell">Steve 42nd</td>
+                  <td role="cell">December 13, 1982</td>
+                  <td role="cell">Las Vegas</td>
+                </tr>
+              </tbody>
+            </table>
+
+
+              <!-- Ending Of The Table  -->
 
 
     
@@ -287,8 +356,7 @@ export default {
   }
 
 
-////////// MediaQuery ///////////////
-
+// Start of mediaquery
 
   @media (min-width: 420px) {
 
@@ -634,6 +702,69 @@ export default {
 
 
 
+  // Styling The Table 
+/*
+	Max width before this PARTICULAR table gets nasty. This query will take effect for any screen smaller than 760px and also iPads specifically.
+	*/
+	@media
+	  only screen 
+    and (max-width: 760px), (min-device-width: 768px) 
+    and (max-device-width: 1024px)  {
+
+		/* Force table to not be like tables anymore */
+		table, thead, tbody, th, td, tr {
+			display: block;
+		}
+
+		/* Hide table headers (but not display: none;, for accessibility) */
+		thead tr {
+			position: absolute;
+			top: -9999px;
+			left: -9999px;
+		}
+
+    tr {
+      margin: 0 0 1rem 0;
+    }
+      
+    tr:nth-child(odd) {
+      background: #ccc;
+    }
+    
+		td {
+			/* Behave  like a "row" */
+			border: none;
+			border-bottom: 1px solid #eee;
+			position: relative;
+			padding-left: 50%;
+		}
+
+		td:before {
+			/* Now like a table header */
+			position: absolute;
+			/* Top/left values mimic padding */
+			top: 0;
+			left: 6px;
+			width: 45%;
+			padding-right: 10px;
+			white-space: nowrap;
+		}
+
+		/*
+		Label the data
+    You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
+		*/
+		td:nth-of-type(1):before { content: "First Name"; }
+		td:nth-of-type(2):before { content: "Last Name"; }
+		td:nth-of-type(3):before { content: "Job Title"; }
+		td:nth-of-type(4):before { content: "Favorite Color"; }
+		td:nth-of-type(5):before { content: "Wars of Trek?"; }
+		td:nth-of-type(6):before { content: "Secret Alias"; }
+		td:nth-of-type(7):before { content: "Date of Birth"; }
+		td:nth-of-type(8):before { content: "Dream Vacation City"; }
+		td:nth-of-type(9):before { content: "GPA"; }
+		td:nth-of-type(10):before { content: "Arbitrary Data"; }
+	}
    
 
 

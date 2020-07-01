@@ -1,21 +1,29 @@
 <template>
     <div>
-        <div class="forms-sides--group">
+        <div class="forms-sides--group" :key="counter">
             <div class="nn">
                 <label class="forms-sides--group_label" >Numéro de téléphone :</label>
-                <div>
-                    <i class="fa fa-plus" @click="add"></i>
-                    <i class="fa fa-times" @click="remove"></i>
-                </div>
             </div>
             
-            <S_Input v-for="i in counter" :placeholder=" placeholder + ' ' + i " :key="i" @onInput='addValue'/>
+            <S_Input 
+                v-for="i in values.length" 
+                :placeholder=" placeholder + ' ' + i " 
+                :key="i" 
+                :isLast=" i == values.length"
+                :isRemovable="i != 1 "
+                :index= 'i - 1'
+                :defaultValue="values[i - 1]"
+                @onInput='addValue' 
+                @add="_add" 
+                @remove="_remove"  />
         </div>
     </div>
 </template>
 <script>
 
-import S_Input from './S_Input.vue'
+import S_Input from './S_Input.vue';
+// import _ from 'lodash'; 
+
 export default {
     name: "Custom_Input", 
     data: function(){
@@ -25,50 +33,36 @@ export default {
         }
     }, 
     props:["placeholder"],
+
     components: {
         S_Input
     }, 
+    
     methods: {
-        add: function(){
-            this.counter ++;
+        _add: function(){
+            this.values.push("");
         }, 
-        remove: function() {
-            if(this.counter > 1 ) {
-                this.counter--;
+        _remove: function(arg) {
+            this.counter++;
+
+            if(this.values.length > 1  ){
+                this.values.splice(arg, 1);
             }
-            this.values.pop();
         }, 
-        addValue: function(arg) {
-            this.values.push({
-                value: arg
-            })
+        addValue: function(argIndex, argValue) {
+            this.values[argIndex] = argValue
             this.$emit('addedInput', this.values);
         }
+    }, 
+    
+    created: function() {
+        this.values.push(""); 
     }
 }
 </script>
 <style lang="scss" scoped>
     .nn{
         display: flex ; 
-        & div {
-            display: flex ; 
-            align-items: center ; 
-            color: black ;
-            & .fa{
-                margin: 0em .2em;
-                display: flex; 
-                background: #2262C6;
-                color: white; 
-                height: 1.5em ;
-                width: 1.5em ;
-                align-items: center;
-                justify-content: center;
-                border-radius: 50%; 
-                
-                &:hover{
-                    cursor: pointer;
-                }
-            }
-        }
+        
     }
 </style>

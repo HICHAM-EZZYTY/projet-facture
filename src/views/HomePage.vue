@@ -1,5 +1,5 @@
 <template>
- <div>
+ <div class="homePage" >
     <Navbar />
     <sidebar />
     <!-- <Table /> -->
@@ -22,7 +22,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 
 ::-webkit-scrollbar {
@@ -47,7 +47,7 @@ export default {
   overflow-x: hidden; 
   overflow-y: auto; 
   text-align:justify; 
-  z-index: -1;
+  // z-index: -1;
 }
 
 

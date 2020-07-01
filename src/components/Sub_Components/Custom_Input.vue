@@ -7,12 +7,13 @@
             
             <S_Input 
                 v-for="i in values.length" 
+                
                 :placeholder=" placeholder + ' ' + i " 
                 :key="i" 
                 :isLast=" i == values.length"
-                :isRemovable="i != 1 "
                 :index= 'i - 1'
                 :defaultValue="values[i - 1]"
+
                 @onInput='addValue' 
                 @add="_add" 
                 @remove="_remove"  />

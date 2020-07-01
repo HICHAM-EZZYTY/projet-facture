@@ -10,7 +10,7 @@
         <div v-if="isLoading">
             Loading ... 
         </div>
-        <table class="table" v-else>
+        <table class="table" v-else :key="changer">
             <thead class="thead-dark">
                 <tr>
                 <th scope="col">Name</th>
@@ -52,7 +52,8 @@ export default {
         return {
             componentKey: 0,
             isLoading: true,
-            articles: []
+            articles: [], 
+            changer: 1,
         }
     }, 
     methods: {
@@ -80,12 +81,14 @@ export default {
                 .delete(`/type_articles/${id}`)
                 .then( () => {
                     this.componentKey += 1 ;
-                    this.articles.splice(id, 1);  
+                    this.articles.splice(id, 1);
+                    this.changer++;  
                     console.log("deleted");
                 })
                 .catch(
                     () => {
-                        console.log("grrr")
+                        // console.log("grrr")
+                        alert("can't delete this item it's probably in use. ");
                     }
                 );
         }, 

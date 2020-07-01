@@ -1,5 +1,5 @@
 <template>
- <div>
+ <div class="homePage" >
     <Navbar />
     <sidebar />
     <!-- <Table /> -->
@@ -22,7 +22,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 
 ::-webkit-scrollbar {

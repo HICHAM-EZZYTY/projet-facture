@@ -1,5 +1,5 @@
 <template>
-    <div class="society-page px-5">
+    <div class="px-5">
         <div class="row mb-3 mt-3">
             <div class="col-12 page-title">
                 <div class="page-title--text">

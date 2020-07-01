@@ -71,6 +71,9 @@ const routes = [
     path: "/",
     name: "Home",
     component: HomePage,
+    meta: {
+      requiresAuth: true
+    },
     children: [
       {
         path: "devis",
@@ -84,11 +87,17 @@ const routes = [
             path: "",
             name: "Devis",
             component: listDevis,
+            meta: {
+              requiresAuth: true
+            },
           },
           {
             path: "new",
             name: "NewDevis",
-            component: CreateDevis
+            component: CreateDevis,
+            meta: {
+              requiresAuth: true
+            },
 
           }
         ]
@@ -97,64 +106,96 @@ const routes = [
         path: "client",
         // name: "Client",
         component: Clients,
+        meta: {
+          requiresAuth: true
+        },
         children: [
           {
             path: "",
             name: "Client",
             component: cards,
+            meta: {
+              requiresAuth: true
+            },
           },
           {
             path: "Type_client",
             name: "Type_client",
             component: Type_client,
+            meta: {
+              requiresAuth: true
+            },
           },
           {
             path: "Information_Compte",
             name: "Information_Compte",
             component: Information_Compte,
-
+            meta: {
+              requiresAuth: true
+            },
           },
           {
             path: 'new',
             name: "NewClient",
-            component: addClient
+            component: addClient,
+            meta: {
+              requiresAuth: true
+            },
           },
           {
             path: ":id",
             name: "SingleClient",
+            meta: {
+              requiresAuth: true
+            },
           }
         ]
       },
       {
         path: "facture",
         name: "Facture",
-
+        meta: {
+          requiresAuth: true
+        },
       },
       {
         path: 'facture/new',
-        name: "NewFacture"
+        name: "NewFacture",
+        meta: {
+          requiresAuth: true
+        },
       },
 
 
       {
         path: "avoire",
-        name: "Avoire"
+        name: "Avoire",
+        meta: {
+          requiresAuth: true
+        },
       },
       {
         path: 'avoire/new',
-        name: "NewAvoire"
+        name: "NewAvoire",
+        meta: {
+          requiresAuth: true
+        },
       },
 
       {
         path: "societe",
         name: "Societe",
-
+        meta: {
+          requiresAuth: true
+        },
       },
       {
         path: 'Societe/new',
         name: "NewSociete",
-        component: AddSociete
-
+        component: AddSociete,
+        meta: {
+          requiresAuth: true
+        },
       },
     ]
   },
@@ -166,68 +207,110 @@ const routes = [
     name: "Settings",
     component: homeSeting,
     redirect: { name: "Preferences" },
+    meta: {
+      requiresAuth: true
+    },
     children: [
       {
         path: "preferences",
         name: "Preferences",
         component: preference,
+        meta: {
+          requiresAuth: true
+        },
       },
       {
         path: "preferences/devis",
         name: "DevisPreferences",
         component: devisRef,
+        meta: {
+          requiresAuth: true
+        },
       },
       {
         path: "preferences/facture",
         name: "FacturePreferences",
         component: factureRef,
+        meta: {
+          requiresAuth: true
+        },
       },
       {
         path: "preferences/avoire",
         name: "AvoirePreferences",
-        component: avoirRef
+        component: avoirRef,
+        meta: {
+          requiresAuth: true
+        },
       },
       {
         path: "preferences/avoire-acompte",
         name: "AvoireAcomptePreferences",
-        component: avoirAcompte
+        component: avoirAcompte,
+        meta: {
+          requiresAuth: true
+        },
       },
       {
         path: "preferences/facture-acompte",
         name: "FactureAcomptePreferences",
-        component: factureAcompte
+        component: factureAcompte,
+        meta: {
+          requiresAuth: true
+        },
       },
       {
         path: "preferences/numerotation",
         name: "NumerotationPreferences",
-        component: numerotation
+        component: numerotation,
+        meta: {
+          requiresAuth: true
+        },
       },
       // articles 
       {
         path: "type-articles",
         name: "TypeArticles",
         component: TypeArticles,
+        meta: {
+          requiresAuth: true
+        },
       },
       {
         path: "type-articles/new",
         name: "NewTypeArticles",
         component: newArticle,
+        meta: {
+          requiresAuth: true
+        },
       },
       {
         path: "bank-accounts",
         name: "BackAccounts",
+        meta: {
+          requiresAuth: true
+        },
       },
       {
         path: "user-contact",
         name: "UserContact",
+        meta: {
+          requiresAuth: true
+        },
       },
       {
         path: "user",
         name: "User",
+        meta: {
+          requiresAuth: true
+        },
       },
       {
         path: "delete-account",
         name: "DeleteAccount",
+        meta: {
+          requiresAuth: true
+        },
       }
     ]
   },
@@ -258,22 +341,34 @@ const routes = [
     path: "/devis-calandar",
     name: "devisCalandar",
     component: TheCalendarDevis,
+    meta: {
+      requiresAuth: true
+    },
   },
   {
     path: "/devis-refus",
     name: "devisCalandar",
     component: TheRefusDevis,
+    meta: {
+      requiresAuth: true
+    },
   },
   {
     path: "/devis-export",
     name: "devisExport",
     component: TheExportDevis,
+    meta: {
+      requiresAuth: true
+    },
 
   },
   {
     path: "*",
     name: "NotFound",
-    redirect: { name: "Home" }
+    redirect: { name: "Home" },
+    meta: {
+      requiresAuth: false
+    },
   }
 ];
 
@@ -292,6 +387,9 @@ router.beforeEach((to, from, next) => {
     }
     next('/gate/login')
   } else {
+    if (store.getters.isLoggedIn) {
+      next('/devis/new');
+    }
     next()
   }
 })

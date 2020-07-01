@@ -23,7 +23,7 @@
 
         </form>
         <div id="navbar" class="navbar-collapse collapse">
-           <p class="bienvenue"><span>Bienvenue,</span> Hello Anas,Chamkhi</p>
+           <p class="bienvenue"><span>Bienvenue,</span> Hello, {{ this.$store.getters.userName}}</p>
           <b-avatar
             variant="primary"
             class="avatar"

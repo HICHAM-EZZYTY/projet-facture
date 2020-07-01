@@ -9,11 +9,7 @@ export default new Vuex.Store({
     status: '',
     token: localStorage.getItem('token') || '',
     userName: localStorage.getItem('name') || '',
-    user: {
-      id: 0,
-      email: "",
-      name: ""
-    }
+    user: {}
   },
   mutations: {
 
@@ -52,6 +48,7 @@ export default new Vuex.Store({
             commit('auth_success', token, user.Name)
 
             resolve(resp)
+
           })
           .catch(err => {
             commit('auth_error')

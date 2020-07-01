@@ -27,6 +27,7 @@
           <b-avatar
             variant="primary"
             class="avatar"
+            :text="initials"
             size="2.7rem"
             id="tt"
           ></b-avatar>
@@ -39,10 +40,10 @@
 export default {
   name: "Navbar",
   computed: {
-    // initials: function () {
-    //   let words = this.$store.getters.user.name.split(' ');
-    //   return `${words[0][0]}${words[1][0]}`
-    // }
+    initials: function () {
+      let words = this.$store.getters.userName.split(' ');
+      return `${words[0][0]}${words[1][0]}`
+    }
   }
 };
 </script>

@@ -292,6 +292,9 @@ router.beforeEach((to, from, next) => {
     }
     next('/gate/login')
   } else {
+    if (store.getters.isLoggedIn) {
+      next('/devis/new');
+    }
     next()
   }
 })

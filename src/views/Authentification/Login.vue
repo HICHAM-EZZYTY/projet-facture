@@ -45,7 +45,7 @@ export default {
         let password = this.user.password
         console.log("email & password",email,password)
         this.$store.dispatch('login', this.user)
-          .then(() => this.$router.push('/Devis/new'))
+          .then(() => location.reload())
           .catch(() => {
             this.response.success = false;
             this.response.message = "Email or Password is wrong" ;

@@ -33,37 +33,30 @@ export default {
         }
     }, 
     props:["placeholder"],
+
     components: {
         S_Input
     }, 
+    
     methods: {
         _add: function(){
-            // this.counter ++;
             this.values.push("");
-            // console.log(this.values);
         }, 
         _remove: function(arg) {
-            // if(this.counter > 1 ) {
-            //     this.counter--;
-            // }
-            // this.values.pop();
-            // console.log(arg);
             this.counter++;
+
             if(this.values.length > 1  ){
-                console.log(arg)
                 this.values.splice(arg, 1);
-                console.log(this.values);
             }
         }, 
         addValue: function(argIndex, argValue) {
             this.values[argIndex] = argValue
             this.$emit('addedInput', this.values);
-            console.log(this.values);
         }
     }, 
+    
     created: function() {
         this.values.push(""); 
-        console.log(this.values);
     }
 }
 </script>

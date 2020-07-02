@@ -40,6 +40,7 @@
 
               <!-- Starting Of The Table  -->
 
+
               <table role="table">
               <thead role="rowgroup">
                 <tr role="row">
@@ -89,7 +90,15 @@
                   </td>
                   <td role="cell">12/02/20</td>
                   <td role="cell">16/02/20</td>
-                  <td role="cell">...</td>
+                  <td role="cell">
+                    <img  style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">   
+                    <div class="cardDoMore">
+                      <h1>Marquer comme signé </h1>
+                      <h1>Marquer comme refusé </h1>
+                      <h1>Modifier les mots-clés </h1>
+                      <h1>Créer une opportunité</h1> 
+                    </div>
+                  </td>
                 </tr>
 
                 <tr role="row">
@@ -123,7 +132,9 @@
                   </td>
                   <td role="cell">12/02/20</td>
                   <td role="cell">16/02/20</td>
-                  <td role="cell">...</td>
+                  <td role="cell">
+                  <img  style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">
+                  </td>
                 </tr>
 
 
@@ -159,7 +170,9 @@
                   </td>
                   <td role="cell">12/02/20</td>
                   <td role="cell">16/02/20</td>
-                  <td role="cell">...</td>
+                  <td role="cell">
+                  <img  style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">
+                  </td>
                 </tr>
      
 
@@ -194,7 +207,9 @@
                   </td>
                   <td role="cell">12/02/20</td>
                   <td role="cell">16/02/20</td>
-                  <td role="cell">...</td>
+                  <td role="cell">
+                  <img  style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">
+                  </td>
                 </tr>
 
 
@@ -228,7 +243,9 @@
                   </td>
                   <td role="cell">12/02/20</td>
                   <td role="cell">16/02/20</td>
-                  <td role="cell">...</td>
+                  <td role="cell">
+                  <img  style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">
+                  </td>
                 </tr>
 
 
@@ -262,7 +279,9 @@
                   </td>
                   <td role="cell">12/02/20</td>
                   <td role="cell">16/02/20</td>
-                  <td role="cell">...</td>
+                  <td role="cell">
+                  <img  style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">
+                  </td>
                 </tr>
 
 
@@ -405,6 +424,25 @@ export default {
 <style scoped lang="scss">
 @import "../../scss/main.scss" ;  
 
+
+.cardDoMore{
+    position: absolute;
+    background-color: white;
+    height: 104px;
+    width: 168px;
+    padding-left: -14px;
+    right: 27px;
+    padding-top: 21px;
+    font-size: 12px;
+    z-index: 99;
+    margin-right: 0px;
+    bottom: 228px;
+    h1{
+      font-size: 14px;
+      color:#868789;
+      font-family: $r
+    }
+}
 
 
 .finalisé{

@@ -78,9 +78,14 @@
                        
                      }"
                     >  
+                    
                       {{getstatus(0)}}
+
+                    </p>
                       
-                      </p></div>{{value[0]}}
+                    </div>
+                    <h5>{{value[0]}}</h5>
+
                   </td>
                   <td role="cell">12/02/20</td>
                   <td role="cell">16/02/20</td>
@@ -112,7 +117,9 @@
                     >  
                       {{getstatus(1)}}
                       
-                      </p></div>{{value[1]}}
+                      </p></div>
+                     <h5>{{value[1]}}</h5>
+
                   </td>
                   <td role="cell">12/02/20</td>
                   <td role="cell">16/02/20</td>
@@ -146,7 +153,9 @@
                     >  
                       {{getstatus(2)}}
                       
-                      </p></div>{{value[2]}}
+                      </p></div>
+                     <h5>{{value[2]}}</h5>
+
                   </td>
                   <td role="cell">12/02/20</td>
                   <td role="cell">16/02/20</td>
@@ -179,7 +188,9 @@
                     >  
                       {{getstatus(3)}}
                       
-                      </p></div>{{value[3]}}
+                      </p></div>
+                    <h5>{{value[3]}}</h5>
+
                   </td>
                   <td role="cell">12/02/20</td>
                   <td role="cell">16/02/20</td>
@@ -212,7 +223,8 @@
                     >  
                       {{getstatus(0)}}
                       
-                      </p></div>{{value[0]}}
+                      </p></div>
+                      <h5>{{value[0]}}</h5>
                   </td>
                   <td role="cell">12/02/20</td>
                   <td role="cell">16/02/20</td>
@@ -245,7 +257,8 @@
                     >  
                       {{getstatus(0)}}
                       
-                      </p></div>{{value[0]}}
+                      </p></div>
+                      <h5>{{value[0]}}</h5>
                   </td>
                   <td role="cell">12/02/20</td>
                   <td role="cell">16/02/20</td>
@@ -424,6 +437,15 @@ text-transform: uppercase;
 color:#B866C8;
 text-transform: uppercase;
 
+}
+
+h5{
+    font-family: $r;
+    color: #616467;
+    font-size: 14px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    text-align: left;
 }
 table {
     display: table;
@@ -775,18 +797,7 @@ td{
 
 
 
-   @media (max-width: 820px) {
-         
-         .specialStatus{
-          float: left;
-          position: relative;
-          top: 15px;
-          margin-left: 22px;
-          padding-left: 44px;
-        } 
-
-       }
-       
+  
        @media (min-width: 1025px) {
          
          table{
@@ -831,10 +842,6 @@ td{
       }
 
     }
-
-
-
-
 
      @media (min-width: 1021px) {
 
@@ -1054,6 +1061,10 @@ td{
 	  only screen 
     and (max-width: 760px), (min-device-width: 768px) 
     and (max-device-width: 820px)  {
+      
+h5{
+    text-align: center;
+}
 
 		/* Force table to not be like tables anymore */
 		table, thead, tbody, th, td, tr {
@@ -1120,5 +1131,60 @@ td{
 
 }
   
+@media (max-width: 363px) {
+
+      table{
+        margin-left:0%
+      }
+      td{
+        padding-left: 30%;
+      }
+
+}
+
+
+        @media (min-width: 762px) {
+         
+         .specialStatus{
+          float: left;
+          position: relative;
+          top: 0px;
+          margin-left: 0px;
+          padding-left: -4px;
+          width: 80%;
+        } 
+
+       }
+       
+
+        @media (min-width: 820px) {
+         
+         .specialStatus{
+          display: inline-grid;
+          position: relative;
+          top: 11px;
+          padding-left: 0px;
+
+        } 
+
+        h5{
+          font-size: 14px;
+          margin-bottom: 0px;
+          margin-left: 0px;
+          text-align: center;
+        }
+
+        .recValue{
+          margin: 0 auto;
+          height: 20px;
+          width: 20px;
+          border-radius: 20%;
+          display: inline-block;
+          font-size: 12px;
+        }
+
+       }
+  
+
 
 </style>

@@ -141,7 +141,7 @@
                   <td role="cell">
                   <img  @click="doMore(2)"  style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">
                   <div  v-if="DoMoreIndx==2" class="cardDoMore">
-                      <h1>Marquer comme Anas </h1>
+                      <h1>Marquer comme signé  </h1>
                       <h1>Marquer comme refusé </h1>
                       <h1>Modifier les mots-clés </h1>
                       <h1>Dupliquer en facture</h1> 
@@ -187,7 +187,17 @@
                   <td role="cell">12/02/20</td>
                   <td role="cell">16/02/20</td>
                   <td role="cell">
-                  <img  style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">
+                  <img  @click="doMore(3)"  style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">
+                  <div  v-if="DoMoreIndx==3" class="cardDoMore">
+                      <h1>Marquer comme signé   </h1>
+                      <h1>Marquer comme refusé </h1>
+                      <h1>Modifier les mots-clés </h1>
+                      <h1>Dupliquer en facture</h1> 
+                      <h1>Dupliquer le devis</h1>
+                      <h1>Envoyer par email</h1> 
+                      <h1>Télécharger</h1> 
+                      <h1>Copier l'url</h1> 
+                  </div>
                   </td>
                 </tr>
      
@@ -224,7 +234,17 @@
                   <td role="cell">12/02/20</td>
                   <td role="cell">16/02/20</td>
                   <td role="cell">
-                  <img  style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">
+                  <img  @click="doMore(4)"  style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">
+                  <div  v-if="DoMoreIndx==4" class="cardDoMore">
+                      <h1>Marquer comme signé   </h1>
+                      <h1>Marquer comme refusé </h1>
+                      <h1>Modifier les mots-clés </h1>
+                      <h1>Dupliquer en facture</h1> 
+                      <h1>Dupliquer le devis</h1>
+                      <h1>Envoyer par email</h1> 
+                      <h1>Télécharger</h1> 
+                      <h1>Copier l'url</h1> 
+                  </div>
                   </td>
                 </tr>
 
@@ -461,10 +481,17 @@ export default {
     font-size: 12px;
     z-index: 99;
     margin-right: 0px;
+    // box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.2), 0 1px 5px 0 rgba(0,0,0,0.12);
     h1{
       font-size: 12px;
       color:#868789;
       font-family: $r
+    }
+    h1:hover{
+      color:#616467;
+      font-family: $gm;
+      font-size: 13px;
+      cursor: pointer;
     }
 }
 

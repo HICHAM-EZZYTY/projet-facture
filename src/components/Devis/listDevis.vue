@@ -884,7 +884,7 @@ td{
         grid-template-columns: 1.3fr 1fr 1fr 1fr 1fr;
         margin-left: 8%;
         h3{
-          justify-self: end;
+        justify-self: center;
         }
       }
 
@@ -1184,6 +1184,40 @@ h5{
         }
 
        }
+
+
+       @media (min-width: 1230px) {
+
+         table {
+        margin-left: 6%;
+        }
+
+       }
+
+         @media (min-width: 1300px) {
+
+        #activeTitre{
+          justify-self: center;
+        }
+        #active{
+          &::after{
+            margin-left: 18%;
+          }
+        }
+
+       }
+
+       
+         @media (min-width: 1450px) {
+
+      
+         table {
+        margin-left: 4%;
+        }
+
+       }
+
+
   
 
 

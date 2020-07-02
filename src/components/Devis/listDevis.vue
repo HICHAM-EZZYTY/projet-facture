@@ -280,7 +280,17 @@
                   <td role="cell">12/02/20</td>
                   <td role="cell">16/02/20</td>
                   <td role="cell">
-                  <img  style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">
+                  <img  @click="doMore(5)"  style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">
+                  <div  v-if="DoMoreIndx==5" class="cardDoMore">
+                      <h1>Marquer comme signé   </h1>
+                      <h1>Marquer comme refusé </h1>
+                      <h1>Modifier les mots-clés </h1>
+                      <h1>Dupliquer en facture</h1> 
+                      <h1>Dupliquer le devis</h1>
+                      <h1>Envoyer par email</h1> 
+                      <h1>Télécharger</h1> 
+                      <h1>Copier l'url</h1> 
+                  </div>
                   </td>
                 </tr>
 
@@ -316,7 +326,17 @@
                   <td role="cell">12/02/20</td>
                   <td role="cell">16/02/20</td>
                   <td role="cell">
-                  <img  style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">
+                  <img  @click="doMore(6)"  style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">
+                  <div  v-if="DoMoreIndx==6" class="cardDoMore">
+                      <h1>Marquer comme signé   </h1>
+                      <h1>Marquer comme refusé </h1>
+                      <h1>Modifier les mots-clés </h1>
+                      <h1>Dupliquer en facture</h1> 
+                      <h1>Dupliquer le devis</h1>
+                      <h1>Envoyer par email</h1> 
+                      <h1>Télécharger</h1> 
+                      <h1>Copier l'url</h1> 
+                  </div>
                   </td>
                 </tr>
 
@@ -481,7 +501,7 @@ export default {
     font-size: 12px;
     z-index: 99;
     margin-right: 0px;
-    // box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.2), 0 1px 5px 0 rgba(0,0,0,0.12);
+
     h1{
       font-size: 12px;
       color:#868789;
@@ -1143,9 +1163,7 @@ td{
 
 
   // Styling The Table 
-/*
-	Max width before this PARTICULAR table gets nasty. This query will take effect for any screen smaller than 760px and also iPads specifically.
-	*/
+
 	@media
 	  only screen 
     and (max-width: 760px), (min-device-width: 768px) 
@@ -1155,11 +1173,9 @@ h5{
     text-align: center;
 }
 
-		/* Force table to not be like tables anymore */
 		table, thead, tbody, th, td, tr {
 			display: block;
 		}
-		/* Hide table headers (but not display: none;, for accessibility) */
 		thead tr {
 			position: absolute;
 			top: -9999px;
@@ -1184,9 +1200,7 @@ h5{
 		}
 
 		td:before {
-			/* Now like a table header */
 			position: absolute;
-			/* Top/left values mimic padding */
 			top: 0;
 			left: 6px;
 			width: 45%;
@@ -1197,10 +1211,7 @@ h5{
       font-size: 14px;
 		}
 
-		/*
-		Label the data
-    You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
-		*/
+
 		td:nth-of-type(1):before { content: "N° de devis"; }
 		td:nth-of-type(2):before { content: "Nom de client"; }
 		td:nth-of-type(3):before { content: "Nom de société"; }

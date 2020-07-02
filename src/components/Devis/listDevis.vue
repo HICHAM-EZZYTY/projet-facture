@@ -91,13 +91,19 @@
                   <td role="cell">12/02/20</td>
                   <td role="cell">16/02/20</td>
                   <td role="cell">
-                    <img  style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">   
-                    <div class="cardDoMore">
+                    <img  @click="doMore(1)" style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">   
+
+                    <div v-if="DoMoreIndx==1" class="cardDoMore">
                       <h1>Marquer comme signé </h1>
                       <h1>Marquer comme refusé </h1>
                       <h1>Modifier les mots-clés </h1>
-                      <h1>Créer une opportunité</h1> 
+                      <h1>Dupliquer en facture</h1> 
+                      <h1>Dupliquer le devis</h1>
+                      <h1>Envoyer par email</h1> 
+                      <h1>Télécharger</h1> 
+                      <h1>Copier l'url</h1> 
                     </div>
+
                   </td>
                 </tr>
 
@@ -134,6 +140,16 @@
                   <td role="cell">16/02/20</td>
                   <td role="cell">
                   <img  style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">
+                  <div class="cardDoMore">
+                      <h1>Marquer comme Anas </h1>
+                      <h1>Marquer comme refusé </h1>
+                      <h1>Modifier les mots-clés </h1>
+                      <h1>Dupliquer en facture</h1> 
+                      <h1>Dupliquer le devis</h1>
+                      <h1>Envoyer par email</h1> 
+                      <h1>Télécharger</h1> 
+                      <h1>Copier l'url</h1> 
+                  </div>
                   </td>
                 </tr>
 
@@ -311,6 +327,7 @@ export default {
             "Signés",
             "Refusés"            
           ],
+          DoMoreIndx:0,
       }
 
     },
@@ -403,6 +420,14 @@ export default {
         getstatus:function(indx){
           return this.value[indx].substring(0, 2);
 
+        },
+        doMore:function(number){
+         if(this.DoMoreIndx==0){
+           this.DoMoreIndx=number
+         }
+         else if(this.devisHeader!==0){
+           this.DoMoreIndx=0
+         }
         }
 
    
@@ -428,17 +453,17 @@ export default {
 .cardDoMore{
     position: absolute;
     background-color: white;
-    height: 104px;
+    height: 201px;
     width: 168px;
     padding-left: -14px;
-    right: 27px;
+    right: 64px;
     padding-top: 21px;
     font-size: 12px;
     z-index: 99;
     margin-right: 0px;
-    bottom: 228px;
+    bottom: 127px;
     h1{
-      font-size: 14px;
+      font-size: 12px;
       color:#868789;
       font-family: $r
     }

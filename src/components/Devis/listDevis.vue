@@ -833,6 +833,9 @@ td{
     }
 
 
+
+
+
      @media (min-width: 1021px) {
 
  
@@ -933,6 +936,11 @@ td{
       }
 
     }
+
+
+    
+    
+   
 
 
     @media (min-width: 1021px) {
@@ -1051,7 +1059,6 @@ td{
 		table, thead, tbody, th, td, tr {
 			display: block;
 		}
-
 		/* Hide table headers (but not display: none;, for accessibility) */
 		thead tr {
 			position: absolute;
@@ -1105,6 +1112,13 @@ td{
 	}
    
 
+ @media (max-width: 419px) {
+
+      table{
+        margin-left:0%
+      }
+
+}
   
 
 </style>

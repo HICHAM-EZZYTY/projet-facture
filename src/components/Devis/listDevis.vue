@@ -40,6 +40,7 @@
 
               <!-- Starting Of The Table  -->
 
+
               <table role="table">
               <thead role="rowgroup">
                 <tr role="row">
@@ -78,13 +79,32 @@
                        
                      }"
                     >  
+                    
                       {{getstatus(0)}}
+
+                    </p>
                       
-                      </p></div>{{value[0]}}
+                    </div>
+                    <h5>{{value[0]}}</h5>
+
                   </td>
                   <td role="cell">12/02/20</td>
                   <td role="cell">16/02/20</td>
-                  <td role="cell">...</td>
+                  <td role="cell">
+                    <img  @click="doMore(1)" style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">   
+
+                    <div v-if="DoMoreIndx==1" class="cardDoMore">
+                      <h1>Marquer comme signé </h1>
+                      <h1>Marquer comme refusé </h1>
+                      <h1>Modifier les mots-clés </h1>
+                      <h1>Dupliquer en facture</h1> 
+                      <h1>Dupliquer le devis</h1>
+                      <h1>Envoyer par email</h1> 
+                      <h1>Télécharger</h1> 
+                      <h1>Copier l'url</h1> 
+                    </div>
+
+                  </td>
                 </tr>
 
                 <tr role="row">
@@ -112,11 +132,25 @@
                     >  
                       {{getstatus(1)}}
                       
-                      </p></div>{{value[1]}}
+                      </p></div>
+                     <h5>{{value[1]}}</h5>
+
                   </td>
                   <td role="cell">12/02/20</td>
                   <td role="cell">16/02/20</td>
-                  <td role="cell">...</td>
+                  <td role="cell">
+                  <img  @click="doMore(2)"  style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">
+                  <div  v-if="DoMoreIndx==2" class="cardDoMore">
+                      <h1>Marquer comme signé  </h1>
+                      <h1>Marquer comme refusé </h1>
+                      <h1>Modifier les mots-clés </h1>
+                      <h1>Dupliquer en facture</h1> 
+                      <h1>Dupliquer le devis</h1>
+                      <h1>Envoyer par email</h1> 
+                      <h1>Télécharger</h1> 
+                      <h1>Copier l'url</h1> 
+                  </div>
+                  </td>
                 </tr>
 
 
@@ -146,11 +180,25 @@
                     >  
                       {{getstatus(2)}}
                       
-                      </p></div>{{value[2]}}
+                      </p></div>
+                     <h5>{{value[2]}}</h5>
+
                   </td>
                   <td role="cell">12/02/20</td>
                   <td role="cell">16/02/20</td>
-                  <td role="cell">...</td>
+                  <td role="cell">
+                  <img  @click="doMore(3)"  style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">
+                  <div  v-if="DoMoreIndx==3" class="cardDoMore">
+                      <h1>Marquer comme signé   </h1>
+                      <h1>Marquer comme refusé </h1>
+                      <h1>Modifier les mots-clés </h1>
+                      <h1>Dupliquer en facture</h1> 
+                      <h1>Dupliquer le devis</h1>
+                      <h1>Envoyer par email</h1> 
+                      <h1>Télécharger</h1> 
+                      <h1>Copier l'url</h1> 
+                  </div>
+                  </td>
                 </tr>
      
 
@@ -179,11 +227,25 @@
                     >  
                       {{getstatus(3)}}
                       
-                      </p></div>{{value[3]}}
+                      </p></div>
+                    <h5>{{value[3]}}</h5>
+
                   </td>
                   <td role="cell">12/02/20</td>
                   <td role="cell">16/02/20</td>
-                  <td role="cell">...</td>
+                  <td role="cell">
+                  <img  @click="doMore(4)"  style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">
+                  <div  v-if="DoMoreIndx==4" class="cardDoMore">
+                      <h1>Marquer comme signé   </h1>
+                      <h1>Marquer comme refusé </h1>
+                      <h1>Modifier les mots-clés </h1>
+                      <h1>Dupliquer en facture</h1> 
+                      <h1>Dupliquer le devis</h1>
+                      <h1>Envoyer par email</h1> 
+                      <h1>Télécharger</h1> 
+                      <h1>Copier l'url</h1> 
+                  </div>
+                  </td>
                 </tr>
 
 
@@ -212,11 +274,24 @@
                     >  
                       {{getstatus(0)}}
                       
-                      </p></div>{{value[0]}}
+                      </p></div>
+                      <h5>{{value[0]}}</h5>
                   </td>
                   <td role="cell">12/02/20</td>
                   <td role="cell">16/02/20</td>
-                  <td role="cell">...</td>
+                  <td role="cell">
+                  <img  @click="doMore(5)"  style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">
+                  <div  v-if="DoMoreIndx==5" class="cardDoMore">
+                      <h1>Marquer comme signé   </h1>
+                      <h1>Marquer comme refusé </h1>
+                      <h1>Modifier les mots-clés </h1>
+                      <h1>Dupliquer en facture</h1> 
+                      <h1>Dupliquer le devis</h1>
+                      <h1>Envoyer par email</h1> 
+                      <h1>Télécharger</h1> 
+                      <h1>Copier l'url</h1> 
+                  </div>
+                  </td>
                 </tr>
 
 
@@ -245,11 +320,24 @@
                     >  
                       {{getstatus(0)}}
                       
-                      </p></div>{{value[0]}}
+                      </p></div>
+                      <h5>{{value[0]}}</h5>
                   </td>
                   <td role="cell">12/02/20</td>
                   <td role="cell">16/02/20</td>
-                  <td role="cell">...</td>
+                  <td role="cell">
+                  <img  @click="doMore(6)"  style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">
+                  <div  v-if="DoMoreIndx==6" class="cardDoMore">
+                      <h1>Marquer comme signé   </h1>
+                      <h1>Marquer comme refusé </h1>
+                      <h1>Modifier les mots-clés </h1>
+                      <h1>Dupliquer en facture</h1> 
+                      <h1>Dupliquer le devis</h1>
+                      <h1>Envoyer par email</h1> 
+                      <h1>Télécharger</h1> 
+                      <h1>Copier l'url</h1> 
+                  </div>
+                  </td>
                 </tr>
 
 
@@ -279,6 +367,7 @@ export default {
             "Signés",
             "Refusés"            
           ],
+          DoMoreIndx:0,
       }
 
     },
@@ -371,6 +460,14 @@ export default {
         getstatus:function(indx){
           return this.value[indx].substring(0, 2);
 
+        },
+        doMore:function(number){
+         if(this.DoMoreIndx==0){
+           this.DoMoreIndx=number
+         }
+         else if(this.devisHeader!==0){
+           this.DoMoreIndx=0
+         }
         }
 
    
@@ -392,6 +489,31 @@ export default {
 <style scoped lang="scss">
 @import "../../scss/main.scss" ;  
 
+
+.cardDoMore{
+    position: absolute;
+    background-color: white;
+    height: 201px;
+    width: 168px;
+    padding-left: -14px;
+    right: 64px;
+    padding-top: 17px;
+    font-size: 12px;
+    z-index: 99;
+    margin-right: 0px;
+
+    h1{
+      font-size: 12px;
+      color:#868789;
+      font-family: $r
+    }
+    h1:hover{
+      color:#616467;
+      font-family: $gm;
+      font-size: 13px;
+      cursor: pointer;
+    }
+}
 
 
 .finalisé{
@@ -424,6 +546,15 @@ text-transform: uppercase;
 color:#B866C8;
 text-transform: uppercase;
 
+}
+
+h5{
+    font-family: $r;
+    color: #616467;
+    font-size: 14px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    text-align: left;
 }
 table {
     display: table;
@@ -775,18 +906,7 @@ td{
 
 
 
-   @media (max-width: 820px) {
-         
-         .specialStatus{
-          float: left;
-          position: relative;
-          top: 15px;
-          margin-left: 22px;
-          padding-left: 44px;
-        } 
-
-       }
-       
+  
        @media (min-width: 1025px) {
          
          table{
@@ -832,7 +952,6 @@ td{
 
     }
 
-
      @media (min-width: 1021px) {
 
  
@@ -874,7 +993,7 @@ td{
         grid-template-columns: 1.3fr 1fr 1fr 1fr 1fr;
         margin-left: 8%;
         h3{
-          justify-self: end;
+        justify-self: center;
         }
       }
 
@@ -933,6 +1052,11 @@ td{
       }
 
     }
+
+
+    
+    
+   
 
 
     @media (min-width: 1021px) {
@@ -1039,20 +1163,19 @@ td{
 
 
   // Styling The Table 
-/*
-	Max width before this PARTICULAR table gets nasty. This query will take effect for any screen smaller than 760px and also iPads specifically.
-	*/
+
 	@media
 	  only screen 
     and (max-width: 760px), (min-device-width: 768px) 
     and (max-device-width: 820px)  {
+      
+h5{
+    text-align: center;
+}
 
-		/* Force table to not be like tables anymore */
 		table, thead, tbody, th, td, tr {
 			display: block;
 		}
-
-		/* Hide table headers (but not display: none;, for accessibility) */
 		thead tr {
 			position: absolute;
 			top: -9999px;
@@ -1077,9 +1200,7 @@ td{
 		}
 
 		td:before {
-			/* Now like a table header */
 			position: absolute;
-			/* Top/left values mimic padding */
 			top: 0;
 			left: 6px;
 			width: 45%;
@@ -1090,10 +1211,7 @@ td{
       font-size: 14px;
 		}
 
-		/*
-		Label the data
-    You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
-		*/
+
 		td:nth-of-type(1):before { content: "N° de devis"; }
 		td:nth-of-type(2):before { content: "Nom de client"; }
 		td:nth-of-type(3):before { content: "Nom de société"; }
@@ -1105,6 +1223,102 @@ td{
 	}
    
 
+ @media (max-width: 419px) {
+
+      table{
+        margin-left:0%
+      }
+
+}
   
+@media (max-width: 363px) {
+
+      table{
+        margin-left:0%
+      }
+      td{
+        padding-left: 30%;
+      }
+
+}
+
+
+        @media (min-width: 762px) {
+         
+         .specialStatus{
+          float: left;
+          position: relative;
+          top: 0px;
+          margin-left: 0px;
+          padding-left: -4px;
+          width: 80%;
+        } 
+
+       }
+       
+
+        @media (min-width: 820px) {
+         
+         .specialStatus{
+          display: inline-grid;
+          position: relative;
+          top: 11px;
+          padding-left: 0px;
+
+        } 
+
+        h5{
+          font-size: 14px;
+          margin-bottom: 0px;
+          margin-left: 0px;
+          text-align: center;
+        }
+
+        .recValue{
+          margin: 0 auto;
+          height: 20px;
+          width: 20px;
+          border-radius: 20%;
+          display: inline-block;
+          font-size: 12px;
+        }
+
+       }
+
+
+       @media (min-width: 1230px) {
+
+         table {
+        margin-left: 6%;
+        }
+
+       }
+
+         @media (min-width: 1300px) {
+
+        #activeTitre{
+          justify-self: center;
+        }
+        #active{
+          &::after{
+            margin-left: 18%;
+          }
+        }
+
+       }
+
+       
+         @media (min-width: 1450px) {
+
+      
+         table {
+        margin-left: 4%;
+        }
+
+       }
+
+
+  
+
 
 </style>

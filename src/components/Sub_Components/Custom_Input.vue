@@ -42,9 +42,10 @@ export default {
     methods: {
         _add: function(){
             this.values.push("");
+            this.counter++;
         }, 
         _remove: function(arg) {
-            this.counter++;
+            this.counter--;
 
             if(this.values.length > 1  ){
                 this.values.splice(arg, 1);

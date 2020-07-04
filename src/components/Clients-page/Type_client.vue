@@ -57,7 +57,6 @@ export default {
     }, 
     watch: {
       picked: function () {
-        console.log( this.picked == 0 )
         this.$emit('typeChange', this.picked);
       }
     }, 

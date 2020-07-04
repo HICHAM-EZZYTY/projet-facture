@@ -53,7 +53,10 @@
             
             <div class="col-lg-6 forms-sides">    
                 
-                <Custom_Input @addedInput="_addedPhone" placeholder="Phone" />
+                <Custom_Input 
+                    @addedInput="_addedPhone" 
+                    placeholder="Phone number" 
+                    />
 
                  <div class="forms-sides--group">
                     <label class="forms-sides--group_label" >Mots clés</label>

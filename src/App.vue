@@ -19,6 +19,20 @@
 </style>
 <script>
 export default {
-  name: "main"
+  name: "main", 
+  created() {
+    this.$http.interceptors.response.use(undefined,  (err) => {
+      // let res = err.response;
+      return new Promise(() =>  {
+        if (err.response.status === 401 ) {
+        // // if you ever get an unauthorized, logout the user
+          this.$store.dispatch('logout')
+          location.reload();
+        // // you can also redirect to /login if needed !
+         }
+        throw err;
+      });
+    });
+  }
 };
 </script>

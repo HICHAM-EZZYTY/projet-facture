@@ -1,7 +1,16 @@
 <template>
     <div>
-        <Type_client @typeChange="_typeClient" @nextClicked="_next" v-show="typePage" />
-        <Information_Compte v-show="clientInfoPage" @typePageClicked="_clientPrev" @comfirm="_postClient" :typeClient="type == 1"/>
+        <Type_client 
+            @typeChange="_typeClient" 
+            @nextClicked="_next" 
+            v-show="typePage" 
+            />
+        <Information_Compte 
+            v-show="clientInfoPage" 
+            @typePageClicked="_clientPrev" 
+            @comfirm="_postClient" 
+            :typeClient="type == 1"
+            />
         
     </div>
 </template>
@@ -31,17 +40,17 @@ export default {
     methods: {
         _typeClient: function(arg) {
             this.type = arg; 
-            console.log(this.type == 0);
         }, 
         _postClient: function(arg) {
             console.log(arg)
             this.client = arg;
             this.$http
                 .post("/clients", this.client)
-                .then((r) => console.log(r))
+                .then( () => {
+                    this.$router.push("/client")
+                })
                 .catch( (e) => console.error(e));
                 
-            this.$router.push("/client")
         }, 
         
         // navigation

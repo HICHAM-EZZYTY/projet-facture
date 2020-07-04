@@ -23,13 +23,20 @@ export default {
         }
     }, 
     
-    props:['placeholder', 'isLast', 'index', 'inputValue', 'isRemovable', 'defaultValue'],
+    props:[
+        'placeholder', 
+        'isLast', 
+        'index', 
+        'inputValue', 
+        'isRemovable', 
+        'defaultValue'
+        ],
     
     watch: {
         value: _.debounce(
             function() {
                 this.$emit('onInput', this.index, this.value)
-            }, 1000
+            }, 10
         ) 
     }, 
     

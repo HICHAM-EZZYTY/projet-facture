@@ -1,41 +1,26 @@
 <template>
-	<div>
-	        <div class="row mb-3 mt-3">
-            <div class="col-10 page-title">
-                <div class="page-title--text">
-                    <span class="page-title--text_title" >Mes Clients</span>
-                    <span class="page-title--text_count">15</span>
-                </div>
-                <div class="page-title--icons">
-                    <!--icons -->
-                    <span class="mr-2"> Exporter mes clients </span>
-                       <img src="../../assets/img/Group 15.svg" alt="Group">
-                    
-                      <img class="Rectangle" src="../../assets/img/Rectangle 8.svg" alt="Rectangle">
-                      <img class="infos" src="../../assets/img/infos 1.svg" alt="infos">
-					
-					</div>
-				</div>
-			</div>
-
-		<div class="container">
-			<Card v-for="client in clients" :key="client.name" :user="client" />	
-		</div>
+	<div class="container" >
+	
+		<spinner v-if="isLoading" />
+		<Card v-else v-for="client in clients" :key="client.name" :user="client" />	
 	</div>
 </template>
 
 <script>
 import Card from './Card.vue'
-
+import spinner from "@/components/helpers/spinner.vue";
+    
 export default {
-    name: "cards",
+	name: "cards",
 	data: function () {
 		return {
+			isLoading: true,
 			clients: [],
 		}
 	},
 	components: {
-		Card
+		Card, 
+		spinner
 	}, 
 	methods:{
 		getClients: function () {
@@ -43,6 +28,7 @@ export default {
 			this.$http
 				.get("/clients")
 				.then((result) => {
+					this.isLoading = false;
 					this.clients = result.data.data;
 					// console.log(this.clients[0]);
 

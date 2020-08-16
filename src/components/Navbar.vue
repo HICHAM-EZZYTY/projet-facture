@@ -14,13 +14,8 @@
           ></b-form-input>
           <!-- <b-icon class="icon" icon="search" aria-hidden="true"></b-icon> -->
           <img src="../assets/img/ssEarch.svg" class="icon">
-          <router-link to="/Facture/new">
-          <b-button class="submit  my-sm-1" type="submit" variant="primary"
-          >        
-          <img src="../assets/img/Plus.svg" class="plus">
-          Nouveau Devis
-          </b-button>
-          </router-link>
+         
+          <navbarButton />
 
         </form>
         <div id="navbar" class="navbar-collapse collapse">
@@ -38,8 +33,13 @@
 </template>
 
 <script>
+import navbarButton from "./NavbarButton.vue";
+
 export default {
   name: "Navbar",
+  components: {
+    navbarButton
+  },  
   computed: {
     initials: function () {
       let words = this.$store.getters.userName.split(' ');
@@ -89,12 +89,7 @@ export default {
   padding-left: 3rem;
 }
 
-.submit {
-  width: 176px;
-  height: 37px;
-  font-family:$bd;
-  font-size: 13px;
-}
+
 .icon {
     position: absolute;
     width: 32px;
@@ -162,13 +157,7 @@ export default {
     display: flex;
     align-items: center;
 }
-.plus{
 
-    width: 12px;
-    position: relative;
-    right: 14px;
-    bottom: 0.6px;
-}
 
 @media (max-width: 1182px) {
 

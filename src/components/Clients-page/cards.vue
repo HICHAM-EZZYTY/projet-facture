@@ -1,21 +1,26 @@
 <template>
-	<div class="container">
-		<Card v-for="client in clients" :key="client.name" :user="client" />	
+	<div class="container" >
+	
+		<spinner v-if="isLoading" />
+		<Card v-else v-for="client in clients" :key="client.name" :user="client" />	
 	</div>
 </template>
 
 <script>
 import Card from './Card.vue'
-
+import spinner from "@/components/helpers/spinner.vue";
+    
 export default {
-    name: "cards",
+	name: "cards",
 	data: function () {
 		return {
+			isLoading: true,
 			clients: [],
 		}
 	},
 	components: {
-		Card
+		Card, 
+		spinner
 	}, 
 	methods:{
 		getClients: function () {
@@ -23,6 +28,7 @@ export default {
 			this.$http
 				.get("/clients")
 				.then((result) => {
+					this.isLoading = false;
 					this.clients = result.data.data;
 					// console.log(this.clients[0]);
 

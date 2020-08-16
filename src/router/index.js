@@ -42,10 +42,21 @@ import GateLayout from "../views/subLayouts/GateLayout.vue";
 import Register from "../views/Authentification/Signup.vue";
 import Login from "../views/Authentification/Login.vue";
 
-import TheExportDevis from "../components/Devis/TheExportDevis.vue"
-import TheCalendarDevis from "../components/Devis/TheCalendarDevis.vue"
-import TheRefusDevis from "../components/Devis/TheRefusDevis.vue"
+import TheExportDevis from "../components/Devis/TheExportDevis.vue";
+import TheCalendarDevis from "../components/Devis/TheCalendarDevis.vue";
+import TheRefusDevis from "../components/Devis/TheRefusDevis.vue";
 
+// Facture-Page
+import Facture from "../views/Facture-Page/Facture.vue";
+import listFacture from "./../components/Facture-Page/listFacture.vue";
+import createFacture from "./../components/Facture-Page/createFacture.vue";
+import theExportFacture from "./../components/Facture-Page/theExportFacture.vue";
+
+// Avoire-Page
+import Avoire from "../views/Avoire-Page/Avoire.vue";
+import createAvoire from "./../components/Avoire-Page/createAvoire.vue";
+import cardsAvoire from "./../components/Avoire-Page/cardsAvoire.vue";
+import theExportAvoire from "./../components/Avoire-Page/theExportAvoire.vue";
 // testing for fixing sideBar
 
 // import Sidebar from "../components/Sidebar.vue";
@@ -151,36 +162,81 @@ const routes = [
           }
         ]
       },
+
+      // Facture-Page
+      
       {
-        path: "facture",
-        name: "Facture",
+        path: "Facture",
+        // name: "Facture",
+        component: Facture,
         meta: {
           requiresAuth: true
         },
-      },
-      {
-        path: 'facture/new',
-        name: "NewFacture",
-        meta: {
-          requiresAuth: true
-        },
+        children: [
+          {
+            path: "",
+            name: "listFacture",
+            component: listFacture,
+            meta: {
+              requiresAuth: true
+            },
+
+          },
+          {
+            path: "new",
+            name: "NewFactuer",
+            component: createFacture,
+            meta: {
+              requiresAuth: true
+            },
+          },
+          
+         
+        ]
       },
 
 
+// 
+
+
+// Avoire-Page
       {
-        path: "avoire",
-        name: "Avoire",
+        path: "Avoire",
+        // name: "Avoire",
+        component: Avoire,
         meta: {
           requiresAuth: true
         },
+        children: [
+          {
+            path: "",
+            name: "cardsAvoire",
+            component: cardsAvoire,
+            meta: {
+              requiresAuth: true
+            },
+
+          },
+          {
+            path: "new",
+            name: "NewAvoire",
+            component: createAvoire,
+            meta: {
+              requiresAuth: true
+            },
+          },
+          
+         
+        ]
       },
-      {
-        path: 'avoire/new',
-        name: "NewAvoire",
-        meta: {
-          requiresAuth: true
-        },
-      },
+
+      // {
+      //   path: 'avoire/new',
+      //   name: "NewAvoire",
+      //   meta: {
+      //     requiresAuth: true
+      //   },
+      // },
 
       {
         path: "societe",
@@ -315,7 +371,7 @@ const routes = [
     ]
   },
 
-
+  
   {
     path: "/Gate",
     name: "Gate",
@@ -362,6 +418,25 @@ const routes = [
     },
 
   },
+  {
+    path: "/facture-export",
+    name: "theExportFacture",
+    component:theExportFacture,
+    meta: {
+      requiresAuth: true
+    },
+
+  },
+  {
+    path: "/Avoire-export",
+    name: "theExportAvoire",
+    component:theExportAvoire,
+    meta: {
+      requiresAuth: true
+    },
+
+  },
+  
   {
     path: "*",
     name: "NotFound",

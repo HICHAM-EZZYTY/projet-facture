@@ -3,21 +3,24 @@
 	        <div class="row mb-3 mt-3">
             <div class="col-10 page-title">
                 <div class="page-title--text">
-                    <span class="page-title--text_title" >Mes Clients</span>
-                    <span class="page-title--text_count">15</span>
+                    <span class="page-title--text_title" >Les Avoirs</span>
                 </div>
                 <div class="page-title--icons">
                     <!--icons -->
-                    <span class="mr-2"> Exporter mes clients </span>
+                    <span class="mr-2"> Exporter les Aoirs </span>
+					   <router-link to="/Avoire-export">
                        <img src="../../assets/img/Group 15.svg" alt="Group">
-                    
+						</router-link>
                       <img class="Rectangle" src="../../assets/img/Rectangle 8.svg" alt="Rectangle">
                       <img class="infos" src="../../assets/img/infos 1.svg" alt="infos">
 					
 					</div>
 				</div>
 			</div>
+			<!--  -->
 
+			
+			<!--  -->
 		<div class="container">
 			<Card v-for="client in clients" :key="client.name" :user="client" />	
 		</div>
@@ -25,10 +28,10 @@
 </template>
 
 <script>
-import Card from './Card.vue'
+import Card from '@/components/Clients-page/Card.vue';
 
 export default {
-    name: "cards",
+    name: "cardsAvoire",
 	data: function () {
 		return {
 			clients: [],
@@ -105,12 +108,7 @@ export default {
     font-size: 23px;
     color: #2262c6;
 }
-.page-title--text_count {
-    padding: 8.3px 9.5px;
-    background: #2262c6;
-    color: #FFFFFF;
-    border-radius: 8px;
-}
+
 @media only screen and (max-width: 574px) {
 .society-page{
     position: relative;

@@ -27,15 +27,15 @@
           </router-link>
         </li>
         <li>
-          <router-link class="s-sidebar__nav-link" to="/facture">
+          <router-link class="s-sidebar__nav-link" to="/Facture">
             <img src="../assets/img/menu4.svg" alt />
             <em>Factures</em>
           </router-link>
         </li>
         <li>
-          <router-link class="s-sidebar__nav-link" to="/OP">
+          <router-link class="s-sidebar__nav-link" to="/Avoire">
             <img id="mn" src="../assets/img/menu5.svg" alt />
-            <em>Opportunités</em>
+            <em>Avoire</em>
           </router-link>
         </li>
         <li>

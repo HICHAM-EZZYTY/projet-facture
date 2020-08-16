@@ -3,12 +3,12 @@
 
         <div class="header">
             <div class="leftHeader">
-              <h1>Mes Devis</h1>
+              <h1>Mes Factures</h1>
             </div>
 
             <div class="rightHeader">
-              <h4>Exporter mes Devis</h4>
-              <router-link to="/devis-export">
+              <h4>Exporter mes Factures</h4>
+              <router-link to="/facture-export">
               <img  id="icn1" src="../../assets/img/Group75.svg" alt="exporterIcon">
               </router-link>
               <img id="icn2" src="../../assets/img/Group76.svg" alt="infoIcon">
@@ -18,7 +18,7 @@
               <div class="divider"></div>
               <div ref="devisHeader" class="devisHeader">
                   <div id="active" class="tDevis" @click="makeFirst(0)">
-                      <h3 id="activeTitre">Tous Les Devis</h3>
+                      <h3 id="activeTitre">Tous Les Factures</h3>
                       <div id="activerectangle" class="rec">7</div>
                   </div>
 
@@ -31,11 +31,11 @@
                       <div class="rec">2</div>
                   </div>
                   <div class="refus" @click="makeFourth(3)">
-                      <h3>Refusés</h3>
+                      <h3>Payées</h3>
                       <div class="rec">2</div>
                   </div>
                   <div class="signé" @click="makeFifth(4)">
-                      <h3>Signés</h3>
+                      <h3>À payer</h3>
                       <div class="rec">2</div>
                   </div>
               </div>
@@ -46,7 +46,7 @@
               <table role="table">
               <thead role="rowgroup">
                 <tr role="row">
-                  <th role="columnheader">N° de devis</th>
+                  <th role="columnheader">N° de Facture</th>
                   <th role="columnheader">Nom de client</th>
                   <th role="columnheader">Nom de société </th>
                   <th role="columnheader">Montant Totale</th>
@@ -360,6 +360,8 @@
 
 <script>
 export default {
+
+    
 
     data() {
       return {
@@ -1083,8 +1085,6 @@ td{
       .devisHeader{
         margin-left: 6%;
       }
-
-
     }
 
 

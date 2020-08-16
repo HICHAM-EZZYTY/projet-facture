@@ -3,7 +3,8 @@
       
       <samp>Question 1 :</samp>
       <h4>Veuillez choisir le type de votre client ?</h4>
-           <!-- Professionnel-->
+      
+      <!-- Professionnel-->
 
       <div class="grid-wrapper">
         <div class="card-wrapper">
@@ -86,7 +87,6 @@ samp{
 }
 h4{
     position: relative;
-    width: 591px;
     height: 41px;
     left: 25%;
     top: 5em;

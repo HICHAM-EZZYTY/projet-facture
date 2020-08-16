@@ -1,7 +1,9 @@
 <template>
 	<div class="cards-card">
-		<div class="box"
 		
+
+		<div class="box"
+			
 		
 		></div>
 		<div class="cards-content">

@@ -14,12 +14,13 @@
           ></b-form-input>
           <!-- <b-icon class="icon" icon="search" aria-hidden="true"></b-icon> -->
           <img src="../assets/img/ssEarch.svg" class="icon">
+          <router-link to="/Facture/new">
           <b-button class="submit  my-sm-1" type="submit" variant="primary"
-          > 
+          >        
           <img src="../assets/img/Plus.svg" class="plus">
           Nouveau Devis
           </b-button>
-
+          </router-link>
 
         </form>
         <div id="navbar" class="navbar-collapse collapse">

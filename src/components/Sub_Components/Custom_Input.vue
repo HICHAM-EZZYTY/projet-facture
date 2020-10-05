@@ -2,7 +2,7 @@
     <div>
         <div class="forms-sides--group" :key="counter">
             <div class="nn">
-                <label class="forms-sides--group_label" >Numéro de téléphone :</label>
+                <label class="forms-sides--group_label" >{{title}} :</label>
             </div>
             
             <S_Input 
@@ -33,7 +33,7 @@ export default {
             values: []
         }
     }, 
-    props:["placeholder"],
+    props:["placeholder","title"],
 
     components: {
         S_Input

@@ -50,6 +50,7 @@ import TheSignedDevis from "../components/Devis/TheSignedDevis.vue";
 
 // Facture-Page
 import Facture from "../views/Facture-Page/Facture.vue";
+import Societe from "../views/Societe-Page/Societe.vue"
 import listFacture from "./../components/Facture-Page/listFacture.vue";
 import createFacture from "./../components/Facture-Page/createFacture.vue";
 import theExportFacture from "./../components/Facture-Page/theExportFacture.vue";
@@ -168,12 +169,8 @@ const routes = [
           }
         ]
       },
-
-      // Facture-Page
-      
       {
         path: "Facture",
-        // name: "Facture",
         component: Facture,
         meta: {
           requiresAuth: true
@@ -181,12 +178,11 @@ const routes = [
         children: [
           {
             path: "",
-            name: "listFacture",
+            name: "Facture",
             component: listFacture,
             meta: {
               requiresAuth: true
             },
-
           },
           {
             path: "new",
@@ -196,21 +192,10 @@ const routes = [
               requiresAuth: true
             },
           },
-      
-          
-          
-         
         ]
       },
-
-
-// 
-
-
-// Avoire-Page
       {
         path: "Avoire",
-        // name: "Avoire",
         component: Avoire,
         meta: {
           requiresAuth: true
@@ -223,7 +208,6 @@ const routes = [
             meta: {
               requiresAuth: true
             },
-
           },
           {
             path: "new",
@@ -238,29 +222,33 @@ const routes = [
         ]
       },
 
-      // {
-      //   path: 'avoire/new',
-      //   name: "NewAvoire",
-      //   meta: {
-      //     requiresAuth: true
-      //   },
-      // },
 
       {
         path: "societe",
-        name: "Societe",
+        // name: "Societe",
+        component: Societe,
         meta: {
           requiresAuth: true
         },
+        children:[
+          {
+            path: '',
+            name: "Societe",
+            meta: {
+              requiresAuth: true
+            },
+          },
+          {
+            path: 'new',
+            name: "NewSociete",
+            component: AddSociete,
+            meta: {
+              requiresAuth: true
+            },
+          },
+        ]
       },
-      {
-        path: 'Societe/new',
-        name: "NewSociete",
-        component: AddSociete,
-        meta: {
-          requiresAuth: true
-        },
-      },
+      
     ]
   },
 

@@ -15,9 +15,14 @@
           </router-link>
         </li>
         <li>
-          <router-link class="s-sidebar__nav-link" to="/client">
+          <router-link class="s-sidebar__nav-link" to="/societe">
             <img src="../assets/img/menu2.svg" alt />
             <em>Sociétés</em>
+          </router-link>
+        </li> <li>
+          <router-link class="s-sidebar__nav-link" to="/societe/new">
+            <img src="../assets/img/menu2.svg" alt />
+            <em>New Société</em>
           </router-link>
         </li>
         <li>
@@ -26,10 +31,22 @@
             <em>Devis</em>
           </router-link>
         </li>
+         <li>
+          <router-link class="s-sidebar__nav-link" to="/devis/new">
+            <img src="../assets/img/menu3.svg" alt />
+            <em>New Devis</em>
+          </router-link>
+        </li>
         <li>
           <router-link class="s-sidebar__nav-link" to="/Facture">
             <img src="../assets/img/menu4.svg" alt />
             <em>Factures</em>
+          </router-link>
+        </li>
+        <li>
+          <router-link class="s-sidebar__nav-link" to="/Facture/new">
+            <img src="../assets/img/menu4.svg" alt />
+            <em>New Factures</em>
           </router-link>
         </li>
         

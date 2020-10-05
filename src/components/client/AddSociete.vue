@@ -4,7 +4,7 @@
         <div class="row mb-3 mt-3">
             <div class="col-12 page-title">
                 <div class="page-title--text">
-                    <span class="page-title--text_title" >Création d'une société pour le client :</span>
+                    <span class="page-title--text_title" >Création d'une société :</span>
                 </div>
                 <div class="page-title--icons">
                     <!--icons -->
@@ -24,7 +24,7 @@
             <div class="col-lg-6 forms-sides">
                 <div class="forms-sides--group">
                     <label class="forms-sides--group_label" >Nom de la societe :</label>
-                    <input class="forms-sides--group_text" type="text" placeholder="......" />
+                    <input class="forms-sides--group_text" type="text"  placeholder="......" />
                 </div>
                  <div class="forms-sides--group">
                     <label class="forms-sides--group_label" >IDENTIFIANT COMMUN DE L'ENTREPRISE :</label>
@@ -46,14 +46,19 @@
         
         <div class="row forms mt-4">
             <div class="col-lg-12 head-section">
-                <h6 class="head-section--title" > Information Sur la Societe :</h6>
+                <h6 class="head-section--title" > Coordonnées de la société :</h6>
             </div>
             
             <div class="col-lg-6 forms-sides">    
                 
-                <Custom_Input @addedInput="_addedAdress" placeholder="Adress" />
+                <Custom_Input @addedInput="_addedAdress" placeholder="Adress" title="Adresse" />
 
                  <div class="forms-sides--group">
+                    <label class="forms-sides--group_label" >Site internet :</label>
+                    <input class="forms-sides--group_text" type="text" placeholder="......" />
+                </div>
+
+                <div class="forms-sides--group">
                     <label class="forms-sides--group_label" >Site internet :</label>
                     <input class="forms-sides--group_text" type="text" placeholder="......" />
                 </div>
@@ -61,10 +66,16 @@
             </div>
             
             <div class="col-lg-6 forms-sides">
+            <Custom_Input 
+                    @addedInput="_addedAdress" 
+                    placeholder="Mobile" 
+                    title="Numéro de téléphone" />
+                
                 <div class="forms-sides--group">
                     <label class="forms-sides--group_label" >Pays :</label>
                     <b-form-select class="forms-sides--group_select" ></b-form-select>
                 </div>
+                
                 <!-- <Custom_Input @addedInput="_addedPhone" placeholder="Phone Number"/> -->
                 <div class="forms-sides--group">
                     <label class="forms-sides--group_label" >Clients :</label>

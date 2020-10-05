@@ -113,7 +113,7 @@
                       <h1 v-if="devis.isFinalised == 0" >Modifier les mots-clés </h1>
                       <h1 @click="download(devis.Devis_id)" v-if="devis.isFinalised == 1">Télécharger</h1> 
                       <h1 @click="_delete(devis.Devis_id)"> Delete</h1> 
-                      <h1>Testing</h1>
+                      
                  
 
                     </div>

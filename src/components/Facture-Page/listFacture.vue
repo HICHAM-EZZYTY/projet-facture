@@ -58,9 +58,9 @@
               </thead>
               <tbody role="rowgroup">
           
-                <tr role="row" v-for="facture in toShow" :key="facture.Facture_id" >
+                <tr @click="showModal(facture)" role="row" v-for="facture in toShow" :key="facture.Facture_id" >
 
-                  <td role="cell">{{facture.Facture_uid}}</td>
+                  <td  role="cell">{{facture.Facture_uid}}</td>
                   <td role="cell">{{facture.userName}}</td>
                   <td role="cell">{{facture.Facture_uid}}</td>
                   <td role="cell">{{facture.Total_ttc}}</td>
@@ -107,10 +107,7 @@
                       :to="{ name: 'PaidFacture', params: {devisId: facture.Facture_id } }"
                        v-if="!facture.payed_at" ><h1>Marquer comme Payé</h1></router-link>
 
-
-
-
-
+   
                       <h1 @click="unpaid(facture.Facture_id)" v-if="facture.payed_at">Annuler le Payement</h1>
                       <h1 v-if="!facture.payed_at" >Modifier les mots-clés </h1>
                       <h1 @click="download(facture.Facture_id)">Télécharger</h1> 
@@ -127,6 +124,27 @@
            
               </tbody>
             </table> 
+
+
+            <div class="factureshow">
+
+                <b-modal title="Facture Détails" ref="my-modal" hide-footer>
+                  <div class="d-block text-center">
+                    <div class="objinfos">
+                      <h2>Nom de client : <span>{{factura.Username}}</span></h2>
+                      <h2>N° de facture : <span>{{factura.Facture_uid}}</span></h2>
+                      <h2>Status : <span>{{factura.statut_id}}</span></h2>
+                      <h2>Condition : <span>{{factura.Condition}}</span></h2>
+                      <h2>Interet_de_retard : <span>{{factura.Interet_de_retard.substring(0,3)}}</span></h2>
+                      <h2>Mode : <span>{{factura.Mode}}</span></h2>
+                      <h2>Créer le : <span>{{factura.created_at.split("T")[0]}}</span></h2>
+                      <h2>Total Ht : <span>{{factura.Total_ht}}</span></h2>
+                      <h2>Total_ttc : <span>{{factura.Total_ttc}}</span></h2>
+                    </div>
+                  </div>
+                </b-modal>
+
+            </div>
 
 
 
@@ -151,6 +169,19 @@ export default {
             "Signés",
             "Refusés"            
           ],
+          factura:{
+            Username:" ",
+            Facture_uid:" ",
+            statut_id:" ",
+            Condition:" ",
+            Interet_de_retard:" ",
+            Mode:" ",
+            Reglement_id: "",
+            Total_ht:"",
+            Total_ttc:"",
+            created_at:"",
+            updated_at:"",
+          },
           className:"theme",
           DoMoreIndx:0,
           Factures: [],
@@ -162,7 +193,21 @@ export default {
       }
 
     },
-    methods: {
+    methods: {      
+      
+      showModal(object) {
+        this.$refs['my-modal'].show()
+        this.factura.Username=object.userName;
+        this.factura.Facture_uid=object.Facture_uid;
+        this.factura.statut_id=object.statut_id;
+        this.factura.Condition=object.Reglement.Condition;
+        this.factura.Interet_de_retard=object.Reglement.Interet_de_retard;
+        this.factura.Mode=object.Reglement.Mode;
+        this.factura.Total_ht=object.Total_ht;
+        this.factura.Total_ttc=object.Total_ttc;
+        this.factura.created_at=object.created_at;
+        this.factura.updated_at=object.updated_at;
+      },
         getFactures: function() {
           this.$http.get("/factures")
           .then((resp) => {
@@ -361,6 +406,42 @@ export default {
 @import "../../scss/main.scss" ;  
 
 
+.objinfos{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-end;
+    margin-left: 1rem;
+  
+  h2{
+  float: left;
+  margin-left: 15%;
+  font-size: 1.2rem;
+  }
+  span{
+    font-family:$gm ;
+    text-transform: capitalize;
+  }
+}
+
+/deep/ .modal-content {
+
+  background-color: #2262C6 !important;
+  border:none !important;
+  color:white !important;
+  font-family: $r !important;
+
+}
+/deep/ .modal-header .close{
+  color: white;
+  opacity: 1;
+}
+
+/deep/ .modal-title{
+      margin-left: 18%;
+      font-family: $bd;
+      font-size: 1.3rem;
+}
 .cardDoMore{
     position: absolute;
     background-color: white;

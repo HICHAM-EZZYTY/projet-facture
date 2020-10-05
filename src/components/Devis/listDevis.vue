@@ -58,7 +58,7 @@
               </thead>
               <tbody role="rowgroup">
           
-                <tr role="row" v-for="devis in toShow" :key="devis.Devis_id" >
+                <tr  @click="showModal(devis)"  role="row" v-for="devis in toShow" :key="devis.Devis_id" >
 
                   <td role="cell">{{devis.Devis_uid}}</td>
                   <td role="cell">{{devis.userName}}</td>
@@ -130,6 +130,25 @@
 
               <!-- Ending Of The Table  -->
 
+              
+            <div class="factureshow">
+
+                <b-modal title="Devis Détails" ref="my-modal" hide-footer>
+                  <div class="d-block text-center">
+                    <div class="objinfos">
+                      <h2>Nom de client : <span>{{factura.userName}}</span></h2>
+                      <h2>N° de devis : <span>{{factura.Devis_uid}}</span></h2>
+                      <h2>Status : <span>{{factura.statut_id}}</span></h2>
+                      <h2>Créer le : <span>{{factura.created_at.split("T")[0]}}</span></h2>
+                      <h2>Total Ht : <span>{{factura.total_ht}}</span></h2>
+                      <h2>Total_ttc : <span>{{factura.total_ttc}}</span></h2>
+                    </div>
+                  </div>
+                </b-modal>
+
+            </div>
+
+
 
 
 
@@ -147,6 +166,18 @@ export default {
   },
     data() {
       return {
+            factura:{
+            userName:" ",
+            Devis_uid:" ",
+            statut_id:" ",
+            Condition:" ",
+            Interet_de_retard:" ",
+            Mode:" ",
+            Reglement_id: "",
+            total_ht:"",
+            total_ttc:"",
+            created_at:"",
+          },
           value:[
             "Provisoires",
             "Finalisé",
@@ -165,6 +196,16 @@ export default {
 
     },
     methods: {
+
+    showModal(object) {
+        this.$refs['my-modal'].show()
+        this.factura.userName=object.userName;
+        this.factura.Devis_uid=object.Devis_uid;
+        this.factura.statut_id=object.statut_id;
+        this.factura.total_ht=object.total_ht;
+        this.factura.total_ttc=object.total_ttc;
+        this.factura.created_at=object.created_at;
+      },
         getDevises: function() {
           this.$http.get("/devis")
           .then((resp) => {
@@ -370,6 +411,42 @@ export default {
 @import "../../scss/main.scss" ;  
 
 
+.objinfos{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-end;
+    margin-left: 1rem;
+  
+  h2{
+  float: left;
+  margin-left: 15%;
+  font-size: 1.2rem;
+  }
+  span{
+    font-family:$gm ;
+    text-transform: capitalize;
+  }
+}
+
+/deep/ .modal-content {
+
+  background-color: #2262C6 !important;
+  border:none !important;
+  color:white !important;
+  font-family: $r !important;
+
+}
+/deep/ .modal-header .close{
+  color: white;
+  opacity: 1;
+}
+
+/deep/ .modal-title{
+      margin-left: 18%;
+      font-family: $bd;
+      font-size: 1.3rem;
+}
 
 
 .cardDoMore{

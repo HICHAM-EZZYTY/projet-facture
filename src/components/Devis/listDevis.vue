@@ -19,24 +19,24 @@
               <div ref="devisHeader" class="devisHeader">
                   <div id="active" class="tDevis" @click="makeFirst(0)">
                       <h3 id="activeTitre">Tous Les Devis</h3>
-                      <div id="activerectangle" class="rec">7</div>
+                      <div id="activerectangle" class="rec">{{Devises.length}}</div>
                   </div>
 
                   <div class="Prov" @click="makeSecond(1)">
                       <h3>Provisoires</h3>
-                      <div class="rec">1</div>
+                      <div class="rec">{{howManyProvisoire}}</div>
                   </div>
                   <div class="Final" @click="makeThird(2)">
                       <h3>Finalisés</h3>
-                      <div class="rec">2</div>
+                      <div class="rec">{{howManyFinalised}}</div>
                   </div>
                   <div class="refus" @click="makeFourth(3)">
                       <h3>Refusés</h3>
-                      <div class="rec">2</div>
+                      <div class="rec">{{howManyRefused}}</div>
                   </div>
                   <div class="signé" @click="makeFifth(4)">
                       <h3>Signés</h3>
-                      <div class="rec">2</div>
+                      <div class="rec">{{howManySigned}}</div>
                   </div>
               </div>
 
@@ -58,290 +58,57 @@
               </thead>
               <tbody role="rowgroup">
           
-                <tr role="row">
-                  <td role="cell">D2000003</td>
-                  <td role="cell">Hicham Ezzyti</td>
-                  <td role="cell">Moulimeq</td>
-                  <td role="cell">46,56 Dh</td>
+                <tr role="row" v-for="devis in toShow" :key="devis.Devis_id" >
+
+                  <td role="cell">{{devis.Devis_uid}}</td>
+                  <td role="cell">{{devis.userName}}</td>
+                  <td role="cell">{{devis.Devis_uid}}</td>
+                  <td role="cell">{{devis.total_ttc}}</td>
                   <td class="specialStatus" role="cell">
                     <div  v-bind:class="{
 
-                      'finalisé':(value[0] === 'Finalisé'),
-                      'Signés':(value[0] === 'Signés'),
-                      'Provisoires':(value[0] === 'Provisoires'),
-                      'Refusés':(value[0] === 'Refusés'),
+                      'finalisé':(devis.statut_id === 'Finalisés'),
+                      'Signés':(devis.statut_id === 'Signés'),
+                      'Provisoires':(devis.statut_id === 'provisoire'),
+                      'Refusés':(devis.statut_id === 'Refusés'),
 
                     }" class="recValue">
                     <p
                      v-bind:class="{
-                      'pFinalisé':(value[0] === 'Finalisé'),
-                      'pSignés':(value[0] === 'Signés'),
-                      'pProvisoires':(value[0] === 'Provisoires'),
-                      'pRefusés':(value[0] === 'Refusés'),
+                      'pFinalisé':(devis.statut_id ==='Finalisés'),
+                      'pSignés':(devis.statut_id === 'Signés'),
+                      'pProvisoires':(devis.statut_id === 'provisoire'),
+                      'pRefusés':(devis.statut_id === 'Refusés'),
                        
                      }"
                     >  
                     
-                      {{getstatus(0)}}
+                      {{getstatus(devis.statut_id)}}
 
                     </p>
                       
                     </div>
-                    <h5>{{value[0]}}</h5>
+                    <h5>{{devis.statut_id}}</h5>
 
                   </td>
-                  <td role="cell">12/02/20</td>
-                  <td role="cell">16/02/20</td>
+                  <td role="cell">{{ devis.created_at.split("T")[0] }}</td>
+                  <td role="cell">{{ devis.updated_at.split("T")[0] }}</td>
                   <td role="cell">
-                    <img  @click="doMore(1)" style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">   
+                    <img  @click="doMore(devis.Devis_id)" style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">   
 
-                    <div v-if="DoMoreIndx==1" class="cardDoMore">
-                      <h1>Marquer comme signé </h1>
-                      <h1>Marquer comme refusé </h1>
-                      <h1>Modifier les mots-clés </h1>
-                      <h1>Dupliquer en facture</h1> 
-                      <h1>Dupliquer le devis</h1>
-                      <h1>Envoyer par email</h1> 
-                      <h1>Télécharger</h1> 
-                      <h1>Copier l'url</h1> 
+                    <div v-if="DoMoreIndx==devis.Devis_id" class="cardDoMore">
+                      <h1 @click="finalise(devis.Devis_id)" v-if="devis.isFinalised == 0">Finalisé</h1>  
+                      <h1 @click="sign(devis.Devis_id)" v-if=" devis.isFinalised == 1 && devis.isRefused == 0 &&  devis.isSigned == 0 " >Marquer comme signé </h1>
+                      <h1 @click="unsign(devis.Devis_id)" v-if="devis.isFinalised == 1 && devis.isSigned == 1 " >Annuler la signature </h1>
+                      <h1 @click="decline(devis.Devis_id)" v-if=" devis.isFinalised == 1 && devis.isRefused == 0 &&  devis.isSigned == 0 " >Marquer comme refusé </h1>
+                      <h1 @click="undecline(devis.Devis_id)" v-if="devis.isFinalised == 1 && devis.isRefused == 1 " >Annuler le refus </h1>
+                      <h1 v-if="devis.isFinalised == 0" >Modifier les mots-clés </h1>
+                      <h1 @click="download(devis.Devis_id)" v-if="devis.isFinalised == 1">Télécharger</h1> 
+                      <h1 @click="_delete(devis.Devis_id)"> Delete</h1> 
                     </div>
 
                   </td>
                 </tr>
-
-                <tr role="row">
-                  <td role="cell">D2000003</td>
-                  <td role="cell">Hicham Ezzyti</td>
-                  <td role="cell">Moulimeq</td>
-                  <td role="cell">46,56 Dh</td>
-                  <td class="specialStatus" role="cell">
-                    <div  v-bind:class="{
-
-                      'finalisé':(value[1] === 'Finalisé'),
-                      'Signés':(value[1] === 'Signés'),
-                      'Provisoires':(value[1] === 'Provisoires'),
-                      'Refusés':(value[1] === 'Refusés'),
-
-                    }" class="recValue">
-                    <p
-                     v-bind:class="{
-                      'pFinalisé':(value[1] === 'Finalisé'),
-                      'pSignés':(value[1] === 'Signés'),
-                      'pProvisoires':(value[1] === 'Provisoires'),
-                      'pRefusés':(value[1] === 'Refusés'),
-                       
-                     }"
-                    >  
-                      {{getstatus(1)}}
-                      
-                      </p></div>
-                     <h5>{{value[1]}}</h5>
-
-                  </td>
-                  <td role="cell">12/02/20</td>
-                  <td role="cell">16/02/20</td>
-                  <td role="cell">
-                  <img  @click="doMore(2)"  style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">
-                  <div  v-if="DoMoreIndx==2" class="cardDoMore">
-                      <h1>Marquer comme signé  </h1>
-                      <h1>Marquer comme refusé </h1>
-                      <h1>Modifier les mots-clés </h1>
-                      <h1>Dupliquer en facture</h1> 
-                      <h1>Dupliquer le devis</h1>
-                      <h1>Envoyer par email</h1> 
-                      <h1>Télécharger</h1> 
-                      <h1>Copier l'url</h1> 
-                  </div>
-                  </td>
-                </tr>
-
-
-
-                <tr role="row">
-                  <td role="cell">D2000003</td>
-                  <td role="cell">Hicham Ezzyti</td>
-                  <td role="cell">Moulimeq</td>
-                  <td role="cell">46,56 Dh</td>
-                  <td class="specialStatus" role="cell">
-                    <div  v-bind:class="{
-
-                      'finalisé':(value[2] === 'Finalisé'),
-                      'Signés':(value[2] === 'Signés'),
-                      'Provisoires':(value[2] === 'Provisoires'),
-                      'Refusés':(value[2] === 'Refusés'),
-
-                    }" class="recValue">
-                    <p
-                     v-bind:class="{
-                      'pFinalisé':(value[2] === 'Finalisé'),
-                      'pSignés':(value[2] === 'Signés'),
-                      'pProvisoires':(value[2] === 'Provisoires'),
-                      'pRefusés':(value[2] === 'Refusés'),
-                       
-                     }"
-                    >  
-                      {{getstatus(2)}}
-                      
-                      </p></div>
-                     <h5>{{value[2]}}</h5>
-
-                  </td>
-                  <td role="cell">12/02/20</td>
-                  <td role="cell">16/02/20</td>
-                  <td role="cell">
-                  <img  @click="doMore(3)"  style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">
-                  <div  v-if="DoMoreIndx==3" class="cardDoMore">
-                      <h1>Marquer comme signé   </h1>
-                      <h1>Marquer comme refusé </h1>
-                      <h1>Modifier les mots-clés </h1>
-                      <h1>Dupliquer en facture</h1> 
-                      <h1>Dupliquer le devis</h1>
-                      <h1>Envoyer par email</h1> 
-                      <h1>Télécharger</h1> 
-                      <h1>Copier l'url</h1> 
-                  </div>
-                  </td>
-                </tr>
-     
-
-                <tr role="row">
-                  <td role="cell">D2000003</td>
-                  <td role="cell">Hicham Ezzyti</td>
-                  <td role="cell">Moulimeq</td>
-                  <td role="cell">46,56 Dh</td>
-                  <td class="specialStatus" role="cell">
-                    <div  v-bind:class="{
-
-                      'finalisé':(value[3] === 'Finalisé'),
-                      'Signés':(value[3] === 'Signés'),
-                      'Provisoires':(value[3] === 'Provisoires'),
-                      'Refusés':(value[3] === 'Refusés'),
-
-                    }" class="recValue">
-                    <p
-                     v-bind:class="{
-                      'pFinalisé':(value[3] === 'Finalisé'),
-                      'pSignés':(value[3] === 'Signés'),
-                      'pProvisoires':(value[3] === 'Provisoires'),
-                      'pRefusés':(value[3] === 'Refusés'),
-                       
-                     }"
-                    >  
-                      {{getstatus(3)}}
-                      
-                      </p></div>
-                    <h5>{{value[3]}}</h5>
-
-                  </td>
-                  <td role="cell">12/02/20</td>
-                  <td role="cell">16/02/20</td>
-                  <td role="cell">
-                  <img  @click="doMore(4)"  style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">
-                  <div  v-if="DoMoreIndx==4" class="cardDoMore">
-                      <h1>Marquer comme signé   </h1>
-                      <h1>Marquer comme refusé </h1>
-                      <h1>Modifier les mots-clés </h1>
-                      <h1>Dupliquer en facture</h1> 
-                      <h1>Dupliquer le devis</h1>
-                      <h1>Envoyer par email</h1> 
-                      <h1>Télécharger</h1> 
-                      <h1>Copier l'url</h1> 
-                  </div>
-                  </td>
-                </tr>
-
-
-                <tr role="row">
-                  <td role="cell">D2000003</td>
-                  <td role="cell">Hicham Ezzyti</td>
-                  <td role="cell">Moulimeq</td>
-                  <td role="cell">46,56 Dh</td>
-                  <td  class="specialStatus" role="cell">
-                    <div  v-bind:class="{
-
-                      'finalisé':(value[0] === 'Finalisé'),
-                      'Signés':(value[0] === 'Signés'),
-                      'Provisoires':(value[0] === 'Provisoires'),
-                      'Refusés':(value[0] === 'Refusés'),
-
-                    }" class="recValue">
-                    <p
-                     v-bind:class="{
-                      'pFinalisé':(value[0] === 'Finalisé'),
-                      'pSignés':(value[0] === 'Signés'),
-                      'pProvisoires':(value[0] === 'Provisoires'),
-                      'pRefusés':(value[0] === 'Refusés'),
-                       
-                     }"
-                    >  
-                      {{getstatus(0)}}
-                      
-                      </p></div>
-                      <h5>{{value[0]}}</h5>
-                  </td>
-                  <td role="cell">12/02/20</td>
-                  <td role="cell">16/02/20</td>
-                  <td role="cell">
-                  <img  @click="doMore(5)"  style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">
-                  <div  v-if="DoMoreIndx==5" class="cardDoMore">
-                      <h1>Marquer comme signé   </h1>
-                      <h1>Marquer comme refusé </h1>
-                      <h1>Modifier les mots-clés </h1>
-                      <h1>Dupliquer en facture</h1> 
-                      <h1>Dupliquer le devis</h1>
-                      <h1>Envoyer par email</h1> 
-                      <h1>Télécharger</h1> 
-                      <h1>Copier l'url</h1> 
-                  </div>
-                  </td>
-                </tr>
-
-
-                <tr role="row">
-                  <td role="cell">D2000003</td>
-                  <td role="cell">Hicham Ezzyti</td>
-                  <td role="cell">Moulimeq</td>
-                  <td role="cell">46,56 Dh</td>
-                  <td class="specialStatus" role="cell">
-                    <div  v-bind:class="{
-
-                      'finalisé':(value[0] === 'Finalisé'),
-                      'Signés':(value[0] === 'Signés'),
-                      'Provisoires':(value[0] === 'Provisoires'),
-                      'Refusés':(value[0] === 'Refusés'),
-
-                    }" class="recValue">
-                    <p
-                     v-bind:class="{
-                      'pFinalisé':(value[0] === 'Finalisé'),
-                      'pSignés':(value[0] === 'Signés'),
-                      'pProvisoires':(value[0] === 'Provisoires'),
-                      'pRefusés':(value[0] === 'Refusés'),
-                       
-                     }"
-                    >  
-                      {{getstatus(0)}}
-                      
-                      </p></div>
-                      <h5>{{value[0]}}</h5>
-                  </td>
-                  <td role="cell">12/02/20</td>
-                  <td role="cell">16/02/20</td>
-                  <td role="cell">
-                  <img  @click="doMore(6)"  style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">
-                  <div  v-if="DoMoreIndx==6" class="cardDoMore">
-                      <h1>Marquer comme signé   </h1>
-                      <h1>Marquer comme refusé </h1>
-                      <h1>Modifier les mots-clés </h1>
-                      <h1>Dupliquer en facture</h1> 
-                      <h1>Dupliquer le devis</h1>
-                      <h1>Envoyer par email</h1> 
-                      <h1>Télécharger</h1> 
-                      <h1>Copier l'url</h1> 
-                  </div>
-                  </td>
-                </tr>
-
 
      
      
@@ -369,98 +136,142 @@ export default {
             "Signés",
             "Refusés"            
           ],
+          className:"theme",
           DoMoreIndx:0,
+          Devises: [],
+          toShow: [], 
+          howManyProvisoire: 0,
+          howManyFinalised: 0,
+          howManySigned: 0,
+          howManyRefused: 0,
       }
 
     },
     methods: {
+        getDevises: function() {
+          this.$http.get("/devis")
+          .then((resp) => {
+            this.Devises = resp.data.data;
+            this.toShow = this.Devises; 
+            this.howManyProvisoire = this.countDevis("provisoire");
+            this.howManyFinalised = this.countDevis("Finalisés");
+            this.howManySigned = this.countDevis("Signés");
+            this.howManyRefused = this.countDevis("Refusés");
+          } )
+          .catch();
+        },
+        countDevis: function(key){
+          let counter = 0; 
+          this.Devises.forEach( (d) => {
+            if( d.statut_id === key){
+              counter++;
+            }
+          });
+          return counter;
+        },
+        getDevis: function(key){
+          let counter = []; 
+          this.toShow = [];
+          this.Devises.forEach( (d) => {
+            if(key !== ""){
+              if( d.statut_id === key){
+                this.toShow.push(d);
+              }
+            }else{
+              this.toShow.push(d);
+            }
+            
+          });
+          // return counter;
+        },
         makeSecond: function(n) {
-        let para;
-        para=this.$refs.devisHeader;
-        let nOfNodes=para.childNodes.length;
-        let i;
-        
-        for(i=0;i<nOfNodes;i++){
-          para.childNodes[i].removeAttribute("id")
-          para.childNodes[i].childNodes[0].removeAttribute("id")
-          para.childNodes[i].childNodes[1].removeAttribute("id")
+          let para;
+          para=this.$refs.devisHeader;
+          let nOfNodes=para.childNodes.length;
+          let i;
+          
+          for(i=0;i<nOfNodes;i++){
+            para.childNodes[i].removeAttribute("id")
+            para.childNodes[i].childNodes[0].removeAttribute("id")
+            para.childNodes[i].childNodes[1].removeAttribute("id")
 
-        }
-        para.childNodes[n].setAttribute("id", "active")
-        para.childNodes[n].childNodes[0].setAttribute("id", "activeTitre")
-        para.childNodes[n].childNodes[1].setAttribute("id", "activerectangle")
-
+          }
+          para.childNodes[n].setAttribute("id", "active")
+          para.childNodes[n].childNodes[0].setAttribute("id", "activeTitre")
+          para.childNodes[n].childNodes[1].setAttribute("id", "activerectangle")
+       this.getDevis("provisoire");
         },
         makeFirst: function(n) {
-        let para;
-        para=this.$refs.devisHeader;
-        let nOfNodes=para.childNodes.length;
-        let i;
-        
-        for(i=0;i<nOfNodes;i++){
-          para.childNodes[i].removeAttribute("id")
-          para.childNodes[i].childNodes[0].removeAttribute("id")
-          para.childNodes[i].childNodes[1].removeAttribute("id")
+          let para;
+          para=this.$refs.devisHeader;
+          let nOfNodes=para.childNodes.length;
+          let i;
+          
+          for(i=0;i<nOfNodes;i++){
+            para.childNodes[i].removeAttribute("id")
+            para.childNodes[i].childNodes[0].removeAttribute("id")
+            para.childNodes[i].childNodes[1].removeAttribute("id")
 
-        }
-        para.childNodes[n].setAttribute("id", "active")
-        para.childNodes[n].childNodes[0].setAttribute("id", "activeTitre")
-        para.childNodes[n].childNodes[1].setAttribute("id", "activerectangle")
-
+          }
+          para.childNodes[n].setAttribute("id", "active")
+          para.childNodes[n].childNodes[0].setAttribute("id", "activeTitre")
+          para.childNodes[n].childNodes[1].setAttribute("id", "activerectangle")
+          this.getDevis("");
         },
         makeThird: function(n) {
-        let para;
-        para=this.$refs.devisHeader;
-        let nOfNodes=para.childNodes.length;
-        let i;
-        
-        for(i=0;i<nOfNodes;i++){
-          para.childNodes[i].removeAttribute("id")
-          para.childNodes[i].childNodes[0].removeAttribute("id")
-          para.childNodes[i].childNodes[1].removeAttribute("id")
+          let para;
+          para=this.$refs.devisHeader;
+          let nOfNodes=para.childNodes.length;
+          let i;
+          
+          for(i=0;i<nOfNodes;i++){
+            para.childNodes[i].removeAttribute("id")
+            para.childNodes[i].childNodes[0].removeAttribute("id")
+            para.childNodes[i].childNodes[1].removeAttribute("id")
 
-        }
-        para.childNodes[n].setAttribute("id", "active")
-        para.childNodes[n].childNodes[0].setAttribute("id", "activeTitre")
-        para.childNodes[n].childNodes[1].setAttribute("id", "activerectangle")
+          }
+          para.childNodes[n].setAttribute("id", "active")
+          para.childNodes[n].childNodes[0].setAttribute("id", "activeTitre")
+          para.childNodes[n].childNodes[1].setAttribute("id", "activerectangle")
 
+          this.getDevis("Finalisés");
         },
         makeFourth: function(n) {
-        let para;
-        para=this.$refs.devisHeader;
-        let nOfNodes=para.childNodes.length;
-        let i;
-        
-        for(i=0;i<nOfNodes;i++){
-          para.childNodes[i].removeAttribute("id")
-          para.childNodes[i].childNodes[0].removeAttribute("id")
-          para.childNodes[i].childNodes[1].removeAttribute("id")
+          let para;
+          para=this.$refs.devisHeader;
+          let nOfNodes=para.childNodes.length;
+          let i;
+          
+          for(i=0;i<nOfNodes;i++){
+            para.childNodes[i].removeAttribute("id")
+            para.childNodes[i].childNodes[0].removeAttribute("id")
+            para.childNodes[i].childNodes[1].removeAttribute("id")
 
-        }
-        para.childNodes[n].setAttribute("id", "active")
-        para.childNodes[n].childNodes[0].setAttribute("id", "activeTitre")
-        para.childNodes[n].childNodes[1].setAttribute("id", "activerectangle")
-
+          }
+          para.childNodes[n].setAttribute("id", "active")
+          para.childNodes[n].childNodes[0].setAttribute("id", "activeTitre")
+          para.childNodes[n].childNodes[1].setAttribute("id", "activerectangle")
+          this.getDevis("Refusés");
         },
         makeFifth: function(n) {
-        let para;
-        para=this.$refs.devisHeader;
-        let nOfNodes=para.childNodes.length;
-        let i;
-        
-        for(i=0;i<nOfNodes;i++){
-          para.childNodes[i].removeAttribute("id")
-          para.childNodes[i].childNodes[0].removeAttribute("id")
-          para.childNodes[i].childNodes[1].removeAttribute("id")
+          let para;
+          para=this.$refs.devisHeader;
+          let nOfNodes=para.childNodes.length;
+          let i;
+          
+          for(i=0;i<nOfNodes;i++){
+            para.childNodes[i].removeAttribute("id")
+            para.childNodes[i].childNodes[0].removeAttribute("id")
+            para.childNodes[i].childNodes[1].removeAttribute("id")
 
-        }
-        para.childNodes[n].setAttribute("id", "active")
-        para.childNodes[n].childNodes[0].setAttribute("id", "activeTitre")
-        para.childNodes[n].childNodes[1].setAttribute("id", "activerectangle")
-
+          }
+          para.childNodes[n].setAttribute("id", "active")
+          para.childNodes[n].childNodes[0].setAttribute("id", "activeTitre")
+          para.childNodes[n].childNodes[1].setAttribute("id", "activerectangle")
+          this.getDevis("Signés");
         },
-        getstatus:function(indx){
-          return this.value[indx].substring(0, 2);
+        getstatus:function(string){
+          return string.substring(0, 2);
 
         },
         doMore:function(number){
@@ -470,19 +281,72 @@ export default {
          else if(this.devisHeader!==0){
            this.DoMoreIndx=0
          }
+        },
+        sign: function(id){
+           this.$http.get(`/devis/${id}/sign`)
+                    .then( (rep) => {
+                      console.log(rep);
+                      window.location.reload();
+                    })
+                    .catch();
+        },
+        decline: function(id){
+          this.$http.get(`/devis/${id}/refuse`)
+                    .then( (rep) => {
+                      console.log(rep);
+                      window.location.reload();
+                    })
+                    .catch();
+        },      
+        unsign: function(id){
+           this.$http.get(`/devis/${id}/unsign`)
+                    .then( (rep) => {
+                      console.log(rep);
+                      window.location.reload();
+                    })
+                    .catch();
+        },
+        undecline: function(id){
+          this.$http.get(`/devis/${id}/cancel-refuse`)
+                    .then( (rep) => {
+                      console.log(rep);
+                      window.location.reload();
+                    })
+                    .catch();
+        },
+        updateKeywords: function(){
+
+        },
+        download: function(id){
+
+          this.$http.get(`/devis/${id}/download`)
+                    .then( (rep) => {
+                      console.log(rep);
+                      window.location.reload();
+                    })
+                    .catch();
+        },
+        finalise: function(id){
+          
+          this.$http.get(`/devis/${id}/finalise`)
+                    .then( (rep) => {
+                      console.log(rep);
+                      window.location.reload();
+                    })
+                    .catch();
+        }, 
+        _delete: function(id){   
+          this.$http.delete(`/devis/${id}`)
+                    .then( (rep) => {
+                      console.log(rep);
+                      window.location.reload();
+                    })
+                    .catch();
         }
-
-   
-
-
     },
 
-
-    computed:{
-
-   
-    
-
+    created:function () {
+      this.getDevises();
     }
 
 }

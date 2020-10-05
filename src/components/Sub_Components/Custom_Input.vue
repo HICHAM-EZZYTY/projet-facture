@@ -8,11 +8,11 @@
             <S_Input 
                 v-for="i in values.length" 
                 
-                :placeholder=" placeholder + ' ' + i " 
+                :placeholder="placeholder + ' ' + i " 
                 :key="i" 
                 :isLast=" i == values.length"
                 :index= 'i - 1'
-                :defaultValue="values[i - 1]"
+                :defaultValue="values[i - 1].value"
 
                 @onInput='addValue' 
                 @add="_add" 
@@ -52,7 +52,7 @@ export default {
             }
         }, 
         addValue: function(argIndex, argValue) {
-            this.values[argIndex] = argValue
+            this.values[argIndex] = {"value": argValue}
             this.$emit('addedInput', this.values);
         }
     }, 

@@ -84,7 +84,7 @@
           <div class="inp6">
               <label>Type</label>
               <br>
-              <select class="select-css">
+              <select class="select-css" @change="typeSelect">
                   <option value="">{{Article.service}}</option>
                   <option value="dog">Dog</option>
                   <option value="cat">Cat</option>
@@ -134,16 +134,16 @@
                 </div>
 
                 <div class="reduction">
-                      <input @blur="reduction(index)" id="in6" type="text" v-model="Article.Reduction">
+                      <input @blur="reduction(index)" id="in6" type="text" placeholder="Reduction" v-model="Article.Reduction">
                 </div>
 
                 <div class="totalHt">
                       <label   id="in7">Total HT</label>
-                      <input  @blur="TOTALHT(index)" id="in8" type="text" v-model="Article.totalht">
+                      <input  @blur="TOTALHT(index)" id="in8" type="text" placeholder="Total ht" v-model="Article.totalht">
                 </div>
                 <div class="totalttc">
                       <label id="in9">Total TTC</label>
-                      <input id="in10" @blur="TOTALTTC(index)"  type="text" v-model="Article.totalttc">
+                      <input id="in10" @blur="TOTALTTC(index)"  type="text"  placeholder="Total ttc" v-model="Article.totalttc">
                 </div>
 
           </div>
@@ -183,7 +183,7 @@
               <label>Conditions de règlement</label>
               <br>
               <select id="inp1" class="select-css">
-                  <option value="">45 jours fin de mois</option>
+                  <option value="1">45 jours fin de mois</option>
                   <option value="dog">Dog</option>
                   <option value="cat">Cat</option>
                   <option value="hamster">Hamster</option>
@@ -307,14 +307,17 @@ export default {
         prixht: null,
         tva : null,
         percent:'%',
-        Reduction: 'Réduction',
-        totalht:0,
-        totalttc:0,
+        Reduction: null,
+        totalht:null,
+        totalttc:null,
         Decrp:"Description de l'article",
       }],
     };
   },
   methods: {
+    typeSelect(event){
+      console.log(event.target.value);
+    },
     addInput() {
       this.Articles.push({
       id:0,

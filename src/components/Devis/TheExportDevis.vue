@@ -105,6 +105,9 @@ export default {
 
   props: {},
   methods: {
+      // export: function(){
+      //   const xls = new xlsExport(data, title);
+      // },
     hoverIcons() {
       this.IsColor = true;
     },

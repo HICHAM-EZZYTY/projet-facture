@@ -151,12 +151,15 @@ export default {
         getDevises: function() {
           this.$http.get("/devis")
           .then((resp) => {
+            console.log("hada resp",resp.data.data)
             this.Devises = resp.data.data;
             this.toShow = this.Devises; 
             this.howManyProvisoire = this.countDevis("provisoire");
             this.howManyFinalised = this.countDevis("Finalisés");
             this.howManySigned = this.countDevis("Signés");
             this.howManyRefused = this.countDevis("Refusés");
+            console.log(this.countDevis("provisoire"))
+
           } )
           .catch();
         },
@@ -170,7 +173,7 @@ export default {
           return counter;
         },
         getDevis: function(key){
-          let counter = []; 
+          // let counter = []; 
           this.toShow = [];
           this.Devises.forEach( (d) => {
             if(key !== ""){

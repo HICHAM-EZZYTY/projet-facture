@@ -20,11 +20,11 @@
                 <img id="draw2" src="../../assets/img/path (1).svg" alt="DrawingOfapath">
       </div>
 
-      <p id="cardP">Voulez-vous vraiment marquer ce devis comme étant refusé ?</p>
+      <p id="cardP">Voulez-vous vraiment marquer ce devis comme étant Signé ?</p>
 
       <div class="containBtn">
 
-        <button class="btn1" @click="decline">Oui</button>
+        <button class="btn1" @click="sign">Oui</button>
         <button class="btn2">
           <img id="btnImage" src="../../assets/img/Emoji.svg" alt="AttentionEmoji">
           <p id="btnP" @click="cancel">Non s'il vous plaît !</p>
@@ -60,8 +60,8 @@ export default {
       }
     },
       methods: {
-          decline: function(){
-          this.$http.get(`/devis/${this.Id}/refuse`)
+          sign: function(){
+          this.$http.get(`/devis/${this.Id}/sign`)
                     .then( (rep) => {
                       console.log(rep);
                       this.$router.push('/devis');
@@ -219,7 +219,7 @@ button:focus {
     background-repeat: no-repeat;
     background-size: cover;
     position: absolute;
-    top: 578.3px;
+    top:578.3px;
     float: left;
     height: 192px;
     width: 173px;

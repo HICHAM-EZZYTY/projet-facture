@@ -62,7 +62,7 @@
 
                   <td role="cell">{{devis.Devis_uid}}</td>
                   <td role="cell">{{devis.userName}}</td>
-                  <td role="cell">{{devis.Devis_uid}}</td>
+                  <td role="cell">{{(devis.societe == null )? '---' : devis.societe.Societe_Nom}}</td>
                   <td role="cell">{{devis.total_ttc}}</td>
                   <td class="specialStatus" role="cell">
                     <div  v-bind:class="{
@@ -321,13 +321,7 @@ export default {
 
         },
         download: function(id){
-
-          this.$http.get(`/devis/${id}/download`)
-                    .then( (rep) => {
-                      console.log(rep);
-                      window.location.reload();
-                    })
-                    .catch();
+          window.location.href =`http://fatoura.hamdaouihamza.com/api/devis/${id}/download`;
         },
         finalise: function(id){
           

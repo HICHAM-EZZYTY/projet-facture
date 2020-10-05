@@ -100,7 +100,7 @@
                       
                       <router-link
                       :to="{ name: 'FinalsedFacture', params: {devisId: facture.Facture_id } }"
-                       v-if="facture.isFinalised == 0" ><h1>Marquer comme Finalisé</h1></router-link>
+                       v-if="facture.isFinalised == 0 && !facture.payed_at" ><h1>Marquer comme Finalisé</h1></router-link>
 
                       
                       <router-link
@@ -112,7 +112,7 @@
 
 
                       <h1 @click="unpaid(facture.Facture_id)" v-if="facture.payed_at">Annuler le Payement</h1>
-                      <h1 v-if="facture.isFinalised == 0" >Modifier les mots-clés </h1>
+                      <h1 v-if="!facture.payed_at" >Modifier les mots-clés </h1>
                       <h1 @click="download(facture.Facture_id)">Télécharger</h1> 
                       <h1 @click="_delete(facture.Facture_id)"> Delete</h1> 
 

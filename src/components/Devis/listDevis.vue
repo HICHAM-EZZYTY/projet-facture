@@ -106,7 +106,6 @@
                       <h1 @click="download(devis.Devis_id)" v-if="devis.isFinalised == 1">Télécharger</h1> 
                       <h1 @click="_delete(devis.Devis_id)"> Delete</h1> 
                     </div>
-
                   </td>
                 </tr>
 

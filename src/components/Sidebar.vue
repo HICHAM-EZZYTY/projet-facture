@@ -32,24 +32,14 @@
             <em>Factures</em>
           </router-link>
         </li>
-        <li>
-          <router-link class="s-sidebar__nav-link" to="/Avoire">
-            <img id="mn" src="../assets/img/menu5.svg" alt />
-            <em>Avoire</em>
-          </router-link>
-        </li>
+        
         <li>
           <router-link class="s-sidebar__nav-link" to="/settings">
             <img src="../assets/img/menu6.svg" alt />
             <em>Paramétres</em>
           </router-link>
         </li>
-        <li>
-          <router-link class="s-sidebar__nav-link" to="/feedback">
-            <img src="../assets/img/menu7.svg" alt />
-            <em>Feedback</em>
-          </router-link>
-        </li>
+        
         <li @click="logout" class="sidenav--list__item sign-out">
           <router-link class="s-sidebar__nav-link" to="/logout" @click="logout">
             <img @click="logout" class="sidenav-button__icon" src="../assets/img/menu8.svg" alt />

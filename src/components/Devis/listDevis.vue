@@ -97,14 +97,25 @@
                     <img  @click="doMore(devis.Devis_id)" style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">   
 
                     <div v-if="DoMoreIndx==devis.Devis_id" class="cardDoMore">
-                      <h1 @click="finalise(devis.Devis_id)" v-if="devis.isFinalised == 0">Finalisé</h1>  
-                      <h1 @click="sign(devis.Devis_id)" v-if=" devis.isFinalised == 1 && devis.isRefused == 0 &&  devis.isSigned == 0 " >Marquer comme signé </h1>
+                      <h1 @click="finalise(devis.Devis_id)" v-if="devis.isFinalised == 0">Finalisé</h1>
+
+                      <!-- <h1 @click="sign(devis.Devis_id)" v-if=" devis.isFinalised == 1 && devis.isRefused == 0 &&  devis.isSigned == 0 " >Marquer comme signé </h1> -->
+                      <router-link
+                      :to="{ name: 'devisSigned', params: {devisId: devis.Devis_id } }"
+                       v-if=" devis.isFinalised == 1 && devis.isRefused == 0 &&  devis.isSigned == 0 " ><h1>Marquer comme signé</h1></router-link>
+
+
                       <h1 @click="unsign(devis.Devis_id)" v-if="devis.isFinalised == 1 && devis.isSigned == 1 " >Annuler la signature </h1>
-                      <h1 @click="decline(devis.Devis_id)" v-if=" devis.isFinalised == 1 && devis.isRefused == 0 &&  devis.isSigned == 0 " >Marquer comme refusé </h1>
+                      <router-link
+                      :to="{ name: 'deviRefus', params: {devisId: devis.Devis_id } }"
+                      @click="decline(devis.Devis_id)" v-if=" devis.isFinalised == 1 && devis.isRefused == 0 &&  devis.isSigned == 0 " ><h1>Marquer comme refusé</h1></router-link>
                       <h1 @click="undecline(devis.Devis_id)" v-if="devis.isFinalised == 1 && devis.isRefused == 1 " >Annuler le refus </h1>
                       <h1 v-if="devis.isFinalised == 0" >Modifier les mots-clés </h1>
                       <h1 @click="download(devis.Devis_id)" v-if="devis.isFinalised == 1">Télécharger</h1> 
                       <h1 @click="_delete(devis.Devis_id)"> Delete</h1> 
+                      <h1>Testing</h1>
+                 
+
                     </div>
 
                   </td>
@@ -121,13 +132,20 @@
               <!-- Ending Of The Table  -->
 
 
+
+
     
   </div>
 </template>
 
 <script>
+
+
 export default {
 
+  components: {
+
+  },
     data() {
       return {
           value:[
@@ -351,6 +369,8 @@ export default {
 
 <style scoped lang="scss">
 @import "../../scss/main.scss" ;  
+
+
 
 
 .cardDoMore{

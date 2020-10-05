@@ -97,8 +97,20 @@
                     <img  @click="doMore(facture.Facture_id)" style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">   
 
                     <div v-if="DoMoreIndx==facture.Facture_id" class="cardDoMore">
-                      <h1 @click="finalise(facture.Facture_id)" v-if="facture.isFinalised == 0 && !facture.payed_at">Finalisé</h1>  
-                      <h1 @click="paid(facture.Facture_id)" v-if="!facture.payed_at">Marquer comme Payé</h1>
+                      
+                      <router-link
+                      :to="{ name: 'FinalsedFacture', params: {devisId: facture.Facture_id } }"
+                       v-if="facture.isFinalised == 0" ><h1>Marquer comme Finalisé</h1></router-link>
+
+                      
+                      <router-link
+                      :to="{ name: 'PaidFacture', params: {devisId: facture.Facture_id } }"
+                       v-if="!facture.payed_at" ><h1>Marquer comme Payé</h1></router-link>
+
+
+
+
+
                       <h1 @click="unpaid(facture.Facture_id)" v-if="facture.payed_at">Annuler le Payement</h1>
                       <h1 v-if="facture.isFinalised == 0" >Modifier les mots-clés </h1>
                       <h1 @click="download(facture.Facture_id)">Télécharger</h1> 

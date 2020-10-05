@@ -45,12 +45,18 @@ import Login from "../views/Authentification/Login.vue";
 import TheExportDevis from "../components/Devis/TheExportDevis.vue";
 import TheCalendarDevis from "../components/Devis/TheCalendarDevis.vue";
 import TheRefusDevis from "../components/Devis/TheRefusDevis.vue";
+import TheSignedDevis from "../components/Devis/TheSignedDevis.vue";
+
 
 // Facture-Page
 import Facture from "../views/Facture-Page/Facture.vue";
 import listFacture from "./../components/Facture-Page/listFacture.vue";
 import createFacture from "./../components/Facture-Page/createFacture.vue";
 import theExportFacture from "./../components/Facture-Page/theExportFacture.vue";
+import ThePaidFacture from "./../components/Facture-Page/ThePaidFacture.vue";
+import TheFinalisedFacture from "./../components/Facture-Page/TheFinalisedFacture.vue";
+
+
 
 // Avoire-Page
 import Avoire from "../views/Avoire-Page/Avoire.vue";
@@ -190,6 +196,8 @@ const routes = [
               requiresAuth: true
             },
           },
+      
+          
           
          
         ]
@@ -403,8 +411,32 @@ const routes = [
   },
   {
     path: "/devis-refus",
-    name: "devisCalandar",
+    name: "deviRefus",
     component: TheRefusDevis,
+    meta: {
+      requiresAuth: true
+    },
+  },
+  {
+    path: "/devis-signed",
+    name: "devisSigned",
+    component: TheSignedDevis,
+    meta: {
+      requiresAuth: true
+    },
+  },
+  {
+    path: "/facture-paid",
+    name: "PaidFacture",
+    component: ThePaidFacture,
+    meta: {
+      requiresAuth: true
+    },
+  },
+  {
+    path: "/facture-finalised",
+    name: "FinalsedFacture",
+    component: TheFinalisedFacture,
     meta: {
       requiresAuth: true
     },

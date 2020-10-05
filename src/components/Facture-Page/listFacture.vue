@@ -410,7 +410,7 @@ export default {
     display: flex;
     flex-direction: column;
     width: 100%;
-    align-items: flex-end;
+    align-items: flex-start;
     margin-left: 1rem;
   
   h2{

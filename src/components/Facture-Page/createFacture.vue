@@ -21,16 +21,11 @@
               <br>
               <input type="text" value="# D2000001">
           </div>
-           <div class="inp2">
-              <label>Durée de validité</label>
+           <div class="inp2 inp1">
+              <input type="text" placeholder="Durée de validité">
               <select class="select-css">
                   <option value="">Jours</option>
-                  <option value="dog">Dog</option>
-                  <option value="cat">Cat</option>
-                  <option value="hamster">Hamster</option>
-                  <option value="parrot">Parrot</option>
-                  <option value="spider">Spider</option>
-                  <option value="goldfish">Goldfish</option>
+                  <option value="">Hours</option>
              </select>
           </div>
         </div>
@@ -38,29 +33,10 @@
           <div class="inp3">
               <label>Destinataire</label>
               <br>
-              <select class="select-css">
-                  <option value="">Marjane</option>
-                  <option value="dog">Dog</option>
-                  <option value="cat">Cat</option>
-                  <option value="hamster">Hamster</option>
-                  <option value="parrot">Parrot</option>
-                  <option value="spider">Spider</option>
-                  <option value="goldfish">Goldfish</option>
-             </select>
+              <b-select class="select-css" :options="reciverOprions" :selected="selectedReciever">
+             </b-select>
           </div>
-           <div class="inp4">
-              <label>Devise</label>
-              <br>
-              <select class="select-css">
-                  <option value="">Dirham  (MAD)</option>
-                  <option value="dog">Dog</option>
-                  <option value="cat">Cat</option>
-                  <option value="hamster">Hamster</option>
-                  <option value="parrot">Parrot</option>
-                  <option value="spider">Spider</option>
-                  <option value="goldfish">Goldfish</option>
-             </select>
-          </div>
+          
         </div>
 
 
@@ -84,15 +60,7 @@
           <div class="inp6">
               <label>Type</label>
               <br>
-              <select class="select-css">
-                  <option value="">{{Article.service}}</option>
-                  <option value="dog">Dog</option>
-                  <option value="cat">Cat</option>
-                  <option value="hamster">Hamster</option>
-                  <option value="parrot">Parrot</option>
-                  <option value="spider">Spider</option>
-                  <option value="goldfish">Goldfish</option>
-             </select>
+              <b-select :options="articlesOptions" :selected="selectedArticle" class="select-css"></b-select>
           </div>
 
           <div class="icns">
@@ -106,10 +74,7 @@
 
 
         <div class="ss2">
-
-
-
-              <div class="inp7">
+          <div class="inp7">
 
                   <input @blur="quan(index)" id="in1" type="text" placeholder="quantité" v-model="Article.quantité">
                   <input  @blur="ph(index)"  id="in2" type="text"  placeholder="prix ht" v-model="Article.prixht">
@@ -124,12 +89,6 @@
                 <div class="percentage">
                     <select class="select-css">
                       <option value="">{{Article.percent}}</option>
-                      <option value="dog">Dog</option>
-                      <option value="cat">Cat</option>
-                      <option value="hamster">Hamster</option>
-                      <option value="parrot">Parrot</option>
-                      <option value="spider">Spider</option>
-                      <option value="goldfish">Goldfish</option>
                 </select>
                 </div>
 
@@ -147,14 +106,7 @@
                 </div>
 
           </div>
-
-          <textarea id="textAreaArtcl"  v-model="Article.Decrp">
-              
-                  
-          </textarea>
-
-
-
+          <textarea id="textAreaArtcl"  v-model="Article.Decrp"></textarea>
         </div>
 
       </div>
@@ -162,18 +114,11 @@
 
       <div class="results">
         <button  @click="getdata()" type="text">Ajouter Une Ligne</button>
-
         <div class="wrapResult">
           <div class="rg">Total HT : <span>{{totalhtTTL}}</span></div>
           <div class="tva">TVA :   <span>{{tvaTTL}}</span></div>
           <div class="ttl">Total :   <span>{{finalttl}}</span></div>
-    
-
-
-
-
         </div>
-
       </div>
 
       <div class="reglement">
@@ -221,15 +166,15 @@
    
         </div>
       </div>
-     <div class="textDoc">
-                <h1>Textes affichés sur le document:</h1>
-      <div class="textWrapping">
-                  <textarea id="ttl">texte d'introduction (visible sur le devis)</textarea>
-                  <textarea id="ttl1">Texte de conclusion (visible sur le devis)</textarea>
-                  <textarea id="ttl2">Pied de page (visible sur le devis)</textarea>
-                  <textarea id="ttl3">Conditions générales de vente (visible sur le devis)</textarea>
-      </div>
-             <div  id="diffInp1" class="inp33">
+        <div class="textDoc">
+          <h1>Textes affichés sur le document:</h1>
+          <div class="textWrapping">
+            <textarea id="ttl">texte d'introduction (visible sur le devis)</textarea>
+            <textarea id="ttl1">Texte de conclusion (visible sur le devis)</textarea>
+            <textarea id="ttl2">Pied de page (visible sur le devis)</textarea>
+            <textarea id="ttl3">Conditions générales de vente (visible sur le devis)</textarea>
+          </div>
+          <div  id="diffInp1" class="inp33">
               <label>Mots clés :</label>
               <br>
               <select id="inp3" class="select-css">
@@ -240,30 +185,22 @@
                   <option value="parrot">Parrot</option>
                   <option value="spider">Spider</option>
                   <option value="goldfish">Goldfish</option>
-             </select>
-              </div>
-
-     </div>
+              </select>
+          </div>
+        </div>
 
 
       <div class="footer">
-      <div class="icons">
-        <img id="fir"  src="../../assets/img/eye.svg" alt="eyes icon">
-        <img  id="fil" src="../../assets/img/print.svg" alt="print icon">
-      </div>
-      <div class="btnss">
-        <button class="buttn" id="bbtn1" type="button">Previous</button>    
-        <button class=buttn  id="bbtn2" type="submit">enregistrer & envoyer </button>
-
-
-      </div>
-
-
-        
+        <div class="icons">
+          <img id="fir"  src="../../assets/img/eye.svg" alt="eyes icon">
+          <img  id="fil" src="../../assets/img/print.svg" alt="print icon">
+        </div>
+        <div class="btnss">
+          <button class="buttn" id="bbtn1" type="button">Previous</button>    
+          <button class=buttn  id="bbtn2" type="submit">enregistrer & envoyer </button>
+        </div>
       </div>
         
-
-
       </div>
 
 
@@ -286,6 +223,7 @@ export default {
       counter: 1,
       height:Number,
       lineHeight:Number,
+
       finalttl:0,
       totalttc:[],
       totalttcTTL:0,
@@ -301,8 +239,9 @@ export default {
       PrixhtTTL:0,
       total:0,
       vq:0,
+      
       Articles: [{
-        service: 'Service',
+        service: null,
         quantité: null,
         prixht: null,
         tva : null,
@@ -312,21 +251,105 @@ export default {
         totalttc:0,
         Decrp:"Description de l'article",
       }],
+
+      reciverOprions:[],
+      articlesOptions:[],
+      selectedArticle:null,
+      selectedReciever: null,
+
+      facture: {
+        client_id:null,
+        societe_id:null,
+        type:null,
+        reglement:{
+            condition_id : 3, 
+            mode_id : 1, 
+            interet_id : 3, 
+            compte_bancaire : null
+        }, 
+        articles:[],
+        textDocument:{
+          introduction : "intro", 
+          conclusion : "conclusion", 
+          pied_page : "footer", 
+          condition : null
+        },
+        motCles:[]
+      },
+      
     };
+
+
+
+
   },
   methods: {
+    getDestinatair: function() {
+      this.$http.get("/clients")
+        .then( (resp) => {
+          this.reciverOprions.push({ value: "", text: "---- Clients ----", disabled:true })
+          resp.data.data.forEach((d) => {
+            let ok = { value: { client_id: d.id, societe_id: null }, text: d.Client_Nom, }
+            this.reciverOprions.push(ok)
+          });
+        } )
+        .catch();
+        
+      this.$http.get("/societes")
+        .then( (resp) => {
+          this.reciverOprions.push({ value: "", text: "---- Societes ----", disabled:true })
+          resp.data.data.forEach((d) => {
+            let ok = { value: { client_id:null, societe_id: d.id }, text: d.Societe_Nom,  }
+            this.reciverOprions.push(ok)
+          });
+        } )
+        .catch();
+    },
+    getArticlesTypes: function() {
+      this.$http
+        .get("/type_articles")
+        .then( (resp) => {
+          console.log(resp.data);
+          resp.data.forEach( (d) => {
+            let ok  = {
+              value: d.id, text: d.article_type_value
+            }
+            this.articlesOptions.push(ok);
+          })
+        
+        })
+        .catch();
+    },
+    send: function(){
+      this.Articles.forEach( (a) => {
+        let art = {
+          "type_id" : this.selectedArticle, 
+          "quantité" : a.quantité ,
+          "prix_ht" : a.prixht , 
+          "tva" : a.tva, 
+          "reduction"  : a.Reduction, 
+          "total_ht"  : a.totalht , 
+          "total_ttc" : a.totalttc , 
+          "description": a.Decrp
+        }
+        
+      this.facture.articles.push(art);
+      } );
+
+      console.log(this.facture.articles);
+    },
     addInput() {
       this.Articles.push({
       id:0,
-      service: 'Service',
-      quantité: 'Quantité',
-      prixht: 'Prix HT',
-      tva : 0,
+      service: null,
+      quantité: null,
+      prixht: null,
+      tva : null,
       percent:'%',
-      Reduction: 'Réduction',
+      Reduction: null,
       totalht:0,
       totalttc:0,
-      Decrp:"Description de l'article",
+      Decrp:null,
       })
       this.counter+=1
       this.height=this.$refs.whitePaper.clientHeight
@@ -336,7 +359,7 @@ export default {
 
 
     },
-      deleteInput(i) {
+    deleteInput(i) {
         if (i>0){
         this.Articles.splice(i, 1);
         this.counter-=1
@@ -396,26 +419,25 @@ export default {
 
     },
     TOTALHT(value){
-    this.vq=this.Articles[value].totalht
-    let ttl=0;
-    ttl=parseInt(this.vq);
-      if (ttl>=0){
+      this.vq=this.Articles[value].totalht
+      let ttl=0;
+      ttl=parseInt(this.vq);
+        if (ttl>=0){
 
-        console.log("hadi totalht 9abla",this.totalht)
-        this.totalht[value]=ttl;
-        console.log("hadi totalht ba3da",this.totalht)
-          let ttq=0;
-      
-          for(var i in this.totalht) {
-            ttq += this.totalht[i]; 
-          }
+          console.log("hadi totalht 9abla",this.totalht)
+          this.totalht[value]=ttl;
+          console.log("hadi totalht ba3da",this.totalht)
+            let ttq=0;
+        
+            for(var i in this.totalht) {
+              ttq += this.totalht[i]; 
+            }
 
-          this.totalhtTTL=ttq
-      }
-      else{
-        console.log('plz fill the input')
-      }
-
+            this.totalhtTTL=ttq
+        }
+        else{
+          console.log('plz fill the input')
+        }
     },
     quan(value){
 
@@ -450,9 +472,9 @@ export default {
     ttl=parseInt(this.vq);
       if (ttl>=0){
 
-        console.log("hadi tva 9abla",this.tva)
+        // console.log("hadi tva 9abla",this.tva)
         this.tva[value]=ttl;
-        console.log("hadi tva ba3da",this.tva)
+        // console.log("hadi tva ba3da",t his.tva)
           let ttq=0;
       
           for(var i in this.tva) {
@@ -490,14 +512,13 @@ export default {
       }
      }
 
-
   },
 
   computed:{
 
 
   },
-    watch:{
+  watch:{
 
 
     QuantitéTTL:function(){
@@ -541,13 +562,13 @@ export default {
 
       this.finalttl=this.tvaTTL+this.totalhtTTL
       console.log(this.finalttl)
-
-
-
     }
     
-    },
-
+  },
+  created:function(){
+    this.getDestinatair();
+    this.getArticlesTypes();
+  }
 }
 
 </script>

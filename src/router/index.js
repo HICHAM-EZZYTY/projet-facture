@@ -186,7 +186,7 @@ const routes = [
           },
           {
             path: "new",
-            name: "NewFactuer",
+            name: "NewFacture",
             component: createFacture,
             meta: {
               requiresAuth: true

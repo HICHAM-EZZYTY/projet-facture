@@ -9,7 +9,7 @@
 		<div class="cards-content">
 			<div class="cards-content-header">
 				<router-link to="client/1" class="name">
-					<h3 class="cards-title">{{user.Societe_Nom.split(' ')[0]}}</h3>
+					<h3 class="cards-title">{{user.Societe_Nom}}</h3>
 				</router-link>
 			</div>
 			<div class="cards-info">
@@ -32,11 +32,19 @@
 					<img class="edit" src="../../assets/img/Vector.svg" alt="">
 				</a>
 			</div>
-			<div class="Ellipse">
-			</div>
-			<div class="Ellipse1">
-			</div>
+			<img @click="showModal" class="Ellipse" src="../../assets/img/closeee.svg">
 		</div>
+
+
+
+			<b-modal ref="my-modal" hide-footer>
+			<div class="d-block text-center">
+				<h3 style="font-size:1.4rem">Voulez Vous Supprimer cette societée ?</h3>
+			</div>
+			<b-button class="mt-3" variant="outline-danger" block @click="removesociety(user.id)">Oui</b-button>
+			</b-modal>
+
+
 	</div>
 </template>
 
@@ -56,6 +64,19 @@ export default {
 	
 	},
 	methods:{
+	 showModal() {
+        this.$refs['my-modal'].show()
+	  },
+	  removesociety(id){
+		  console.log(id)
+		  this.$http.delete(`/societes/${id}`)
+                    .then( (rep) => {
+                      console.log("hadchi tm7a",rep);
+                      window.location.reload();
+                    })
+                    .catch();
+	  }
+
 	
 	},
 	created: function () {
@@ -68,11 +89,17 @@ export default {
 
 </script>
 
-<style lang="scss"  >
+<style scoped lang="scss"  >
+@import "../../scss/main.scss" ;  
+
 
 $color1:#2262C6;
 $color2:#427FDE;
 $color3:#FFC5A0;
+
+/deep/ .modal-content {
+  font-family: $gm !important;
+}
 
 
 .intro {
@@ -117,53 +144,55 @@ h1,h2,h3,h4,h5,p {
     margin-top: -6px;
 }
 .Ellipse{
+	cursor: pointer;
 	position: relative;
-    left: 86%;
-    bottom: 14em;
+    left: 90%;
+    bottom: 15em;
     border-radius: 6px;
-    width: 7px;
-    height: 7px;
+    width: 1.4rem;
+    height: 1.4rem;
+	border:none !important;
     list-style-type: circle;
-    border: 2px solid #2262C6;
     box-sizing: border-box;
     transform: matrix(1, 0, 0, -1, 0, 0);
+	border-radius: 25px;
 }
-.Ellipse1{
-	position: relative;
-    left: 91%;
-    bottom: 231px;
-    border-radius: 6px;
-    width: 7px;
-    height: 7px;
-    list-style-type: circle;
-    border: 2px solid #2262C6;
-    box-sizing: border-box;
-    transform: matrix(1, 0, 0, -1, 0, 0);
-}
-.Ellipse-x{
-	position: relative;
-    left: 86%;
-    bottom: 14em;
-    border-radius: 6px;
-    width: 7px;
-    height: 7px;
-    list-style-type: circle;
-    border: 2px solid #FFC5A0;
-    box-sizing: border-box;
-    transform: matrix(1, 0, 0, -1, 0, 0);
-}
-.Ellipse1-x{
-	position: relative;
-    left: 91%;
-    bottom: 231px;
-    border-radius: 6px;
-    width: 7px;
-    height: 7px;
-    list-style-type: circle;
-    border: 2px solid #FFC5A0;
-    box-sizing: border-box;
-    transform: matrix(1, 0, 0, -1, 0, 0);	
-}
+// .Ellipse1{
+// 	position: relative;
+//     left: 91%;
+//     bottom: 231px;
+//     border-radius: 6px;
+//     width: 7px;
+//     height: 7px;
+//     list-style-type: circle;
+//     border: 2px solid #2262C6;
+//     box-sizing: border-box;
+//     transform: matrix(1, 0, 0, -1, 0, 0);
+// }
+// .Ellipse-x{
+// 	position: relative;
+//     left: 86%;
+//     bottom: 14em;
+//     border-radius: 6px;
+//     width: 7px;
+//     height: 7px;
+//     list-style-type: circle;
+//     border: 2px solid #FFC5A0;
+//     box-sizing: border-box;
+//     transform: matrix(1, 0, 0, -1, 0, 0);
+// }
+// .Ellipse1-x{
+// 	position: relative;
+//     left: 91%;
+//     bottom: 231px;
+//     border-radius: 6px;
+//     width: 7px;
+//     height: 7px;
+//     list-style-type: circle;
+//     border: 2px solid #FFC5A0;
+//     box-sizing: border-box;
+//     transform: matrix(1, 0, 0, -1, 0, 0);	
+// }
 .cards-header {
 	padding:0;
 	margin: 0;
@@ -232,11 +261,9 @@ h1,h2,h3,h4,h5,p {
 		background-color: $color1 ;
 	}
 	.Ellipse{
-	border: 2px solid  $color1;
+	background-color: $color1;
 	}
-	.Ellipse1{
-	border: 2px solid  $color1;
-	}
+	
 }
 .cards-card:nth-child(1n+1) {
 	.box{
@@ -246,10 +273,7 @@ h1,h2,h3,h4,h5,p {
 		background-color:$color1 ;
 	}
 	.Ellipse{
-	border: 2px solid $color1;
-	}
-	.Ellipse1{
-	border: 2px solid $color1;
+	background-color: $color1;
 	}
 }
 
@@ -261,11 +285,8 @@ h1,h2,h3,h4,h5,p {
 	.imax-logo{
 		background-color:$color2 ;
 	}
-	.Ellipse{
-	border: 2px solid $color2;
-	}
-	.Ellipse1{
-	border: 2px solid $color2;
+		.Ellipse{
+	background-color: $color2;
 	}
 }
 .cards-card:nth-child(2n+3) {
@@ -275,11 +296,8 @@ h1,h2,h3,h4,h5,p {
 	.imax-logo{
 		background-color:$color2 ;
 	}
-	.Ellipse{
-	border: 2px solid $color2;
-	}
-	.Ellipse1{
-	border: 2px solid $color2;
+		.Ellipse{
+	background-color: $color2;
 	}
 }
 
@@ -291,11 +309,8 @@ h1,h2,h3,h4,h5,p {
 	.imax-logo{
 		background-color:$color3 ;
 	}
-	.Ellipse{
-	border: 2px solid $color3;
-	}
-	.Ellipse1{
-	border: 2px solid $color3;
+		.Ellipse{
+	background-color: $color3;
 	}
 }
 
@@ -307,10 +322,7 @@ h1,h2,h3,h4,h5,p {
 		background-color:$color3 ;
 	}
 	.Ellipse{
-	border: 2px solid $color3;
-	}
-	.Ellipse1{
-	border: 2px solid $color3;
+	background-color: $color3;
 	}
 }
 

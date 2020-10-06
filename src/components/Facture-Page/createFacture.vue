@@ -197,7 +197,7 @@
         </div>
         <div class="btnss">
           <button class="buttn" id="bbtn1" type="button">Previous</button>    
-          <button class=buttn  id="bbtn2" type="submit">enregistrer & envoyer </button>
+          <button class=buttn  id="bbtn2" @click="send" type="submit">enregistrer & envoyer </button>
         </div>
       </div>
         
@@ -301,9 +301,12 @@ export default {
           resp.data.data.forEach((d) => {
             let ok = { value: { client_id:null, societe_id: d.id }, text: d.Societe_Nom,  }
             this.reciverOprions.push(ok)
+            
+        console.log(this.reciverOprions);
           });
         } )
         .catch();
+
     },
     getArticlesTypes: function() {
       this.$http
@@ -336,9 +339,11 @@ export default {
       this.facture.articles.push(art);
       } );
 
-      console.log(this.facture.articles);
+      console.log(this.selectedReciever);
     },
-    addInput() {
+ 
+ 
+  addInput() {
       this.Articles.push({
       id:0,
       service: null,
@@ -488,7 +493,6 @@ export default {
       }
   
     },
-
     ph(value){
        
     this.vq=this.Articles[value].prixht

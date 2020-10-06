@@ -8,7 +8,7 @@
 
             <div class="rightHeader">
               <h4>Exporter mes Devis</h4>
-              <router-link to="/devis-export">
+              <router-link :to="{ name: 'devisExport', params: {array: this.toShow } }">
               <img  id="icn1" src="../../assets/img/Group75.svg" alt="exporterIcon">
               </router-link>
               <img id="icn2" src="../../assets/img/Group76.svg" alt="infoIcon">

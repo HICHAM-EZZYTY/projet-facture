@@ -28,6 +28,8 @@ import avoirAcompte from "../components/setings/avoirAcompte.vue";
 
 // Societe 
 import AddSociete from '../components/client/AddSociete.vue'
+import EditSociete from '../components/client/EditSociete.vue'
+
 import Societe from "../views/Societe-Page/Societe.vue"
 import societescards from "../components/Clients-page/societescards.vue";
 
@@ -259,6 +261,14 @@ const routes = [
             path: 'new',
             name: "NewSociete",
             component: AddSociete,
+            meta: {
+              requiresAuth: true
+            },
+          },
+          {
+            path: 'edit',
+            name: "EditSociete",
+            component: EditSociete,
             meta: {
               requiresAuth: true
             },

@@ -28,9 +28,10 @@
 				</div>	
 			</div>
 			<div class="imax-logo">
-				<a href="#">
-					<img class="edit" src="../../assets/img/Vector.svg" alt="">
-				</a>
+				<router-link
+                :to="{ name: 'EditSociete', params: {Client: user } }">
+				<img class="edit" src="../../assets/img/Vector.svg" alt="">
+				</router-link>
 			</div>
 			<img @click="showModal" class="Ellipse" src="../../assets/img/closeee.svg">
 		</div>

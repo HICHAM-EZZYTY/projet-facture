@@ -33,7 +33,7 @@
           <div class="inp3">
               <label>Destinataire</label>
               <br>
-              <b-select class="select-css" :options="reciverOprions" :selected="selectedReciever">
+              <b-select class="select-css" :options="reciverOprions" v-model="selectedReciever">
              </b-select>
           </div>
           
@@ -60,7 +60,7 @@
           <div class="inp6">
               <label>Type</label>
               <br>
-              <b-select :options="articlesOptions" :selected="selectedArticle" class="select-css"></b-select>
+              <b-select :options="articlesOptions" v-model="selectedArticle" class="select-css"></b-select>
           </div>
 
           <div class="icns">
@@ -127,41 +127,17 @@
           <div class="inp3">
               <label>Conditions de règlement</label>
               <br>
-              <select id="inp1" class="select-css">
-                  <option value="">45 jours fin de mois</option>
-                  <option value="dog">Dog</option>
-                  <option value="cat">Cat</option>
-                  <option value="hamster">Hamster</option>
-                  <option value="parrot">Parrot</option>
-                  <option value="spider">Spider</option>
-                  <option value="goldfish">Goldfish</option>
-             </select>
+              <b-select id="inp2" class="select-css" v-model="facture.condition_id" :options="conditions"></b-select>
           </div>
            <div class="inp4">
               <label>Mode de règlement</label>
               <br>
-              <select id="inp2" class="select-css">
-                  <option value="">Virement bancaire</option>
-                  <option value="dog">Dog</option>
-                  <option value="cat">Cat</option>
-                  <option value="hamster">Hamster</option>
-                  <option value="parrot">Parrot</option>
-                  <option value="spider">Spider</option>
-                  <option value="goldfish">Goldfish</option>
-             </select>
+             <b-select id="inp2" class="select-css" v-model="facture.mode_id" :options="modes"></b-select>
           </div>
           <div style="margin-top:15px" class="inp3">
               <label>Intérêt de retard</label>
               <br>
-              <select id="inp1" class="select-css">
-                  <option value="">Pas d'intérêts </option>
-                  <option value="dog">Dog</option>
-                  <option value="cat">Cat</option>
-                  <option value="hamster">Hamster</option>
-                  <option value="parrot">Parrot</option>
-                  <option value="spider">Spider</option>
-                  <option value="goldfish">Goldfish</option>
-             </select>
+             <b-select id="inp2" class="select-css" v-model="facture.interet_id" :options="interests"></b-select>
           </div>
    
         </div>
@@ -169,10 +145,10 @@
         <div class="textDoc">
           <h1>Textes affichés sur le document:</h1>
           <div class="textWrapping">
-            <textarea id="ttl">texte d'introduction (visible sur le devis)</textarea>
-            <textarea id="ttl1">Texte de conclusion (visible sur le devis)</textarea>
-            <textarea id="ttl2">Pied de page (visible sur le devis)</textarea>
-            <textarea id="ttl3">Conditions générales de vente (visible sur le devis)</textarea>
+            <textarea id="ttl" placeholder="texte d'introduction (visible sur le devis)" v-model="facture.textDocument.introduction"></textarea>
+            <textarea id="ttl1" placeholder="Texte de conclusion (visible sur le devis)" v-model="facture.textDocument.conclusion"></textarea>
+            <textarea id="ttl2" placeholder="Pied de page (visible sur le devis)" v-model="facture.textDocument.pied_page"></textarea>
+            <textarea id="ttl3" placeholder="Conditions générales de vente (visible sur le devis)" v-model="facture.textDocument.condition"></textarea>
           </div>
           <div  id="diffInp1" class="inp33">
               <label>Mots clés :</label>
@@ -244,9 +220,9 @@ export default {
         service: null,
         quantité: null,
         prixht: null,
-        tva : null,
+        tva : 0,
         percent:'%',
-        Reduction: 'Réduction',
+        Reduction: null,
         totalht:0,
         totalttc:0,
         Decrp:"Description de l'article",
@@ -260,7 +236,7 @@ export default {
       facture: {
         client_id:null,
         societe_id:null,
-        type:null,
+        type:1,
         reglement:{
             condition_id : 3, 
             mode_id : 1, 
@@ -269,14 +245,16 @@ export default {
         }, 
         articles:[],
         textDocument:{
-          introduction : "intro", 
-          conclusion : "conclusion", 
-          pied_page : "footer", 
+          introduction : null, 
+          conclusion : null, 
+          pied_page : null, 
           condition : null
         },
         motCles:[]
       },
-      
+      modes:[], 
+      conditions: [], 
+      interests: [],
     };
 
 
@@ -304,7 +282,7 @@ export default {
             
           });
           
-         console.log(this.reciverOprions);
+        //  console.log(this.reciverOprions);
         } )
         .catch();
 
@@ -324,7 +302,46 @@ export default {
         })
         .catch();
     },
-    
+    getReglements: function() {
+      // get conditions Condition_value
+      this.$http.get("/condition_reglement").then(
+        (resp) => {
+          resp.data.forEach((d) => {
+            let ok = {
+              value: d.id, text: d.Condition_value
+            }; 
+            this.conditions.push(ok);
+            
+          } )
+          console.log(this.modes);
+        }
+      ).catch();
+      // get modes
+      this.$http.get("/mode_reglement").then(
+        (resp) => {
+          resp.data.forEach((d) => {
+            let ok = {
+              value: d.id, text: d.mode_value
+            }; 
+            this.modes.push(ok);
+            
+          } )
+          console.log(this.modes);
+        }
+      ).catch();
+      // get interests
+      this.$http.get('/interet_retard').then(
+        (resp) => {
+          resp.data.forEach((d) => {
+            let ok = {
+              value: d.id, text: d.inter_value
+            }; 
+            this.interests.push(ok);
+          } 
+        )
+        }
+      ).catch();
+    },
     send: function(){
       this.Articles.forEach( (a) => {
         let art = {
@@ -340,8 +357,15 @@ export default {
         
       this.facture.articles.push(art);
       } );
-
-      console.log(this.selectedReciever);
+      this.facture.client_id = this.selectedReciever.client_id;
+      this.facture.societe_id = this.selectedReciever.societe_id;
+      console.log(this.facture)
+      this.$http
+        .post("/factures", this.facture)
+        .then(
+          (r) =>  console.log(r)
+        )
+        .catch();
     },
  
  
@@ -574,6 +598,7 @@ export default {
   created:function(){
     this.getDestinatair();
     this.getArticlesTypes();
+    this.getReglements();
   }
 }
 

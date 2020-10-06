@@ -10,7 +10,7 @@
       {{response.message}}
     </div>
     
-    <input type="email" placeholder="EXEMPLE@EMAIL.Com" v-model="user.email" />
+    <input type="email" placeholder="exemple@email.com" v-model="user.email" />
     <input type="password" placeholder="mot de pass" v-model="user.password" />
     <a class="mot" href="#">Mot de passe oublié ?</a>
     <button @click.prevent="login">S'identifier</button>
@@ -78,7 +78,7 @@ body {
   width: 11%;
   position: relative;
   right: 42%;
-  top: 4%;
+  top: 0%;
 }
 
 h1 {

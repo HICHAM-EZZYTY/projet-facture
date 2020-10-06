@@ -26,6 +26,11 @@ import avoirAcompte from "../components/setings/avoirAcompte.vue";
 
 // Societe 
 import AddSociete from '../components/client/AddSociete.vue'
+import Societe from "../views/Societe-Page/Societe.vue"
+import societescards from "../components/Clients-page/societescards.vue";
+
+
+
 
 //settings
 import homeSeting from "../views/setings/homeSeting.vue";
@@ -50,7 +55,6 @@ import TheSignedDevis from "../components/Devis/TheSignedDevis.vue";
 
 // Facture-Page
 import Facture from "../views/Facture-Page/Facture.vue";
-import Societe from "../views/Societe-Page/Societe.vue"
 import listFacture from "./../components/Facture-Page/listFacture.vue";
 import createFacture from "./../components/Facture-Page/createFacture.vue";
 import theExportFacture from "./../components/Facture-Page/theExportFacture.vue";
@@ -232,8 +236,9 @@ const routes = [
         },
         children:[
           {
-            path: '',
+            path: "",
             name: "Societe",
+            component: societescards,
             meta: {
               requiresAuth: true
             },

@@ -150,10 +150,9 @@ export default {
             this.$http
                 .post("/societes", this.societe)
                 .then(
-                    () => console.log(this.societe) 
+                    () => this.$router.push('/societe') 
                 )
                 .catch();
-            console.log(this.societe);
         }
     }
 }

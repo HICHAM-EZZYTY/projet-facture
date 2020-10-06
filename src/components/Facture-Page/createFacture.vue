@@ -302,8 +302,9 @@ export default {
             let ok = { value: { client_id:null, societe_id: d.id }, text: d.Societe_Nom,  }
             this.reciverOprions.push(ok)
             
-        console.log(this.reciverOprions);
           });
+          
+         console.log(this.reciverOprions);
         } )
         .catch();
 
@@ -323,6 +324,7 @@ export default {
         })
         .catch();
     },
+    
     send: function(){
       this.Articles.forEach( (a) => {
         let art = {
@@ -343,7 +345,7 @@ export default {
     },
  
  
-  addInput() {
+    addInput() {
       this.Articles.push({
       id:0,
       service: null,

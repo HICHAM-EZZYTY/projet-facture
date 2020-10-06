@@ -16,13 +16,11 @@
 import _ from 'lodash';
 export default {
     name: "S_Input", 
-    
     data: function(){
         return {
             value: null 
         }
     }, 
-    
     props:[
         'placeholder', 
         'isLast', 
@@ -30,8 +28,7 @@ export default {
         'inputValue', 
         'isRemovable', 
         'defaultValue'
-        ],
-    
+    ],
     watch: {
         value: _.debounce(
             function() {
@@ -39,7 +36,6 @@ export default {
             }, 10
         ) 
     }, 
-    
     methods: {
         add: function() {
             this.$emit("add");
@@ -49,7 +45,6 @@ export default {
             this.$emit("remove", this.index);
         }
     },
-
     created: function() {
         this.value = this.defaultValue
     }

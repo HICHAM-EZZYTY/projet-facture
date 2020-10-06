@@ -70,7 +70,8 @@
             <Custom_Input 
                     @addedInput="_phoneNumbers" 
                     placeholder="Mobile" 
-                    title="Numéro de téléphone" />
+                    title="Numéro de téléphone"
+                    />
                 
                 <div class="forms-sides--group">
                     <label class="forms-sides--group_label" >Pays :</label>

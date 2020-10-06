@@ -82,7 +82,7 @@
                 
                 <div class="forms-sides--group">
                     <label class="forms-sides--group_label" >Pays :</label>
-                    <b-form-select class="forms-sides--group_select" v-model="societe.Societe_Ville" :options="countries"></b-form-select>
+                    <b-select class="forms-sides--group_select" v-model="societe.Societe_Ville" :options="countries"></b-select>
                 </div>
                 
                 
@@ -128,7 +128,7 @@ export default {
                 Societe_Note: null, 
                 Societe_Ville: null, 
                 Societe_Site_Internet:null,
-                keywords:[]
+               
             },
             Phones:null ,
             adress:null,
@@ -137,9 +137,9 @@ export default {
             
             countries: [
                 { value: null, text: 'Please select an option' },
-                { value: 'a', text: 'Rabat' },
-                { value: 'b', text: 'CasaBlanca' },
-                { value: 'd', text: 'Safi' }
+                { value: 'Rabat', text: 'Rabat' },
+                { value: 'CasaBlanca', text: 'CasaBlanca' },
+                { value: 'Safi', text: 'Safi' }
             ]
         };
     }, 
@@ -153,26 +153,30 @@ export default {
         }, 
         _phoneNumbers: function(numbers){
             this.societe.phones = numbers;
-            // console.log(this.societe.phones);
         }, 
         submit: function() {
+            console.log("clian hada =>");
             console.log(this.societe)
             this.$http
                 .put(`/societes/${this.Id}`,this.societe)
-                .then((res) => console.log(res) 
+                .then((res) => {
+                    console.log(res);
+                    this.$router.push('/societe') 
+                }
                 )
                 .catch();
         }
     },
         created:function () {
         console.log("hada params",this.$route.params.Client)
-        this.societe.Client_Nom=this.$route.params.Client.Client_Nom
+        // this.societe.Client_Nom=this.$route.params.Client.Client_Nom
         this.societe.Societe_Nom=this.$route.params.Client.Societe_Nom
         this.societe.Societe_identifiant_fiscale=this.$route.params.Client.Societe_identifiant_fiscale
         this.societe.Societe_identifiant_commun_entreprise=this.$route.params.Client.Societe_identifiant_commun_entreprise
         this.societe.Societe_Taxe_Professionelle=this.$route.params.Client.Societe_Taxe_Professionelle
         this.societe.Societe_Site_Internet=this.$route.params.Client.Societe_Site_Internet
         this.societe.Societe_Pays=this.$route.params.Client.Societe_Pays
+        this.societe.Societe_Ville = this.$route.params.Client.Societe_Ville
         this.adress=Object.values(this.$route.params.Client.Adresses[0])
         this.Phones=Object.values(this.$route.params.Client.Phones[0])
         this.societe.Societe_Note=this.$route.params.Client.Societe_Note

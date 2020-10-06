@@ -7,7 +7,6 @@
             
             <S_Input 
                 v-for="i in values.length" 
-                
                 :placeholder="placeholder + ' ' + i " 
                 :key="i" 
                 :isLast=" i == values.length"
@@ -33,12 +32,14 @@ export default {
             values: []
         }
     }, 
-    props:["placeholder","title"],
-
+    props:[
+        "placeholder",
+        "title", 
+        "dValues"
+    ],
     components: {
         S_Input
     }, 
-    
     methods: {
         _add: function(){
             this.values.push("");
@@ -46,7 +47,6 @@ export default {
         }, 
         _remove: function(arg) {
             this.counter--;
-
             if(this.values.length > 1  ){
                 this.values.splice(arg, 1);
             }

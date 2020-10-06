@@ -23,23 +23,23 @@
             
             <div class="col-lg-6 forms-sides">
                 <div class="forms-sides--group">
-                    <label class="forms-sides--group_label" >Nom de la societe :</label>
-                    <input class="forms-sides--group_text" type="text"  placeholder="......" />
+                    <label class="forms-sides--group_label"  >Nom de la societe : </label>
+                    <input class="forms-sides--group_text" v-model="societe.Societe_Nom" type="text"  placeholder="......" />
                 </div>
                  <div class="forms-sides--group">
                     <label class="forms-sides--group_label" >IDENTIFIANT COMMUN DE L'ENTREPRISE :</label>
-                    <input class="forms-sides--group_text" type="text" placeholder="......" />
+                    <input class="forms-sides--group_text" v-model="societe.Societe_identifiant_commun_entreprise" type="text" placeholder="......" />
                 </div>
             </div>
             
             <div class="col-lg-6 forms-sides">
                 <div class="forms-sides--group">
-                    <label class="forms-sides--group_label" >label :</label>
-                    <input class="forms-sides--group_text" type="text" placeholder="......" />
+                    <label class="forms-sides--group_label" >IDENTIFIANT FISCALE :</label>
+                    <input class="forms-sides--group_text" v-model="societe.Societe_identifiant_fiscale" type="text" placeholder="......" />
                 </div>
                  <div class="forms-sides--group">
-                    <label class="forms-sides--group_label" >label :</label>
-                    <input class="forms-sides--group_text" type="text" placeholder="......" />
+                    <label class="forms-sides--group_label" >Taxe Professionelle : </label>
+                    <input class="forms-sides--group_text" v-model="societe.Societe_Taxe_Professionelle" type="text" placeholder="......" />
                 </div>
             </div>
         </div>
@@ -54,33 +54,30 @@
                 <Custom_Input @addedInput="_addedAdress" placeholder="Adress" title="Adresse" />
 
                  <div class="forms-sides--group">
-                    <label class="forms-sides--group_label" >Site internet :</label>
-                    <input class="forms-sides--group_text" type="text" placeholder="......" />
+                    <label class="forms-sides--group_label" >Site internet  :</label>
+                    <input class="forms-sides--group_text" type="text" v-model="societe.Societe_Site_Internet" placeholder="......" />
                 </div>
 
                 <div class="forms-sides--group">
-                    <label class="forms-sides--group_label" >Site internet :</label>
-                    <input class="forms-sides--group_text" type="text" placeholder="......" />
+                    <label class="forms-sides--group_label" >Notes :</label>
+                    <textarea class="forms-sides--group_textarea" v-model="societe.Societe_Note" type="text" placeholder="......" >
+                    </textarea>
                 </div>
                 
             </div>
             
             <div class="col-lg-6 forms-sides">
             <Custom_Input 
-                    @addedInput="_addedAdress" 
+                    @addedInput="_phoneNumbers" 
                     placeholder="Mobile" 
                     title="Numéro de téléphone" />
                 
                 <div class="forms-sides--group">
                     <label class="forms-sides--group_label" >Pays :</label>
-                    <b-form-select class="forms-sides--group_select" ></b-form-select>
+                    <b-form-select class="forms-sides--group_select" v-model="societe.Societe_Ville" :options="countries"></b-form-select>
                 </div>
                 
-                <!-- <Custom_Input @addedInput="_addedPhone" placeholder="Phone Number"/> -->
-                <div class="forms-sides--group">
-                    <label class="forms-sides--group_label" >Clients :</label>
-                    <b-form-select class="forms-sides--group_select" ></b-form-select>
-                </div>
+                
             </div>
         </div>
         
@@ -94,7 +91,7 @@
                     </button>
                 <!-- </router-link>  -->
                 <!-- <router-link to="/societe/new">  -->
-                    <button> 
+                    <button @click="submit"> 
                             <span> NEXT </span>
                             <i class="fa fa-arrow-right ml-1"></i> 
                     </button>
@@ -114,17 +111,50 @@ export default {
     name : "AddSociety",
     data: function(){
         return { 
-            adresses: [], 
+            societe:{
+                Societe_Nom: null, 
+                Societe_identifiant_fiscale: null, 
+                Societe_identifiant_commun_entreprise: null, 
+                Societe_Taxe_Professionelle: null, 
+                Societe_Pays: "Morocco",
+                Societe_Note: null, 
+                Societe_Ville: null, 
+                Societe_Site_Internet:null,
+                phones:[], 
+                adress:[],
+                keywords:[]
+            },
+
+            
+            countries: [
+                { value: null, text: 'Please select an option' },
+                { value: 'a', text: 'Rabat' },
+                { value: 'b', text: 'CasaBlanca' },
+                { value: 'd', text: 'Safi' }
+            ]
         };
     }, 
     components: {
         Custom_Input,
     }, 
     methods:{
+
         _addedAdress: function(adressesArray){
-            this.adresses = adressesArray;
-            console.log(this.adresses);
+            this.societe.adress = adressesArray;
         }, 
+        _phoneNumbers: function(numbers){
+            this.societe.phones = numbers;
+            // console.log(this.societe.phones);
+        }, 
+        submit: function() {
+            this.$http
+                .post("/societes", this.societe)
+                .then(
+                    () => console.log(this.societe) 
+                )
+                .catch();
+            console.log(this.societe);
+        }
     }
 }
 </script>

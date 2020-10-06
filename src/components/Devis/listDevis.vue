@@ -56,15 +56,16 @@
                   <th role="columnheader">Actions</th>
                 </tr>
               </thead>
-              <tbody role="rowgroup">
+              <Spinner v-if="isLoading" class="text-center mr-auto"/>
+              <tbody v-if="!isLoading" role="rowgroup">
           
-                <tr  @click="showModal(devis)"  role="row" class="pointer" v-for="devis in toShow" :key="devis.Devis_id" >
+                <tr    role="row" class="pointer" v-for="devis in toShow" :key="devis.Devis_id" >
 
-                  <td role="cell">{{devis.Devis_uid}}</td>
-                  <td role="cell">{{devis.userName}}</td>
-                  <td role="cell">{{(devis.societe == null )? '---' : devis.societe.Societe_Nom}}</td>
-                  <td role="cell">{{devis.total_ttc}}</td>
-                  <td class="specialStatus" role="cell">
+                  <td @click="showModal(devis)" role="cell">{{devis.Devis_uid}}</td>
+                  <td @click="showModal(devis)" role="cell">{{devis.userName}}</td>
+                  <td @click="showModal(devis)" role="cell">{{(devis.societe == null )? '---' : devis.societe.Societe_Nom}}</td>
+                  <td @click="showModal(devis)" role="cell">{{devis.total_ttc}}</td>
+                  <td @click="showModal(devis)" class="specialStatus" role="cell">
                     <div  v-bind:class="{
 
                       'finalisé':(devis.statut_id === 'Finalisés'),
@@ -91,8 +92,8 @@
                     <h5>{{devis.statut_id}}</h5>
 
                   </td>
-                  <td role="cell">{{ devis.created_at.split("T")[0] }}</td>
-                  <td role="cell">{{ devis.updated_at.split("T")[0] }}</td>
+                  <td @click="showModal(devis)" role="cell">{{ devis.created_at.split("T")[0] }}</td>
+                  <td @click="showModal(devis)" role="cell">{{ devis.updated_at.split("T")[0] }}</td>
                   <td role="cell">
                     <img  @click="doMore(devis.Devis_id)" style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">   
 
@@ -113,26 +114,13 @@
                       <h1 v-if="devis.isFinalised == 0" >Modifier les mots-clés </h1>
                       <h1 @click="download(devis.Devis_id)" v-if="devis.isFinalised == 1">Télécharger</h1> 
                       <h1 @click="_delete(devis.Devis_id)"> Delete</h1> 
-                      
-                 
-
                     </div>
                   </td>
                 </tr>
-
-     
-     
-         
-           
               </tbody>
             </table>
-
-
-              <!-- Ending Of The Table  -->
-
-              
+            <!-- Ending Of The Table  -->              
             <div class="factureshow">
-
                 <b-modal title="Devis Détails" ref="my-modal" hide-footer>
                   <div class="d-block text-center">
                     <div class="objinfos">
@@ -145,28 +133,23 @@
                     </div>
                   </div>
                 </b-modal>
-
             </div>
-
-
-
-
-
-    
   </div>
 </template>
 
 <script>
 
 
+import Spinner from "@/components/helpers/spinner.vue"
 export default {
 
   components: {
-
+Spinner
   },
     data() {
       return {
-            factura:{
+        isLoading: true,
+          factura:{
             userName:" ",
             Devis_uid:" ",
             statut_id:" ",
@@ -209,14 +192,15 @@ export default {
         getDevises: function() {
           this.$http.get("/devis")
           .then((resp) => {
-            console.log("hada resp",resp.data.data)
+            // console.log("hada resp",resp.data.data)
             this.Devises = resp.data.data;
             this.toShow = this.Devises; 
             this.howManyProvisoire = this.countDevis("provisoire");
             this.howManyFinalised = this.countDevis("Finalisés");
             this.howManySigned = this.countDevis("Signés");
             this.howManyRefused = this.countDevis("Refusés");
-            console.log(this.countDevis("provisoire"))
+            // console.log(this.countDevis("provisoire"))
+            this.isLoading = false;
 
           } )
           .catch();

@@ -56,15 +56,17 @@
                   <th role="columnheader">Actions</th>
                 </tr>
               </thead>
-              <tbody role="rowgroup">
+             
+              <Spinner  v-if="isLoading"/>
+              <tbody v-if="!isLoading" role="rowgroup">
           
-                <tr @click="showModal(facture)" role="row" class="pointer"  v-for="facture in toShow" :key="facture.Facture_id" >
+                <tr  role="row" class="pointer"  v-for="facture in toShow" :key="facture.Facture_id" >
 
-                  <td  role="cell">{{facture.Facture_uid}}</td>
-                  <td role="cell">{{facture.userName}}</td>
-                  <td role="cell">{{facture.Facture_uid}}</td>
-                  <td role="cell">{{facture.Total_ttc}}</td>
-                  <td class="specialStatus" role="cell">
+                  <td @click="showModal(facture)" role="cell">{{facture.Facture_uid}}</td>
+                  <td @click="showModal(facture)" role="cell">{{facture.userName}}</td>
+                  <td @click="showModal(facture)" role="cell">{{facture.Facture_uid}}</td>
+                  <td @click="showModal(facture)" role="cell">{{facture.Total_ttc}}</td>
+                  <td @click="showModal(facture)" class="specialStatus" role="cell">
                     <div  v-bind:class="{
 
                       'finalisé':(facture.statut_id === 'Finalisés'),
@@ -91,8 +93,8 @@
                     <h5>{{facture.statut_id}}</h5>
 
                   </td>
-                  <td role="cell">{{facture.created_at.split("T")[0]}}</td>
-                  <td role="cell">{{facture.updated_at.split("T")[0]}}</td>
+                  <td @click="showModal(facture)" role="cell">{{facture.created_at.split("T")[0]}}</td>
+                  <td @click="showModal(facture)" role="cell">{{facture.updated_at.split("T")[0]}}</td>
                   <td role="cell">
                     <img  @click="doMore(facture.Facture_id)" style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">   
 
@@ -157,12 +159,14 @@
 </template>
 
 <script>
+import Spinner from "@/components/helpers/spinner.vue"
 export default {
 
     
 
     data() {
       return {
+        isLoading: true,
           value:[
             "Provisoires",
             "Finalisé",
@@ -193,6 +197,9 @@ export default {
       }
 
     },
+    components: {
+      Spinner
+    },
     methods: {      
       
       showModal(object) {
@@ -217,7 +224,9 @@ export default {
             this.howManyFinalised = this.countFacture("Finalisés");
             this.howManyPaid = this.countFacture("Payée");
             this.howManyRefused = this.countFacture("Refusés");
-            console.log(this.howManyProvisoire,this.howManyFinalised)
+            // console.log(this.howManyProvisoire,this.howManyFinalised)
+            
+            this.isLoading= false;
 
           } )
           .catch();

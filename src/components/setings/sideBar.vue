@@ -29,7 +29,7 @@
                   Factures
               </router-link>
             </li>
-        
+        <!--
             <li class="sidebar-submenu">
               <router-link 
               :style=" activeRoute('AvoirePreferences') == true ?  'color:#1757b7;' : '' "
@@ -56,7 +56,7 @@
                   Avoirs d'acompte
               </router-link>
             </li>
-        
+-->
             <li class="sidebar-submenu">
               <router-link 
               :style=" activeRoute('NumerotationPreferences') == true ?  'color:#1757b7;' : '' "
@@ -88,7 +88,7 @@
         </router-link>
       
       </li>
-      -->
+    
       <li class="sidebar-item">
         <router-link 
           :style=" activeRoute('UserContact') == true ?  'color:#1757b7;' : '' "
@@ -114,7 +114,7 @@
           <i v-show="activeRoute('User')" class="fa fa-caret-right"></i> Compte                
         </router-link>
       </li>
-
+  -->
       <li class="sidebar-item">
         <router-link
           :style=" activeRoute('DeleteAccount') == true ?  'color:#1757b7; ' : '' "

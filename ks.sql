@@ -30,7 +30,14 @@ INSERT INTO `interet_retards`(`id`, `inter_value`, `created_at`, `updated_at`)
                 (null,"Taux d’intérêt légal en vigueur",now(),now());
       
 INSERT INTO `type_articles`(`id`, `user_id`, `article_type_value`, `article_type_value_eng`, `created_at`, `updated_at`) 
-      VALUES    (null,null,"Heures","Hours",Now(),Now()),
+        VALUES  (null,null,"Heures","Hours",Now(),Now()),
                 (null,null,"Jours","days",Now(),Now()),
                 (null,null,"Produits","Products",Now(),Now()),
                 (null,null,"Services","Services",Now(),Now())
+
+INSERT INTO `type_text_document_parameters`(`id`, `value`, `created_at`, `updated_at`) 
+        VALUES  (null,"Avoire",now(),now()),
+                (null,"Facture",now(),now()),      
+                (null,"Facture-Acompte",now(),now()),
+                (null,"Avoire-Acompte",now(),now()),
+                (null,"Devis",now(),now())

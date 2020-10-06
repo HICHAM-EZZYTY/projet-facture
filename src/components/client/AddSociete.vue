@@ -150,7 +150,7 @@ export default {
             this.$http
                 .post("/societes", this.societe)
                 .then(
-                    () => console.log(this.societe) 
+                    (resp) => console.log(resp) 
                 )
                 .catch();
             console.log(this.societe);

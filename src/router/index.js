@@ -17,6 +17,8 @@ import addClient from "../views/ClientContainer.vue";
 import cards from "../components/Clients-page/cards.vue";
 import Type_client from "@/components/Clients-page/Type_client.vue";
 import Information_Compte from "../components/Clients-page/Information_Compte.vue";
+import EditInformation_Compte from "../components/Clients-page/Information_Compte.vue";
+
 
 //Facture
 import factureAcompte from "../components/setings/factureAcompte.vue";
@@ -156,6 +158,16 @@ const routes = [
               requiresAuth: true
             },
           },
+          {
+            path: "editclient",
+            name: "Editclient",
+            component:EditInformation_Compte,
+            meta: {
+              requiresAuth: true
+            },
+          },
+
+
           {
             path: 'new',
             name: "NewClient",

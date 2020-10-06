@@ -56,6 +56,7 @@
                 <Custom_Input 
                     @addedInput="_addedPhone" 
                     placeholder="Phone number" 
+                    title="Phone number"
                     />
 
                  <div class="forms-sides--group">

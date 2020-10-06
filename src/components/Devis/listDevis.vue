@@ -58,7 +58,7 @@
               </thead>
               <tbody role="rowgroup">
           
-                <tr  @click="showModal(devis)"  role="row" v-for="devis in toShow" :key="devis.Devis_id" >
+                <tr  @click="showModal(devis)"  role="row" class="pointer" v-for="devis in toShow" :key="devis.Devis_id" >
 
                   <td role="cell">{{devis.Devis_uid}}</td>
                   <td role="cell">{{devis.userName}}</td>
@@ -410,7 +410,9 @@ export default {
 <style scoped lang="scss">
 @import "../../scss/main.scss" ;  
 
-
+.pointer:hover{
+  cursor: pointer;
+}
 .objinfos{
     display: flex;
     flex-direction: column;

@@ -58,7 +58,7 @@
               </thead>
               <tbody role="rowgroup">
           
-                <tr @click="showModal(facture)" role="row" v-for="facture in toShow" :key="facture.Facture_id" >
+                <tr @click="showModal(facture)" role="row" class="pointer"  v-for="facture in toShow" :key="facture.Facture_id" >
 
                   <td  role="cell">{{facture.Facture_uid}}</td>
                   <td role="cell">{{facture.userName}}</td>
@@ -213,8 +213,6 @@ export default {
           .then((resp) => {
             this.Factures = resp.data.factures;
             this.toShow = this.Factures; 
-            console.log("hada factures",this.Factures.length)
-            console.log("hada table",this.toShow)
             this.howManyProvisoire = this.countFacture("provisoire");
             this.howManyFinalised = this.countFacture("Finalisés");
             this.howManyPaid = this.countFacture("Payée");
@@ -405,6 +403,9 @@ export default {
 <style scoped lang="scss">
 @import "../../scss/main.scss" ;  
 
+.pointer:hover{
+  cursor: pointer;
+}
 
 .objinfos{
     display: flex;

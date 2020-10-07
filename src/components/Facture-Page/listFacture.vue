@@ -227,6 +227,7 @@ export default {
             // console.log(this.howManyProvisoire,this.howManyFinalised)
             
             this.isLoading= false;
+            console.log("hada table",this.toShow)
 
           } )
           .catch();
@@ -404,6 +405,7 @@ export default {
     },
     created:function () {
       this.getFactures();
+      console.log("hada table",this.toShow)
     },
    
 }

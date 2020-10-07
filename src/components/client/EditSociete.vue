@@ -8,7 +8,7 @@
                 </div>
                 <div class="page-title--icons">
                     <!--icons -->
-                    <span class="mr-2"> Annulé la creation </span>
+                    <span class="mr-2"> Annulé la modification </span>
                     <button>
                         <img src="../../assets/img/closedocument 1.svg" alt="closedocument">
                     </button>

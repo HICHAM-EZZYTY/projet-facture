@@ -102,33 +102,6 @@ const routes = [
     },
     children: [
       {
-        path: "devis",
-        // name: "Devis",
-        component: Devis,
-        meta: {
-          requiresAuth: true
-        },
-        children: [
-          {
-            path: "",
-            name: "Devis",
-            component: listDevis,
-            meta: {
-              requiresAuth: true
-            },
-          },
-          {
-            path: "new",
-            name: "NewDevis",
-            component: CreateDevis,
-            meta: {
-              requiresAuth: true
-            },
-
-          }
-        ]
-      },
-      {
         path: "client",
         // name: "Client",
         component: Clients,
@@ -187,6 +160,34 @@ const routes = [
           }
         ]
       },
+      {
+        path: "devis",
+        // name: "Devis",
+        component: Devis,
+        meta: {
+          requiresAuth: true
+        },
+        children: [
+          {
+            path: "",
+            name: "Devis",
+            component: listDevis,
+            meta: {
+              requiresAuth: true
+            },
+          },
+          {
+            path: "new",
+            name: "NewDevis",
+            component: CreateDevis,
+            meta: {
+              requiresAuth: true
+            },
+
+          }
+        ]
+      },
+  
       {
         path: "Facture",
         component: Facture,

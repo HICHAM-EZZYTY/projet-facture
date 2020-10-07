@@ -17,6 +17,8 @@ import addClient from "../views/ClientContainer.vue";
 import cards from "../components/Clients-page/cards.vue";
 import Type_client from "@/components/Clients-page/Type_client.vue";
 import Information_Compte from "../components/Clients-page/Information_Compte.vue";
+import EditInformation_Compte from "../components/Clients-page/EditInformation_Compte.vue";
+
 
 //Facture
 import factureAcompte from "../components/setings/factureAcompte.vue";
@@ -26,6 +28,13 @@ import avoirAcompte from "../components/setings/avoirAcompte.vue";
 
 // Societe 
 import AddSociete from '../components/client/AddSociete.vue'
+import EditSociete from '../components/client/EditSociete.vue'
+
+import Societe from "../views/Societe-Page/Societe.vue"
+import societescards from "../components/Clients-page/societescards.vue";
+
+
+
 
 //settings
 import homeSeting from "../views/setings/homeSeting.vue";
@@ -45,12 +54,18 @@ import Login from "../views/Authentification/Login.vue";
 import TheExportDevis from "../components/Devis/TheExportDevis.vue";
 import TheCalendarDevis from "../components/Devis/TheCalendarDevis.vue";
 import TheRefusDevis from "../components/Devis/TheRefusDevis.vue";
+import TheSignedDevis from "../components/Devis/TheSignedDevis.vue";
+
 
 // Facture-Page
 import Facture from "../views/Facture-Page/Facture.vue";
 import listFacture from "./../components/Facture-Page/listFacture.vue";
 import createFacture from "./../components/Facture-Page/createFacture.vue";
 import theExportFacture from "./../components/Facture-Page/theExportFacture.vue";
+import ThePaidFacture from "./../components/Facture-Page/ThePaidFacture.vue";
+import TheFinalisedFacture from "./../components/Facture-Page/TheFinalisedFacture.vue";
+
+
 
 // Avoire-Page
 import Avoire from "../views/Avoire-Page/Avoire.vue";
@@ -87,33 +102,6 @@ const routes = [
     },
     children: [
       {
-        path: "devis",
-        // name: "Devis",
-        component: Devis,
-        meta: {
-          requiresAuth: true
-        },
-        children: [
-          {
-            path: "",
-            name: "Devis",
-            component: listDevis,
-            meta: {
-              requiresAuth: true
-            },
-          },
-          {
-            path: "new",
-            name: "NewDevis",
-            component: CreateDevis,
-            meta: {
-              requiresAuth: true
-            },
-
-          }
-        ]
-      },
-      {
         path: "client",
         // name: "Client",
         component: Clients,
@@ -146,6 +134,16 @@ const routes = [
             },
           },
           {
+            path: "editclient",
+            name: "Editclient",
+            component:EditInformation_Compte,
+            meta: {
+              requiresAuth: true
+            },
+          },
+
+
+          {
             path: 'new',
             name: "NewClient",
             component: addClient,
@@ -162,12 +160,36 @@ const routes = [
           }
         ]
       },
+      {
+        path: "devis",
+        // name: "Devis",
+        component: Devis,
+        meta: {
+          requiresAuth: true
+        },
+        children: [
+          {
+            path: "",
+            name: "Devis",
+            component: listDevis,
+            meta: {
+              requiresAuth: true
+            },
+          },
+          {
+            path: "new",
+            name: "NewDevis",
+            component: CreateDevis,
+            meta: {
+              requiresAuth: true
+            },
 
-      // Facture-Page
-      
+          }
+        ]
+      },
+  
       {
         path: "Facture",
-        // name: "Facture",
         component: Facture,
         meta: {
           requiresAuth: true
@@ -175,34 +197,24 @@ const routes = [
         children: [
           {
             path: "",
-            name: "listFacture",
+            name: "Facture",
             component: listFacture,
             meta: {
               requiresAuth: true
             },
-
           },
           {
             path: "new",
-            name: "NewFactuer",
+            name: "NewFacture",
             component: createFacture,
             meta: {
               requiresAuth: true
             },
           },
-          
-         
         ]
       },
-
-
-// 
-
-
-// Avoire-Page
       {
         path: "Avoire",
-        // name: "Avoire",
         component: Avoire,
         meta: {
           requiresAuth: true
@@ -215,7 +227,6 @@ const routes = [
             meta: {
               requiresAuth: true
             },
-
           },
           {
             path: "new",
@@ -230,29 +241,42 @@ const routes = [
         ]
       },
 
-      // {
-      //   path: 'avoire/new',
-      //   name: "NewAvoire",
-      //   meta: {
-      //     requiresAuth: true
-      //   },
-      // },
 
       {
         path: "societe",
-        name: "Societe",
+        // name: "Societe",
+        component: Societe,
         meta: {
           requiresAuth: true
         },
+        children:[
+          {
+            path: "",
+            name: "Societe",
+            component: societescards,
+            meta: {
+              requiresAuth: true
+            },
+          },
+          {
+            path: 'new',
+            name: "NewSociete",
+            component: AddSociete,
+            meta: {
+              requiresAuth: true
+            },
+          },
+          {
+            path: 'edit',
+            name: "EditSociete",
+            component: EditSociete,
+            meta: {
+              requiresAuth: true
+            },
+          },
+        ]
       },
-      {
-        path: 'Societe/new',
-        name: "NewSociete",
-        component: AddSociete,
-        meta: {
-          requiresAuth: true
-        },
-      },
+      
     ]
   },
 
@@ -403,8 +427,32 @@ const routes = [
   },
   {
     path: "/devis-refus",
-    name: "devisCalandar",
+    name: "deviRefus",
     component: TheRefusDevis,
+    meta: {
+      requiresAuth: true
+    },
+  },
+  {
+    path: "/devis-signed",
+    name: "devisSigned",
+    component: TheSignedDevis,
+    meta: {
+      requiresAuth: true
+    },
+  },
+  {
+    path: "/facture-paid",
+    name: "PaidFacture",
+    component: ThePaidFacture,
+    meta: {
+      requiresAuth: true
+    },
+  },
+  {
+    path: "/facture-finalised",
+    name: "FinalsedFacture",
+    component: TheFinalisedFacture,
     meta: {
       requiresAuth: true
     },

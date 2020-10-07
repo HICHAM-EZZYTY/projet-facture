@@ -19,6 +19,7 @@
             @mouseover="hoverIcons()"
             v-on:mouseleave="hoverIconsLeave()"
             class="first"
+            @click="SavePdf"
           >
             <div class="background">
               <img src="../../assets/img/pdf.svg" alt="Pdf Icon" />
@@ -91,6 +92,10 @@
 </template>
 
 <script>
+import jsPDF from "jspdf";
+import 'jspdf-autotable'
+
+
 export default {
   name : "TheExportDevis",
   data: function() {
@@ -99,12 +104,32 @@ export default {
       IsColor1: false,
       IsColor2: false,
       IsColor3: false,
-      IsColor4: false
+      IsColor4: false,
+      Devises:[],
+      PdfHead:{},
+      pdfBody:[],
     };
   },
 
   props: {},
   methods: {
+    SavePdf:function(){
+      const doc = new jsPDF()
+      doc.autoTable({
+      head: [this.PdfHead],
+      body: [
+        // ['David', 'david@example.com', 'Sweden'],
+        // ['Castille', 'castille@example.com', 'Spain'],
+        this.pdfBody
+        // ...
+      ],
+    })
+    doc.save('table.pdf')
+
+
+
+
+    },
     hoverIcons() {
       this.IsColor = true;
     },
@@ -135,7 +160,18 @@ export default {
     hoverIconsLeave4() {
       this.IsColor4 = false;
     }
-  }
+  },
+  created:function () {
+      this.Devises=this.$route.params.array;
+      this.PdfHead=Object.keys(this.Devises[0]);
+      console.log("devises key",Object.keys(this.Devises[0]));
+      this.Devises.forEach( (d) => {
+        this.pdfBody.push(Object.values(d))
+      });
+      console.log("devieses value",this.pdfBody)
+
+
+    }
 };
 </script>
 
@@ -409,6 +445,7 @@ $tss: 50vw;
 }
 
 .first {
+  cursor: pointer;
   p {
     @include paragraph();
   }

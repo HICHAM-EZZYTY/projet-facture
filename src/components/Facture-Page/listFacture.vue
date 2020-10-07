@@ -19,24 +19,24 @@
               <div ref="devisHeader" class="devisHeader">
                   <div id="active" class="tDevis" @click="makeFirst(0)">
                       <h3 id="activeTitre">Tous Les Factures</h3>
-                      <div id="activerectangle" class="rec">7</div>
+                      <div id="activerectangle" class="rec">{{Factures.length}}</div>
                   </div>
 
                   <div class="Prov" @click="makeSecond(1)">
                       <h3>Provisoires</h3>
-                      <div class="rec">1</div>
+                      <div class="rec">{{howManyProvisoire}}</div>
                   </div>
                   <div class="Final" @click="makeThird(2)">
                       <h3>Finalisés</h3>
-                      <div class="rec">2</div>
+                      <div class="rec">{{howManyFinalised}}</div>
                   </div>
-                  <div class="refus" @click="makeFourth(3)">
+                  <div class="refus"  @click="makeFourth(3)">
                       <h3>Payées</h3>
-                      <div class="rec">2</div>
+                      <div class="rec">{{howManyPaid}}</div>
                   </div>
-                  <div class="signé" @click="makeFifth(4)">
-                      <h3>À payer</h3>
-                      <div class="rec">2</div>
+                  <div class="signé">
+                      <h3></h3>
+                      <div class=""></div>
                   </div>
               </div>
 
@@ -46,7 +46,7 @@
               <table role="table">
               <thead role="rowgroup">
                 <tr role="row">
-                  <th role="columnheader">N° de Facture</th>
+                  <th role="columnheader">N° de facture</th>
                   <th role="columnheader">Nom de client</th>
                   <th role="columnheader">Nom de société </th>
                   <th role="columnheader">Montant Totale</th>
@@ -56,302 +56,102 @@
                   <th role="columnheader">Actions</th>
                 </tr>
               </thead>
-              <tbody role="rowgroup">
+             
+              <Spinner  v-if="isLoading"/>
+              <tbody v-if="!isLoading" role="rowgroup">
           
-                <tr role="row">
-                  <td role="cell">D2000003</td>
-                  <td role="cell">Hicham Ezzyti</td>
-                  <td role="cell">Moulimeq</td>
-                  <td role="cell">46,56 Dh</td>
-                  <td class="specialStatus" role="cell">
+                <tr  role="row" class="pointer"  v-for="facture in toShow" :key="facture.Facture_id" >
+
+                  <td @click="showModal(facture)" role="cell">{{facture.Facture_uid}}</td>
+                  <td @click="showModal(facture)" role="cell">{{facture.userName}}</td>
+                  <td @click="showModal(facture)" role="cell">{{facture.Facture_uid}}</td>
+                  <td @click="showModal(facture)" role="cell">{{facture.Total_ttc}}</td>
+                  <td @click="showModal(facture)" class="specialStatus" role="cell">
                     <div  v-bind:class="{
 
-                      'finalisé':(value[0] === 'Finalisé'),
-                      'Signés':(value[0] === 'Signés'),
-                      'Provisoires':(value[0] === 'Provisoires'),
-                      'Refusés':(value[0] === 'Refusés'),
+                      'finalisé':(facture.statut_id === 'Finalisés'),
+                      'Signés':(facture.statut_id === 'Payée' ),
+                      'Provisoires':(facture.statut_id === 'provisoire'),
+                      'Refusés':(facture.statut_id === 'Refusés'),
 
                     }" class="recValue">
                     <p
                      v-bind:class="{
-                      'pFinalisé':(value[0] === 'Finalisé'),
-                      'pSignés':(value[0] === 'Signés'),
-                      'pProvisoires':(value[0] === 'Provisoires'),
-                      'pRefusés':(value[0] === 'Refusés'),
+                      'pFinalisé':(facture.statut_id === 'Finalisés'),
+                      'pSignés':(facture.statut_id === 'Payée' ),
+                      'pProvisoires':(facture.statut_id === 'provisoire'),
+                      'pRefusés':(facture.statut_id === 'Refusés'),
                        
                      }"
                     >  
                     
-                      {{getstatus(0)}}
+                      {{getstatus(facture.statut_id)}}
 
                     </p>
                       
                     </div>
-                    <h5>{{value[0]}}</h5>
+                    <h5>{{facture.statut_id}}</h5>
 
                   </td>
-                  <td role="cell">12/02/20</td>
-                  <td role="cell">16/02/20</td>
+                  <td @click="showModal(facture)" role="cell">{{facture.created_at.split("T")[0]}}</td>
+                  <td @click="showModal(facture)" role="cell">{{facture.updated_at.split("T")[0]}}</td>
                   <td role="cell">
-                    <img  @click="doMore(1)" style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">   
+                    <img  @click="doMore(facture.Facture_id)" style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">   
 
-                    <div v-if="DoMoreIndx==1" class="cardDoMore">
-                      <h1>Marquer comme signé </h1>
-                      <h1>Marquer comme refusé </h1>
-                      <h1>Modifier les mots-clés </h1>
-                      <h1>Dupliquer en facture</h1> 
-                      <h1>Dupliquer le devis</h1>
-                      <h1>Envoyer par email</h1> 
-                      <h1>Télécharger</h1> 
-                      <h1>Copier l'url</h1> 
+                    <div v-if="DoMoreIndx==facture.Facture_id" class="cardDoMore">
+                      
+                      <router-link
+                      :to="{ name: 'FinalsedFacture', params: {devisId: facture.Facture_id } }"
+                       v-if="facture.isFinalised == 0 && !facture.payed_at" ><h1>Marquer comme Finalisé</h1></router-link>
+
+                      
+                      <router-link
+                      :to="{ name: 'PaidFacture', params: {devisId: facture.Facture_id } }"
+                       v-if="!facture.payed_at" ><h1>Marquer comme Payé</h1></router-link>
+
+   
+                      <h1 @click="unpaid(facture.Facture_id)" v-if="facture.payed_at">Annuler le Payement</h1>
+                      <h1 v-if="!facture.payed_at" >Modifier les mots-clés </h1>
+                      <h1 @click="download(facture.Facture_id)">Télécharger</h1> 
+                      <h1 @click="_delete(facture.Facture_id)"> Delete</h1> 
+
                     </div>
 
                   </td>
                 </tr>
-
-                <tr role="row">
-                  <td role="cell">D2000003</td>
-                  <td role="cell">Hicham Ezzyti</td>
-                  <td role="cell">Moulimeq</td>
-                  <td role="cell">46,56 Dh</td>
-                  <td class="specialStatus" role="cell">
-                    <div  v-bind:class="{
-
-                      'finalisé':(value[1] === 'Finalisé'),
-                      'Signés':(value[1] === 'Signés'),
-                      'Provisoires':(value[1] === 'Provisoires'),
-                      'Refusés':(value[1] === 'Refusés'),
-
-                    }" class="recValue">
-                    <p
-                     v-bind:class="{
-                      'pFinalisé':(value[1] === 'Finalisé'),
-                      'pSignés':(value[1] === 'Signés'),
-                      'pProvisoires':(value[1] === 'Provisoires'),
-                      'pRefusés':(value[1] === 'Refusés'),
-                       
-                     }"
-                    >  
-                      {{getstatus(1)}}
-                      
-                      </p></div>
-                     <h5>{{value[1]}}</h5>
-
-                  </td>
-                  <td role="cell">12/02/20</td>
-                  <td role="cell">16/02/20</td>
-                  <td role="cell">
-                  <img  @click="doMore(2)"  style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">
-                  <div  v-if="DoMoreIndx==2" class="cardDoMore">
-                      <h1>Marquer comme signé  </h1>
-                      <h1>Marquer comme refusé </h1>
-                      <h1>Modifier les mots-clés </h1>
-                      <h1>Dupliquer en facture</h1> 
-                      <h1>Dupliquer le devis</h1>
-                      <h1>Envoyer par email</h1> 
-                      <h1>Télécharger</h1> 
-                      <h1>Copier l'url</h1> 
-                  </div>
-                  </td>
-                </tr>
-
-
-
-                <tr role="row">
-                  <td role="cell">D2000003</td>
-                  <td role="cell">Hicham Ezzyti</td>
-                  <td role="cell">Moulimeq</td>
-                  <td role="cell">46,56 Dh</td>
-                  <td class="specialStatus" role="cell">
-                    <div  v-bind:class="{
-
-                      'finalisé':(value[2] === 'Finalisé'),
-                      'Signés':(value[2] === 'Signés'),
-                      'Provisoires':(value[2] === 'Provisoires'),
-                      'Refusés':(value[2] === 'Refusés'),
-
-                    }" class="recValue">
-                    <p
-                     v-bind:class="{
-                      'pFinalisé':(value[2] === 'Finalisé'),
-                      'pSignés':(value[2] === 'Signés'),
-                      'pProvisoires':(value[2] === 'Provisoires'),
-                      'pRefusés':(value[2] === 'Refusés'),
-                       
-                     }"
-                    >  
-                      {{getstatus(2)}}
-                      
-                      </p></div>
-                     <h5>{{value[2]}}</h5>
-
-                  </td>
-                  <td role="cell">12/02/20</td>
-                  <td role="cell">16/02/20</td>
-                  <td role="cell">
-                  <img  @click="doMore(3)"  style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">
-                  <div  v-if="DoMoreIndx==3" class="cardDoMore">
-                      <h1>Marquer comme signé   </h1>
-                      <h1>Marquer comme refusé </h1>
-                      <h1>Modifier les mots-clés </h1>
-                      <h1>Dupliquer en facture</h1> 
-                      <h1>Dupliquer le devis</h1>
-                      <h1>Envoyer par email</h1> 
-                      <h1>Télécharger</h1> 
-                      <h1>Copier l'url</h1> 
-                  </div>
-                  </td>
-                </tr>
-     
-
-                <tr role="row">
-                  <td role="cell">D2000003</td>
-                  <td role="cell">Hicham Ezzyti</td>
-                  <td role="cell">Moulimeq</td>
-                  <td role="cell">46,56 Dh</td>
-                  <td class="specialStatus" role="cell">
-                    <div  v-bind:class="{
-
-                      'finalisé':(value[3] === 'Finalisé'),
-                      'Signés':(value[3] === 'Signés'),
-                      'Provisoires':(value[3] === 'Provisoires'),
-                      'Refusés':(value[3] === 'Refusés'),
-
-                    }" class="recValue">
-                    <p
-                     v-bind:class="{
-                      'pFinalisé':(value[3] === 'Finalisé'),
-                      'pSignés':(value[3] === 'Signés'),
-                      'pProvisoires':(value[3] === 'Provisoires'),
-                      'pRefusés':(value[3] === 'Refusés'),
-                       
-                     }"
-                    >  
-                      {{getstatus(3)}}
-                      
-                      </p></div>
-                    <h5>{{value[3]}}</h5>
-
-                  </td>
-                  <td role="cell">12/02/20</td>
-                  <td role="cell">16/02/20</td>
-                  <td role="cell">
-                  <img  @click="doMore(4)"  style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">
-                  <div  v-if="DoMoreIndx==4" class="cardDoMore">
-                      <h1>Marquer comme signé   </h1>
-                      <h1>Marquer comme refusé </h1>
-                      <h1>Modifier les mots-clés </h1>
-                      <h1>Dupliquer en facture</h1> 
-                      <h1>Dupliquer le devis</h1>
-                      <h1>Envoyer par email</h1> 
-                      <h1>Télécharger</h1> 
-                      <h1>Copier l'url</h1> 
-                  </div>
-                  </td>
-                </tr>
-
-
-                <tr role="row">
-                  <td role="cell">D2000003</td>
-                  <td role="cell">Hicham Ezzyti</td>
-                  <td role="cell">Moulimeq</td>
-                  <td role="cell">46,56 Dh</td>
-                  <td  class="specialStatus" role="cell">
-                    <div  v-bind:class="{
-
-                      'finalisé':(value[0] === 'Finalisé'),
-                      'Signés':(value[0] === 'Signés'),
-                      'Provisoires':(value[0] === 'Provisoires'),
-                      'Refusés':(value[0] === 'Refusés'),
-
-                    }" class="recValue">
-                    <p
-                     v-bind:class="{
-                      'pFinalisé':(value[0] === 'Finalisé'),
-                      'pSignés':(value[0] === 'Signés'),
-                      'pProvisoires':(value[0] === 'Provisoires'),
-                      'pRefusés':(value[0] === 'Refusés'),
-                       
-                     }"
-                    >  
-                      {{getstatus(0)}}
-                      
-                      </p></div>
-                      <h5>{{value[0]}}</h5>
-                  </td>
-                  <td role="cell">12/02/20</td>
-                  <td role="cell">16/02/20</td>
-                  <td role="cell">
-                  <img  @click="doMore(5)"  style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">
-                  <div  v-if="DoMoreIndx==5" class="cardDoMore">
-                      <h1>Marquer comme signé   </h1>
-                      <h1>Marquer comme refusé </h1>
-                      <h1>Modifier les mots-clés </h1>
-                      <h1>Dupliquer en facture</h1> 
-                      <h1>Dupliquer le devis</h1>
-                      <h1>Envoyer par email</h1> 
-                      <h1>Télécharger</h1> 
-                      <h1>Copier l'url</h1> 
-                  </div>
-                  </td>
-                </tr>
-
-
-                <tr role="row">
-                  <td role="cell">D2000003</td>
-                  <td role="cell">Hicham Ezzyti</td>
-                  <td role="cell">Moulimeq</td>
-                  <td role="cell">46,56 Dh</td>
-                  <td class="specialStatus" role="cell">
-                    <div  v-bind:class="{
-
-                      'finalisé':(value[0] === 'Finalisé'),
-                      'Signés':(value[0] === 'Signés'),
-                      'Provisoires':(value[0] === 'Provisoires'),
-                      'Refusés':(value[0] === 'Refusés'),
-
-                    }" class="recValue">
-                    <p
-                     v-bind:class="{
-                      'pFinalisé':(value[0] === 'Finalisé'),
-                      'pSignés':(value[0] === 'Signés'),
-                      'pProvisoires':(value[0] === 'Provisoires'),
-                      'pRefusés':(value[0] === 'Refusés'),
-                       
-                     }"
-                    >  
-                      {{getstatus(0)}}
-                      
-                      </p></div>
-                      <h5>{{value[0]}}</h5>
-                  </td>
-                  <td role="cell">12/02/20</td>
-                  <td role="cell">16/02/20</td>
-                  <td role="cell">
-                  <img  @click="doMore(6)"  style="height: 18px;width: 18px;cursor: pointer;" src="../../assets/img/Domore.svg" alt="doMore">
-                  <div  v-if="DoMoreIndx==6" class="cardDoMore">
-                      <h1>Marquer comme signé   </h1>
-                      <h1>Marquer comme refusé </h1>
-                      <h1>Modifier les mots-clés </h1>
-                      <h1>Dupliquer en facture</h1> 
-                      <h1>Dupliquer le devis</h1>
-                      <h1>Envoyer par email</h1> 
-                      <h1>Télécharger</h1> 
-                      <h1>Copier l'url</h1> 
-                  </div>
-                  </td>
-                </tr>
-
 
      
      
          
            
               </tbody>
-            </table>
+            </table> 
 
 
-              <!-- Ending Of The Table  -->
+            <div class="factureshow">
+
+                <b-modal title="Facture Détails" ref="my-modal" hide-footer>
+                  <div class="d-block text-center">
+                    <div class="objinfos">
+                      <h2>Nom de client : <span>{{factura.Username}}</span></h2>
+                      <h2>N° de facture : <span>{{factura.Facture_uid}}</span></h2>
+                      <h2>Status : <span>{{factura.statut_id}}</span></h2>
+                      <h2>Condition : <span>{{factura.Condition}}</span></h2>
+                      <h2>Interet_de_retard : <span>{{factura.Interet_de_retard.substring(0,3)}}</span></h2>
+                      <h2>Mode : <span>{{factura.Mode}}</span></h2>
+                      <h2>Créer le : <span>{{factura.created_at.split("T")[0]}}</span></h2>
+                      <h2>Total Ht : <span>{{factura.Total_ht}}</span></h2>
+                      <h2>Total_ttc : <span>{{factura.Total_ttc}}</span></h2>
+                    </div>
+                  </div>
+                </b-modal>
+
+            </div>
+
+
+
+
+
 
 
     
@@ -359,23 +159,145 @@
 </template>
 
 <script>
+import Spinner from "@/components/helpers/spinner.vue"
 export default {
 
     
 
     data() {
       return {
+        isLoading: true,
           value:[
             "Provisoires",
             "Finalisé",
             "Signés",
             "Refusés"            
           ],
+          factura:{
+            Username:" ",
+            Facture_uid:" ",
+            statut_id:" ",
+            Condition:" ",
+            Interet_de_retard:" ",
+            Mode:" ",
+            Reglement_id: "",
+            Total_ht:"",
+            Total_ttc:"",
+            created_at:"",
+            updated_at:"",
+          },
+          className:"theme",
           DoMoreIndx:0,
+          Factures: [],
+          toShow: [], 
+          howManyProvisoire: 0,
+          howManyFinalised: 0,
+          howManyPaid: 0,
+          howManyRefused: 0,
       }
 
     },
-    methods: {
+    components: {
+      Spinner
+    },
+    methods: {      
+      
+      showModal(object) {
+        this.$refs['my-modal'].show()
+        this.factura.Username=object.userName;
+        this.factura.Facture_uid=object.Facture_uid;
+        this.factura.statut_id=object.statut_id;
+        this.factura.Condition=object.Reglement.Condition;
+        this.factura.Interet_de_retard=object.Reglement.Interet_de_retard;
+        this.factura.Mode=object.Reglement.Mode;
+        this.factura.Total_ht=object.Total_ht;
+        this.factura.Total_ttc=object.Total_ttc;
+        this.factura.created_at=object.created_at;
+        this.factura.updated_at=object.updated_at;
+      },
+        getFactures: function() {
+          this.$http.get("/factures")
+          .then((resp) => {
+            this.Factures = resp.data.factures;
+            this.toShow = this.Factures; 
+            this.howManyProvisoire = this.countFacture("provisoire");
+            this.howManyFinalised = this.countFacture("Finalisés");
+            this.howManyPaid = this.countFacture("Payée");
+            this.howManyRefused = this.countFacture("Refusés");
+            // console.log(this.howManyProvisoire,this.howManyFinalised)
+            
+            this.isLoading= false;
+            console.log("hada table",this.toShow)
+
+          } )
+          .catch();
+        },
+        countFacture: function(key){
+          let counter = 0; 
+          this.Factures.forEach( (d) => {
+            if( d.statut_id === key){
+              counter++;
+            }
+          });
+          return counter;
+        },
+        getFacture: function(key){
+          // let counter = []; 
+          this.toShow = [];
+          this.Factures.forEach( (d) => {
+            if(key !== ""){
+              if( d.statut_id === key){
+                this.toShow.push(d);
+              }
+            }else{
+              this.toShow.push(d);
+            }
+            
+          });
+        },
+        getstatus:function(string){
+          return string.substring(0, 2);
+        },
+   
+        paid: function(id){
+           this.$http.get(`/factures/${id}/pay`)
+                    .then( (rep) => {
+                      console.log(rep);
+                      window.location.reload();
+                    })
+                    .catch();
+        },
+          unpaid: function(id){
+           this.$http.get(`/factures/${id}/unpay`)
+                    .then( (rep) => {
+                      console.log(rep);
+                      window.location.reload();
+                    })
+                    .catch();
+        },
+    
+  
+        download: function(id){
+
+         window.location.href =`http://fatoura.hamdaouihamza.com/api/factures/${id}/download`;
+
+        },
+        finalise: function(id){
+          this.$http.get(`/factures/${id}/finalise`)
+                    .then( (rep) => {
+                      console.log(rep);
+                      window.location.reload();
+                    })
+                    .catch();
+        }, 
+        _delete: function(id){   
+          this.$http.delete(`/factures/${id}`)
+                    .then( (rep) => {
+                      console.log(rep);
+                      window.location.reload();
+                    })
+                    .catch();
+        },
         makeSecond: function(n) {
         let para;
         para=this.$refs.devisHeader;
@@ -391,6 +313,8 @@ export default {
         para.childNodes[n].setAttribute("id", "active")
         para.childNodes[n].childNodes[0].setAttribute("id", "activeTitre")
         para.childNodes[n].childNodes[1].setAttribute("id", "activerectangle")
+        this.getFacture("provisoire");
+
 
         },
         makeFirst: function(n) {
@@ -408,6 +332,8 @@ export default {
         para.childNodes[n].setAttribute("id", "active")
         para.childNodes[n].childNodes[0].setAttribute("id", "activeTitre")
         para.childNodes[n].childNodes[1].setAttribute("id", "activerectangle")
+        this.getFacture("");
+
 
         },
         makeThird: function(n) {
@@ -425,6 +351,8 @@ export default {
         para.childNodes[n].setAttribute("id", "active")
         para.childNodes[n].childNodes[0].setAttribute("id", "activeTitre")
         para.childNodes[n].childNodes[1].setAttribute("id", "activerectangle")
+        this.getFacture("Finalisés");
+
 
         },
         makeFourth: function(n) {
@@ -442,6 +370,7 @@ export default {
         para.childNodes[n].setAttribute("id", "active")
         para.childNodes[n].childNodes[0].setAttribute("id", "activeTitre")
         para.childNodes[n].childNodes[1].setAttribute("id", "activerectangle")
+        this.getFacture("Payée");
 
         },
         makeFifth: function(n) {
@@ -459,12 +388,12 @@ export default {
         para.childNodes[n].setAttribute("id", "active")
         para.childNodes[n].childNodes[0].setAttribute("id", "activeTitre")
         para.childNodes[n].childNodes[1].setAttribute("id", "activerectangle")
-
+        this.getFacture("Signés");
         },
-        getstatus:function(indx){
-          return this.value[indx].substring(0, 2);
+        // getstatus:function(string){
+        //   return string.substring(0, 2);
 
-        },
+        // },
         doMore:function(number){
          if(this.DoMoreIndx==0){
            this.DoMoreIndx=number
@@ -472,28 +401,59 @@ export default {
          else if(this.devisHeader!==0){
            this.DoMoreIndx=0
          }
-        }
-
-   
-
-
+        },
     },
-
-
-    computed:{
-
+    created:function () {
+      this.getFactures();
+      console.log("hada table",this.toShow)
+    },
    
-    
-
-    }
-
 }
 </script>
 
 <style scoped lang="scss">
 @import "../../scss/main.scss" ;  
 
+.pointer:hover{
+  cursor: pointer;
+}
 
+.objinfos{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+    margin-left: 1rem;
+  
+  h2{
+  float: left;
+  margin-left: 15%;
+  font-size: 1.2rem;
+  }
+  span{
+    font-family:$gm ;
+    text-transform: capitalize;
+  }
+}
+
+/deep/ .modal-content {
+
+  background-color: #2262C6 !important;
+  border:none !important;
+  color:white !important;
+  font-family: $r !important;
+
+}
+/deep/ .modal-header .close{
+  color: white;
+  opacity: 1;
+}
+
+/deep/ .modal-title{
+      margin-left: 18%;
+      font-family: $bd;
+      font-size: 1.3rem;
+}
 .cardDoMore{
     position: absolute;
     background-color: white;

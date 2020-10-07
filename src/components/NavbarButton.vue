@@ -1,6 +1,6 @@
 <template>
     <!-- <b-button class="submit  my-sm-1" type="submit" variant="primary">      -->
-        <router-link :to=route  class="submit  my-sm-1">
+        <router-link :to="route"  class="submit  my-sm-1">
             <img src="../assets/img/Plus.svg" class="plus">
             Nouveau {{text}}
         </router-link>
@@ -24,7 +24,13 @@ export default {
             if(to.name === "Client" || to.name === "Devis" || to.name === "Facture" || to.name === "Societe"){
                 this.text = to.name; 
                 this.route.name = `New${to.name}`;
+                console.log(this.route);
             }
+        }
+    }, 
+    methods:{
+        _redirect:function(){
+            this.$router.push("/client");
         }
     }
 

@@ -124,7 +124,8 @@ export default {
       this.codes["mm"] = mo;
       this.codes["j"] = da;
       this.codes["jj"] = da; 
-    } ,
+    },
+    
     __conveter(count){
       this.__init();
       // the count here  segnifies the number of the documments that a single user has. for now it gonna be static. 

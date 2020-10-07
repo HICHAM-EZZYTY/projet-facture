@@ -9,38 +9,42 @@
 		<div class="cards-content">
 			<div class="cards-content-header">
 				<router-link to="client/1" class="name">
-					<h3 class="cards-title">{{user.Client_Nom + " " + user.Client_Prenom}}</h3>
+					<h3 class="cards-title">{{user.Societe_Nom}}</h3>
 				</router-link>
 			</div>
 			<div class="cards-info">
 				<div class="info-section">
-					<label>Société : {{ (user.societe == null) ? "none" : user.societe.Societe_Nom  }}</label>
+					<label>Societe identifiant fiscalee	 : {{ user.Societe_identifiant_fiscale }}</label>
 					<!-- <label>Société : Marjane</label> -->
 
 					<span>
-						<img class="gmail" src="../../assets/img/Group.svg" alt="gmail"> {{user.Client_Email}}
+						<img class="gmail" src="../../assets/img/icon1.png" alt="gmail"> {{user.Societe_Site_Internet}}
 						<!-- <img class="gmail" src="../../assets/img/Group.svg" alt="gmail"> Chamkhianas@gmail.Com -->
 
 					</span>
-					<p><img class="telephone" src="../../assets/img/call 1.svg" alt="téléphone">0700341459</p>
+					<p><img class="telephone" src="../../assets/img/call 1.svg" alt="téléphone"> {{user.Phones[0].number}}</p>
 				</div>
 				<div class="info-section">
 				</div>	
 			</div>
 			<div class="imax-logo">
 				<router-link
-                :to="{ name: 'Editclient', params: {Client: user } }">
+                :to="{ name: 'EditSociete', params: {Client: user } }">
 				<img class="edit" src="../../assets/img/Vector.svg" alt="">
 				</router-link>
 			</div>
 			<img @click="showModal" class="Ellipse" src="../../assets/img/closeee.svg">
 		</div>
+
+
+
 			<b-modal ref="my-modal" hide-footer>
 			<div class="d-block text-center">
 				<h3 style="font-size:1.4rem">Voulez Vous Supprimer cette societée ?</h3>
 			</div>
 			<b-button class="mt-3" variant="outline-danger" block @click="removesociety(user.id)">Oui</b-button>
 			</b-modal>
+
 
 	</div>
 </template>
@@ -61,19 +65,25 @@ export default {
 	
 	},
 	methods:{
-		showModal() {
-		this.$refs['my-modal'].show()
-		console.log(this.user)
+	 showModal() {
+        this.$refs['my-modal'].show()
 	  },
 	  removesociety(id){
 		  console.log(id)
-		  this.$http.delete(`/clients/${id}`)
-                    .then( () => {
+		  this.$http.delete(`/societes/${id}`)
+                    .then( (rep) => {
+                      console.log("hadchi tm7a",rep);
                       window.location.reload();
                     })
                     .catch();
-	  },
+	  }
+
+	
+	},
+	created: function () {
+		console.log(this.user);
 	}
+
 }
 
 
@@ -87,7 +97,6 @@ export default {
 $color1:#2262C6;
 $color2:#427FDE;
 $color3:#FFC5A0;
-
 
 /deep/ .modal-content {
   font-family: $gm !important;
@@ -149,7 +158,42 @@ h1,h2,h3,h4,h5,p {
     transform: matrix(1, 0, 0, -1, 0, 0);
 	border-radius: 25px;
 }
-
+// .Ellipse1{
+// 	position: relative;
+//     left: 91%;
+//     bottom: 231px;
+//     border-radius: 6px;
+//     width: 7px;
+//     height: 7px;
+//     list-style-type: circle;
+//     border: 2px solid #2262C6;
+//     box-sizing: border-box;
+//     transform: matrix(1, 0, 0, -1, 0, 0);
+// }
+// .Ellipse-x{
+// 	position: relative;
+//     left: 86%;
+//     bottom: 14em;
+//     border-radius: 6px;
+//     width: 7px;
+//     height: 7px;
+//     list-style-type: circle;
+//     border: 2px solid #FFC5A0;
+//     box-sizing: border-box;
+//     transform: matrix(1, 0, 0, -1, 0, 0);
+// }
+// .Ellipse1-x{
+// 	position: relative;
+//     left: 91%;
+//     bottom: 231px;
+//     border-radius: 6px;
+//     width: 7px;
+//     height: 7px;
+//     list-style-type: circle;
+//     border: 2px solid #FFC5A0;
+//     box-sizing: border-box;
+//     transform: matrix(1, 0, 0, -1, 0, 0);	
+// }
 .cards-header {
 	padding:0;
 	margin: 0;
@@ -207,6 +251,9 @@ h1,h2,h3,h4,h5,p {
 	z-index: -1;
 }
 
+// .cards-card:nth-child(3n+0) .box{
+// 	background: #FFC5A0;
+// }
 .cards-card:nth-child(1) {
 	.box{
 	background: $color1;
@@ -215,9 +262,9 @@ h1,h2,h3,h4,h5,p {
 		background-color: $color1 ;
 	}
 	.Ellipse{
-		background-color: $color1 ;
+	background-color: $color1;
 	}
-
+	
 }
 .cards-card:nth-child(1n+1) {
 	.box{
@@ -227,9 +274,8 @@ h1,h2,h3,h4,h5,p {
 		background-color:$color1 ;
 	}
 	.Ellipse{
-		background-color:$color1 ;
+	background-color: $color1;
 	}
-
 }
 
 
@@ -240,10 +286,9 @@ h1,h2,h3,h4,h5,p {
 	.imax-logo{
 		background-color:$color2 ;
 	}
-	.Ellipse{
-		background-color:$color2 ;
+		.Ellipse{
+	background-color: $color2;
 	}
-
 }
 .cards-card:nth-child(2n+3) {
 	.box{
@@ -252,10 +297,9 @@ h1,h2,h3,h4,h5,p {
 	.imax-logo{
 		background-color:$color2 ;
 	}
-	.Ellipse{
-		background-color:$color2 ;
+		.Ellipse{
+	background-color: $color2;
 	}
-
 }
 
 
@@ -266,10 +310,9 @@ h1,h2,h3,h4,h5,p {
 	.imax-logo{
 		background-color:$color3 ;
 	}
-	.Ellipse{
-		background-color:$color3 ;
+		.Ellipse{
+	background-color: $color3;
 	}
-	
 }
 
 .cards-card:nth-child(3n+3) {
@@ -280,9 +323,8 @@ h1,h2,h3,h4,h5,p {
 		background-color:$color3 ;
 	}
 	.Ellipse{
-		background-color:$color3 ;
+	background-color: $color3;
 	}
-
 }
 
 
@@ -335,11 +377,12 @@ h1,h2,h3,h4,h5,p {
 
 .info-section label {
 	display: block;
-	color: rgba(0,0,0,.5);
-	margin-bottom: .5em;
-	font-size: 9px;
+    color: black;
+    margin-bottom: 0em;
+    font-size: 0.7rem;
     position: relative;
-    bottom: 10em;
+    bottom: 7.9em;
+    font-weight: 600;
 }
 
 .info-section span {

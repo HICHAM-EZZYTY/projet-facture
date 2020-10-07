@@ -2,17 +2,16 @@
     <div>
         <div class="forms-sides--group" :key="counter">
             <div class="nn">
-                <label class="forms-sides--group_label" >Numéro de téléphone :</label>
+                <label class="forms-sides--group_label" >{{title}} :</label>
             </div>
             
             <S_Input 
                 v-for="i in values.length" 
-                
-                :placeholder=" placeholder + ' ' + i " 
+                :placeholder="placeholder + ' ' + i " 
                 :key="i" 
                 :isLast=" i == values.length"
                 :index= 'i - 1'
-                :defaultValue="values[i - 1]"
+                :defaultValue="values[i - 1].value"
 
                 @onInput='addValue' 
                 @add="_add" 
@@ -33,12 +32,14 @@ export default {
             values: []
         }
     }, 
-    props:["placeholder"],
-
+    props:[
+        "placeholder",
+        "title", 
+        "dValues"
+    ],
     components: {
         S_Input
     }, 
-    
     methods: {
         _add: function(){
             this.values.push("");
@@ -46,13 +47,12 @@ export default {
         }, 
         _remove: function(arg) {
             this.counter--;
-
             if(this.values.length > 1  ){
                 this.values.splice(arg, 1);
             }
         }, 
         addValue: function(argIndex, argValue) {
-            this.values[argIndex] = argValue
+            this.values[argIndex] = {"value": argValue}
             this.$emit('addedInput', this.values);
         }
     }, 

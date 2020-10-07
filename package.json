@@ -17,13 +17,16 @@
     "eslint": "^7.2.0",
     "font-awesome": "^4.7.0",
     "jquery": "^3.5.1",
+    "jspdf": "^2.1.1",
+    "jspdf-autotable": "^3.5.13",
     "lodash": "^4.17.15",
     "popper.js": "^1.16.1",
     "v-calendar": "^1.0.6",
     "vue": "^2.6.11",
     "vue-router": "^3.1.6",
     "vue-single-date-picker": "^0.5.8",
-    "vuex": "^3.1.3"
+    "vuex": "^3.1.3",
+    "xlsexport": "^1.5.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.3.0",

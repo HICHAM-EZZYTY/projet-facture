@@ -4,11 +4,11 @@
         <div class="row mb-3 mt-3">
             <div class="col-12 page-title">
                 <div class="page-title--text">
-                    <span class="page-title--text_title" >Création d'une société :</span>
+                    <span class="page-title--text_title" >Modifier l'informations d'une société :</span>
                 </div>
                 <div class="page-title--icons">
                     <!--icons -->
-                    <span class="mr-2"> Annulé la creation </span>
+                    <span class="mr-2"> Annulé la modification </span>
                     <button>
                         <img src="../../assets/img/closedocument 1.svg" alt="closedocument">
                     </button>
@@ -51,7 +51,11 @@
             
             <div class="col-lg-6 forms-sides">    
                 
-                <Custom_Input @addedInput="_addedAdress" placeholder="Adress" title="Adresse" />
+                <div class="forms-sides--group">
+                    <label class="forms-sides--group_label" >address  :</label>
+                    <input class="forms-sides--group_text" type="text" v-model="this.adress" placeholder="......" />
+                </div>                
+
 
                  <div class="forms-sides--group">
                     <label class="forms-sides--group_label" >Site internet  :</label>
@@ -59,23 +63,26 @@
                 </div>
 
                 <div class="forms-sides--group">
-                    <label class="forms-sides--group_label" >Notes :</label>
-                    <textarea class="forms-sides--group_textarea" v-model="societe.Societe_Note" type="text" placeholder="......" >
-                    </textarea>
-                </div>
+                    <label class="forms-sides--group_label" >Phones  :</label>
+                    <input class="forms-sides--group_text" type="text" v-model="this.Phones" placeholder="......" />
+                </div>                
+
                 
             </div>
             
             <div class="col-lg-6 forms-sides">
-            <Custom_Input 
-                    @addedInput="_phoneNumbers" 
-                    placeholder="Mobile" 
-                    title="Numéro de téléphone"
-                    />
+
+                <div class="forms-sides--group">
+                    <label class="forms-sides--group_label" >Notes :</label>
+                    <textarea class="forms-sides--group_textarea" v-model="societe.Societe_Note" type="text" placeholder="......" >
+                    </textarea>
+                </div>
+         
+
                 
                 <div class="forms-sides--group">
                     <label class="forms-sides--group_label" >Pays :</label>
-                    <b-form-select class="forms-sides--group_select" v-model="societe.Societe_Ville" :options="countries"></b-form-select>
+                    <b-select class="forms-sides--group_select" v-model="societe.Societe_Ville" :options="countries"></b-select>
                 </div>
                 
                 
@@ -106,7 +113,7 @@
 
 
 <script>
-import Custom_Input from '../Sub_Components/Custom_Input.vue';
+// import Custom_Input from '../Sub_Components/Custom_Input.vue';
 
 export default {
     name : "AddSociety",
@@ -121,22 +128,23 @@ export default {
                 Societe_Note: null, 
                 Societe_Ville: null, 
                 Societe_Site_Internet:null,
-                phones:[], 
-                adress:[],
-                keywords:[]
+               
             },
+            Phones:null ,
+            adress:null,
+
 
             
             countries: [
                 { value: null, text: 'Please select an option' },
-                { value: 'a', text: 'Rabat' },
-                { value: 'b', text: 'CasaBlanca' },
-                { value: 'd', text: 'Safi' }
+                { value: 'Rabat', text: 'Rabat' },
+                { value: 'CasaBlanca', text: 'CasaBlanca' },
+                { value: 'Safi', text: 'Safi' }
             ]
         };
     }, 
     components: {
-        Custom_Input,
+        // Custom_Input,
     }, 
     methods:{
 
@@ -145,17 +153,38 @@ export default {
         }, 
         _phoneNumbers: function(numbers){
             this.societe.phones = numbers;
-            // console.log(this.societe.phones);
         }, 
         submit: function() {
+            console.log("clian hada =>");
+            console.log(this.societe)
             this.$http
-                .post("/societes", this.societe)
-                .then(
-                    () => this.$router.push('/societe') 
+                .put(`/societes/${this.Id}`,this.societe)
+                .then((res) => {
+                    console.log(res);
+                    this.$router.push('/societe') 
+                }
                 )
                 .catch();
         }
-    }
+    },
+        created:function () {
+        console.log("hada params",this.$route.params.Client)
+        // this.societe.Client_Nom=this.$route.params.Client.Client_Nom
+        this.societe.Societe_Nom=this.$route.params.Client.Societe_Nom
+        this.societe.Societe_identifiant_fiscale=this.$route.params.Client.Societe_identifiant_fiscale
+        this.societe.Societe_identifiant_commun_entreprise=this.$route.params.Client.Societe_identifiant_commun_entreprise
+        this.societe.Societe_Taxe_Professionelle=this.$route.params.Client.Societe_Taxe_Professionelle
+        this.societe.Societe_Site_Internet=this.$route.params.Client.Societe_Site_Internet
+        this.societe.Societe_Pays=this.$route.params.Client.Societe_Pays
+        this.societe.Societe_Ville = this.$route.params.Client.Societe_Ville
+        this.adress=Object.values(this.$route.params.Client.Adresses[0])
+        this.Phones=Object.values(this.$route.params.Client.Phones[0])
+        this.societe.Societe_Note=this.$route.params.Client.Societe_Note
+        this.Id=this.$route.params.Client.id
+        console.log("hada id",this.societe)
+
+    },
+   
 }
 </script>
 <style lang="scss" scoped>

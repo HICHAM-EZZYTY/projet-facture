@@ -18,15 +18,6 @@
     <div class="projects">
     
       <b-tabs class="forms" content-class="mt-3" fill>
-
-        <!-- <b-tab active>
-          <template v-slot:title>
-            <p class="Usera">title</p>
-            <i class="fa fa-user usero"></i>
-          </template>
-          <p class="p-3">Tab contents 1</p>
-        </b-tab>-->
-
         <b-tab active>
           <template v-slot:title :title-link-class="'tab-title-class'">
             <p class="Fact">Tous Les Devis</p>

@@ -3,7 +3,7 @@
         <div class="row mb-3 mt-3">
             <div class="col-12 page-title">
                 <div class="page-title--text">
-                    <span class="page-title--text_title" >Mes Clients</span>
+                    <span class="page-title--text_title" >Mes Clientss</span>
                     <span class="page-title--text_count">15</span>
                 </div>
                 <div class="page-title--icons">
@@ -20,7 +20,7 @@
         <!--  -->
         <div class="row forms mt-4">
             <div class="col-lg-12 head-section">
-                <h6 class="head-section--title"> Information sur le compte :</h6>
+                <h6 class="head-section--title"> Modifier Client Informations :</h6>
             </div>
             
             <div class="col-lg-6 forms-sides">
@@ -52,9 +52,9 @@
             </div>
             
             <div class="col-lg-6 forms-sides">    
-                
+                                    <!-- @addedInput="_addedPhone"  -->
+
                 <Custom_Input 
-                    @addedInput="_addedPhone" 
                     placeholder="Phone number" 
                     title="Phone number"
                     />
@@ -90,7 +90,7 @@
                 </button>
               <!-- </router-link> -->
                 <!-- <router-link to="/societe/new"> -->
-                  <button @click="comfirm">            
+                  <button @click="update">            
                       <span> NEXT </span>
                       <i class="fa fa-arrow-right ml-1"></i> 
                   </button>
@@ -128,6 +128,7 @@ export default {
             },
             keys: "",
             companies: [],
+            Id:Number,
         }
     }, 
     props:["typeClient"],
@@ -135,51 +136,40 @@ export default {
         Custom_Input,
     }, 
     methods:{
-        _addedPhone: function(phonesArray){
-            this.user.phones = phonesArray;
-        }, 
 
-        getCompanies: function() {
-            this.companies.push ({
-                text: "select a Company", 
-                value: null
-            })
+
+        update: function() {
+
             this.$http 
-                .get("/societes")
-                .then( (res) => {
-                    let CompaniesArray = res.data.data;  
-                    CompaniesArray.forEach( (c) => {
-                        this.companies.push({
-                            text: c.Societe_Nom, 
-                            value: c.id
-                        });
-                    });
+                .put(`/clients/${this.Id}`,this.user)
+                .then( () => {
+                this.$router.push('/client')
                 })
                 .catch( (e) => console.error(e) )
         }, 
 
-        comfirm: function() {
-            this.makeKeywords();
-            this.$emit("comfirm", this.user );
-        },
-
-        makeKeywords: function (){
-            this.user.motCles = [];
-            this.keys.split(' ').forEach( (k) => {
-                this.user.motCles.push({
-                    value: k    
-                }) 
-            } );
-        },
-
+        _addedPhone: function(phonesArray){
+            this.user.phones = phonesArray;
+        }, 
         previous: function() {
-            this.$emit("typePageClicked");
+        this.$router.push('/client')
         }
     },   
-    created(){
-        this.getCompanies();
-        // console.log(typeClient);
-    }
+      created:function () {
+        console.log("hada params",this.$route.params.Client)
+        this.user.Client_Nom=this.$route.params.Client.Client_Nom
+        this.user.Client_Prenom=this.$route.params.Client.Client_Prenom
+        this.user.Client_email=this.$route.params.Client.Client_Email,
+        this.user.Client_Fonction=this.$route.params.Client.Client_Fonction,
+        this.user.phones="0700341459",
+        this.user.Client_Note=this.$route.params.Client.Client_Note,
+        this.user.motCles=this.$route.params.Client.keywords,
+        this.Id=this.$route.params.Client.id
+        console.log("hada id",this.Id)
+
+    },
+   
+    
 }
 </script>
 <style lang="scss" scoped>

@@ -15,15 +15,26 @@
           </router-link>
         </li>
         <li>
-          <router-link class="s-sidebar__nav-link" to="/client">
+          <router-link class="s-sidebar__nav-link" to="/societe">
             <img src="../assets/img/menu2.svg" alt />
             <em>Sociétés</em>
+          </router-link>
+        </li> <li>
+          <router-link class="s-sidebar__nav-link" to="/societe/new">
+            <img src="../assets/img/menu2.svg" alt />
+            <em>New Société</em>
           </router-link>
         </li>
         <li>
           <router-link class="s-sidebar__nav-link" to="/devis">
             <img src="../assets/img/menu3.svg" alt />
             <em>Devis</em>
+          </router-link>
+        </li>
+         <li>
+          <router-link class="s-sidebar__nav-link" to="/devis/new">
+            <img src="../assets/img/menu3.svg" alt />
+            <em>New Devis</em>
           </router-link>
         </li>
         <li>
@@ -33,23 +44,19 @@
           </router-link>
         </li>
         <li>
-          <router-link class="s-sidebar__nav-link" to="/Avoire">
-            <img id="mn" src="../assets/img/menu5.svg" alt />
-            <em>Avoire</em>
+          <router-link class="s-sidebar__nav-link" to="/Facture/new">
+            <img src="../assets/img/menu4.svg" alt />
+            <em>New Factures</em>
           </router-link>
         </li>
+        
         <li>
           <router-link class="s-sidebar__nav-link" to="/settings">
             <img src="../assets/img/menu6.svg" alt />
             <em>Paramétres</em>
           </router-link>
         </li>
-        <li>
-          <router-link class="s-sidebar__nav-link" to="/feedback">
-            <img src="../assets/img/menu7.svg" alt />
-            <em>Feedback</em>
-          </router-link>
-        </li>
+        
         <li @click="logout" class="sidenav--list__item sign-out">
           <router-link class="s-sidebar__nav-link" to="/logout" @click="logout">
             <img @click="logout" class="sidenav-button__icon" src="../assets/img/menu8.svg" alt />
@@ -130,7 +137,7 @@ img {
   overflow: hidden;
   transition: all 0.3s ease-in;
   width: 14em;
-  height: 84%;
+  height: 84.7%;
   background: #2262c6;
   color: rgb(255, 255, 255);
 }

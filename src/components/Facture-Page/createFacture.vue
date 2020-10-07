@@ -17,20 +17,15 @@
         <h1>Informations :</h1>
         <div class="contain1">
           <div class="inp1">
-              <label>Nom de devis</label>
+              <label>Nom de facture</label>
               <br>
-              <input type="text" value="# D2000001">
+              <input type="text" value="#F2000000001">
           </div>
-           <div class="inp2">
-              <label>Durée de validité</label>
+           <div class="inp2 inp1">
+              <input type="text" placeholder="Durée de validité">
               <select class="select-css">
                   <option value="">Jours</option>
-                  <option value="dog">Dog</option>
-                  <option value="cat">Cat</option>
-                  <option value="hamster">Hamster</option>
-                  <option value="parrot">Parrot</option>
-                  <option value="spider">Spider</option>
-                  <option value="goldfish">Goldfish</option>
+                  <option value="">Hours</option>
              </select>
           </div>
         </div>
@@ -38,29 +33,10 @@
           <div class="inp3">
               <label>Destinataire</label>
               <br>
-              <select class="select-css">
-                  <option value="">Marjane</option>
-                  <option value="dog">Dog</option>
-                  <option value="cat">Cat</option>
-                  <option value="hamster">Hamster</option>
-                  <option value="parrot">Parrot</option>
-                  <option value="spider">Spider</option>
-                  <option value="goldfish">Goldfish</option>
-             </select>
+              <b-select class="select-css" :options="reciverOprions" v-model="selectedReciever">
+             </b-select>
           </div>
-           <div class="inp4">
-              <label>Devise</label>
-              <br>
-              <select class="select-css">
-                  <option value="">Dirham  (MAD)</option>
-                  <option value="dog">Dog</option>
-                  <option value="cat">Cat</option>
-                  <option value="hamster">Hamster</option>
-                  <option value="parrot">Parrot</option>
-                  <option value="spider">Spider</option>
-                  <option value="goldfish">Goldfish</option>
-             </select>
-          </div>
+          
         </div>
 
 
@@ -84,15 +60,7 @@
           <div class="inp6">
               <label>Type</label>
               <br>
-              <select class="select-css">
-                  <option value="">{{Article.service}}</option>
-                  <option value="dog">Dog</option>
-                  <option value="cat">Cat</option>
-                  <option value="hamster">Hamster</option>
-                  <option value="parrot">Parrot</option>
-                  <option value="spider">Spider</option>
-                  <option value="goldfish">Goldfish</option>
-             </select>
+              <b-select :options="articlesOptions" v-model="selectedArticle" class="select-css"></b-select>
           </div>
 
           <div class="icns">
@@ -106,17 +74,14 @@
 
 
         <div class="ss2">
+          <div class="inp7">
 
-
-
-              <div class="inp7">
-
-                  <input @blur="quan(index)" id="in1" type="text" placeholder="quantité" v-model="Article.quantité">
-                  <input  @blur="ph(index)"  id="in2" type="text"  placeholder="prix ht" v-model="Article.prixht">
+                  <input  id="in1" type="text" placeholder="quantité" v-model="Article.quantité">
+                  <input   id="in2" type="text"  placeholder="prix ht" v-model="Article.prixht">
                 <div class="tva">
                       <label id="in5">Tva</label>
                       <div class="on_off">
-                          <input @blur="TVA(index)" id="in3"  placeholder="tva" type="text"  v-model="Article.tva">
+                          <input  id="in3"  placeholder="tva" type="text"  v-model="Article.tva">
                           <input  id="in4" type="checkbox" class="toggle" checked>
                       </div>
                 </div>
@@ -124,56 +89,35 @@
                 <div class="percentage">
                     <select class="select-css">
                       <option value="">{{Article.percent}}</option>
-                      <option value="dog">Dog</option>
-                      <option value="cat">Cat</option>
-                      <option value="hamster">Hamster</option>
-                      <option value="parrot">Parrot</option>
-                      <option value="spider">Spider</option>
-                      <option value="goldfish">Goldfish</option>
                 </select>
                 </div>
 
                 <div class="reduction">
-                      <input @blur="reduction(index)" id="in6" type="text" v-model="Article.Reduction">
+                      <input @keyup.enter="reduction(index)" id="in6" type="text" placeholder="reduction" v-model="Article.Reduction">
                 </div>
 
                 <div class="totalHt">
                       <label   id="in7">Total HT</label>
-                      <input  @blur="TOTALHT(index)" id="in8" type="text" v-model="Article.totalht">
+                      <input disabled @blur="TOTALHT(index)" id="in8" type="text" v-model="Article.totalht">
                 </div>
                 <div class="totalttc">
                       <label id="in9">Total TTC</label>
-                      <input id="in10" @blur="TOTALTTC(index)"  type="text" v-model="Article.totalttc">
+                      <input disabled id="in10" @blur="TOTALTTC(index)"  type="text" v-model="Article.totalttc">
                 </div>
 
           </div>
-
-          <textarea id="textAreaArtcl"  v-model="Article.Decrp">
-              
-                  
-          </textarea>
-
-
-
+          <textarea id="textAreaArtcl"  v-model="Article.Decrp"></textarea>
         </div>
 
       </div>
-
-
+ 
       <div class="results">
         <button  @click="getdata()" type="text">Ajouter Une Ligne</button>
-
         <div class="wrapResult">
           <div class="rg">Total HT : <span>{{totalhtTTL}}</span></div>
           <div class="tva">TVA :   <span>{{tvaTTL}}</span></div>
           <div class="ttl">Total :   <span>{{finalttl}}</span></div>
-    
-
-
-
-
         </div>
-
       </div>
 
       <div class="reglement">
@@ -182,54 +126,30 @@
           <div class="inp3">
               <label>Conditions de règlement</label>
               <br>
-              <select id="inp1" class="select-css">
-                  <option value="">45 jours fin de mois</option>
-                  <option value="dog">Dog</option>
-                  <option value="cat">Cat</option>
-                  <option value="hamster">Hamster</option>
-                  <option value="parrot">Parrot</option>
-                  <option value="spider">Spider</option>
-                  <option value="goldfish">Goldfish</option>
-             </select>
+              <b-select id="inp2" class="select-css" v-model="facture.condition_id" :options="conditions"></b-select>
           </div>
            <div class="inp4">
               <label>Mode de règlement</label>
               <br>
-              <select id="inp2" class="select-css">
-                  <option value="">Virement bancaire</option>
-                  <option value="dog">Dog</option>
-                  <option value="cat">Cat</option>
-                  <option value="hamster">Hamster</option>
-                  <option value="parrot">Parrot</option>
-                  <option value="spider">Spider</option>
-                  <option value="goldfish">Goldfish</option>
-             </select>
+             <b-select id="inp2" class="select-css" v-model="facture.mode_id" :options="modes"></b-select>
           </div>
           <div style="margin-top:15px" class="inp3">
               <label>Intérêt de retard</label>
               <br>
-              <select id="inp1" class="select-css">
-                  <option value="">Pas d'intérêts </option>
-                  <option value="dog">Dog</option>
-                  <option value="cat">Cat</option>
-                  <option value="hamster">Hamster</option>
-                  <option value="parrot">Parrot</option>
-                  <option value="spider">Spider</option>
-                  <option value="goldfish">Goldfish</option>
-             </select>
+             <b-select id="inp2" class="select-css" v-model="facture.interet_id" :options="interests"></b-select>
           </div>
    
         </div>
       </div>
-     <div class="textDoc">
-                <h1>Textes affichés sur le document:</h1>
-      <div class="textWrapping">
-                  <textarea id="ttl">texte d'introduction (visible sur le devis)</textarea>
-                  <textarea id="ttl1">Texte de conclusion (visible sur le devis)</textarea>
-                  <textarea id="ttl2">Pied de page (visible sur le devis)</textarea>
-                  <textarea id="ttl3">Conditions générales de vente (visible sur le devis)</textarea>
-      </div>
-             <div  id="diffInp1" class="inp33">
+        <div class="textDoc">
+          <h1>Textes affichés sur le document:</h1>
+          <div class="textWrapping">
+            <textarea id="ttl" placeholder="texte d'introduction (visible sur le devis)" v-model="facture.textDocument.introduction"></textarea>
+            <textarea id="ttl1" placeholder="Texte de conclusion (visible sur le devis)" v-model="facture.textDocument.conclusion"></textarea>
+            <textarea id="ttl2" placeholder="Pied de page (visible sur le devis)" v-model="facture.textDocument.pied_page"></textarea>
+            <textarea id="ttl3" placeholder="Conditions générales de vente (visible sur le devis)" v-model="facture.textDocument.condition"></textarea>
+          </div>
+          <div  id="diffInp1" class="inp33">
               <label>Mots clés :</label>
               <br>
               <select id="inp3" class="select-css">
@@ -240,30 +160,22 @@
                   <option value="parrot">Parrot</option>
                   <option value="spider">Spider</option>
                   <option value="goldfish">Goldfish</option>
-             </select>
-              </div>
-
-     </div>
+              </select>
+          </div>
+        </div>
 
 
       <div class="footer">
-      <div class="icons">
-        <img id="fir"  src="../../assets/img/eye.svg" alt="eyes icon">
-        <img  id="fil" src="../../assets/img/print.svg" alt="print icon">
-      </div>
-      <div class="btnss">
-        <button class="buttn" id="bbtn1" type="button">Previous</button>    
-        <button class=buttn  id="bbtn2" type="submit">enregistrer & envoyer </button>
-
-
-      </div>
-
-
-        
+        <div class="icons">
+          <!-- <img id="fir"  src="../../assets/img/eye.svg" alt="eyes icon"> -->
+          <!-- <img  id="fil" src="../../assets/img/print.svg" alt="print icon"> -->
+        </div>
+        <div class="btnss">
+          <button class="buttn" id="bbtn1" type="button">Previous</button>    
+          <button class=buttn  id="bbtn2" @click="send" type="submit">enregistrer & envoyer </button>
+        </div>
       </div>
         
-
-
       </div>
 
 
@@ -286,6 +198,7 @@ export default {
       counter: 1,
       height:Number,
       lineHeight:Number,
+
       finalttl:0,
       totalttc:[],
       totalttcTTL:0,
@@ -301,32 +214,172 @@ export default {
       PrixhtTTL:0,
       total:0,
       vq:0,
+      
       Articles: [{
-        service: 'Service',
+        service: null,
         quantité: null,
         prixht: null,
-        tva : null,
+        tva : 0,
         percent:'%',
-        Reduction: 'Réduction',
+        Reduction: null,
         totalht:0,
         totalttc:0,
         Decrp:"Description de l'article",
       }],
+
+      reciverOprions:[],
+      articlesOptions:[],
+      selectedArticle:null,
+      selectedReciever: null,
+
+      facture: {
+        client_id:null,
+        societe_id:null,
+        type:1,
+        reglement:{
+            condition_id : 3, 
+            mode_id : 1, 
+            interet_id : 3, 
+            compte_bancaire : null
+        }, 
+        articles:[],
+        textDocument:{
+          introduction : null, 
+          conclusion : null, 
+          pied_page : null, 
+          condition : null
+        },
+        motCles:[]
+      },
+      modes:[], 
+      conditions: [], 
+      interests: [],
     };
+
+
+
+
   },
   methods: {
+    getDestinatair: function() {
+      this.$http.get("/clients")
+        .then( (resp) => {
+          this.reciverOprions.push({ value: "", text: "---- Clients ----", disabled:true })
+          resp.data.data.forEach((d) => {
+            let ok = { value: { client_id: d.id, societe_id: null }, text: d.Client_Nom, }
+            this.reciverOprions.push(ok)
+          });
+        } )
+        .catch();
+        
+      this.$http.get("/societes")
+        .then( (resp) => {
+          this.reciverOprions.push({ value: "", text: "---- Societes ----", disabled:true })
+          resp.data.data.forEach((d) => {
+            let ok = { value: { client_id:null, societe_id: d.id }, text: d.Societe_Nom,  }
+            this.reciverOprions.push(ok)
+            
+          });
+          
+        //  console.log(this.reciverOprions);
+        } )
+        .catch();
+
+    },
+    getArticlesTypes: function() {
+      this.$http
+        .get("/type_articles")
+        .then( (resp) => {
+          console.log(resp.data);
+          resp.data.forEach( (d) => {
+            let ok  = {
+              value: d.id, text: d.article_type_value
+            }
+            this.articlesOptions.push(ok);
+          })
+        
+        })
+        .catch();
+    },
+    getReglements: function() {
+      // get conditions Condition_value
+      this.$http.get("/condition_reglement").then(
+        (resp) => {
+          resp.data.forEach((d) => {
+            let ok = {
+              value: d.id, text: d.Condition_value
+            }; 
+            this.conditions.push(ok);
+            
+          } )
+          console.log(this.modes);
+        }
+      ).catch();
+      // get modes
+      this.$http.get("/mode_reglement").then(
+        (resp) => {
+          resp.data.forEach((d) => {
+            let ok = {
+              value: d.id, text: d.mode_value
+            }; 
+            this.modes.push(ok);
+            
+          } )
+          console.log(this.modes);
+        }
+      ).catch();
+      // get interests
+      this.$http.get('/interet_retard').then(
+        (resp) => {
+          resp.data.forEach((d) => {
+            let ok = {
+              value: d.id, text: d.inter_value
+            }; 
+            this.interests.push(ok);
+          } 
+        )
+        }
+      ).catch();
+    },
+    send: function(){
+      this.Articles.forEach( (a) => {
+        let art = {
+          "type_id" : this.selectedArticle, 
+          "quantité" : a.quantité ,
+          "prix_ht" : a.prixht , 
+          "tva" : a.tva, 
+          "reduction"  : a.Reduction, 
+          "total_ht"  : a.totalht , 
+          "total_ttc" : a.totalttc , 
+          "description": a.Decrp
+        }
+        
+      this.facture.articles.push(art);
+      } );
+      this.facture.client_id = this.selectedReciever.client_id;
+      this.facture.societe_id = this.selectedReciever.societe_id;
+      console.log(this.facture)
+      this.$http
+        .post("/factures", this.facture)
+        .then(
+          () =>  this.$router.push('/Facture')
+        )
+        .catch();
+    },
+ 
+ 
     addInput() {
       this.Articles.push({
       id:0,
-      service: 'Service',
-      quantité: 'Quantité',
-      prixht: 'Prix HT',
-      tva : 0,
+      service: null,
+      quantité: null,
+      prixht: null,
+      tva : null,
       percent:'%',
-      Reduction: 'Réduction',
+      Reduction: null,
       totalht:0,
       totalttc:0,
-      Decrp:"Description de l'article",
+      Decrp:null,
       })
       this.counter+=1
       this.height=this.$refs.whitePaper.clientHeight
@@ -336,7 +389,7 @@ export default {
 
 
     },
-      deleteInput(i) {
+    deleteInput(i) {
         if (i>0){
         this.Articles.splice(i, 1);
         this.counter-=1
@@ -349,124 +402,148 @@ export default {
           console.log("sorry cant delete this one")
         }
     },
-    TOTALTTC(value){
+    // TOTALTTC(value){
 
-    this.vq=this.Articles[value].totalttc
-    let ttl=0;
-    ttl=parseInt(this.vq);
-      if (ttl>=0){
+    // this.vq=this.Articles[value].totalttc
+    // let ttl=0;
+    // ttl=parseInt(this.vq);
+    //   if (ttl>=0){
 
-        console.log("hadi totalttc 9abla",this.totalttc)
-        this.totalttc[value]=ttl;
-        console.log("hadi totalttc ba3da",this.totalttc)
-          let ttq=0;
+    //     console.log("hadi totalttc 9abla",this.totalttc)
+    //     this.totalttc[value]=ttl;
+    //     console.log("hadi totalttc ba3da",this.totalttc)
+    //       let ttq=0;
       
-          for(var i in this.totalttc) {
-            ttq += this.totalttc[i]; 
-          }
+    //       for(var i in this.totalttc) {
+    //         ttq += this.totalttc[i]; 
+    //       }
 
-          this.totalttcTTL=ttq
-      }
-      else{
-        console.log('plz fill the input')
-      }
+    //       this.totalttcTTL=ttq
+    //   }
+    //   else{
+    //     console.log('plz fill the input')
+    //   }
 
-    },
-    reduction(value){
+    // },
+    reduction(){
+    let TT;
+    let HT;
+    let HRHT;
+    let quantité=parseInt(this.Articles[0].quantité)
+    let prixht=parseInt(this.Articles[0].prixht)
+    HRHT=quantité*prixht
+    let reduction=(parseInt(this.Articles[0].Reduction)*HRHT)/100
+    HT=HRHT-reduction
+    this.Articles[0].totalht=HT;
+    this.totalhtTTL=HT;
+    let tva=(this.Articles[0].tva*HT)/100;
+    TT=tva+HT
+    this.tvaTTL=tva
+    this.Articles[0].totalttc=TT;
+    this.finalttl=TT
+
+    
+    console.log(HT,this.Articles[0])
+    console.log("tva",tva);
+    console.log("total",TT)
+
+
+
+    // this.Article.prixht
+    // this.Article.tva
+    // this.Article.Reduction
   
-    this.vq=this.Articles[value].Reduction
-    let ttl=0;
-    ttl=parseInt(this.vq);
-      if (ttl>=0){
+    // this.vq=this.Articles[value].Reduction
+    // let ttl=0;
+    // ttl=parseInt(this.vq);
+    //   if (ttl>=0){
 
-        console.log("hadi reduction 9abla",this.redic)
-        this.redic[value]=ttl;
-        console.log("hadi redcution ba3da",this.redic)
-          let ttq=0;
+    //     console.log("hadi reduction 9abla",this.redic)
+    //     this.redic[value]=ttl;
+    //     console.log("hadi redcution ba3da",this.redic)
+    //       let ttq=0;
       
-          for(var i in this.redic) {
-            ttq += this.redic[i]; 
-          }
+    //       for(var i in this.redic) {
+    //         ttq += this.redic[i]; 
+    //       }
 
-          this.redicTTL=ttq
-      }
-      else{
-        console.log('plz fill the input')
-      }
+    //       this.redicTTL=ttq
+    //   }
+    //   else{
+    //     console.log('plz fill the input')
+    //   }
 
     },
-    TOTALHT(value){
-    this.vq=this.Articles[value].totalht
-    let ttl=0;
-    ttl=parseInt(this.vq);
-      if (ttl>=0){
+    // TOTALHT(value){
+    //   this.vq=this.Articles[value].totalht
+    //   let ttl=0;
+    //   ttl=parseInt(this.vq);
+    //     if (ttl>=0){
 
-        console.log("hadi totalht 9abla",this.totalht)
-        this.totalht[value]=ttl;
-        console.log("hadi totalht ba3da",this.totalht)
-          let ttq=0;
+    //       console.log("hadi totalht 9abla",this.totalht)
+    //       this.totalht[value]=ttl;
+    //       console.log("hadi totalht ba3da",this.totalht)
+    //         let ttq=0;
+        
+    //         for(var i in this.totalht) {
+    //           ttq += this.totalht[i]; 
+    //         }
+
+    //         this.totalhtTTL=ttq
+    //     }
+    //     else{
+    //       console.log('plz fill the input')
+    //     }
+    // },
+    // quan(value){
+
+    // this.vq=this.Articles[value].quantité
+    // let ttl=0;
+    // ttl=parseInt(this.vq);
+    //   if (ttl>=0){
+
+    //     console.log("hadi quantité 9abla",this.Quantité)
+    //     this.Quantité[value]=ttl;
+    //     console.log("hadi quantité ba3da",this.Quantité)
+    //       let ttq=0;
       
-          for(var i in this.totalht) {
-            ttq += this.totalht[i]; 
-          }
+    //       for(var i in this.Quantité) {
+    //         ttq += this.Quantité[i]; 
+    //       }
 
-          this.totalhtTTL=ttq
-      }
-      else{
-        console.log('plz fill the input')
-      }
-
-    },
-    quan(value){
-
-    this.vq=this.Articles[value].quantité
-    let ttl=0;
-    ttl=parseInt(this.vq);
-      if (ttl>=0){
-
-        console.log("hadi quantité 9abla",this.Quantité)
-        this.Quantité[value]=ttl;
-        console.log("hadi quantité ba3da",this.Quantité)
-          let ttq=0;
-      
-          for(var i in this.Quantité) {
-            ttq += this.Quantité[i]; 
-          }
-
-          this.QuantitéTTL=ttq
-      }
-      else{
-        console.log('plz fill the input')
-      }
+    //       this.QuantitéTTL=ttq
+    //   }
+    //   else{
+    //     console.log('plz fill the input')
+    //   }
   
 
 
-    },
+    // },
 
-    TVA(value){
+    // TVA(value){
 
-    this.vq=this.Articles[value].tva
-    let ttl=0;
-    ttl=parseInt(this.vq);
-      if (ttl>=0){
+    // this.vq=this.Articles[value].tva
+    // let ttl=0;
+    // ttl=parseInt(this.vq);
+    //   if (ttl>=0){
 
-        console.log("hadi tva 9abla",this.tva)
-        this.tva[value]=ttl;
-        console.log("hadi tva ba3da",this.tva)
-          let ttq=0;
+    //     // console.log("hadi tva 9abla",this.tva)
+    //     this.tva[value]=ttl;
+    //     // console.log("hadi tva ba3da",t his.tva)
+    //       let ttq=0;
       
-          for(var i in this.tva) {
-            ttq += this.tva[i]; 
-          }
+    //       for(var i in this.tva) {
+    //         ttq += this.tva[i]; 
+    //       }
 
-          this.tvaTTL=ttq
-      }
-      else{
-        console.log('plz fill the input')
-      }
+    //       this.tvaTTL=ttq
+    //   }
+    //   else{
+    //     console.log('plz fill the input')
+    //   }
   
-    },
-
+    // },
     ph(value){
        
     this.vq=this.Articles[value].prixht
@@ -490,14 +567,13 @@ export default {
       }
      }
 
-
   },
 
   computed:{
 
 
   },
-    watch:{
+  watch:{
 
 
     QuantitéTTL:function(){
@@ -541,19 +617,25 @@ export default {
 
       this.finalttl=this.tvaTTL+this.totalhtTTL
       console.log(this.finalttl)
-
-
-
     }
     
-    },
-
+  },
+  created:function(){
+    this.getDestinatair();
+    this.getArticlesTypes();
+    this.getReglements();
+  }
 }
 
 </script>
 
 <style scoped lang="scss">
 @import "../../scss/main.scss" ;   
+
+input:focus,{
+    outline: none !important;
+}
+
 body {
   margin: 0;
 }
@@ -578,7 +660,7 @@ button{
     margin-left: 77px;
     margin-top: 56px;
     // height: 1800px;
-      height: 1666px;
+      height: 1703px;
     background: white;
     box-shadow: 0px 4px 18px rgba(71, 71, 71, 0.3)
 }
@@ -675,10 +757,11 @@ hr{
     font-size: 14px;
     font-family: $gm;
     border: none;
-    width: 10em;
+    width: 14em;
     border-bottom: 0.6px solid #616467;
     padding-bottom: 4px;
-    margin-left: 70px;
+    margin-left: 50px;
+    margin-top: 23px;
   }
 }
 
@@ -1289,7 +1372,7 @@ width: 65%;
         justify-self: center;
       }
  .whitePaper{
-    height: 2049px;
+    height: 2134px;
   }
 }
 
@@ -1456,6 +1539,7 @@ width: 65%;
   .inp2{
     display: block;
     margin:0 auto;
+    margin-left: 20%;
     label{
       margin-left: 0px;
       display: block;

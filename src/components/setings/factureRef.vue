@@ -6,25 +6,21 @@
       <Title mainTitle="Préférences Pour Les Factures:" subTitle="ici, vous pouvez modifier les préférences des factures" />
     
     <div class="row forms px-xl-4 px-lg-4 px-md-4 px-sm-3 mt-3">
+        <div class="forms-sides col-xl-12 col-lg-12 col-md-12 col-sm-12">
+          <div class="forms-sides--group">
+              <p class="forms-sides--group_label" >Afficher mon nom dans les PDF</p>
+              <b-form-checkbox class="forms-sides--group_checkbox-2" v-model="facture.is_name_shown" name="check-button" switch></b-form-checkbox>
+          </div>
+        </div>
       <div class="forms-sides col-xl-6 col-lg-6 col-md-12 col-sm-12">
         
-        
-        <div class="forms-sides--group">
-          <p class="forms-sides--group_label" >Afficher mon nom dans les PDF</p>
-          <b-form-checkbox class="forms-sides--group_checkbox-2" v-model="facture.is_name_shown" name="check-button" switch></b-form-checkbox>
-        </div>
-  
         <div class="forms-sides--group">
           <label class="forms-sides--group_label">Texte D’introduction Par Défaut</label>
           <b-form-textarea rows="3" class="forms-sides--group_textarea" size="lg" v-model="facture.Introduction" ></b-form-textarea>
         </div>
 
           
-        <div class="forms-sides--group">
-          <label class="forms-sides--group_label">Texte conclution Par Défaut</label>
-          <b-form-textarea rows="3" class="forms-sides--group_textarea" size="lg" v-model="facture.Conclution" ></b-form-textarea>
-        </div>
-
+        
           
         <div class="forms-sides--group">
           <label class="forms-sides--group_label">Pied de page Par Défaut</label>
@@ -34,32 +30,13 @@
         
       </div>
     
-    <div class="forms-sides col-xl-6 col-lg-6 col-md-12 col-sm-12">
+      <div class="forms-sides col-xl-6 col-lg-6 col-md-12 col-sm-12">
         
-        
-        <div class="forms-sides--group">
-          <p class="forms-sides--group_label" >Afficher mon nom dans les PDF</p>
-          <b-form-checkbox class="forms-sides--group_checkbox-2" v-model="facture.is_name_shown" name="check-button" switch></b-form-checkbox>
-        </div>
-  
-        <div class="forms-sides--group">
-          <label class="forms-sides--group_label">Texte D’introduction Par Défaut</label>
-          <b-form-textarea rows="3" class="forms-sides--group_textarea" size="lg" v-model="facture.Introduction" ></b-form-textarea>
-        </div>
-
-          
         <div class="forms-sides--group">
           <label class="forms-sides--group_label">Texte conclution Par Défaut</label>
           <b-form-textarea rows="3" class="forms-sides--group_textarea" size="lg" v-model="facture.Conclution" ></b-form-textarea>
         </div>
 
-          
-        <div class="forms-sides--group">
-          <label class="forms-sides--group_label">Pied de page Par Défaut</label>
-          <b-form-textarea rows="3" class="forms-sides--group_textarea" size="lg" v-model="facture.footer" ></b-form-textarea>
-        </div>
-
-        
       </div>
     </div>
     

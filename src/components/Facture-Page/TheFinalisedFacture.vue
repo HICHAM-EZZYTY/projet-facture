@@ -20,11 +20,11 @@
                 <img id="draw2" src="../../assets/img/path (1).svg" alt="DrawingOfapath">
       </div>
 
-      <p id="cardP">Voulez-vous vraiment marquer ce devis comme étant refusé ?</p>
+      <p id="cardP">Voulez-vous vraiment marquer ce facture comme étant finalisé ?</p>
 
       <div class="containBtn">
 
-        <button class="btn1" @click="decline">Oui</button>
+        <button class="btn1" @click="paid">Oui</button>
         <button class="btn2">
           <img id="btnImage" src="../../assets/img/Emoji.svg" alt="AttentionEmoji">
           <p id="btnP" @click="cancel">Non s'il vous plaît !</p>
@@ -60,17 +60,17 @@ export default {
       }
     },
       methods: {
-          decline: function(){
-          this.$http.get(`/devis/${this.Id}/refuse`)
+        paid: function(){
+           this.$http.get(`/factures/${this.Id}/finalise`)
                     .then( (rep) => {
                       console.log(rep);
-                      this.$router.push('/devis');
+                      this.$router.push('/Facture');
                     })
                     .catch();
-        },  
+        }, 
         cancel:function(){
           console.log("clicked")
-                  this.$router.push('/devis');
+                  this.$router.push('/Facture');
         }
       },
 

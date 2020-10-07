@@ -12,7 +12,6 @@
 
       <hr class="solid">
       <div  ref="whitePaper" class="whitePaper">
-      <div class="heading">Marjane</div>
       <div class="informations">
         <h1>Informations :</h1>
         <div class="contain1">
@@ -21,16 +20,11 @@
               <br>
               <input type="text" value="# D2000001">
           </div>
-           <div class="inp2">
-              <label>Durée de validité</label>
+            <div class="inp2 inp1">
+              <input type="text" v-model="devis.duree_validite" placeholder="Durée de validité">
               <select class="select-css">
                   <option value="">Jours</option>
-                  <option value="dog">Dog</option>
-                  <option value="cat">Cat</option>
-                  <option value="hamster">Hamster</option>
-                  <option value="parrot">Parrot</option>
-                  <option value="spider">Spider</option>
-                  <option value="goldfish">Goldfish</option>
+                  <option value="">Hours</option>
              </select>
           </div>
         </div>
@@ -38,29 +32,9 @@
           <div class="inp3">
               <label>Destinataire</label>
               <br>
-              <select class="select-css">
-                  <option value="">Marjane</option>
-                  <option value="dog">Dog</option>
-                  <option value="cat">Cat</option>
-                  <option value="hamster">Hamster</option>
-                  <option value="parrot">Parrot</option>
-                  <option value="spider">Spider</option>
-                  <option value="goldfish">Goldfish</option>
-             </select>
+              <b-form-select v-model="selectedReciever" :options="reciverOprions" class="select-css"></b-form-select>
           </div>
-           <div class="inp4">
-              <label>Devise</label>
-              <br>
-              <select class="select-css">
-                  <option value="">Dirham  (MAD)</option>
-                  <option value="dog">Dog</option>
-                  <option value="cat">Cat</option>
-                  <option value="hamster">Hamster</option>
-                  <option value="parrot">Parrot</option>
-                  <option value="spider">Spider</option>
-                  <option value="goldfish">Goldfish</option>
-             </select>
-          </div>
+         
         </div>
 
 
@@ -84,15 +58,8 @@
           <div class="inp6">
               <label>Type</label>
               <br>
-              <select class="select-css" @change="typeSelect">
-                  <option value="">{{Article.service}}</option>
-                  <option value="dog">Dog</option>
-                  <option value="cat">Cat</option>
-                  <option value="hamster">Hamster</option>
-                  <option value="parrot">Parrot</option>
-                  <option value="spider">Spider</option>
-                  <option value="goldfish">Goldfish</option>
-             </select>
+              
+              <b-select :options="articlesOptions" v-model="selectedArticle" class="select-css"></b-select>
           </div>
 
           <div class="icns">
@@ -167,11 +134,6 @@
           <div class="rg">Total HT : <span>{{totalhtTTL}}</span></div>
           <div class="tva">TVA :   <span>{{tvaTTL}}</span></div>
           <div class="ttl">Total :   <span>{{finalttl}}</span></div>
-    
-
-
-
-
         </div>
 
       </div>
@@ -182,67 +144,42 @@
           <div class="inp3">
               <label>Conditions de règlement</label>
               <br>
-              <select id="inp1" class="select-css">
-                  <option value="1">45 jours fin de mois</option>
-                  <option value="dog">Dog</option>
-                  <option value="cat">Cat</option>
-                  <option value="hamster">Hamster</option>
-                  <option value="parrot">Parrot</option>
-                  <option value="spider">Spider</option>
-                  <option value="goldfish">Goldfish</option>
-             </select>
+              <b-select id="inp2" class="select-css" v-model="devis.reglement.condition_id" :options="conditions"></b-select>
           </div>
            <div class="inp4">
               <label>Mode de règlement</label>
               <br>
-              <select id="inp2" class="select-css">
-                  <option value="">Virement bancaire</option>
-                  <option value="dog">Dog</option>
-                  <option value="cat">Cat</option>
-                  <option value="hamster">Hamster</option>
-                  <option value="parrot">Parrot</option>
-                  <option value="spider">Spider</option>
-                  <option value="goldfish">Goldfish</option>
-             </select>
+              <b-select id="inp2" class="select-css" v-model="devis.reglement.mode_id" :options="modes"></b-select>
           </div>
           <div style="margin-top:15px" class="inp3">
               <label>Intérêt de retard</label>
               <br>
-              <select id="inp1" class="select-css">
-                  <option value="">Pas d'intérêts </option>
-                  <option value="dog">Dog</option>
-                  <option value="cat">Cat</option>
-                  <option value="hamster">Hamster</option>
-                  <option value="parrot">Parrot</option>
-                  <option value="spider">Spider</option>
-                  <option value="goldfish">Goldfish</option>
-             </select>
+              <b-select id="inp2" class="select-css" v-model="devis.reglement.interet_id" :options="interests"></b-select>
           </div>
-   
         </div>
       </div>
      <div class="textDoc">
-                <h1>Textes affichés sur le document:</h1>
-      <div class="textWrapping">
-                  <textarea id="ttl">texte d'introduction (visible sur le devis)</textarea>
-                  <textarea id="ttl1">Texte de conclusion (visible sur le devis)</textarea>
-                  <textarea id="ttl2">Pied de page (visible sur le devis)</textarea>
-                  <textarea id="ttl3">Conditions générales de vente (visible sur le devis)</textarea>
-      </div>
-             <div  id="diffInp1" class="inp33">
-              <label>Mots clés :</label>
-              <br>
-              <select id="inp3" class="select-css">
-                  <option value="">Ajouter/Sélectionner des mots clés</option>
-                  <option value="dog">Dog</option>
-                  <option value="cat">Cat</option>
-                  <option value="hamster">Hamster</option>
-                  <option value="parrot">Parrot</option>
-                  <option value="spider">Spider</option>
-                  <option value="goldfish">Goldfish</option>
-             </select>
-              </div>
-
+        <h1>Textes affichés sur le document:</h1>
+        <div class="textWrapping">
+          
+            <textarea id="ttl" placeholder="texte d'introduction (visible sur le devis)" v-model="devis.textDocument.introduction"></textarea>
+            <textarea id="ttl1" placeholder="Texte de conclusion (visible sur le devis)" v-model="devis.textDocument.conclusion"></textarea>
+            <textarea id="ttl2" placeholder="Pied de page (visible sur le devis)" v-model="devis.textDocument.pied_page"></textarea>
+            <textarea id="ttl3" placeholder="Conditions générales de vente (visible sur le devis)" v-model="devis.textDocument.condition"></textarea>
+        </div>
+        <div  id="diffInp1" class="inp33">
+          <label>Mots clés :</label>
+          <br>
+          <select id="inp3" class="select-css">
+            <option value="">Ajouter/Sélectionner des mots clés</option>
+            <option value="dog">Dog</option>
+            <option value="cat">Cat</option>
+            <option value="hamster">Hamster</option>
+            <option value="parrot">Parrot</option>
+            <option value="spider">Spider</option>
+            <option value="goldfish">Goldfish</option>
+          </select>
+        </div>
      </div>
 
 
@@ -253,9 +190,7 @@
       </div>
       <div class="btnss">
         <button class="buttn" id="bbtn1" type="button">Previous</button>    
-        <button class=buttn  id="bbtn2" type="submit">enregistrer & envoyer </button>
-
-
+        <button class=buttn  id="bbtn2" @click="send" type="submit">enregistrer & envoyer </button>
       </div>
 
 
@@ -312,9 +247,146 @@ export default {
         totalttc:null,
         Decrp:"Description de l'article",
       }],
+
+      devis: {
+          client_id : null , 
+          societe_id : null,
+          duree_validite : null,
+          reglement : {
+              condition_id : null, 
+              mode_id : null, 
+              interet_id : null, 
+              compte_bancaire : null
+          }, 
+          articles: [], 
+          textDocument : {
+              introduction : null, 
+              conclusion : null, 
+              pied_page : null, 
+              condition : null
+          }, 
+          motCles : [] 
+      },
+
+      reciverOprions:[],
+      articlesOptions:[],
+      selectedArticle:null,
+      selectedReciever: null,
+      modes:[], 
+      conditions: [], 
+      interests: [],
     };
   },
   methods: {
+    getDestinatair: function() {
+      this.$http.get("/clients")
+        .then( (resp) => {
+          this.reciverOprions.push({ value: "", text: "---- Clients ----", disabled:true })
+          resp.data.data.forEach((d) => {
+            let ok = { value: { client_id: d.id, societe_id: null }, text: d.Client_Nom, }
+            this.reciverOprions.push(ok)
+          });
+        } )
+        .catch();
+        
+      this.$http.get("/societes")
+        .then( (resp) => {
+          this.reciverOprions.push({ value: "", text: "---- Societes ----", disabled:true })
+          resp.data.data.forEach((d) => {
+            let ok = { value: { client_id:null, societe_id: d.id }, text: d.Societe_Nom,  }
+            this.reciverOprions.push(ok)
+            
+          });
+          
+        //  console.log(this.reciverOprions);
+        } )
+        .catch();
+
+    },
+    getArticlesTypes: function() {
+      this.$http
+        .get("/type_articles")
+        .then( (resp) => {
+          console.log(resp.data);
+          resp.data.forEach( (d) => {
+            let ok  = {
+              value: d.id, text: d.article_type_value
+            }
+            this.articlesOptions.push(ok);
+          })
+        
+        })
+        .catch();
+    },
+    getReglements: function() {
+      // get conditions Condition_value
+      this.$http.get("/condition_reglement").then(
+        (resp) => {
+          resp.data.forEach((d) => {
+            let ok = {
+              value: d.id, text: d.Condition_value
+            }; 
+            this.conditions.push(ok);
+            
+          } )
+          console.log(this.modes);
+        }
+      ).catch();
+      // get modes
+      this.$http.get("/mode_reglement").then(
+        (resp) => {
+          resp.data.forEach((d) => {
+            let ok = {
+              value: d.id, text: d.mode_value
+            }; 
+            this.modes.push(ok);
+            
+          } )
+          console.log(this.modes);
+        }
+      ).catch();
+      // get interests
+      this.$http.get('/interet_retard').then(
+        (resp) => {
+          resp.data.forEach((d) => {
+            let ok = {
+              value: d.id, text: d.inter_value
+            }; 
+            this.interests.push(ok);
+          } 
+        )
+        }
+      ).catch();
+    },
+    send: function(){
+      this.Articles.forEach( (a) => {
+        let art = {
+          "type_id" : this.selectedArticle, 
+          "quantité" : a.quantité ,
+          "prix_ht" : a.prixht , 
+          "tva" :  (a.tva === null ) ? 0 : a.tva, 
+          "reduction"  : (a.Reduction === null ) ? 0 : a.Reduction, 
+          "total_ht"  :  a.quantité *  a.prixht , 
+          "total_ttc" :(a.tva === null ) ? (a.quantité *  a.prixht) :(a.quantité *  a.prixht) + ((a.quantité *  a.prixht) * a.tva / 100) , 
+          "description": a.Decrp
+        }
+        
+        this.devis.articles.push(art);
+      } );
+      this.devis.client_id = this.selectedReciever.client_id;
+      this.devis.societe_id = this.selectedReciever.societe_id;
+      console.log(this.devis)
+      this.$http
+        .post("/devis", this.devis)
+        .then(
+          () =>  {
+            
+            this.$router.push('/devis')
+          }
+        )
+        .catch();
+    },
+ 
     typeSelect(event){
       console.log(event.target.value);
     },
@@ -339,7 +411,7 @@ export default {
 
 
     },
-      deleteInput(i) {
+    deleteInput(i) {
         if (i>0){
         this.Articles.splice(i, 1);
         this.counter-=1
@@ -445,7 +517,6 @@ export default {
 
 
     },
-
     TVA(value){
 
     this.vq=this.Articles[value].tva
@@ -469,7 +540,6 @@ export default {
       }
   
     },
-
     ph(value){
        
     this.vq=this.Articles[value].prixht
@@ -492,8 +562,6 @@ export default {
         console.log('plz fill the input')
       }
      }
-
-
   },
 
   computed:{
@@ -511,10 +579,9 @@ export default {
       let b=[];
 
       for(var i in this.Quantité) {
-
-        b[i]=this.Quantité[i]*this.Prixht[i]
-     
+        b[i]=this.Quantité[i]*this.Prixht[i];
       }
+
       console.log(b)
       this.totalht=b;
       const reducer = (accumulator, currentValue) => accumulator + currentValue;
@@ -522,35 +589,26 @@ export default {
 
     },
     tvaTTL:function(){
-
-      console.log("asi rah tva tbadlaat")
-
-
       let s=[];
-
-
-       for(var i in this.totalht) {
+      for(var i in this.totalht) {
         let k=0;
         k=(this.totalht[i]*this.tva[i])/100
         s[i]=k
      
       }
-      console.log("tva table",s)
-
       const reducer = (accumulator, currentValue) => accumulator + currentValue;
       this.tvaTTL=s.reduce(reducer);
-      console.log(" tva total",this.tvaTTL)
-
-
       this.finalttl=this.tvaTTL+this.totalhtTTL
-      console.log(this.finalttl)
-
-
-
+      // console.log(this.finalttl)
     }
     
     },
-
+  created: function(){
+    
+    this.getDestinatair();
+    this.getArticlesTypes();
+    this.getReglements();
+  }
 }
 
 </script>

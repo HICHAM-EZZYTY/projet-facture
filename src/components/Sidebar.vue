@@ -137,7 +137,7 @@ img {
   overflow: hidden;
   transition: all 0.3s ease-in;
   width: 14em;
-  height: 84%;
+  height: 84.7%;
   background: #2262c6;
   color: rgb(255, 255, 255);
 }

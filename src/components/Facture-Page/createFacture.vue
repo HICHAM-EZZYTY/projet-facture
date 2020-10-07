@@ -17,9 +17,9 @@
         <h1>Informations :</h1>
         <div class="contain1">
           <div class="inp1">
-              <label>Nom de devis</label>
+              <label>Nom de facture</label>
               <br>
-              <input type="text" value="# D2000001">
+              <input type="text" value="#F2000000001">
           </div>
            <div class="inp2 inp1">
               <input type="text" placeholder="Durée de validité">
@@ -76,12 +76,12 @@
         <div class="ss2">
           <div class="inp7">
 
-                  <input @blur="quan(index)" id="in1" type="text" placeholder="quantité" v-model="Article.quantité">
-                  <input  @blur="ph(index)"  id="in2" type="text"  placeholder="prix ht" v-model="Article.prixht">
+                  <input  id="in1" type="text" placeholder="quantité" v-model="Article.quantité">
+                  <input   id="in2" type="text"  placeholder="prix ht" v-model="Article.prixht">
                 <div class="tva">
                       <label id="in5">Tva</label>
                       <div class="on_off">
-                          <input @blur="TVA(index)" id="in3"  placeholder="tva" type="text"  v-model="Article.tva">
+                          <input  id="in3"  placeholder="tva" type="text"  v-model="Article.tva">
                           <input  id="in4" type="checkbox" class="toggle" checked>
                       </div>
                 </div>
@@ -93,16 +93,16 @@
                 </div>
 
                 <div class="reduction">
-                      <input @blur="reduction(index)" id="in6" type="text" v-model="Article.Reduction">
+                      <input @keyup.enter="reduction(index)" id="in6" type="text" placeholder="reduction" v-model="Article.Reduction">
                 </div>
 
                 <div class="totalHt">
                       <label   id="in7">Total HT</label>
-                      <input  @blur="TOTALHT(index)" id="in8" type="text" v-model="Article.totalht">
+                      <input disabled @blur="TOTALHT(index)" id="in8" type="text" v-model="Article.totalht">
                 </div>
                 <div class="totalttc">
                       <label id="in9">Total TTC</label>
-                      <input id="in10" @blur="TOTALTTC(index)"  type="text" v-model="Article.totalttc">
+                      <input disabled id="in10" @blur="TOTALTTC(index)"  type="text" v-model="Article.totalttc">
                 </div>
 
           </div>
@@ -110,8 +110,7 @@
         </div>
 
       </div>
-
-
+ 
       <div class="results">
         <button  @click="getdata()" type="text">Ajouter Une Ligne</button>
         <div class="wrapResult">
@@ -168,8 +167,8 @@
 
       <div class="footer">
         <div class="icons">
-          <img id="fir"  src="../../assets/img/eye.svg" alt="eyes icon">
-          <img  id="fil" src="../../assets/img/print.svg" alt="print icon">
+          <!-- <img id="fir"  src="../../assets/img/eye.svg" alt="eyes icon"> -->
+          <!-- <img  id="fil" src="../../assets/img/print.svg" alt="print icon"> -->
         </div>
         <div class="btnss">
           <button class="buttn" id="bbtn1" type="button">Previous</button>    
@@ -363,7 +362,7 @@ export default {
       this.$http
         .post("/factures", this.facture)
         .then(
-          (r) =>  console.log(r)
+          () =>  this.$router.push('/Facture')
         )
         .catch();
     },
@@ -403,122 +402,148 @@ export default {
           console.log("sorry cant delete this one")
         }
     },
-    TOTALTTC(value){
+    // TOTALTTC(value){
 
-    this.vq=this.Articles[value].totalttc
-    let ttl=0;
-    ttl=parseInt(this.vq);
-      if (ttl>=0){
+    // this.vq=this.Articles[value].totalttc
+    // let ttl=0;
+    // ttl=parseInt(this.vq);
+    //   if (ttl>=0){
 
-        console.log("hadi totalttc 9abla",this.totalttc)
-        this.totalttc[value]=ttl;
-        console.log("hadi totalttc ba3da",this.totalttc)
-          let ttq=0;
+    //     console.log("hadi totalttc 9abla",this.totalttc)
+    //     this.totalttc[value]=ttl;
+    //     console.log("hadi totalttc ba3da",this.totalttc)
+    //       let ttq=0;
       
-          for(var i in this.totalttc) {
-            ttq += this.totalttc[i]; 
-          }
+    //       for(var i in this.totalttc) {
+    //         ttq += this.totalttc[i]; 
+    //       }
 
-          this.totalttcTTL=ttq
-      }
-      else{
-        console.log('plz fill the input')
-      }
+    //       this.totalttcTTL=ttq
+    //   }
+    //   else{
+    //     console.log('plz fill the input')
+    //   }
 
-    },
-    reduction(value){
+    // },
+    reduction(){
+    let TT;
+    let HT;
+    let HRHT;
+    let quantité=parseInt(this.Articles[0].quantité)
+    let prixht=parseInt(this.Articles[0].prixht)
+    HRHT=quantité*prixht
+    let reduction=(parseInt(this.Articles[0].Reduction)*HRHT)/100
+    HT=HRHT-reduction
+    this.Articles[0].totalht=HT;
+    this.totalhtTTL=HT;
+    let tva=(this.Articles[0].tva*HT)/100;
+    TT=tva+HT
+    this.tvaTTL=tva
+    this.Articles[0].totalttc=TT;
+    this.finalttl=TT
+
+    
+    console.log(HT,this.Articles[0])
+    console.log("tva",tva);
+    console.log("total",TT)
+
+
+
+    // this.Article.prixht
+    // this.Article.tva
+    // this.Article.Reduction
   
-    this.vq=this.Articles[value].Reduction
-    let ttl=0;
-    ttl=parseInt(this.vq);
-      if (ttl>=0){
+    // this.vq=this.Articles[value].Reduction
+    // let ttl=0;
+    // ttl=parseInt(this.vq);
+    //   if (ttl>=0){
 
-        console.log("hadi reduction 9abla",this.redic)
-        this.redic[value]=ttl;
-        console.log("hadi redcution ba3da",this.redic)
-          let ttq=0;
+    //     console.log("hadi reduction 9abla",this.redic)
+    //     this.redic[value]=ttl;
+    //     console.log("hadi redcution ba3da",this.redic)
+    //       let ttq=0;
       
-          for(var i in this.redic) {
-            ttq += this.redic[i]; 
-          }
+    //       for(var i in this.redic) {
+    //         ttq += this.redic[i]; 
+    //       }
 
-          this.redicTTL=ttq
-      }
-      else{
-        console.log('plz fill the input')
-      }
+    //       this.redicTTL=ttq
+    //   }
+    //   else{
+    //     console.log('plz fill the input')
+    //   }
 
     },
-    TOTALHT(value){
-      this.vq=this.Articles[value].totalht
-      let ttl=0;
-      ttl=parseInt(this.vq);
-        if (ttl>=0){
+    // TOTALHT(value){
+    //   this.vq=this.Articles[value].totalht
+    //   let ttl=0;
+    //   ttl=parseInt(this.vq);
+    //     if (ttl>=0){
 
-          console.log("hadi totalht 9abla",this.totalht)
-          this.totalht[value]=ttl;
-          console.log("hadi totalht ba3da",this.totalht)
-            let ttq=0;
+    //       console.log("hadi totalht 9abla",this.totalht)
+    //       this.totalht[value]=ttl;
+    //       console.log("hadi totalht ba3da",this.totalht)
+    //         let ttq=0;
         
-            for(var i in this.totalht) {
-              ttq += this.totalht[i]; 
-            }
+    //         for(var i in this.totalht) {
+    //           ttq += this.totalht[i]; 
+    //         }
 
-            this.totalhtTTL=ttq
-        }
-        else{
-          console.log('plz fill the input')
-        }
-    },
-    quan(value){
+    //         this.totalhtTTL=ttq
+    //     }
+    //     else{
+    //       console.log('plz fill the input')
+    //     }
+    // },
+    // quan(value){
 
-    this.vq=this.Articles[value].quantité
-    let ttl=0;
-    ttl=parseInt(this.vq);
-      if (ttl>=0){
+    // this.vq=this.Articles[value].quantité
+    // let ttl=0;
+    // ttl=parseInt(this.vq);
+    //   if (ttl>=0){
 
-        console.log("hadi quantité 9abla",this.Quantité)
-        this.Quantité[value]=ttl;
-        console.log("hadi quantité ba3da",this.Quantité)
-          let ttq=0;
+    //     console.log("hadi quantité 9abla",this.Quantité)
+    //     this.Quantité[value]=ttl;
+    //     console.log("hadi quantité ba3da",this.Quantité)
+    //       let ttq=0;
       
-          for(var i in this.Quantité) {
-            ttq += this.Quantité[i]; 
-          }
+    //       for(var i in this.Quantité) {
+    //         ttq += this.Quantité[i]; 
+    //       }
 
-          this.QuantitéTTL=ttq
-      }
-      else{
-        console.log('plz fill the input')
-      }
+    //       this.QuantitéTTL=ttq
+    //   }
+    //   else{
+    //     console.log('plz fill the input')
+    //   }
   
 
 
-    },
+    // },
 
-    TVA(value){
+    // TVA(value){
 
-    this.vq=this.Articles[value].tva
-    let ttl=0;
-    ttl=parseInt(this.vq);
-      if (ttl>=0){
+    // this.vq=this.Articles[value].tva
+    // let ttl=0;
+    // ttl=parseInt(this.vq);
+    //   if (ttl>=0){
 
-        // console.log("hadi tva 9abla",this.tva)
-        this.tva[value]=ttl;
-        // console.log("hadi tva ba3da",t his.tva)
-          let ttq=0;
+    //     // console.log("hadi tva 9abla",this.tva)
+    //     this.tva[value]=ttl;
+    //     // console.log("hadi tva ba3da",t his.tva)
+    //       let ttq=0;
       
-          for(var i in this.tva) {
-            ttq += this.tva[i]; 
-          }
+    //       for(var i in this.tva) {
+    //         ttq += this.tva[i]; 
+    //       }
 
-          this.tvaTTL=ttq
-      }
-      else{
-        console.log('plz fill the input')
-      }
+    //       this.tvaTTL=ttq
+    //   }
+    //   else{
+    //     console.log('plz fill the input')
+    //   }
   
-    },
+    // },
     ph(value){
        
     this.vq=this.Articles[value].prixht
@@ -606,6 +631,11 @@ export default {
 
 <style scoped lang="scss">
 @import "../../scss/main.scss" ;   
+
+input:focus,{
+    outline: none !important;
+}
+
 body {
   margin: 0;
 }
@@ -630,7 +660,7 @@ button{
     margin-left: 77px;
     margin-top: 56px;
     // height: 1800px;
-      height: 1666px;
+      height: 1703px;
     background: white;
     box-shadow: 0px 4px 18px rgba(71, 71, 71, 0.3)
 }
@@ -727,10 +757,11 @@ hr{
     font-size: 14px;
     font-family: $gm;
     border: none;
-    width: 10em;
+    width: 14em;
     border-bottom: 0.6px solid #616467;
     padding-bottom: 4px;
-    margin-left: 70px;
+    margin-left: 50px;
+    margin-top: 23px;
   }
 }
 
@@ -1341,7 +1372,7 @@ width: 65%;
         justify-self: center;
       }
  .whitePaper{
-    height: 2049px;
+    height: 2134px;
   }
 }
 
@@ -1508,6 +1539,7 @@ width: 65%;
   .inp2{
     display: block;
     margin:0 auto;
+    margin-left: 20%;
     label{
       margin-left: 0px;
       display: block;

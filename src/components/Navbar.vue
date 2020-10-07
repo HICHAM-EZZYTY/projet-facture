@@ -9,7 +9,7 @@
             <b-form-input
             class="search mr-2"
             id="iconified"
-            placeholder="Rechercher des Devis ... "
+            placeholder="Rechercher... "
             type="text"
           ></b-form-input>
           <!-- <b-icon class="icon" icon="search" aria-hidden="true"></b-icon> -->
@@ -19,7 +19,7 @@
 
         </form>
         <div id="navbar" class="navbar-collapse collapse">
-           <p class="bienvenue"><span>Bienvenue,</span> Hello, {{ this.$store.getters.userName}}</p>
+           <p class="bienvenue"><span>Bienvenue, </span> {{ this.$store.getters.userName}}</p>
           <b-avatar
             variant="primary"
             class="avatar"
